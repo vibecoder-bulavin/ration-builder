@@ -32,4 +32,4 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN || secrets.VERCELL_TOKEN }}
           VERCEL_SCOPE: ${{ vars.VERCEL_SCOPE || 'frances-avec-vlada' }}
-        run: npx --yes vercel@39 deploy --prod --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE"
+        run: npx --yes vercel@65.14.0 deploy --prod --yes --token "$VERCEL_TOKEN" --scope "$VERCEL_SCOPE"
