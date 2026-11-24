@@ -29,7 +29,10 @@ const data = {
   }),
   names: Object.fromEntries(recipes.map((r) => [r.id, r.name_ua])),
 };
-const html = fs.readFileSync(path.join(ROOT, 'site', 'template.html'), 'utf8').replace('__DATA__', JSON.stringify(data));
+let analytics = {};
+try { analytics = JSON.parse(fs.readFileSync(path.join(ROOT, 'site', 'analytics.json'), 'utf8')); } catch {}
+if (process.env.POSTHOG_KEY) analytics.posthogKey = process.env.POSTHOG_KEY;
+const html = fs.readFileSync(path.join(ROOT, 'site', 'template.html'), 'utf8').replace('__DATA__', () => JSON.stringify(data)).replace('__ANALYTICS__', () => JSON.stringify(analytics));
 fs.mkdirSync(path.join(ROOT, 'public'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'public', 'index.html'), html);
 console.log(`public/index.html: ${html.length} байт, ${products.length} продуктів, ${recipes.length} рецептів, ціни на ${pb.date}`);

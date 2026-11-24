@@ -189,6 +189,17 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 </div>
 
 <script>
+// Аналітика: PostHog. Без ключа в site/analytics.json події лише пишуться в консоль.
+const AN = __ANALYTICS__;
+window.track = function(ev, props){ try{ if(window.posthog && posthog.__loaded) posthog.capture(ev, props||{}); else if(AN.debug) console.debug("[track]", ev, props||{}); }catch(e){} };
+if (AN.posthogKey) {
+  const s=document.createElement("script"); s.async=true; s.crossOrigin="anonymous";
+  s.src="https://cdn.jsdelivr.net/npm/posthog-js@1.446.0/dist/array.full.js";
+  s.onload=()=>{ posthog.init(AN.posthogKey,{ api_host:AN.posthogHost, person_profiles:"identified_only", autocapture:true, capture_pageview:true, capture_pageleave:true, enable_heatmaps:true, session_recording:{ maskAllInputs:false, maskInputOptions:{password:true,email:true} } }); };
+  document.head.appendChild(s);
+}
+</script>
+<script>
 const DATA = __DATA__;
 const SN = DATA.storeNames;
 const KCAL = {men:2500, women:2000, kids:1600};
@@ -291,6 +302,7 @@ function planScore(p,meals){
   return s;
 }
 
+let buildReason="load", trackT=null;
 function build(keep){
   if(!keep){ hist={eco:[],opt:[]}; }
   const f=readForm(); save(f);
@@ -365,6 +377,16 @@ function build(keep){
   }
   plans={eco,opt};
   openAlt=null; render();
+  trackPlan();
+}
+// Форма змінюється по кліку, тож шлемо одну подію після паузи, а не на кожен «+».
+function trackPlan(){
+  const reason=buildReason; buildReason="form";
+  clearTimeout(trackT); trackT=setTimeout(()=>{ const f=ctx.f; if(!plans.eco.length) return;
+    track("plan_built",{reason, city:f.city, men:f.people.men, women:f.people.women, kids:f.people.kids, budget:f.budget, days:f.days, snack:f.snack,
+      stores:f.stores.join(","), n_stores:f.stores.length, n_excluded:EXCL.filter((_,i)=>$("#ex-"+i).checked).length,
+      excluded:EXCL.filter((_,i)=>$("#ex-"+i).checked).map(([n])=>n).join(","),
+      eco_total:Math.round(buyCost(plans.eco,f)), opt_total:Math.round(buyCost(plans.opt,f)), over_budget:buyCost(plans.eco,f)>f.budget, variant}); }, reason==="form"?1500:0);
 }
 
 
@@ -452,6 +474,7 @@ document.addEventListener("change",e=>{
   if(c.checked) checks[c.dataset.ck]=1; else delete checks[c.dataset.ck];
   saveChecks(); c.closest("li").classList.toggle("done",c.checked);
   const all=document.querySelectorAll("#shop .chk"), n=[...all].filter(x=>x.checked).length;
+  track("shopping_item_checked",{checked:c.checked,item:c.dataset.ck.split("|")[1],store:c.dataset.ck.split("|")[0],done:n,total:all.length});
   const cc=$("#ckcount"); if(cc) cc.textContent=`Куплено ${n} з ${all.length}`;
   if(n && !$("#ckreset")) cc.insertAdjacentHTML("afterend",`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`);
 });
@@ -500,18 +523,18 @@ function render(){
 }
 
 document.addEventListener("click",e=>{
-  const a=e.target.closest("[data-alt]"); if(a){ openAlt = openAlt===a.dataset.alt?null:a.dataset.alt; render(); return; }
-  const p=e.target.closest("[data-pick]"); if(p){ const [di,m,id]=p.dataset.pick.split("|"); plans[variant][+di][m]=ctx.cand[m].find(c=>c.r.id===id); openAlt=null; render(); return; }
-  if(e.target.closest("#shopbtn")){ shopOpen=!shopOpen; render(); if(shopOpen) $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); return; }
-  const sm=e.target.closest("[data-shopmode]"); if(sm){ shopMode=sm.dataset.shopmode; renderShop(); return; }
-  if(e.target.closest("#ckreset")){ document.querySelectorAll("#shop .chk").forEach(c=>delete checks[c.dataset.ck]); saveChecks(); renderShop(); return; }
-  if(e.target.closest("#copyshop")){ const t=shopText(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$("#copied").textContent="Скопійовано";},()=>{$("#copied").textContent="Не вдалося скопіювати";}); return; }
-  const v=e.target.closest("[data-variant]"); if(v){ variant=v.dataset.variant; openAlt=null; render(); }
+  const a=e.target.closest("[data-alt]"); if(a){ const opening=openAlt!==a.dataset.alt; openAlt = opening?a.dataset.alt:null; if(opening){ const [di,m]=a.dataset.alt.split("|"); track("dish_alternatives_opened",{variant,day:+di,meal:m,dish:plans[variant][+di][m].r.id}); } render(); return; }
+  const p=e.target.closest("[data-pick]"); if(p){ const [di,m,id]=p.dataset.pick.split("|"); const old=plans[variant][+di][m], nw=ctx.cand[m].find(c=>c.r.id===id); plans[variant][+di][m]=nw; openAlt=null; track("dish_replaced",{variant,day:+di,meal:m,from:old.r.id,to:id,from_name:DATA.names[old.r.id],to_name:DATA.names[id],delta_uah:Math.round(nw.cost-old.cost)}); render(); return; }
+  if(e.target.closest("#shopbtn")){ shopOpen=!shopOpen; track(shopOpen?"shopping_list_opened":"shopping_list_closed",{variant,mode:shopMode}); render(); if(shopOpen) $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  const sm=e.target.closest("[data-shopmode]"); if(sm){ shopMode=sm.dataset.shopmode; track("shopping_mode_changed",{mode:shopMode,variant}); renderShop(); return; }
+  if(e.target.closest("#ckreset")){ document.querySelectorAll("#shop .chk").forEach(c=>delete checks[c.dataset.ck]); saveChecks(); track("shopping_checks_reset"); renderShop(); return; }
+  if(e.target.closest("#copyshop")){ track("shopping_list_copied",{variant,mode:shopMode}); const t=shopText(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$("#copied").textContent="Скопійовано";},()=>{$("#copied").textContent="Не вдалося скопіювати";}); return; }
+  const v=e.target.closest("[data-variant]"); if(v){ variant=v.dataset.variant; openAlt=null; track("variant_selected",{variant}); render(); }
 });
 $("#form").addEventListener("submit",e=>{e.preventDefault(); build();});
 $("#form").addEventListener("change",()=>build());
 $("#reroll").addEventListener("click",()=>{
   if(plans.eco.length){ hist.eco.unshift(snapshot(plans.eco)); hist.opt.unshift(snapshot(plans.opt)); hist.eco.length=Math.min(3,hist.eco.length); hist.opt.length=Math.min(3,hist.opt.length); }
-  seed=2+Math.floor(Math.random()*100000); build(true); });
+  seed=2+Math.floor(Math.random()*100000); buildReason="reroll"; track("other_variant_clicked",{variant,n:hist.eco.length}); build(true); });
 load(); build();
 </script>
