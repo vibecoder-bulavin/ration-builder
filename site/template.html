@@ -1,5 +1,11 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1e6b47">
+<meta name="description" content="Раціон на тиждень під ваш бюджет за реальними цінами супермаркетів.">
 <title>Раціон під бюджет</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
 <style>
@@ -32,7 +38,7 @@ form.panel{padding:20px;display:flex;flex-direction:column;gap:22px;position:sti
 @media (max-width:860px){form.panel{position:static}}
 fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
 legend{font-weight:600;font-size:14px;padding:0;margin-bottom:10px;display:flex;gap:8px;align-items:baseline}
-legend .n{font-family:var(--display);font-size:11px;color:var(--accent);letter-spacing:.04em}
+legend .n,.exd summary .n{font-family:var(--display);font-size:11px;color:var(--accent);letter-spacing:.04em}
 .hint{color:var(--muted);font-size:12.5px;margin:0}
 .people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .step{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:6px}
@@ -125,7 +131,42 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .empty{padding:28px;text-align:center;color:var(--muted)}
 .foot{color:var(--muted);font-size:12.5px;max-width:70ch}
 @media (prefers-reduced-motion:reduce){.fill{transition:none}}
+
+/* Телефон */
+.exd summary{list-style:none;cursor:pointer;font-weight:600;font-size:14px;display:flex;gap:8px;align-items:baseline;margin-bottom:10px}
+.exd summary::-webkit-details-marker{display:none}
+.exd summary::after{content:"▾";margin-left:auto;color:var(--muted);transition:transform .2s}
+.exd:not([open]) summary::after{transform:rotate(-90deg)}
+.exn{color:var(--accent);font-weight:500;font-size:13px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.mbar{display:none}
+@media (max-width:860px){
+  .mbar:not([hidden]){display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:12px;align-items:center;justify-content:space-between;
+    padding:10px max(16px,env(safe-area-inset-left,0px)) calc(10px + env(safe-area-inset-bottom,0px));background:var(--panel);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+  .mbar .mt{display:flex;flex-direction:column;min-width:0}
+  .mbar .mt b{font-family:var(--display);font-weight:500;font-size:18px;font-variant-numeric:tabular-nums}
+  .mbar .mt span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:520px){
+  body{font-size:15px;padding-top:16px}
+  form.panel{padding:16px;gap:18px}
+  .summary{grid-template-columns:1fr 1fr;padding:16px}
+  .summary .tabs,.summary .bar,.summary .note,.summary .shopbar{grid-column:1/-1}
+  .metric .v{font-size:19px}
+  .actions .btn{flex:1 1 0}
+  .shopbar .btn:not(.small){width:100%}
+  .day{scroll-margin-top:12px}
+  .people{grid-template-columns:1fr;gap:6px}
+  .step{flex-direction:row;align-items:center;justify-content:space-between;padding:6px 8px 6px 12px}
+  .step label{font-size:14px;color:var(--ink)}
+  .step .row{gap:14px}
+  .step button{width:38px;height:38px;font-size:18px}
+  .mbar .btn{white-space:nowrap;padding:11px 14px}
+}
 </style>
+</head>
+<body>
 
 <header class="top">
   <h1>Раціон під бюджет</h1>
@@ -151,13 +192,13 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
     </fieldset>
 
     <fieldset>
-      <legend><span class="n">03</span>Бюджет</legend>
+      <legend><span class="n">03</span>Бюджет, грн</legend>
       <div class="budget">
         <input type="number" id="budget" min="0" step="50" value="2500" aria-label="Бюджет, грн">
         <select id="period" aria-label="Період">
-          <option value="7" selected>грн на тиждень</option>
-          <option value="3">грн на 3 дні</option>
-          <option value="1">грн на день</option>
+          <option value="7" selected>на тиждень</option>
+          <option value="3">на 3 дні</option>
+          <option value="1">на день</option>
         </select>
       </div>
       <label class="toggle"><input type="checkbox" id="snack" checked> Додавати перекус</label>
@@ -170,15 +211,18 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
     </fieldset>
 
     <fieldset>
-      <legend><span class="n">05</span>Не хочу в раціоні</legend>
-      <div class="chips" id="excl"></div>
+      <details class="exd" id="exd" open>
+        <summary><span class="n">05</span>Не хочу в раціоні <span class="exn" id="exn"></span></summary>
+        <div class="chips" id="excl"></div>
+      </details>
     </fieldset>
 
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <div class="actions">
       <button class="btn" type="submit">Скласти раціон</button>
       <button class="btn ghost" type="button" id="reroll">Інший варіант</button>
     </div>
   </form>
+  <div class="mbar" id="mbar" hidden><div class="mt"><b id="mbt"></b><span id="mbs"></span></div><button type="button" class="btn" id="mbgo">До раціону ↓</button></div>
 
   <section class="result" aria-live="polite">
     <div class="panel summary" id="summary"></div>
@@ -377,9 +421,18 @@ function build(keep){
   }
   plans={eco,opt};
   openAlt=null; render();
-  trackPlan();
+  trackPlan(); mobileBar();
 }
 // Форма змінюється по кліку, тож шлемо одну подію після паузи, а не на кожен «+».
+function mobileBar(){
+  const bar=$("#mbar"); if(!ctx||!plans.eco.length){ bar.hidden=true; return; }
+  const f=ctx.f, t=buyCost(plans[variant],f);
+  $("#mbt").textContent=`${fmt(t)} грн`;
+  $("#mbs").textContent=`${variant==="eco"?"Економ":"Оптимальний"} · ${f.days===7?"тиждень":f.days===1?"день":f.days+" дні"}${t>f.budget?" · понад бюджет":""}`;
+  bar.hidden=sumState==="in";
+  $("#mbgo").textContent = sumState==="above" ? (shopOpen?"До списку ↑":"Список покупок") : "До раціону ↓";
+}
+let sumState="below";
 function trackPlan(){
   const reason=buildReason; buildReason="form";
   clearTimeout(trackT); trackT=setTimeout(()=>{ const f=ctx.f; if(!plans.eco.length) return;
@@ -479,7 +532,8 @@ document.addEventListener("change",e=>{
   if(n && !$("#ckreset")) cc.insertAdjacentHTML("afterend",`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`);
 });
 
-function render(){
+function render(){ renderMain(); mobileBar(); }
+function renderMain(){
   const {f,dayKcal,meals,cand}=ctx;
   const S=$("#summary"), D=$("#days"); $("#shop").hidden=true;
   if(!dayKcal){ S.innerHTML=`<div class="note warn">Додайте хоча б одну людину.</div>`; D.innerHTML=""; return; }
@@ -536,5 +590,15 @@ $("#form").addEventListener("change",()=>build());
 $("#reroll").addEventListener("click",()=>{
   if(plans.eco.length){ hist.eco.unshift(snapshot(plans.eco)); hist.opt.unshift(snapshot(plans.opt)); hist.eco.length=Math.min(3,hist.eco.length); hist.opt.length=Math.min(3,hist.opt.length); }
   seed=2+Math.floor(Math.random()*100000); buildReason="reroll"; track("other_variant_clicked",{variant,n:hist.eco.length}); build(true); });
-load(); build();
+function exCount(){ const n=EXCL.filter((_,i)=>$("#ex-"+i).checked).length; $("#exn").textContent=n?`· ${n}`:""; }
+$("#excl").addEventListener("change",exCount);
+if(matchMedia("(max-width:860px)").matches) $("#exd").open=false;
+$("#mbgo").addEventListener("click",()=>{ track("mobile_bar_clicked",{action:sumState==="above"?"shop":"results"});
+  if(sumState==="above"){ if(!shopOpen){ shopOpen=true; track("shopping_list_opened",{variant,mode:shopMode,from:"mobile_bar"}); render(); } $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); }
+  else $("#summary").scrollIntoView({behavior:"smooth",block:"start"}); });
+$("#form").addEventListener("submit",()=>{ if(matchMedia("(max-width:860px)").matches) setTimeout(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"}),50); });
+if("IntersectionObserver" in window){ new IntersectionObserver(es=>{ const e=es[es.length-1]; sumState=e.isIntersecting?"in":(e.boundingClientRect.top<0?"above":"below"); mobileBar(); },{rootMargin:"0px 0px -25% 0px"}).observe($("#summary")); }
+load(); exCount(); build();
 </script>
+</body>
+</html>
