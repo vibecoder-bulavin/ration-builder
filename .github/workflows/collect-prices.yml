@@ -1,0 +1,40 @@
+name: Збір цін
+
+on:
+  schedule:
+    - cron: '30 2 * * *'   # щодня о 02:30 UTC (04:30–05:30 за Києвом)
+  workflow_dispatch:
+    inputs:
+      args:
+        description: 'Аргументи для collect.mjs, напр. --limit=3 --dry'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-prices
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Зібрати ціни
+        run: node collector/collect.mjs ${{ github.event.inputs.args }}
+      - name: Перевірити збірку сайту
+        run: node site/build.mjs
+      - name: Закомітити нові ціни
+        run: |
+          git config user.name "price-collector"
+          git config user.email "price-collector@users.noreply.github.com"
+          git add data/prices.json data/matches.json data/history || true
+          if git diff --cached --quiet; then echo "Змін немає"; exit 0; fi
+          git commit -m "Ціни на $(date -u +%F)"
+          git push

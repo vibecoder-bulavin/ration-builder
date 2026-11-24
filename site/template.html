@@ -1,0 +1,517 @@
+<title>Раціон під бюджет</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* Layout: форма-анкета слева (липкая), справа — недельный рацион как «чек» по дням; на телефоне всё в одну колонку */
+:root{
+  --bg:#f3f5f2; --panel:#ffffff; --ink:#17211b; --muted:#5d6b62; --line:#dbe2dc;
+  --accent:#1e6b47; --accent-soft:#e2efe7; --accent-ink:#ffffff;
+  --warn:#a5560f; --warn-soft:#fbeedd; --bad:#b3261e; --bad-soft:#fbe4e2;
+  --display:"Unbounded","Onest",system-ui,sans-serif;
+  --text:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1512; --panel:#17201b; --ink:#e7eee9; --muted:#9aaba0; --line:#2a362f;
+  --accent:#5cc18f; --accent-soft:#1d3428; --accent-ink:#0b130e;
+  --warn:#e6a45c; --warn-soft:#3a2a17; --bad:#f08b82; --bad-soft:#3d1f1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1512; --panel:#17201b; --ink:#e7eee9; --muted:#9aaba0; --line:#2a362f;
+  --accent:#5cc18f; --accent-soft:#1d3428; --accent-ink:#0b130e;
+  --warn:#e6a45c; --warn-soft:#3a2a17; --bad:#f08b82; --bad-soft:#3d1f1c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}}
+header.top{max-width:1180px;margin:0 auto 20px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(22px,3vw,30px);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);font-size:13px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+form.panel{padding:20px;display:flex;flex-direction:column;gap:22px;position:sticky;top:max(16px,env(safe-area-inset-top,0px))}
+@media (max-width:860px){form.panel{position:static}}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+legend{font-weight:600;font-size:14px;padding:0;margin-bottom:10px;display:flex;gap:8px;align-items:baseline}
+legend .n{font-family:var(--display);font-size:11px;color:var(--accent);letter-spacing:.04em}
+.hint{color:var(--muted);font-size:12.5px;margin:0}
+.people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.step{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+.step label{font-size:12.5px;color:var(--muted)}
+.step .row{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.step button{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:16px;cursor:pointer}
+.step button:hover{border-color:var(--accent);color:var(--accent)}
+.step output{font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.budget{display:flex;gap:8px;flex-wrap:wrap}
+input[type=number],select{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 11px;min-width:0}
+input[type=number]{flex:1 1 140px;font-weight:600;font-variant-numeric:tabular-nums}
+select{flex:1 1 140px}
+#city{flex:none}
+input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:inline-flex;gap:6px;align-items:center;padding:6px 11px;border-radius:999px;border:1px solid var(--line);font-size:13.5px;cursor:pointer;user-select:none}
+.chip input:checked+span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip.ex input:checked+span{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.chip input:disabled+span{opacity:.45;cursor:not-allowed}
+.toggle{display:flex;gap:8px;align-items:center;font-size:14px}
+.btn{font:inherit;font-weight:600;border-radius:10px;padding:11px 16px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.small{padding:6px 10px;font-size:13px}
+.result{display:flex;flex-direction:column;gap:16px;min-width:0}
+.shopbar{grid-column:1/-1;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.shop{padding:18px 20px}
+.shop h2{font-family:var(--display);font-weight:500;font-size:20px;margin:0 0 4px}
+.shop .modes{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
+.shop .modes button{font:inherit;font-size:13px;padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.shop .modes button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.store{border-top:1px solid var(--line);padding:12px 0 6px}
+.store h3{display:flex;justify-content:space-between;margin:0 0 6px;font-size:15px}
+.store h3 small{color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:grid;grid-template-columns:1fr auto auto;gap:4px 14px;padding:6px 0;font-size:14px;border-bottom:1px dashed var(--line);font-variant-numeric:tabular-nums}
+.items li:last-child{border-bottom:0}
+.items .q{color:var(--muted);text-align:right;min-width:64px}
+.items .s{text-align:right;min-width:70px}
+.shop .tot{display:flex;justify-content:space-between;font-weight:600;padding-top:10px;border-top:1px solid var(--line);margin-top:6px}
+.dept{margin:10px 0 2px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.items li.ck{grid-template-columns:auto 1fr auto auto;align-items:center;padding:0}
+.items li.ck label{display:contents;cursor:pointer}
+.items li.ck input{width:20px;height:20px;margin:12px 4px 12px 0;accent-color:var(--accent);cursor:pointer}
+.items li.ck .nm{padding:10px 0}
+.items li.done .nm,.items li.done .q,.items li.done .s{text-decoration:line-through;color:var(--muted)}
+.progress{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 0 8px;font-size:13.5px}
+.progress .linkbtn{font:inherit;font-size:13px;border:0;background:none;color:var(--accent);cursor:pointer;padding:6px 0}
+.leftover{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--panel-2,var(--accent-soft))}
+.leftover h3{margin:0 0 6px;font-size:15px}
+.leftover ul{margin:0;padding:0;list-style:none;font-size:13.5px}
+.leftover li{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.leftover li small{color:var(--muted)}
+@media (max-width:520px){.items li.ck{grid-template-columns:auto 1fr auto}.items li.ck .q{grid-column:auto;text-align:right}.items li.ck .s{display:none}}
+.shop .cmp{font-size:13px;color:var(--muted);margin:6px 0 0}
+@media (max-width:520px){.items li{grid-template-columns:1fr auto}.items .q{grid-column:1;text-align:left}}
+.summary{padding:18px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px 20px}
+.metric .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.metric .v{font-family:var(--display);font-weight:500;font-size:22px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.metric .v small{font-family:var(--text);font-size:13px;color:var(--muted);font-weight:400}
+.bar{grid-column:1/-1;display:flex;flex-direction:column;gap:6px}
+.track{height:10px;border-radius:999px;background:var(--accent-soft);overflow:hidden}
+.fill{height:100%;background:var(--accent);border-radius:999px;transition:width .3s}
+.fill.over{background:var(--bad)}
+.note{grid-column:1/-1;padding:10px 12px;border-radius:10px;font-size:13.5px}
+.note.warn{background:var(--warn-soft);color:var(--warn)}
+.note.bad{background:var(--bad-soft);color:var(--bad)}
+.note.ok{background:var(--accent-soft);color:var(--accent)}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.day{padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.day h3{margin:0;display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
+.day h3 span{font-family:var(--display);font-weight:500}
+.day h3 small{font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px}
+.meal{border-top:1px dashed var(--line);padding-top:9px;display:flex;flex-direction:column;gap:4px}
+.meal .t{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:flex;justify-content:space-between}
+.meal .name{font-weight:600}
+.meal .meta{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.meal .swap{font:inherit;font-size:12.5px;border:0;background:none;color:var(--accent);cursor:pointer;padding:2px 0;font-weight:600}
+.alts{display:flex;flex-direction:column;gap:4px;margin-top:4px;padding:8px;border-radius:10px;background:var(--accent-soft)}
+.alts button{font:inherit;font-size:13px;text-align:left;display:flex;justify-content:space-between;gap:8px;border:0;background:var(--panel);color:var(--ink);border-radius:8px;padding:7px 9px;cursor:pointer}
+.alts button:hover{outline:1px solid var(--accent)}
+.alts .d{font-variant-numeric:tabular-nums;white-space:nowrap}
+.alts .d.up{color:var(--bad)} .alts .d.down{color:var(--accent)}
+.tabs{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tabs button{font:inherit;text-align:left;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button span{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tabs button[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.tabs button[aria-selected="true"] b{color:var(--accent)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.foot{color:var(--muted);font-size:12.5px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<header class="top">
+  <h1>Раціон під бюджет</h1>
+  <span class="sub" id="srcline">Ціни оновлюються щодня</span>
+</header>
+
+<div class="wrap">
+  <form class="panel" id="form" novalidate>
+    <fieldset>
+      <legend><span class="n">01</span>Місто</legend>
+      <select id="city" aria-label="Місто"></select>
+      <p class="hint">Ціни в мережах відрізняються між містами, тому рахуємо по магазину у вашому місті.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend><span class="n">02</span>Хто їсть</legend>
+      <div class="people">
+        <div class="step"><label for="men">Чоловіки</label><div class="row"><button type="button" data-d="-1" data-t="men" aria-label="Менше">−</button><output id="men">1</output><button type="button" data-d="1" data-t="men" aria-label="Більше">+</button></div></div>
+        <div class="step"><label for="women">Жінки</label><div class="row"><button type="button" data-d="-1" data-t="women" aria-label="Менше">−</button><output id="women">1</output><button type="button" data-d="1" data-t="women" aria-label="Більше">+</button></div></div>
+        <div class="step"><label for="kids">Діти</label><div class="row"><button type="button" data-d="-1" data-t="kids" aria-label="Менше">−</button><output id="kids">1</output><button type="button" data-d="1" data-t="kids" aria-label="Більше">+</button></div></div>
+      </div>
+      <p class="hint">Поки беремо середні норми: чоловік 2500 ккал, жінка 2000, дитина 1600 на день.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend><span class="n">03</span>Бюджет</legend>
+      <div class="budget">
+        <input type="number" id="budget" min="0" step="50" value="2500" aria-label="Бюджет, грн">
+        <select id="period" aria-label="Період">
+          <option value="7" selected>грн на тиждень</option>
+          <option value="3">грн на 3 дні</option>
+          <option value="1">грн на день</option>
+        </select>
+      </div>
+      <label class="toggle"><input type="checkbox" id="snack" checked> Додавати перекус</label>
+    </fieldset>
+
+    <fieldset>
+      <legend><span class="n">04</span>Де купуємо</legend>
+      <div class="chips" id="stores"></div>
+      <p class="hint">Кожен продукт рахуємо там, де він дешевший серед вибраних магазинів.</p>
+    </fieldset>
+
+    <fieldset>
+      <legend><span class="n">05</span>Не хочу в раціоні</legend>
+      <div class="chips" id="excl"></div>
+    </fieldset>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" type="submit">Скласти раціон</button>
+      <button class="btn ghost" type="button" id="reroll">Інший варіант</button>
+    </div>
+  </form>
+
+  <section class="result" aria-live="polite">
+    <div class="panel summary" id="summary"></div>
+    <div class="panel shop" id="shop" hidden></div>
+    <div class="days" id="days"></div>
+    <p class="foot">Порції масштабуються під калорійність вашої родини: «≈ 2,5 порції» означає, що страву готуємо на 2,5 дорослої порції. Список покупок рахує вагу за рецептами; упаковки в магазині можуть бути трохи більшими.</p>
+  </section>
+</div>
+
+<script>
+const DATA = __DATA__;
+const SN = DATA.storeNames;
+const KCAL = {men:2500, women:2000, kids:1600};
+const MEALS = [["завтрак","Сніданок"],["обед","Обід"],["ужин","Вечеря"],["перекус","Перекус"]];
+const SHARE4 = {"завтрак":.25,"обед":.35,"ужин":.30,"перекус":.10};
+const SHARE3 = {"завтрак":.30,"обед":.40,"ужин":.30};
+const DAYNAMES = ["Понеділок","Вівторок","Середа","Четвер","Пʼятниця","Субота","Неділя"];
+const EXCL = [
+  ["Свинина",["pork"]],["Яловичина",["beef"]],["Фарш",["mince"]],["Курка",["chicken_fillet","chicken_thigh","chicken_drumstick"]],["Індичка",["turkey_fillet"]],["Печінка",["chicken_liver"]],
+  ["Ковбаса й сосиски",["sausages","boiled_sausage"]],["Риба",["hake","pollock","mackerel","canned_sardines","crab_sticks"]],["Оселедець",["herring"]],["Напівфабрикати",["dumplings_potato","pelmeni"]],
+  ["Яйця",["eggs"]],["Молоко",["milk"]],["Кефір, йогурт, ряжанка",["kefir","yogurt","ryazhenka"]],["Сир кисломолочний",["cottage"]],["Твердий сир і бринза",["cheese","brynza"]],["Сметана",["sour_cream"]],["Майонез",["mayonnaise"]],
+  ["Гриби",["mushrooms"]],["Бобові",["beans","lentils","peas_canned","canned_beans","split_peas","chickpeas"]],["Капуста",["cabbage","sauerkraut","cauliflower","broccoli"]],["Буряк",["beet"]],["Кабачок і баклажан",["zucchini","eggplant"]],["Гарбуз",["pumpkin"]],["Мариновані огірки",["pickles"]],
+  ["Горіхи",["walnuts"]],["Мед",["honey"]],["Банани",["banana"]],["Цитрусові",["orange","lemon","mandarin"]],["Родзинки",["raisins"]],["Борошняне",["flour","bread","rye_bread","lavash","pasta","semolina","bulgur","dumplings_potato","pelmeni","oat_cookies"]]
+];
+const RU_UA = DATA.names; // назви страв українською
+const $ = s => document.querySelector(s);
+const fmt = n => Math.round(n).toLocaleString("uk-UA");
+let shopOpen = false, shopMode = "cheap";
+// Історія попередніх варіантів для «Інший варіант»: страви й продукти, яких намагаємось уникати
+let hist = {eco:[], opt:[]};
+const BASIC = new Set(["salt","sunflower_oil","onion","carrot","sugar","garlic","dill","tomato_paste"]);
+const PD_ECO=35, PP_ECO=20, SD_OPT=6, SP_OPT=2.5;   // штрафи: грн (економ) / бали якості (оптимальний)
+function histW(list){ const d={}, p={}; list.forEach((h,i)=>{ const w=[1,.5,.25][i]||0; h.d.forEach(x=>d[x]=(d[x]||0)+w); h.p.forEach(x=>{ if(!BASIC.has(x)) p[x]=(p[x]||0)+w; }); }); return {d,p}; }
+function snapshot(plan){ const d=new Set(), p=new Set(); plan.forEach(day=>Object.values(day).forEach(x=>{ d.add(x.r.id); Object.keys(x.r.ing).forEach(k=>p.add(k)); })); return {d,p}; }
+let seed = 1, plans = {eco:[],opt:[]}, variant = "opt", ctx = null, openAlt = null;
+
+function rng(){ seed = (seed*16807) % 2147483647; return (seed-1)/2147483646; }
+
+// UI: магазини та виключення
+$("#city").innerHTML = DATA.cities.map(([k,n])=>`<option value="${k}">${n}</option>`).join("");
+function cityStores(){ return Object.keys(DATA.prices[$("#city").value]||{}); }
+function renderStores(selected){
+  const list=cityStores();
+  $("#stores").innerHTML = list.map(id=>`<label class="chip"><input type="checkbox" id="st-${id}" value="${id}" ${!selected||selected.includes(id)?"checked":""}><span>${SN[id]||id}</span></label>`).join("")
+    + `<label class="chip" title="АТБ поки недоступний: сайт закритий захистом від автоматичного збору"><input type="checkbox" disabled><span>АТБ · скоро</span></label>`;
+  $("#srcline").textContent=`Ціни на ${DATA.date.split("-").reverse().join(".")} · ${$("#city").selectedOptions[0].textContent}: ${list.map(id=>SN[id]||id).join(", ")}`;
+}
+$("#city").addEventListener("change",()=>{ renderStores(null); });
+renderStores(null);
+$("#excl").innerHTML = EXCL.map(([n],i)=>`<label class="chip ex"><input type="checkbox" id="ex-${i}" value="${i}"><span>${n}</span></label>`).join("");
+document.querySelectorAll(".step button").forEach(b=>b.addEventListener("click",()=>{
+  const o=$("#"+b.dataset.t); o.value = o.textContent = Math.max(0,Math.min(9,(+o.textContent)+(+b.dataset.d))); build();
+}));
+
+function readForm(){
+  const people={men:+$("#men").textContent,women:+$("#women").textContent,kids:+$("#kids").textContent};
+  const city=$("#city").value; const stores=cityStores().filter(id=>$("#st-"+id)?.checked);
+  const ex=new Set(); EXCL.forEach(([,ids],i)=>{ if($("#ex-"+i).checked) ids.forEach(x=>ex.add(x)); });
+  return {city,people,stores,ex,budget:Math.max(0,+$("#budget").value||0),days:+$("#period").value,snack:$("#snack").checked};
+}
+function save(f){ try{ localStorage.setItem("ration-form",JSON.stringify({...f,ex:[...f.ex],exIdx:EXCL.map((_,i)=>$("#ex-"+i).checked)})) }catch(e){} }
+function load(){ try{ const f=JSON.parse(localStorage.getItem("ration-form")||"null"); if(!f) return;
+  for(const k of ["men","women","kids"]) $("#"+k).textContent=f.people[k];
+  if(f.city && DATA.prices[f.city]){ $("#city").value=f.city; } renderStores(f.stores && f.stores.length ? f.stores : null);
+  (f.exIdx||[]).forEach((v,i)=>{ if($("#ex-"+i)) $("#ex-"+i).checked=v });
+  $("#budget").value=f.budget; $("#period").value=String(f.days); $("#snack").checked=f.snack;
+}catch(e){} }
+
+// Типові упаковки (г / мл / шт). null = ваговий товар, беремо скільки треба.
+// PANTRY: довго зберігається, залишок не страшний (лишається в шафі).
+const PR = DATA.products;
+const PACK = Object.fromEntries(Object.entries(PR).map(([k,p])=>[k,p.pack||null]));
+const PACKNAME = Object.fromEntries(Object.entries(PR).filter(([,p])=>p.packName).map(([k,p])=>[k,p.packName]));
+const PANTRY = new Set(Object.keys(PR).filter(k=>PR[k].pantry));
+const unitOf = pid => DATA.products[pid].unit;
+function bestPrice(f,pid,stores){ const P=DATA.prices[f.city]||{}; let b=null; for(const s of stores){ const p=P[s]?.[pid]; if(p!=null&&(!b||p<b.p)) b={s,p}; } return b; }
+// Скільки купити: цілі упаковки або вага з кроком 50 г
+function buyQty(pid,need){ const pk=PACK[pid]; if(!pk) return unitOf(pid)==="pcs"?Math.ceil(need-1e-6):Math.ceil(need/50-1e-6)*50; return Math.max(1,Math.ceil(need/pk-1e-6))*pk; }
+function money(pid,qty,price){ return unitOf(pid)==="pcs" ? price*qty : price*qty/1000; }
+function needs(plan){ const q={}; for(const d of plan) for(const x of Object.values(d)){ const k=x.k||1; for(const [pid,g] of Object.entries(x.r.ing)) q[pid]=(q[pid]||0)+g*x.serv*k; } return q; }
+// Вартість закупівлі: по цілих упаковках у найдешевшому з магазинів
+function buyCost(plan,f,stores){ let c=0; for(const [pid,n] of Object.entries(needs(plan))){ const b=bestPrice(f,pid,stores||f.stores); if(b) c+=money(pid,buyQty(pid,n),b.p); } return c; }
+function leftovers(plan,f){ const out=[]; for(const [pid,n] of Object.entries(needs(plan))){ if(!PACK[pid]) continue; const left=buyQty(pid,n)-n; if(left<1e-6) continue; const b=bestPrice(f,pid,f.stores); out.push({pid,left,val:b?money(pid,left,b.p):0,pantry:PANTRY.has(pid)}); } return out.sort((a,b)=>b.val-a.val); }
+
+// Ціна порції: кожен інгредієнт за мінімальною ціною серед вибраних магазинів
+function recipeInfo(r,f){
+  let cost=0;
+  for(const [pid,q] of Object.entries(r.ing)){
+    if(f.ex.has(pid)) return null;
+    const P=DATA.prices[f.city]||{}; const opts=f.stores.map(s=>P[s]?.[pid]).filter(v=>v!=null);
+    if(!opts.length) return null;
+    const p=Math.min(...opts); cost += DATA.products[pid].unit==="pcs" ? p*q : p*q/1000;
+  }
+  return {cost, kcal:r.kcal};
+}
+
+function slotsCost(p){ return p.reduce((s,d)=>s+Object.values(d).reduce((a,x)=>a+x.cost,0),0); }
+
+// Якість страви: білок на 100 ккал (+ невеликий детермінований зсув для кнопки «Інший варіант»)
+function quality(c){ const base=c.r.p/c.r.kcal*100; if(seed<2) return base; const h=[...c.r.id].reduce((a,ch)=>(a*31+ch.charCodeAt(0)+seed)%9973,7); return base+(h/9973-.5)*2; }
+// Оцінка плану: якість страв мінус штрафи за повтори
+function planScore(p,meals){
+  let s=0;
+  for(const [m] of meals){
+    const uses={};
+    p.forEach((d,i)=>{ const x=d[m]; s+=quality(x); uses[x.r.id]=(uses[x.r.id]||0)+1;
+      if(i>0 && p[i-1][m].r.id===x.r.id) s-=6; });
+    for(const k in uses) s-=4*(uses[k]-1);
+  }
+  return s;
+}
+
+function build(keep){
+  if(!keep){ hist={eco:[],opt:[]}; }
+  const f=readForm(); save(f);
+  const HE=histW(hist.eco), HO=histW(hist.opt);
+  const dayKcal=f.people.men*KCAL.men+f.people.women*KCAL.women+f.people.kids*KCAL.kids;
+  const share=f.snack?SHARE4:SHARE3; const meals=MEALS.filter(([m])=>share[m]);
+  const cand={};
+  for(const [m] of meals){
+    cand[m]=DATA.recipes.filter(r=>r.meal===m).map(r=>{const i=recipeInfo(r,f); if(!i) return null;
+      const serv=dayKcal*share[m]/r.kcal; return {r,serv,cost:i.cost*serv};}).filter(Boolean).sort((a,b)=>a.cost-b.cost||a.r.id.localeCompare(b.r.id));
+  }
+  ctx={f,dayKcal,share,meals,cand};
+  plans={eco:[],opt:[]};
+  if(!dayKcal || !f.stores.length || meals.some(([m])=>!cand[m].length)){ render(); return; }
+
+  // ЕКОНОМ: старт — дві найдешевші страви по черзі, далі підбираємо страви так,
+  // щоб купувати якомога менше упаковок (страви ділять одні й ті ж пачки).
+  const eco=[];
+  const ecoStart={}; for(const [m] of meals){ ecoStart[m]=cand[m].slice().sort((a,b)=>(a.cost+PD_ECO*(HE.d[a.r.id]||0))-(b.cost+PD_ECO*(HE.d[b.r.id]||0))); }
+  for(let d=0; d<f.days; d++){ const day={}; for(const [m] of meals){ const c=ecoStart[m]; day[m]=c[d%Math.min(2,c.length)]; } eco.push(day); }
+  const okNeighbour=(p,di,m,id)=> (cand[m].length<2) || ((di===0||p[di-1][m].r.id!==id) && (di===p.length-1||p[di+1][m].r.id!==id));
+  // Інкрементальний розрахунок: тримаємо потребу по продуктах і рахуємо лише зміну
+  // для продуктів страви, яку міняємо (інакше 94 рецепти × 28 слотів — повільно).
+  const PC={}; for(const pid in PR){ const b=bestPrice(f,pid,f.stores); if(b) PC[pid]=b.p; }
+  const buyC=(pid,n)=> n<=1e-9||PC[pid]==null ? 0 : money(pid,buyQty(pid,n),PC[pid]);
+  const objC=(pid,n)=>{ const c=buyC(pid,n)+(n>1e-9?PP_ECO*(HE.p[pid]||0):0); if(n<=1e-9||!PACK[pid]||PANTRY.has(pid)||PC[pid]==null) return c; return c+money(pid,buyQty(pid,n)-n,PC[pid]); };
+  const amt=x=>{ const o={}, k=(x.k||1)*x.serv; for(const pid in x.r.ing) o[pid]=x.r.ing[pid]*k; return o; };
+  const delta=(q,ox,nx,fn)=>{ const ao=amt(ox), an=amt(nx); let d=0; for(const pid of new Set([...Object.keys(ao),...Object.keys(an)])){ const n0=q[pid]||0, n1=n0-(ao[pid]||0)+(an[pid]||0); d+=fn(pid,n1)-fn(pid,n0); } return d; };
+  const apply=(q,ox,nx)=>{ const ao=amt(ox), an=amt(nx); for(const pid in ao) q[pid]=(q[pid]||0)-ao[pid]; for(const pid in an) q[pid]=(q[pid]||0)+an[pid]; };
+  // Економ: міняємо страви і підганяємо порції (80–125%), мінімізуючи закупівлю
+  // + вартість недоїдених швидкопсувних продуктів. Калорії дня ±8% від норми.
+  const dayK=d=>Object.values(d).reduce((a,x)=>a+x.serv*(x.k||1)*x.r.kcal,0);
+  const KS=[0.8,0.85,0.9,0.95,1,1.05,1.1,1.15,1.2,1.25];
+  const qe=needs(eco); let ecoBase=null;
+  for(let round=0; round<8; round++){
+    let improved=false;
+    eco.forEach((d,di)=>meals.forEach(([m])=>{
+      for(const c of cand[m]){ const cur=d[m]; if(c.r.id===cur.r.id||!okNeighbour(eco,di,m,c.r.id)) continue;
+        if(delta(qe,cur,c,objC)+PD_ECO*((HE.d[c.r.id]||0)-(HE.d[cur.r.id]||0))<-0.5){ apply(qe,cur,c); d[m]=c; improved=true; } }
+    }));
+    if(round===0) ecoBase=eco.map(d=>({...d}));
+    eco.forEach((d,di)=>meals.forEach(([m])=>{
+      for(const k of KS){ const cur=d[m]; if(Math.abs((cur.k||1)-k)<1e-9) continue;
+        const nx={...cur,k}; const dk=dayK(d)-cur.serv*(cur.k||1)*cur.r.kcal+nx.serv*k*nx.r.kcal;
+        if(dk<dayKcal*0.92||dk>dayKcal*1.08) continue;
+        if(delta(qe,cur,nx,objC)<-0.5){ apply(qe,cur,nx); d[m]=nx; improved=true; } }
+    }));
+    if(!improved) break;
+  }
+
+  // ОПТИМАЛЬНИЙ: від економу (без підігнаних порцій) покращуємо по одній страві,
+  // поки вартість закупівлі по цілих упаковках влазить у бюджет.
+  const opt=ecoBase.map(d=>({...d}));
+  const qo=needs(opt);
+  const presO=(pid,n)=> n>1e-9 ? -SP_OPT*(HO.p[pid]||0) : 0;
+  let total=Object.entries(qo).reduce((s,[pid,n])=>s+buyC(pid,n),0), score=planScore(opt,meals), guard=300;
+  while(guard--){
+    let best=null;
+    opt.forEach((d,di)=>meals.forEach(([m])=>{
+      const cur=d[m];
+      for(const c of cand[m]){
+        if(c.r.id===cur.r.id) continue;
+        const dc=delta(qo,cur,c,buyC); const nt=total+dc; if(nt>f.budget) continue;
+        d[m]=c; const ds=planScore(opt,meals)-score - SD_OPT*((HO.d[c.r.id]||0)-(HO.d[cur.r.id]||0)) + delta(qo,cur,c,presO); d[m]=cur;
+        if(ds<=0.01) continue;
+        const ratio = dc<=0 ? 1e9+ds-dc : ds/dc;
+        if(!best||ratio>best.ratio) best={di,m,c,ratio,nt,ds};
+      }
+    }));
+    if(!best) break;
+    apply(qo,opt[best.di][best.m],best.c); opt[best.di][best.m]=best.c; total=best.nt; score=planScore(opt,meals);
+  }
+  plans={eco,opt};
+  openAlt=null; render();
+}
+
+
+// ===== Список покупок =====
+const PN = Object.fromEntries(Object.entries(PR).map(([k,p])=>[k,p.name]));
+const SHOPSEC = {"крупы":0,"бобовые":0,"прочее":0,"консервы":0,"сладкое":0,"хлеб":1,"мясо":2,"рыба":2,"полуфабрикаты":2,"молочка":3,"яйца":3,"овощи":4,"фрукты":4};
+const GORD = {}; Object.keys(PR).forEach((id,i)=>GORD[id]=(SHOPSEC[PR[id].group]??0)*1000+i);
+function lineFor(pid,need,price){
+  const buy=buyQty(pid,need), pk=PACK[pid];
+  return {pid,need,buy,price,cost:money(pid,buy,price),packs:pk?Math.round(buy/pk):0,left:pk?buy-need:0};
+}
+// Розкладає закупівлю по магазинах із набору: кожен продукт туди, де дешевше
+function assign(q,stores,f){
+  const by={}; let total=0; const miss=[];
+  for(const [pid,need] of Object.entries(q)){
+    const b=bestPrice(f,pid,stores); if(!b){ miss.push(pid); continue; }
+    const l=lineFor(pid,need,b.p); total+=l.cost; (by[b.s]=by[b.s]||[]).push(l);
+  }
+  return {by,total,miss};
+}
+function combos(arr,k){ const out=[]; const rec=(i,acc)=>{ if(acc.length===k){out.push(acc.slice());return;} for(let j=i;j<arr.length;j++){acc.push(arr[j]);rec(j+1,acc);acc.pop();} }; rec(0,[]); return out; }
+function bestWithin(q,f,k){
+  let best=null;
+  for(const c of combos(f.stores,Math.min(k,f.stores.length))){ const a=assign(q,c,f);
+    if(!best || a.miss.length<best.miss.length || (a.miss.length===best.miss.length && a.total<best.total)) best=a; }
+  return best;
+}
+function fmtAmt(pid,v){
+  const u=unitOf(pid); if(u==="pcs") return Math.round(v)+" шт";
+  const r=v>=1000?(Math.round(v/100)/10).toLocaleString("uk-UA")+(u==="ml"?" л":" кг"):Math.round(v/10)*10+(u==="ml"?" мл":" г");
+  return r;
+}
+function fmtBuy(l){
+  const pk=PACK[l.pid];
+  if(!pk) return fmtAmt(l.pid,l.buy);
+  const nm=PACKNAME[l.pid];
+  if(nm) return `${l.packs} ${nm}`+(l.pid==="eggs"?` (${l.buy} шт)`:"");
+  return `${l.packs} × ${fmtAmt(l.pid,pk)}`;
+}
+function fmtLeft(l){ if(!PACK[l.pid]||l.left<(unitOf(l.pid)==="pcs"?1:10)) return ""; return `залишок ≈ ${fmtAmt(l.pid,l.left)}`; }
+function shopping(){
+  const {f}=ctx; const q=needs(plans[variant]);
+  return {q,res:{cheap:assign(q,f.stores,f), two:bestWithin(q,f,2), one:bestWithin(q,f,1)}};
+}
+const DEPTS=[["veg","Овочі та фрукти"],["bread","Хліб"],["dairy","Молочне та яйця"],["meat","Мʼясо, ковбаси, риба"],["frozen","Заморожене"],["dry","Бакалія"],["cans","Консерви та соуси"]];
+const deptOf=pid=>PR[pid].dept||"dry";
+function byDept(items){ return DEPTS.map(([k,n])=>[n,items.filter(i=>deptOf(i.pid)===k).sort((x,y)=>GORD[x.pid]-GORD[y.pid])]).filter(([,it])=>it.length); }
+// Галочки «куплено»: лише в цьому браузері, ключ = магазин|продукт|кількість
+let checks={}; try{ checks=JSON.parse(localStorage.getItem("ration-checks")||"{}")||{}; }catch(e){ checks={}; }
+const ckKey=(s,i)=>`${s}|${i.pid}|${Math.round(i.buy)}`;
+function saveChecks(){ try{ localStorage.setItem("ration-checks",JSON.stringify(checks)); }catch(e){} }
+function renderShop(){
+  const box=$("#shop");
+  if(!shopOpen || !ctx || !plans[variant].length){ box.hidden=true; box.innerHTML=""; return; }
+  const {f}=ctx; const {res}=shopping();
+  const modes=[["cheap","Найдешевше"],["two","Не більше 2 магазинів"],["one","Один магазин"]].filter(([k])=>k==="cheap"||f.stores.length>(k==="two"?2:1));
+  if(!modes.some(([k])=>k===shopMode)) shopMode="cheap";
+  const a=res[shopMode]; const base=res.cheap.total;
+  const stores=Object.keys(a.by).sort((x,y)=>a.by[y].reduce((s,i)=>s+i.cost,0)-a.by[x].reduce((s,i)=>s+i.cost,0));
+  const keys=stores.flatMap(s=>a.by[s].map(i=>ckKey(s,i)));
+  const done=keys.filter(k=>checks[k]).length;
+  const lefts=Object.values(a.by).flat().filter(l=>fmtLeft(l)).sort((x,y)=>(PANTRY.has(x.pid)-PANTRY.has(y.pid))||GORD[x.pid]-GORD[y.pid]);
+  const extra=a.total-base;
+  box.hidden=false;
+  box.innerHTML=`<h2>Список покупок</h2>
+    <p class="cmp">${variant==="eco"?"Економ":"Оптимальний"} раціон на ${f.days} дн. з урахуванням ваших замін. Купуємо цілими упаковками; овочі, мʼясо та сир на вагу.</p>
+    <div class="modes" role="group" aria-label="Скільки магазинів">${modes.map(([k,n])=>`<button type="button" data-shopmode="${k}" aria-pressed="${shopMode===k}">${n} · ${fmt(res[k].total)} грн</button>`).join("")}</div>
+    ${shopMode!=="cheap"&&extra>0.5?`<p class="cmp">На ${fmt(extra)} грн дорожче, ніж по найнижчих цінах, зате менше поїздок.</p>`:""}
+    <div class="progress"><span id="ckcount">Куплено ${done} з ${keys.length}</span>${done?`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`:""}</div>
+    ${stores.map(s=>{ const it=a.by[s]; const sub=it.reduce((t,i)=>t+i.cost,0);
+      return `<section class="store"><h3><span>${SN[s]||s} <small>· ${it.length} поз.</small></span><small>${fmt(sub)} грн</small></h3>`+
+        byDept(it).map(([dn,list])=>`<div class="dept">${dn}</div><ul class="items">`+list.map(i=>{ const k=ckKey(s,i), on=!!checks[k];
+          return `<li class="ck${on?" done":""}"><label><input type="checkbox" class="chk" data-ck="${k}" ${on?"checked":""}><span class="nm">${PN[i.pid]}</span><span class="q">${fmtBuy(i)}</span><span class="s">${fmt(i.cost)} грн</span></label></li>`; }).join("")+`</ul>`).join("")+`</section>`; }).join("")}
+    ${a.miss.length?`<div class="note warn">Немає в цих магазинах: ${a.miss.map(p=>PN[p]).join(", ")}.</div>`:""}
+    <div class="tot"><span>Разом</span><span>${fmt(a.total)} грн</span></div>
+    ${lefts.length?`<div class="leftover"><h3>Залишиться після ${f.days===1?"дня":"тижня"}</h3><ul>${lefts.map(l=>`<li><span>${PN[l.pid]} <small>${PANTRY.has(l.pid)?"· у шафі":"· краще доїсти за 2–3 дні"}</small></span><span>${fmtAmt(l.pid,l.left)}</span></li>`).join("")}</ul></div>`:`<p class="cmp">Усе, що купили, зʼїдається повністю.</p>`}
+    <div class="shopbar" style="margin-top:12px"><button type="button" class="btn ghost small" id="copyshop">Скопіювати список</button><span class="cmp" id="copied" aria-live="polite"></span></div>`;
+}
+function shopText(){
+  const a=shopping().res[shopMode];
+  return Object.keys(a.by).sort((x,y)=>a.by[y].reduce((s,i)=>s+i.cost,0)-a.by[x].reduce((s,i)=>s+i.cost,0)).map(s=>[s,a.by[s]]).map(([s,it])=>`${SN[s]||s}:\n`+byDept(it).map(([dn,list])=>`  ${dn}\n`+list.map(i=>`  ☐ ${PN[i.pid]} — ${fmtBuy(i)}`).join("\n")).join("\n")).join("\n\n")+`\n\nРазом ≈ ${fmt(a.total)} грн`;
+}
+document.addEventListener("change",e=>{
+  const c=e.target.closest(".chk"); if(!c) return;
+  if(c.checked) checks[c.dataset.ck]=1; else delete checks[c.dataset.ck];
+  saveChecks(); c.closest("li").classList.toggle("done",c.checked);
+  const all=document.querySelectorAll("#shop .chk"), n=[...all].filter(x=>x.checked).length;
+  const cc=$("#ckcount"); if(cc) cc.textContent=`Куплено ${n} з ${all.length}`;
+  if(n && !$("#ckreset")) cc.insertAdjacentHTML("afterend",`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`);
+});
+
+function render(){
+  const {f,dayKcal,meals,cand}=ctx;
+  const S=$("#summary"), D=$("#days"); $("#shop").hidden=true;
+  if(!dayKcal){ S.innerHTML=`<div class="note warn">Додайте хоча б одну людину.</div>`; D.innerHTML=""; return; }
+  if(!f.stores.length){ S.innerHTML=`<div class="note warn">Виберіть хоча б один магазин.</div>`; D.innerHTML=""; return; }
+  const missing=meals.filter(([m])=>!cand[m].length).map(([,n])=>n.toLowerCase());
+  if(missing.length){ S.innerHTML=`<div class="note bad">Немає жодної страви на ${missing.join(", ")} з такими обмеженнями. Приберіть частину виключень або додайте магазин.</div>`; D.innerHTML=""; return; }
+  const plan=plans[variant];
+  const total=buyCost(plan,f), ecoTotal=buyCost(plans.eco,f), optTotal=buyCost(plans.opt,f);
+  const kcalAvg=plan.reduce((s,d)=>s+Object.values(d).reduce((a,x)=>a+x.serv*(x.k||1)*x.r.kcal,0),0)/plan.length;
+  const minPossible=ecoTotal;
+  const pct=f.budget?Math.min(100,total/f.budget*100):100;
+  const over=total>f.budget;
+  const nRec=meals.reduce((s,[m])=>s+cand[m].length,0);
+  const people=[f.people.men&&`${f.people.men} чол.`,f.people.women&&`${f.people.women} жін.`,f.people.kids&&`${f.people.kids} діт.`].filter(Boolean).join(", ");
+  const tabs=`<div class="tabs" role="tablist">
+      <button type="button" role="tab" data-variant="eco" aria-selected="${variant==="eco"}"><b>Економ</b><span>${fmt(ecoTotal)} грн · цілі пачки, доїдаємо залишки</span></button>
+      <button type="button" role="tab" data-variant="opt" aria-selected="${variant==="opt"}"><b>Оптимальний</b><span>${fmt(optTotal)} грн · більше білка й різноманіття, є залишки</span></button></div>`;
+  S.innerHTML=tabs+`
+    <div class="metric"><div class="k">Закупівля</div><div class="v">${fmt(total)} <small>грн / ${f.days} дн.</small></div></div>
+    <div class="metric"><div class="k">На день</div><div class="v">${fmt(total/f.days)} <small>грн</small></div></div>
+    <div class="metric"><div class="k">Калорії на день</div><div class="v">${fmt(kcalAvg)} <small>ккал</small></div></div>
+    <div class="metric"><div class="k">Родина</div><div class="v" style="font-size:15px;white-space:normal">${people}</div></div>
+    <div class="bar"><div class="sub">Бюджет ${fmt(f.budget)} грн · ${over?`перевищено на ${fmt(total-f.budget)} грн`:`залишок ${fmt(f.budget-total)} грн`}</div>
+      <div class="track"><div class="fill ${over?"over":""}" style="width:${pct}%"></div></div></div>
+    ${over?`<div class="note bad">У бюджет не влазить навіть найдешевший варіант: мінімум ≈ ${fmt(minPossible)} грн на ${f.days} дн. Збільште бюджет, додайте магазин або приберіть виключення.</div>`
+      :`<div class="note ok">${variant==="eco"?"Найдешевший раціон: страви підібрані так, щоб ділити одні й ті ж упаковки, а відкриті пачки доїдаються трохи більшими порціями.":"Економ, покращений у межах бюджету: більше білка, менше повторів. Що залишиться з упаковок, написано в кінці списку покупок."} Підібрано з ${nRec} доступних страв. «Замінити» перераховує бюджет одразу.</div>`}
+    <div class="shopbar"><button type="button" class="btn" id="shopbtn" aria-expanded="${shopOpen}" aria-controls="shop">${shopOpen?"Сховати список покупок":"Список покупок"}</button></div>`;
+  renderShop();
+  D.innerHTML=plans[variant].map((d,di)=>{
+    const dc=Object.values(d).reduce((a,x)=>a+x.cost*(x.k||1),0);
+    return `<article class="panel day"><h3><span>${f.days===1?"День":DAYNAMES[di%7]}</span><small>${fmt(dc)} грн</small></h3>`+
+      meals.map(([m,label])=>{ const x=d[m]; const key=di+"|"+m;
+        const alts = openAlt===key ? `<div class="alts">`+cand[m].filter(c=>c.r.id!==x.r.id).sort((a,b)=>a.cost-b.cost).map(c=>{
+            const delta=c.cost-x.cost; return `<button type="button" data-pick="${key}|${c.r.id}"><span>${DATA.names[c.r.id]}</span><span class="d ${delta>0?"up":"down"}">${delta>0?"+":"−"}${fmt(Math.abs(delta))} грн</span></button>`;}).join("")+`</div>` : "";
+        return `<div class="meal"><div class="t"><span>${label}</span><span>${fmt(x.serv*(x.k||1)*x.r.kcal)} ккал</span></div>
+          <div class="name">${DATA.names[x.r.id]}</div>
+          <div class="meta"><span>≈ ${(Math.round(x.serv*(x.k||1)*2)/2).toLocaleString("uk-UA")} порц. · ${fmt(x.cost*(x.k||1))} грн${Math.abs((x.k||1)-1)>0.02?` · <span title="Порцію змінено, щоб купувати цілі упаковки без залишків">${x.k>1?"+":"−"}${Math.round(Math.abs(x.k-1)*100)}% під упаковку</span>`:""}</span>
+          <button type="button" class="swap" data-alt="${key}" aria-expanded="${openAlt===key}">${openAlt===key?"Сховати":"Замінити"}</button></div>${alts}</div>`;
+      }).join("")+`</article>`;
+  }).join("");
+}
+
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-alt]"); if(a){ openAlt = openAlt===a.dataset.alt?null:a.dataset.alt; render(); return; }
+  const p=e.target.closest("[data-pick]"); if(p){ const [di,m,id]=p.dataset.pick.split("|"); plans[variant][+di][m]=ctx.cand[m].find(c=>c.r.id===id); openAlt=null; render(); return; }
+  if(e.target.closest("#shopbtn")){ shopOpen=!shopOpen; render(); if(shopOpen) $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  const sm=e.target.closest("[data-shopmode]"); if(sm){ shopMode=sm.dataset.shopmode; renderShop(); return; }
+  if(e.target.closest("#ckreset")){ document.querySelectorAll("#shop .chk").forEach(c=>delete checks[c.dataset.ck]); saveChecks(); renderShop(); return; }
+  if(e.target.closest("#copyshop")){ const t=shopText(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$("#copied").textContent="Скопійовано";},()=>{$("#copied").textContent="Не вдалося скопіювати";}); return; }
+  const v=e.target.closest("[data-variant]"); if(v){ variant=v.dataset.variant; openAlt=null; render(); }
+});
+$("#form").addEventListener("submit",e=>{e.preventDefault(); build();});
+$("#form").addEventListener("change",()=>build());
+$("#reroll").addEventListener("click",()=>{
+  if(plans.eco.length){ hist.eco.unshift(snapshot(plans.eco)); hist.opt.unshift(snapshot(plans.opt)); hist.eco.length=Math.min(3,hist.eco.length); hist.opt.length=Math.min(3,hist.opt.length); }
+  seed=2+Math.floor(Math.random()*100000); build(true); });
+load(); build();
+</script>

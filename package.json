@@ -1,0 +1,11 @@
+{
+  "name": "ration-builder",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node site/build.mjs",
+    "collect": "node collector/collect.mjs",
+    "check-access": "node collector/collect.mjs --limit=3 --dry"
+  }
+}

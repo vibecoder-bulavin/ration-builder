@@ -1,0 +1,20 @@
+{
+  "cities": {"kiev": "Київ", "lviv": "Львів", "odesa": "Одеса", "dnipro": "Дніпро", "kharkiv": "Харків"},
+  "storeNames": {"silpo": "Сільпо", "novus": "Novus", "metro": "Metro", "auchan": "Auchan", "megamarket": "Megamarket", "ultramarket": "Ultramarket", "ekomarket": "ЕКО маркет", "tavriav": "Таврія В", "vostorg": "Восторг", "chudomarket": "Чудо Маркет", "fora": "Фора", "varus": "Varus"},
+  "silpo": {
+    "kiev": "1edb6b1b-f6e8-6874-a5c6-eb10f39e9fe0",
+    "lviv": "1edb733e-ea88-6f22-ac5b-198a97b604e9",
+    "odesa": "1edb6b68-3321-6ff6-9ff3-b1c3429a642e",
+    "dnipro": "1f08cb98-174e-6456-a5d5-656b169b178f",
+    "kharkiv": "1eee2a85-16f1-6ca2-9d5f-292109ee47d7"
+  },
+  "zakaz": {
+    "kiev": {"novus": "482010105", "metro": "48215610", "auchan": "48246401", "megamarket": "482676003", "ultramarket": "482776003", "ekomarket": "482800030"},
+    "lviv": {"novus": "482010201", "metro": "48215637", "auchan": "48246409"},
+    "odesa": {"metro": "48215612", "tavriav": "482211449", "auchan": "48246416"},
+    "kharkiv": {"metro": "48215613", "tavriav": "48221130", "vostorg": "48231001", "chudomarket": "482330018"},
+    "dnipro": {"metro": "48215614", "auchan": "48246429"}
+  },
+  "fora": {"kiev": {"filialId": 3805, "deliveryType": 2}},
+  "manual": {"varus": ["kiev", "dnipro"]}
+}

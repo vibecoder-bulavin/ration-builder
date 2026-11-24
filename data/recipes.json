@@ -1,0 +1,1432 @@
+[
+ {
+  "id": "oatmeal_banana",
+  "name": "Овсянка на молоке с бананом",
+  "meal": "завтрак",
+  "ing": {
+   "oats": 60,
+   "milk": 200,
+   "banana": 100,
+   "honey": 10,
+   "salt": 1
+  },
+  "name_ua": "Вівсянка на молоці з бананом",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "buckwheat_milk",
+  "name": "Гречка с молоком",
+  "meal": "завтрак",
+  "ing": {
+   "buckwheat": 70,
+   "milk": 200,
+   "butter": 5,
+   "sugar": 5,
+   "salt": 1
+  },
+  "name_ua": "Гречка з молоком",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "millet_porridge",
+  "name": "Пшённая каша",
+  "meal": "завтрак",
+  "ing": {
+   "millet": 70,
+   "milk": 200,
+   "butter": 10,
+   "sugar": 10,
+   "salt": 1
+  },
+  "name_ua": "Пшоняна каша",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "omelette",
+  "name": "Омлет с помидорами и сыром",
+  "meal": "завтрак",
+  "ing": {
+   "eggs": 3,
+   "milk": 50,
+   "tomato": 100,
+   "cheese": 20,
+   "sunflower_oil": 5,
+   "salt": 1
+  },
+  "name_ua": "Омлет з помідорами і сиром",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "fried_eggs_bread",
+  "name": "Яичница с хлебом и огурцом",
+  "meal": "завтрак",
+  "ing": {
+   "eggs": 2,
+   "bread": 60,
+   "cucumber": 100,
+   "sunflower_oil": 5,
+   "salt": 1
+  },
+  "name_ua": "Яєчня з хлібом і огірком",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "syrniki",
+  "name": "Сырники со сметаной",
+  "meal": "завтрак",
+  "ing": {
+   "cottage": 200,
+   "eggs": 1,
+   "flour": 30,
+   "sugar": 15,
+   "sunflower_oil": 10,
+   "sour_cream": 30
+  },
+  "name_ua": "Сирники зі сметаною",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cottage_yogurt",
+  "name": "Творог с йогуртом, яблоком и орехами",
+  "meal": "завтрак",
+  "ing": {
+   "cottage": 150,
+   "yogurt": 100,
+   "apple": 120,
+   "walnuts": 15,
+   "honey": 10
+  },
+  "name_ua": "Сир з йогуртом, яблуком і горіхами",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cheese_toast",
+  "name": "Бутерброды с маслом и сыром + кефир",
+  "meal": "завтрак",
+  "ing": {
+   "bread": 80,
+   "butter": 10,
+   "cheese": 30,
+   "kefir": 250
+  },
+  "name_ua": "Бутерброди з маслом і сиром + кефір",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "borscht",
+  "name": "Борщ",
+  "meal": "обед",
+  "ing": {
+   "pork": 80,
+   "beet": 80,
+   "cabbage": 80,
+   "potato": 80,
+   "carrot": 30,
+   "onion": 30,
+   "tomato_paste": 15,
+   "garlic": 5,
+   "sunflower_oil": 8,
+   "sour_cream": 20,
+   "dill": 3,
+   "salt": 3
+  },
+  "name_ua": "Борщ",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "chicken_soup",
+  "name": "Куриный суп с вермишелью",
+  "meal": "обед",
+  "ing": {
+   "chicken_thigh": 120,
+   "potato": 100,
+   "carrot": 30,
+   "onion": 30,
+   "pasta": 25,
+   "dill": 3,
+   "salt": 3
+  },
+  "name_ua": "Курячий суп з вермішеллю",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "lentil_soup",
+  "name": "Суп-пюре из красной чечевицы",
+  "meal": "обед",
+  "ing": {
+   "lentils": 70,
+   "potato": 60,
+   "carrot": 40,
+   "onion": 40,
+   "tomato_paste": 10,
+   "sunflower_oil": 8,
+   "garlic": 3,
+   "salt": 3
+  },
+  "name_ua": "Суп-пюре з червоної сочевиці",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "bean_soup",
+  "name": "Фасолевый суп",
+  "meal": "обед",
+  "ing": {
+   "beans": 60,
+   "potato": 80,
+   "carrot": 30,
+   "onion": 30,
+   "tomato_paste": 10,
+   "sunflower_oil": 8,
+   "dill": 3,
+   "salt": 3
+  },
+  "name_ua": "Квасолевий суп",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "shchi",
+  "name": "Щи из квашеной капусты",
+  "meal": "обед",
+  "ing": {
+   "beef": 80,
+   "sauerkraut": 120,
+   "potato": 80,
+   "carrot": 30,
+   "onion": 30,
+   "sunflower_oil": 8,
+   "sour_cream": 20,
+   "salt": 2
+  },
+  "name_ua": "Капусняк з квашеної капусти",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "mushroom_soup",
+  "name": "Грибной суп",
+  "meal": "обед",
+  "ing": {
+   "mushrooms": 120,
+   "potato": 120,
+   "carrot": 30,
+   "onion": 40,
+   "sunflower_oil": 8,
+   "sour_cream": 20,
+   "dill": 3,
+   "salt": 3
+  },
+  "name_ua": "Грибний суп",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "buckwheat_chicken",
+  "name": "Гречка с куриным филе",
+  "meal": "обед",
+  "ing": {
+   "buckwheat": 80,
+   "chicken_fillet": 150,
+   "onion": 40,
+   "carrot": 40,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "name_ua": "Гречка з курячим філе",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "rice_chicken_veg",
+  "name": "Рис с курицей и овощами",
+  "meal": "обед",
+  "ing": {
+   "rice": 80,
+   "chicken_fillet": 150,
+   "pepper": 80,
+   "carrot": 40,
+   "onion": 40,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "name_ua": "Рис з куркою та овочами",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pasta_bolognese",
+  "name": "Макароны с фаршем в томате",
+  "meal": "обед",
+  "ing": {
+   "pasta": 90,
+   "mince": 120,
+   "onion": 40,
+   "tomato_paste": 25,
+   "garlic": 5,
+   "sunflower_oil": 8,
+   "cheese": 15,
+   "salt": 2
+  },
+  "name_ua": "Макарони з фаршем у томаті",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cutlets_mash",
+  "name": "Котлеты с картофельным пюре",
+  "meal": "ужин",
+  "ing": {
+   "mince": 150,
+   "bread": 20,
+   "onion": 30,
+   "eggs": 0.5,
+   "potato": 250,
+   "milk": 50,
+   "butter": 10,
+   "sunflower_oil": 10,
+   "salt": 3
+  },
+  "name_ua": "Котлети з картопляним пюре",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pilaf",
+  "name": "Плов со свининой",
+  "meal": "ужин",
+  "ing": {
+   "rice": 90,
+   "pork": 150,
+   "carrot": 70,
+   "onion": 50,
+   "garlic": 8,
+   "sunflower_oil": 15,
+   "salt": 3
+  },
+  "name_ua": "Плов зі свининою",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cabbage_stew",
+  "name": "Тушёная капуста с курицей",
+  "meal": "ужин",
+  "ing": {
+   "cabbage": 250,
+   "chicken_thigh": 150,
+   "carrot": 40,
+   "onion": 40,
+   "tomato_paste": 15,
+   "sunflower_oil": 10,
+   "salt": 3
+  },
+  "name_ua": "Тушкована капуста з куркою",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "fish_potato",
+  "name": "Запечённый хек с картофелем",
+  "meal": "ужин",
+  "ing": {
+   "hake": 200,
+   "potato": 250,
+   "onion": 30,
+   "sour_cream": 20,
+   "sunflower_oil": 10,
+   "lemon": 15,
+   "dill": 3,
+   "salt": 3
+  },
+  "name_ua": "Запечений хек з картоплею",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "liver_buckwheat",
+  "name": "Печень в сметане с гречкой",
+  "meal": "ужин",
+  "ing": {
+   "chicken_liver": 150,
+   "onion": 50,
+   "sour_cream": 40,
+   "buckwheat": 70,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "name_ua": "Печінка в сметані з гречкою",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "stuffed_pepper",
+  "name": "Фаршированный перец",
+  "meal": "ужин",
+  "ing": {
+   "pepper": 250,
+   "mince": 120,
+   "rice": 30,
+   "carrot": 30,
+   "onion": 30,
+   "tomato_paste": 20,
+   "sour_cream": 20,
+   "salt": 2
+  },
+  "name_ua": "Фарширований перець",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "zucchini_stew",
+  "name": "Овощное рагу с кабачком",
+  "meal": "ужин",
+  "ing": {
+   "zucchini": 200,
+   "potato": 150,
+   "carrot": 50,
+   "onion": 50,
+   "pepper": 80,
+   "tomato": 100,
+   "sunflower_oil": 15,
+   "salt": 3
+  },
+  "name_ua": "Овочеве рагу з кабачком",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "beef_stew_potato",
+  "name": "Тушёная говядина с картофелем",
+  "meal": "ужин",
+  "ing": {
+   "beef": 150,
+   "potato": 250,
+   "carrot": 40,
+   "onion": 40,
+   "tomato_paste": 10,
+   "sunflower_oil": 10,
+   "salt": 3
+  },
+  "name_ua": "Тушкована яловичина з картоплею",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "herring_potato",
+  "name": "Отварной картофель с селёдкой и луком",
+  "meal": "ужин",
+  "ing": {
+   "potato": 300,
+   "herring": 100,
+   "onion": 30,
+   "sunflower_oil": 10,
+   "dill": 3,
+   "salt": 2
+  },
+  "name_ua": "Картопля з оселедцем і цибулею",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pancakes",
+  "name": "Блины с творогом",
+  "meal": "перекус",
+  "ing": {
+   "flour": 50,
+   "milk": 120,
+   "eggs": 0.5,
+   "sugar": 10,
+   "sunflower_oil": 5,
+   "cottage": 100,
+   "sour_cream": 20
+  },
+  "name_ua": "Млинці з сиром",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "veg_salad",
+  "name": "Салат из помидоров и огурцов",
+  "meal": "перекус",
+  "ing": {
+   "tomato": 150,
+   "cucumber": 150,
+   "onion": 20,
+   "sour_cream": 30,
+   "dill": 3,
+   "salt": 1
+  },
+  "name_ua": "Салат з помідорів і огірків",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "vinegret",
+  "name": "Винегрет",
+  "meal": "перекус",
+  "ing": {
+   "beet": 100,
+   "potato": 100,
+   "carrot": 50,
+   "sauerkraut": 60,
+   "peas_canned": 50,
+   "onion": 20,
+   "sunflower_oil": 10,
+   "salt": 1
+  },
+  "name_ua": "Вінегрет",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "olivier_light",
+  "name": "Салат с курицей, яйцом и кукурузой",
+  "meal": "перекус",
+  "ing": {
+   "chicken_fillet": 80,
+   "eggs": 1,
+   "cucumber": 80,
+   "corn_canned": 50,
+   "yogurt": 40,
+   "salt": 1
+  },
+  "name_ua": "Салат з куркою, яйцем і кукурудзою",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cabbage_salad",
+  "name": "Салат из капусты с морковью",
+  "meal": "перекус",
+  "ing": {
+   "cabbage": 150,
+   "carrot": 50,
+   "sunflower_oil": 10,
+   "lemon": 10,
+   "sugar": 3,
+   "salt": 1
+  },
+  "name_ua": "Салат з капусти з морквою",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "kefir_fruit",
+  "name": "Кефир с бананом и апельсином",
+  "meal": "перекус",
+  "ing": {
+   "kefir": 250,
+   "banana": 100,
+   "orange": 150
+  },
+  "name_ua": "Кефір з бананом і апельсином",
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "semolina_porridge",
+  "name": "Манная каша",
+  "name_ua": "Манна каша",
+  "meal": "завтрак",
+  "ing": {
+   "semolina": 50,
+   "milk": 250,
+   "butter": 5,
+   "sugar": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "rice_milk_porridge",
+  "name": "Рисовая молочная каша",
+  "name_ua": "Рисова молочна каша",
+  "meal": "завтрак",
+  "ing": {
+   "rice": 60,
+   "milk": 250,
+   "butter": 5,
+   "sugar": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "corn_pumpkin_porridge",
+  "name": "Кукурузная каша с тыквой",
+  "name_ua": "Кукурудзяна каша з гарбузом",
+  "meal": "завтрак",
+  "ing": {
+   "corn_grits": 60,
+   "pumpkin": 120,
+   "milk": 150,
+   "butter": 5,
+   "sugar": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "millet_pumpkin",
+  "name": "Пшённая каша с тыквой",
+  "name_ua": "Пшоняна каша з гарбузом",
+  "meal": "завтрак",
+  "ing": {
+   "millet": 60,
+   "pumpkin": 150,
+   "milk": 200,
+   "butter": 5,
+   "sugar": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "oat_berries",
+  "name": "Овсянка с ягодами",
+  "name_ua": "Вівсянка з ягодами",
+  "meal": "завтрак",
+  "ing": {
+   "oats": 60,
+   "milk": 200,
+   "frozen_berries": 80,
+   "honey": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "oat_apple_raisins",
+  "name": "Овсянка с яблоком и изюмом",
+  "name_ua": "Вівсянка з яблуком і родзинками",
+  "meal": "завтрак",
+  "ing": {
+   "oats": 70,
+   "apple": 120,
+   "raisins": 20,
+   "honey": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "eggs_sausages",
+  "name": "Яичница с сосисками",
+  "name_ua": "Яєчня з сосисками",
+  "meal": "завтрак",
+  "ing": {
+   "eggs": 2,
+   "sausages": 80,
+   "bread": 50,
+   "sunflower_oil": 5,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "sausage_sandwich",
+  "name": "Бутерброды с колбасой и огурцом",
+  "name_ua": "Бутерброди з ковбасою та огірком",
+  "meal": "завтрак",
+  "ing": {
+   "bread": 80,
+   "boiled_sausage": 50,
+   "cucumber": 80,
+   "butter": 5
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cottage_casserole",
+  "name": "Творожная запеканка",
+  "name_ua": "Сирна запіканка",
+  "meal": "завтрак",
+  "ing": {
+   "cottage": 180,
+   "eggs": 1,
+   "semolina": 20,
+   "sugar": 15,
+   "raisins": 15,
+   "sour_cream": 20
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "lazy_vareniki",
+  "name": "Ленивые вареники",
+  "name_ua": "Ліниві вареники",
+  "meal": "завтрак",
+  "ing": {
+   "cottage": 180,
+   "eggs": 0.5,
+   "flour": 40,
+   "sugar": 10,
+   "butter": 5,
+   "sour_cream": 30
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "omelette_broccoli",
+  "name": "Омлет с брокколи",
+  "name_ua": "Омлет з броколі",
+  "meal": "завтрак",
+  "ing": {
+   "eggs": 3,
+   "milk": 50,
+   "broccoli": 120,
+   "cheese": 15,
+   "sunflower_oil": 5,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "crepes_honey",
+  "name": "Блины с мёдом",
+  "name_ua": "Млинці з медом",
+  "meal": "завтрак",
+  "ing": {
+   "flour": 60,
+   "milk": 150,
+   "eggs": 0.5,
+   "sugar": 10,
+   "sunflower_oil": 8,
+   "honey": 20,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "oladyi_apple",
+  "name": "Оладьи на кефире с яблоком",
+  "name_ua": "Оладки на кефірі з яблуком",
+  "meal": "завтрак",
+  "ing": {
+   "kefir": 150,
+   "flour": 80,
+   "eggs": 0.5,
+   "apple": 80,
+   "sugar": 10,
+   "sunflower_oil": 15,
+   "sour_cream": 20
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "buckwheat_eggs",
+  "name": "Гречка с яйцом и огурцом",
+  "name_ua": "Гречка з яйцем та огірком",
+  "meal": "завтрак",
+  "ing": {
+   "buckwheat": 70,
+   "eggs": 2,
+   "cucumber": 100,
+   "butter": 5,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "lavash_brynza",
+  "name": "Лаваш с брынзой и помидором",
+  "name_ua": "Лаваш з бринзою та помідором",
+  "meal": "завтрак",
+  "ing": {
+   "lavash": 80,
+   "brynza": 50,
+   "tomato": 120,
+   "parsley": 5
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cottage_pear",
+  "name": "Творог со сметаной и грушей",
+  "name_ua": "Сир зі сметаною та грушею",
+  "meal": "завтрак",
+  "ing": {
+   "cottage": 180,
+   "sour_cream": 30,
+   "pear": 150,
+   "honey": 10
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "eggs_mushrooms",
+  "name": "Яичница с грибами и луком",
+  "name_ua": "Яєчня з грибами та цибулею",
+  "meal": "завтрак",
+  "ing": {
+   "eggs": 3,
+   "mushrooms": 100,
+   "onion": 30,
+   "sunflower_oil": 8,
+   "rye_bread": 50,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "rassolnik",
+  "name": "Рассольник",
+  "name_ua": "Розсольник",
+  "meal": "обед",
+  "ing": {
+   "chicken_thigh": 100,
+   "barley": 25,
+   "potato": 100,
+   "pickles": 60,
+   "carrot": 30,
+   "onion": 30,
+   "sunflower_oil": 8,
+   "sour_cream": 15,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pea_soup",
+  "name": "Гороховый суп с сосисками",
+  "name_ua": "Гороховий суп з сосисками",
+  "meal": "обед",
+  "ing": {
+   "split_peas": 70,
+   "potato": 80,
+   "carrot": 30,
+   "onion": 30,
+   "sausages": 50,
+   "sunflower_oil": 8,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "kapusniak",
+  "name": "Капустняк",
+  "name_ua": "Капусняк",
+  "meal": "обед",
+  "ing": {
+   "pork": 70,
+   "sauerkraut": 120,
+   "millet": 20,
+   "potato": 80,
+   "carrot": 30,
+   "onion": 30,
+   "sunflower_oil": 8,
+   "sour_cream": 20,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "fish_soup",
+  "name": "Уха из минтая",
+  "name_ua": "Юшка з минтаю",
+  "meal": "обед",
+  "ing": {
+   "pollock": 150,
+   "potato": 120,
+   "carrot": 30,
+   "onion": 30,
+   "millet": 15,
+   "dill": 3,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "meatball_soup",
+  "name": "Суп с фрикадельками",
+  "name_ua": "Суп з фрикадельками",
+  "meal": "обед",
+  "ing": {
+   "mince": 100,
+   "potato": 100,
+   "carrot": 30,
+   "onion": 40,
+   "rice": 15,
+   "dill": 3,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pumpkin_soup",
+  "name": "Тыквенный крем-суп",
+  "name_ua": "Гарбузовий крем-суп",
+  "meal": "обед",
+  "ing": {
+   "pumpkin": 250,
+   "potato": 80,
+   "onion": 40,
+   "carrot": 30,
+   "sour_cream": 30,
+   "sunflower_oil": 8,
+   "rye_bread": 40,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "buckwheat_soup",
+  "name": "Гречневый суп с курицей",
+  "name_ua": "Гречаний суп з куркою",
+  "meal": "обед",
+  "ing": {
+   "chicken_drumstick": 120,
+   "buckwheat": 30,
+   "potato": 80,
+   "carrot": 30,
+   "onion": 30,
+   "dill": 3,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "bulgur_turkey",
+  "name": "Булгур с индейкой и овощами",
+  "name_ua": "Булгур з індичкою та овочами",
+  "meal": "обед",
+  "ing": {
+   "bulgur": 80,
+   "turkey_fillet": 150,
+   "pepper": 60,
+   "onion": 40,
+   "carrot": 30,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pasta_chicken_cream",
+  "name": "Макароны с курицей в сметанном соусе",
+  "name_ua": "Макарони з куркою в сметанному соусі",
+  "meal": "обед",
+  "ing": {
+   "pasta": 90,
+   "chicken_fillet": 130,
+   "sour_cream": 40,
+   "onion": 30,
+   "cheese": 15,
+   "sunflower_oil": 8,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "barley_mushrooms",
+  "name": "Перловка с грибами",
+  "name_ua": "Перловка з грибами",
+  "meal": "обед",
+  "ing": {
+   "barley": 80,
+   "mushrooms": 150,
+   "onion": 50,
+   "carrot": 40,
+   "sunflower_oil": 12,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "chickpea_stew",
+  "name": "Нут, тушёный с овощами",
+  "name_ua": "Нут, тушкований з овочами",
+  "meal": "обед",
+  "ing": {
+   "chickpeas": 80,
+   "tomato": 120,
+   "onion": 40,
+   "carrot": 40,
+   "pepper": 60,
+   "garlic": 5,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "varenyky_potato",
+  "name": "Вареники с картошкой и жареным луком",
+  "name_ua": "Вареники з картоплею та підсмаженою цибулею",
+  "meal": "обед",
+  "ing": {
+   "dumplings_potato": 300,
+   "onion": 40,
+   "sunflower_oil": 10,
+   "sour_cream": 30
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pelmeni_sour_cream",
+  "name": "Пельмени со сметаной",
+  "name_ua": "Пельмені зі сметаною",
+  "meal": "обед",
+  "ing": {
+   "pelmeni": 280,
+   "sour_cream": 30,
+   "butter": 5
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "drumsticks_rice",
+  "name": "Куриные голени с рисом",
+  "name_ua": "Курячі гомілки з рисом",
+  "meal": "обед",
+  "ing": {
+   "chicken_drumstick": 200,
+   "rice": 80,
+   "carrot": 30,
+   "onion": 30,
+   "sunflower_oil": 8,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "holubtsi",
+  "name": "Голубцы",
+  "name_ua": "Голубці",
+  "meal": "обед",
+  "ing": {
+   "cabbage": 200,
+   "mince": 120,
+   "rice": 30,
+   "carrot": 30,
+   "onion": 30,
+   "tomato_paste": 20,
+   "sour_cream": 20,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "rice_beans",
+  "name": "Рис с фасолью и овощами",
+  "name_ua": "Рис з квасолею та овочами",
+  "meal": "обед",
+  "ing": {
+   "canned_beans": 150,
+   "rice": 70,
+   "onion": 40,
+   "pepper": 60,
+   "tomato_paste": 15,
+   "sunflower_oil": 8,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "mackerel_potato",
+  "name": "Скумбрия, запечённая с картофелем",
+  "name_ua": "Скумбрія, запечена з картоплею",
+  "meal": "ужин",
+  "ing": {
+   "mackerel": 200,
+   "potato": 250,
+   "onion": 30,
+   "sunflower_oil": 8,
+   "lemon": 10,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pollock_marinade",
+  "name": "Минтай под овощным маринадом с пюре",
+  "name_ua": "Минтай під овочевим маринадом з пюре",
+  "meal": "ужин",
+  "ing": {
+   "pollock": 200,
+   "carrot": 80,
+   "onion": 50,
+   "tomato_paste": 15,
+   "sunflower_oil": 12,
+   "potato": 200,
+   "milk": 40,
+   "butter": 5,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "turkey_broccoli_rice",
+  "name": "Индейка с брокколи и рисом",
+  "name_ua": "Індичка з броколі та рисом",
+  "meal": "ужин",
+  "ing": {
+   "turkey_fillet": 170,
+   "broccoli": 150,
+   "rice": 60,
+   "sunflower_oil": 8,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "sausages_mash",
+  "name": "Сосиски с пюре и огурцом",
+  "name_ua": "Сосиски з пюре та огірком",
+  "meal": "ужин",
+  "ing": {
+   "sausages": 150,
+   "potato": 250,
+   "milk": 50,
+   "butter": 10,
+   "pickles": 60,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "navy_pasta",
+  "name": "Макароны по-флотски",
+  "name_ua": "Макарони по-флотськи",
+  "meal": "ужин",
+  "ing": {
+   "pasta": 90,
+   "mince": 120,
+   "onion": 40,
+   "sunflower_oil": 8,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "chicken_cutlets_buckwheat",
+  "name": "Куриные котлеты с гречкой",
+  "name_ua": "Курячі котлети з гречкою",
+  "meal": "ужин",
+  "ing": {
+   "chicken_fillet": 160,
+   "onion": 30,
+   "eggs": 0.3,
+   "bread": 15,
+   "buckwheat": 70,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "eggplant_mince",
+  "name": "Рагу из баклажанов с фаршем",
+  "name_ua": "Рагу з баклажанів з фаршем",
+  "meal": "ужин",
+  "ing": {
+   "eggplant": 200,
+   "mince": 100,
+   "tomato": 100,
+   "onion": 40,
+   "pepper": 60,
+   "garlic": 5,
+   "sunflower_oil": 15,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "drumsticks_potato",
+  "name": "Голени, запечённые с картошкой",
+  "name_ua": "Гомілки, запечені з картоплею",
+  "meal": "ужин",
+  "ing": {
+   "chicken_drumstick": 220,
+   "potato": 250,
+   "onion": 30,
+   "garlic": 5,
+   "sunflower_oil": 8,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "chicken_veg_mix",
+  "name": "Курица с овощной смесью и рисом",
+  "name_ua": "Курка з овочевою сумішшю та рисом",
+  "meal": "ужин",
+  "ing": {
+   "chicken_fillet": 150,
+   "frozen_veg_mix": 200,
+   "rice": 50,
+   "sunflower_oil": 10,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "potato_mushrooms",
+  "name": "Жареная картошка с грибами",
+  "name_ua": "Смажена картопля з грибами",
+  "meal": "ужин",
+  "ing": {
+   "potato": 300,
+   "mushrooms": 150,
+   "onion": 50,
+   "sunflower_oil": 20,
+   "dill": 3,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cauliflower_bake",
+  "name": "Цветная капуста, запечённая с яйцом и сыром",
+  "name_ua": "Цвітна капуста, запечена з яйцем і сиром",
+  "meal": "ужин",
+  "ing": {
+   "cauliflower": 300,
+   "eggs": 2,
+   "cheese": 30,
+   "sour_cream": 30,
+   "salt": 2
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pork_goulash_barley",
+  "name": "Гуляш из свинины с перловкой",
+  "name_ua": "Гуляш зі свинини з перловкою",
+  "meal": "ужин",
+  "ing": {
+   "pork": 150,
+   "barley": 70,
+   "onion": 40,
+   "carrot": 30,
+   "tomato_paste": 15,
+   "sunflower_oil": 10,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "lobio",
+  "name": "Лобио с ржаным хлебом",
+  "name_ua": "Лобіо з житнім хлібом",
+  "meal": "ужин",
+  "ing": {
+   "canned_beans": 200,
+   "onion": 50,
+   "walnuts": 15,
+   "tomato_paste": 15,
+   "garlic": 5,
+   "parsley": 5,
+   "sunflower_oil": 10,
+   "rye_bread": 50,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "potato_mince_bake",
+  "name": "Картофельная запеканка с фаршем",
+  "name_ua": "Картопляна запіканка з фаршем",
+  "meal": "ужин",
+  "ing": {
+   "potato": 300,
+   "mince": 120,
+   "onion": 40,
+   "eggs": 0.5,
+   "cheese": 20,
+   "milk": 40,
+   "butter": 5,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "chicken_pilaf",
+  "name": "Плов с курицей",
+  "name_ua": "Плов з куркою",
+  "meal": "ужин",
+  "ing": {
+   "chicken_thigh": 150,
+   "rice": 90,
+   "carrot": 70,
+   "onion": 50,
+   "garlic": 8,
+   "sunflower_oil": 12,
+   "salt": 3
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "olivier",
+  "name": "Оливье",
+  "name_ua": "Олів'є",
+  "meal": "перекус",
+  "ing": {
+   "potato": 80,
+   "carrot": 30,
+   "eggs": 1,
+   "boiled_sausage": 50,
+   "pickles": 40,
+   "peas_canned": 40,
+   "mayonnaise": 25,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "crab_salad",
+  "name": "Крабовый салат",
+  "name_ua": "Крабовий салат",
+  "meal": "перекус",
+  "ing": {
+   "crab_sticks": 80,
+   "corn_canned": 50,
+   "eggs": 1,
+   "rice": 20,
+   "cucumber": 60,
+   "mayonnaise": 25
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "beet_walnut_salad",
+  "name": "Свёкла с чесноком и орехами",
+  "name_ua": "Буряк з часником і горіхами",
+  "meal": "перекус",
+  "ing": {
+   "beet": 150,
+   "walnuts": 15,
+   "garlic": 3,
+   "sour_cream": 25,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "herring_under_coat",
+  "name": "Сельдь под шубой",
+  "name_ua": "Оселедець під шубою",
+  "meal": "перекус",
+  "ing": {
+   "herring": 50,
+   "beet": 80,
+   "potato": 60,
+   "carrot": 40,
+   "eggs": 0.5,
+   "onion": 15,
+   "mayonnaise": 30
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "ryazhenka_cookies",
+  "name": "Ряженка с овсяным печеньем",
+  "name_ua": "Ряжанка з вівсяним печивом",
+  "meal": "перекус",
+  "ing": {
+   "ryazhenka": 250,
+   "oat_cookies": 40
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "pear_mandarins",
+  "name": "Груша и мандарины",
+  "name_ua": "Груша та мандарини",
+  "meal": "перекус",
+  "ing": {
+   "pear": 150,
+   "mandarin": 150
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "cottage_raisins",
+  "name": "Творог с изюмом и сметаной",
+  "name_ua": "Сир з родзинками та сметаною",
+  "meal": "перекус",
+  "ing": {
+   "cottage": 150,
+   "raisins": 25,
+   "sour_cream": 20,
+   "sugar": 5
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "berry_smoothie",
+  "name": "Смузи на кефире с ягодами и бананом",
+  "name_ua": "Смузі на кефірі з ягодами та бананом",
+  "meal": "перекус",
+  "ing": {
+   "kefir": 250,
+   "frozen_berries": 100,
+   "banana": 80,
+   "honey": 10
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "sardine_sandwich",
+  "name": "Бутерброд с сардиной и огурцом",
+  "name_ua": "Бутерброд із сардиною та огірком",
+  "meal": "перекус",
+  "ing": {
+   "rye_bread": 60,
+   "canned_sardines": 60,
+   "cucumber": 60
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "eggs_rye_greens",
+  "name": "Варёные яйца с ржаным хлебом и зелёным луком",
+  "name_ua": "Варені яйця з житнім хлібом і зеленою цибулею",
+  "meal": "перекус",
+  "ing": {
+   "eggs": 2,
+   "rye_bread": 40,
+   "butter": 5,
+   "green_onion": 10,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "eggplant_caviar",
+  "name": "Баклажанная икра с хлебом",
+  "name_ua": "Баклажанна ікра з хлібом",
+  "meal": "перекус",
+  "ing": {
+   "eggplant": 150,
+   "pepper": 50,
+   "tomato": 80,
+   "onion": 30,
+   "carrot": 30,
+   "sunflower_oil": 15,
+   "garlic": 3,
+   "bread": 50,
+   "salt": 1
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "brynza_veg",
+  "name": "Брынза с овощами",
+  "name_ua": "Бринза з овочами",
+  "meal": "перекус",
+  "ing": {
+   "brynza": 60,
+   "tomato": 120,
+   "cucumber": 100,
+   "pepper": 60,
+   "sunflower_oil": 10,
+   "parsley": 5
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "baked_apples",
+  "name": "Печёные яблоки с творогом и мёдом",
+  "name_ua": "Печені яблука з сиром і медом",
+  "meal": "перекус",
+  "ing": {
+   "apple": 250,
+   "cottage": 60,
+   "honey": 15,
+   "raisins": 10
+  },
+  "source": "типова домашня розкладка"
+ },
+ {
+  "id": "yogurt_banana_nuts",
+  "name": "Йогурт с бананом и орехами",
+  "name_ua": "Йогурт з бананом і горіхами",
+  "meal": "перекус",
+  "ing": {
+   "yogurt": 200,
+   "banana": 100,
+   "walnuts": 10
+  },
+  "source": "типова домашня розкладка"
+ }
+]
