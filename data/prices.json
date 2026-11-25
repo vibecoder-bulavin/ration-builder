@@ -26,14 +26,14 @@
   "varus": "ціни внесені вручну 23–24.11.2026, автозбору поки немає"
  },
  "stats": {
-  "silpo/kiev": {
-   "ok": 88,
-   "miss": 7,
-   "err": 0
-  },
   "novus/kiev": {
    "ok": 91,
    "miss": 4,
+   "err": 0
+  },
+  "silpo/kiev": {
+   "ok": 88,
+   "miss": 7,
    "err": 0
   },
   "fora/kiev": {
@@ -57,8 +57,8 @@
    "err": 0
   },
   "silpo/odesa": {
-   "ok": 88,
-   "miss": 7,
+   "ok": 89,
+   "miss": 6,
    "err": 0
   },
   "megamarket/kiev": {
@@ -72,8 +72,8 @@
    "err": 0
   },
   "silpo/dnipro": {
-   "ok": 86,
-   "miss": 9,
+   "ok": 87,
+   "miss": 8,
    "err": 0
   },
   "ekomarket/kiev": {
@@ -150,6 +150,14 @@
  "dropped_outliers": [
   {
    "city": "kiev",
+   "store": "novus",
+   "pid": "nuggets",
+   "price": 109,
+   "median": 324.75,
+   "title": "Нагетси Ситні заморожені"
+  },
+  {
+   "city": "kiev",
    "store": "silpo",
    "pid": "millet",
    "price": 136.25,
@@ -171,14 +179,6 @@
    "price": 123.75,
    "median": 28.8,
    "title": "Крупа манна Sacramento Кускус"
-  },
-  {
-   "city": "kiev",
-   "store": "novus",
-   "pid": "nuggets",
-   "price": 109,
-   "median": 324.75,
-   "title": "Нагетси Ситні заморожені"
   },
   {
    "city": "kiev",
@@ -329,7 +329,7 @@
    "store": "auchan",
    "pid": "potato",
    "price": 171.29,
-   "median": 16.5,
+   "median": 15.5,
    "title": "Картопля Auchan По-селянськи швидкозаморожена 700г"
   },
   {
@@ -441,7 +441,7 @@
    "store": "metro",
    "pid": "bread",
    "price": 318,
-   "median": 61.25,
+   "median": 59.86,
    "title": "Батончик Fine Life з арахісом, нугою та карамеллю глазурований 50г"
   },
   {
@@ -1843,7 +1843,7 @@
   "dnipro/silpo/beans": "2026-11-25",
   "dnipro/silpo/chicken_fillet": "2026-11-25",
   "dnipro/silpo/chicken_thigh": "2026-11-25",
-  "dnipro/silpo/mince": "2026-11-24",
+  "dnipro/silpo/mince": "2026-11-25",
   "dnipro/silpo/pork": "2026-11-24",
   "dnipro/silpo/beef": "2026-11-25",
   "dnipro/silpo/chicken_liver": "2026-11-25",
@@ -2744,7 +2744,8 @@
   "kharkiv/chudomarket/canned_tuna": "2026-11-25",
   "kharkiv/chudomarket/hummus": "2026-11-25",
   "kharkiv/chudomarket/tortilla": "2026-11-25",
-  "kharkiv/chudomarket/granola": "2026-11-25"
+  "kharkiv/chudomarket/granola": "2026-11-25",
+  "odesa/silpo/corn_grits": "2026-11-25"
  },
  "prices": {
   "kiev": {
@@ -2771,7 +2772,7 @@
     "sour_cream": 165.69,
     "cheese": 299,
     "butter": 416.61,
-    "yogurt": 196.98,
+    "yogurt": 109,
     "potato": 20,
     "carrot": 17,
     "onion": 20,
@@ -2808,7 +2809,7 @@
     "bulgur": 99,
     "chickpeas": 219.97,
     "canned_beans": 174.97,
-    "rye_bread": 78.38,
+    "rye_bread": 86.66,
     "lavash": 126.63,
     "ryazhenka": 62.47,
     "brynza": 759,
@@ -2909,7 +2910,7 @@
     "pickles": 88.63,
     "cauliflower": 89.99,
     "broccoli": 310,
-    "frozen_veg_mix": 194.97,
+    "frozen_veg_mix": 137.48,
     "pumpkin": 24.99,
     "eggplant": 84.99,
     "parsley": 479.8,
@@ -2953,8 +2954,8 @@
     "cheese": 429,
     "butter": 469.8,
     "yogurt": 125,
-    "potato": 25,
-    "carrot": 20.11,
+    "potato": 11.6,
+    "carrot": 14.8,
     "onion": 14.56,
     "cabbage": 14.5,
     "beet": 10.3,
@@ -3085,7 +3086,7 @@
     "split_peas": 27.5,
     "chickpeas": 90.4,
     "rye_bread": 57.5,
-    "lavash": 107.67,
+    "lavash": 86.96,
     "ryazhenka": 65.76,
     "mayonnaise": 141.07,
     "pickles": 119.72,
@@ -3136,7 +3137,7 @@
     "cheese": 472.5,
     "butter": 466.67,
     "yogurt": 146.25,
-    "potato": 16.5,
+    "potato": 20.5,
     "carrot": 20.5,
     "onion": 48,
     "cabbage": 36,
@@ -3180,7 +3181,7 @@
     "rye_bread": 82.11,
     "lavash": 118.57,
     "ryazhenka": 87.78,
-    "mayonnaise": 187.5,
+    "mayonnaise": 206.67,
     "pickles": 115.12,
     "cauliflower": 124,
     "broccoli": 308.75,
@@ -3229,7 +3230,7 @@
     "cheese": 472.5,
     "butter": 466.67,
     "yogurt": 146.25,
-    "potato": 16.5,
+    "potato": 20.5,
     "carrot": 20.5,
     "onion": 22.5,
     "cabbage": 36,
@@ -3273,7 +3274,7 @@
     "rye_bread": 82.11,
     "lavash": 118.57,
     "ryazhenka": 87.78,
-    "mayonnaise": 187.5,
+    "mayonnaise": 206.67,
     "pickles": 115.12,
     "cauliflower": 124,
     "broccoli": 308.75,
@@ -3563,7 +3564,7 @@
     "oats": 73.98,
     "pasta": 89.98,
     "flour": 22.99,
-    "bread": 67.17,
+    "bread": 54.97,
     "beans": 131.98,
     "chicken_fillet": 229,
     "chicken_thigh": 109,
@@ -3617,7 +3618,7 @@
     "bulgur": 99,
     "chickpeas": 139.98,
     "canned_beans": 131.98,
-    "rye_bread": 81.77,
+    "rye_bread": 53.25,
     "lavash": 116.19,
     "ryazhenka": 75.53,
     "brynza": 920,
@@ -3956,7 +3957,7 @@
     "mushrooms": 149,
     "sauerkraut": 77.77,
     "banana": 87.4,
-    "apple": 26,
+    "apple": 22,
     "orange": 98,
     "lemon": 86,
     "sunflower_oil": 91.16,
@@ -3976,6 +3977,7 @@
     "crab_sticks": 422.5,
     "dumplings_potato": 167.25,
     "pelmeni": 161.25,
+    "corn_grits": 74.36,
     "bulgur": 99,
     "split_peas": 35.54,
     "chickpeas": 139.98,
@@ -4026,7 +4028,7 @@
     "milk": 46.9,
     "kefir": 58.93,
     "cottage": 213,
-    "sour_cream": 159,
+    "sour_cream": 56.46,
     "cheese": 429,
     "butter": 469.8,
     "yogurt": 125,
@@ -4289,14 +4291,14 @@
     "millet": 79.99,
     "pasta": 59.99,
     "flour": 21.29,
-    "bread": 62.47,
+    "bread": 63.9,
     "beans": 131.98,
     "chicken_fillet": 338.9,
     "chicken_thigh": 109,
     "mince": 186.2,
     "pork": 257.4,
     "beef": 319,
-    "chicken_liver": 103.98,
+    "chicken_liver": 154,
     "hake": 319,
     "herring": 199,
     "eggs": 3.97,
@@ -4645,7 +4647,7 @@
     "hake": 394,
     "herring": 199,
     "eggs": 3.97,
-    "milk": 42.21,
+    "milk": 54.43,
     "kefir": 55.54,
     "cottage": 210.76,
     "sour_cream": 111.4,
@@ -4693,7 +4695,7 @@
     "lavash": 70.36,
     "ryazhenka": 75.53,
     "brynza": 759,
-    "mayonnaise": 88.21,
+    "mayonnaise": 119.98,
     "pickles": 134,
     "cauliflower": 93,
     "broccoli": 247.5,
@@ -4742,7 +4744,7 @@
     "cheese": 429,
     "butter": 469.8,
     "yogurt": 125,
-    "potato": 25,
+    "potato": 11.6,
     "carrot": 15.9,
     "onion": 19.76,
     "cabbage": 14.5,
@@ -4816,7 +4818,7 @@
     "millet": 51.4,
     "pasta": 43.25,
     "flour": 17.8,
-    "bread": 72.5,
+    "bread": 70.67,
     "lentils": 125.25,
     "beans": 91.8,
     "chicken_fillet": 236.2,
@@ -4828,7 +4830,7 @@
     "eggs": 5.73,
     "milk": 49.67,
     "kefir": 60.56,
-    "cottage": 295.45,
+    "cottage": 289.14,
     "sour_cream": 141.5,
     "cheese": 375.5,
     "butter": 463.89,
