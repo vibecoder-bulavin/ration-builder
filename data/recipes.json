@@ -11,7 +11,9 @@
    "salt": 1
   },
   "name_ua": "Вівсянка на молоці з бананом",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "buckwheat_milk",
@@ -25,7 +27,9 @@
    "salt": 1
   },
   "name_ua": "Гречка з молоком",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 20,
+  "batch": false
  },
  {
   "id": "millet_porridge",
@@ -39,7 +43,9 @@
    "salt": 1
   },
   "name_ua": "Пшоняна каша",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "omelette",
@@ -54,7 +60,9 @@
    "salt": 1
   },
   "name_ua": "Омлет з помідорами і сиром",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 15,
+  "batch": false
  },
  {
   "id": "fried_eggs_bread",
@@ -68,7 +76,9 @@
    "salt": 1
   },
   "name_ua": "Яєчня з хлібом і огірком",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "syrniki",
@@ -83,7 +93,9 @@
    "sour_cream": 30
   },
   "name_ua": "Сирники зі сметаною",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "cottage_yogurt",
@@ -97,7 +109,9 @@
    "honey": 10
   },
   "name_ua": "Сир з йогуртом, яблуком і горіхами",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "cheese_toast",
@@ -110,7 +124,9 @@
    "kefir": 250
   },
   "name_ua": "Бутерброди з маслом і сиром + кефір",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "borscht",
@@ -131,7 +147,9 @@
    "salt": 3
   },
   "name_ua": "Борщ",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 90,
+  "batch": true
  },
  {
   "id": "chicken_soup",
@@ -147,7 +165,9 @@
    "salt": 3
   },
   "name_ua": "Курячий суп з вермішеллю",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "lentil_soup",
@@ -164,7 +184,9 @@
    "salt": 3
   },
   "name_ua": "Суп-пюре з червоної сочевиці",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 40,
+  "batch": true
  },
  {
   "id": "bean_soup",
@@ -181,7 +203,9 @@
    "salt": 3
   },
   "name_ua": "Квасолевий суп",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 90,
+  "batch": true
  },
  {
   "id": "shchi",
@@ -198,7 +222,9 @@
    "salt": 2
   },
   "name_ua": "Капусняк з квашеної капусти",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 90,
+  "batch": true
  },
  {
   "id": "mushroom_soup",
@@ -215,7 +241,9 @@
    "salt": 3
   },
   "name_ua": "Грибний суп",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": true
  },
  {
   "id": "buckwheat_chicken",
@@ -230,7 +258,9 @@
    "salt": 2
   },
   "name_ua": "Гречка з курячим філе",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 35,
+  "batch": true
  },
  {
   "id": "rice_chicken_veg",
@@ -246,7 +276,9 @@
    "salt": 2
   },
   "name_ua": "Рис з куркою та овочами",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 35,
+  "batch": true
  },
  {
   "id": "pasta_bolognese",
@@ -263,7 +295,9 @@
    "salt": 2
   },
   "name_ua": "Макарони з фаршем у томаті",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": true
  },
  {
   "id": "cutlets_mash",
@@ -281,7 +315,9 @@
    "salt": 3
   },
   "name_ua": "Котлети з картопляним пюре",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "pilaf",
@@ -297,7 +333,9 @@
    "salt": 3
   },
   "name_ua": "Плов зі свининою",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 75,
+  "batch": true
  },
  {
   "id": "cabbage_stew",
@@ -313,7 +351,9 @@
    "salt": 3
   },
   "name_ua": "Тушкована капуста з куркою",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "fish_potato",
@@ -330,7 +370,9 @@
    "salt": 3
   },
   "name_ua": "Запечений хек з картоплею",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": false
  },
  {
   "id": "liver_buckwheat",
@@ -345,7 +387,9 @@
    "salt": 2
   },
   "name_ua": "Печінка в сметані з гречкою",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 35,
+  "batch": false
  },
  {
   "id": "stuffed_pepper",
@@ -362,7 +406,9 @@
    "salt": 2
   },
   "name_ua": "Фарширований перець",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 75,
+  "batch": true
  },
  {
   "id": "zucchini_stew",
@@ -379,7 +425,9 @@
    "salt": 3
   },
   "name_ua": "Овочеве рагу з кабачком",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": true
  },
  {
   "id": "beef_stew_potato",
@@ -395,7 +443,9 @@
    "salt": 3
   },
   "name_ua": "Тушкована яловичина з картоплею",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 100,
+  "batch": true
  },
  {
   "id": "herring_potato",
@@ -410,7 +460,9 @@
    "salt": 2
   },
   "name_ua": "Картопля з оселедцем і цибулею",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "pancakes",
@@ -426,7 +478,9 @@
    "sour_cream": 20
   },
   "name_ua": "Млинці з сиром",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": false
  },
  {
   "id": "veg_salad",
@@ -441,7 +495,9 @@
    "salt": 1
   },
   "name_ua": "Салат з помідорів і огірків",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "vinegret",
@@ -458,7 +514,9 @@
    "salt": 1
   },
   "name_ua": "Вінегрет",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "olivier_light",
@@ -473,7 +531,9 @@
    "salt": 1
   },
   "name_ua": "Салат з куркою, яйцем і кукурудзою",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "cabbage_salad",
@@ -488,7 +548,9 @@
    "salt": 1
   },
   "name_ua": "Салат з капусти з морквою",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "kefir_fruit",
@@ -500,7 +562,9 @@
    "orange": 150
   },
   "name_ua": "Кефір з бананом і апельсином",
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 3,
+  "batch": false
  },
  {
   "id": "semolina_porridge",
@@ -514,7 +578,9 @@
    "sugar": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 15,
+  "batch": false
  },
  {
   "id": "rice_milk_porridge",
@@ -528,7 +594,9 @@
    "sugar": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 35,
+  "batch": false
  },
  {
   "id": "corn_pumpkin_porridge",
@@ -543,7 +611,9 @@
    "sugar": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": false
  },
  {
   "id": "millet_pumpkin",
@@ -558,7 +628,9 @@
    "sugar": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": false
  },
  {
   "id": "oat_berries",
@@ -572,7 +644,9 @@
    "honey": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "oat_apple_raisins",
@@ -586,7 +660,9 @@
    "honey": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "eggs_sausages",
@@ -600,7 +676,9 @@
    "sunflower_oil": 5,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "sausage_sandwich",
@@ -613,7 +691,9 @@
    "cucumber": 80,
    "butter": 5
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "cottage_casserole",
@@ -628,7 +708,9 @@
    "raisins": 15,
    "sour_cream": 20
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "lazy_vareniki",
@@ -643,7 +725,9 @@
    "butter": 5,
    "sour_cream": 30
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "omelette_broccoli",
@@ -658,7 +742,9 @@
    "sunflower_oil": 5,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 15,
+  "batch": false
  },
  {
   "id": "crepes_honey",
@@ -674,7 +760,9 @@
    "honey": 20,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 40,
+  "batch": false
  },
  {
   "id": "oladyi_apple",
@@ -690,7 +778,9 @@
    "sunflower_oil": 15,
    "sour_cream": 20
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "buckwheat_eggs",
@@ -704,7 +794,9 @@
    "butter": 5,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 25,
+  "batch": false
  },
  {
   "id": "lavash_brynza",
@@ -717,7 +809,9 @@
    "tomato": 120,
    "parsley": 5
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "cottage_pear",
@@ -730,7 +824,9 @@
    "pear": 150,
    "honey": 10
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "eggs_mushrooms",
@@ -745,7 +841,9 @@
    "rye_bread": 50,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 20,
+  "batch": false
  },
  {
   "id": "rassolnik",
@@ -763,7 +861,9 @@
    "sour_cream": 15,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 70,
+  "batch": true
  },
  {
   "id": "pea_soup",
@@ -779,7 +879,9 @@
    "sunflower_oil": 8,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 80,
+  "batch": true
  },
  {
   "id": "kapusniak",
@@ -797,7 +899,9 @@
    "sour_cream": 20,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 70,
+  "batch": true
  },
  {
   "id": "fish_soup",
@@ -813,7 +917,9 @@
    "dill": 3,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 40,
+  "batch": true
  },
  {
   "id": "meatball_soup",
@@ -829,7 +935,9 @@
    "dill": 3,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "pumpkin_soup",
@@ -846,7 +954,9 @@
    "rye_bread": 40,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": true
  },
  {
   "id": "buckwheat_soup",
@@ -862,7 +972,9 @@
    "dill": 3,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "bulgur_turkey",
@@ -878,7 +990,9 @@
    "sunflower_oil": 10,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 35,
+  "batch": true
  },
  {
   "id": "pasta_chicken_cream",
@@ -894,7 +1008,9 @@
    "sunflower_oil": 8,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": true
  },
  {
   "id": "barley_mushrooms",
@@ -909,7 +1025,9 @@
    "sunflower_oil": 12,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "chickpea_stew",
@@ -926,7 +1044,9 @@
    "sunflower_oil": 10,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "varenyky_potato",
@@ -939,7 +1059,9 @@
    "sunflower_oil": 10,
    "sour_cream": 30
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 20,
+  "batch": false
  },
  {
   "id": "pelmeni_sour_cream",
@@ -951,7 +1073,9 @@
    "sour_cream": 30,
    "butter": 5
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 15,
+  "batch": false
  },
  {
   "id": "drumsticks_rice",
@@ -966,7 +1090,9 @@
    "sunflower_oil": 8,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "holubtsi",
@@ -983,7 +1109,9 @@
    "sour_cream": 20,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 100,
+  "batch": true
  },
  {
   "id": "rice_beans",
@@ -999,7 +1127,9 @@
    "sunflower_oil": 8,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": true
  },
  {
   "id": "mackerel_potato",
@@ -1014,7 +1144,9 @@
    "lemon": 10,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 55,
+  "batch": false
  },
  {
   "id": "pollock_marinade",
@@ -1032,7 +1164,9 @@
    "butter": 5,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "turkey_broccoli_rice",
@@ -1046,7 +1180,9 @@
    "sunflower_oil": 8,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "sausages_mash",
@@ -1061,7 +1197,9 @@
    "pickles": 60,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "navy_pasta",
@@ -1075,7 +1213,9 @@
    "sunflower_oil": 8,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 25,
+  "batch": true
  },
  {
   "id": "chicken_cutlets_buckwheat",
@@ -1091,7 +1231,9 @@
    "sunflower_oil": 10,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 45,
+  "batch": true
  },
  {
   "id": "eggplant_mince",
@@ -1108,7 +1250,9 @@
    "sunflower_oil": 15,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "drumsticks_potato",
@@ -1123,7 +1267,9 @@
    "sunflower_oil": 8,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": false
  },
  {
   "id": "chicken_veg_mix",
@@ -1137,7 +1283,9 @@
    "sunflower_oil": 10,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 25,
+  "batch": false
  },
  {
   "id": "potato_mushrooms",
@@ -1152,7 +1300,9 @@
    "dill": 3,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 35,
+  "batch": false
  },
  {
   "id": "cauliflower_bake",
@@ -1166,7 +1316,9 @@
    "sour_cream": 30,
    "salt": 2
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 40,
+  "batch": false
  },
  {
   "id": "pork_goulash_barley",
@@ -1182,7 +1334,9 @@
    "sunflower_oil": 10,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 90,
+  "batch": true
  },
  {
   "id": "lobio",
@@ -1200,7 +1354,9 @@
    "rye_bread": 50,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 25,
+  "batch": true
  },
  {
   "id": "potato_mince_bake",
@@ -1217,7 +1373,9 @@
    "butter": 5,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "chicken_pilaf",
@@ -1233,7 +1391,9 @@
    "sunflower_oil": 12,
    "salt": 3
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "olivier",
@@ -1250,7 +1410,9 @@
    "mayonnaise": 25,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "crab_salad",
@@ -1265,7 +1427,9 @@
    "cucumber": 60,
    "mayonnaise": 25
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "beet_walnut_salad",
@@ -1279,7 +1443,9 @@
    "sour_cream": 25,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 50,
+  "batch": true
  },
  {
   "id": "herring_under_coat",
@@ -1295,7 +1461,9 @@
    "onion": 15,
    "mayonnaise": 30
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 75,
+  "batch": true
  },
  {
   "id": "ryazhenka_cookies",
@@ -1306,7 +1474,9 @@
    "ryazhenka": 250,
    "oat_cookies": 40
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 1,
+  "batch": false
  },
  {
   "id": "pear_mandarins",
@@ -1317,7 +1487,9 @@
    "pear": 150,
    "mandarin": 150
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 2,
+  "batch": false
  },
  {
   "id": "cottage_raisins",
@@ -1330,7 +1502,9 @@
    "sour_cream": 20,
    "sugar": 5
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 3,
+  "batch": false
  },
  {
   "id": "berry_smoothie",
@@ -1343,7 +1517,9 @@
    "banana": 80,
    "honey": 10
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "sardine_sandwich",
@@ -1355,7 +1531,9 @@
    "canned_sardines": 60,
    "cucumber": 60
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 5,
+  "batch": false
  },
  {
   "id": "eggs_rye_greens",
@@ -1369,7 +1547,9 @@
    "green_onion": 10,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 15,
+  "batch": false
  },
  {
   "id": "eggplant_caviar",
@@ -1387,7 +1567,9 @@
    "bread": 50,
    "salt": 1
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 60,
+  "batch": true
  },
  {
   "id": "brynza_veg",
@@ -1402,7 +1584,9 @@
    "sunflower_oil": 10,
    "parsley": 5
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 10,
+  "batch": false
  },
  {
   "id": "baked_apples",
@@ -1415,7 +1599,9 @@
    "honey": 15,
    "raisins": 10
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 30,
+  "batch": false
  },
  {
   "id": "yogurt_banana_nuts",
@@ -1427,6 +1613,222 @@
    "banana": 100,
    "walnuts": 10
   },
-  "source": "типова домашня розкладка"
+  "source": "типова домашня розкладка",
+  "time": 3,
+  "batch": false
+ },
+ {
+  "id": "syrnyky_ready",
+  "name": "Сырники (заморозка) со сметаной",
+  "meal": "завтрак",
+  "ing": {
+   "syrnyky_frozen": 200,
+   "sour_cream": 30,
+   "sunflower_oil": 5
+  },
+  "name_ua": "Сирники заморожені зі сметаною",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 12,
+  "batch": false
+ },
+ {
+  "id": "granola_yogurt",
+  "name": "Гранола с йогуртом и бананом",
+  "meal": "завтрак",
+  "ing": {
+   "granola": 60,
+   "yogurt": 200,
+   "banana": 80
+  },
+  "name_ua": "Гранола з йогуртом і бананом",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 2,
+  "batch": false
+ },
+ {
+  "id": "tortilla_eggs",
+  "name": "Тортилья с яйцом, сыром и помидором",
+  "meal": "завтрак",
+  "ing": {
+   "tortilla": 70,
+   "eggs": 2,
+   "cheese": 20,
+   "tomato": 80,
+   "sunflower_oil": 5,
+   "salt": 1
+  },
+  "name_ua": "Тортилья з яйцем, сиром і помідором",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 10,
+  "batch": false
+ },
+ {
+  "id": "hummus_toast",
+  "name": "Тосты с хумусом и огурцом",
+  "meal": "завтрак",
+  "ing": {
+   "rye_bread": 80,
+   "hummus": 60,
+   "cucumber": 100
+  },
+  "name_ua": "Тости з хумусом і огірком",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 5,
+  "batch": false
+ },
+ {
+  "id": "vareniki_cottage_sc",
+  "name": "Вареники с творогом и сметаной",
+  "meal": "обед",
+  "ing": {
+   "vareniki_cottage": 300,
+   "sour_cream": 40,
+   "butter": 5
+  },
+  "name_ua": "Вареники з сиром і сметаною",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 15,
+  "batch": false
+ },
+ {
+  "id": "crepes_meat_sc",
+  "name": "Блинчики с мясом (заморозка) со сметаной",
+  "meal": "обед",
+  "ing": {
+   "crepes_meat": 280,
+   "sour_cream": 40,
+   "sunflower_oil": 5
+  },
+  "name_ua": "Млинці з м'ясом (заморожені) зі сметаною",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 12,
+  "batch": false
+ },
+ {
+  "id": "tuna_pasta",
+  "name": "Макароны с тунцом и помидорами",
+  "meal": "обед",
+  "ing": {
+   "pasta": 100,
+   "canned_tuna": 90,
+   "tomato": 100,
+   "cheese": 15,
+   "sunflower_oil": 5,
+   "salt": 2
+  },
+  "name_ua": "Макарони з тунцем і помідорами",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 20,
+  "batch": true
+ },
+ {
+  "id": "chicken_wrap",
+  "name": "Ролл в тортилье с курицей и овощами",
+  "meal": "обед",
+  "ing": {
+   "tortilla": 80,
+   "chicken_fillet": 130,
+   "tomato": 70,
+   "cucumber": 70,
+   "yogurt": 40,
+   "sunflower_oil": 5,
+   "salt": 1
+  },
+  "name_ua": "Рол у тортильї з куркою та овочами",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 25,
+  "batch": false
+ },
+ {
+  "id": "cutlets_ready_buckwheat",
+  "name": "Куриные котлеты (заморозка) с гречкой",
+  "meal": "ужин",
+  "ing": {
+   "chicken_cutlets_frozen": 200,
+   "buckwheat": 70,
+   "cucumber": 80,
+   "sunflower_oil": 8,
+   "salt": 1
+  },
+  "name_ua": "Курячі котлети (заморожені) з гречкою",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 25,
+  "batch": true
+ },
+ {
+  "id": "fish_fingers_rice",
+  "name": "Рыбные палочки с рисом и овощами",
+  "meal": "ужин",
+  "ing": {
+   "fish_fingers": 180,
+   "rice": 70,
+   "frozen_veg_mix": 150,
+   "sunflower_oil": 10,
+   "salt": 1
+  },
+  "name_ua": "Рибні палички з рисом і овочами",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 25,
+  "batch": false
+ },
+ {
+  "id": "nuggets_veg",
+  "name": "Наггетсы с овощной смесью",
+  "meal": "ужин",
+  "ing": {
+   "nuggets": 180,
+   "frozen_veg_mix": 200,
+   "sunflower_oil": 10,
+   "salt": 1
+  },
+  "name_ua": "Нагетси з овочевою сумішшю",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 20,
+  "batch": false
+ },
+ {
+  "id": "tuna_egg_salad",
+  "name": "Салат с тунцом, яйцом и овощами",
+  "meal": "ужин",
+  "ing": {
+   "canned_tuna": 110,
+   "eggs": 2,
+   "cucumber": 120,
+   "tomato": 120,
+   "rye_bread": 60,
+   "sunflower_oil": 10,
+   "salt": 1
+  },
+  "name_ua": "Салат з тунцем, яйцем і овочами",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 15,
+  "batch": false
+ },
+ {
+  "id": "hummus_veg",
+  "name": "Хумус с огурцом и перцем",
+  "meal": "перекус",
+  "ing": {
+   "hummus": 70,
+   "cucumber": 100,
+   "pepper": 80
+  },
+  "name_ua": "Хумус з огірком і перцем",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 5,
+  "batch": false
+ },
+ {
+  "id": "granola_kefir",
+  "name": "Кефир с гранолой",
+  "meal": "перекус",
+  "ing": {
+   "granola": 45,
+   "kefir": 200
+  },
+  "name_ua": "Кефір з гранолою",
+  "source": "швидка розкладка з напівфабрикатів",
+  "time": 2,
+  "batch": false
  }
 ]

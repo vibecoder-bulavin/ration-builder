@@ -25,7 +25,7 @@ const data = {
   recipes: recipes.map((r) => {
     let kcal = 0, prot = 0;
     for (const [pid, q] of Object.entries(r.ing)) { const g = grams(pid, q); kcal += P[pid].kcal * g / 100; prot += P[pid].p * g / 100; }
-    return { id: r.id, meal: r.meal, ing: r.ing, kcal: Math.round(kcal), p: +prot.toFixed(1) };
+    return { id: r.id, meal: r.meal, ing: r.ing, kcal: Math.round(kcal), p: +prot.toFixed(1), t: r.time || 30, b: !!r.batch };
   }),
   names: Object.fromEntries(recipes.map((r) => [r.id, r.name_ua])),
 };
