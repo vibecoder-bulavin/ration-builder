@@ -24,7 +24,8 @@ const LIMIT = args.limit ? +args.limit : Infinity;
 const DRY = !!args.dry;
 const KEEP_DAYS = 7;
 
-const products = JSON.parse(fs.readFileSync(D('products.json'), 'utf8')).slice(0, LIMIT);
+const IDS = args.ids ? new Set(String(args.ids).split(',')) : null;   // --ids=a,b — перевірка збігу для окремих продуктів, нічого не пише
+const products = JSON.parse(fs.readFileSync(D('products.json'), 'utf8')).filter((p) => !IDS || IDS.has(p.id)).slice(0, LIMIT);
 const sources = JSON.parse(fs.readFileSync(D('sources.json'), 'utf8'));
 const prev = JSON.parse(fs.readFileSync(D('prices.json'), 'utf8'));
 const today = new Date().toISOString().slice(0, 10);
@@ -173,6 +174,11 @@ const prevCount = ONLY.reduce((n, src) => n + cities.reduce((m, c) => m + Object
 log(`свіжих цін: ${fresh}, було: ${prevCount}, відкинуто як помилки збігу: ${dropped.length}`);
 for (const d of dropped.slice(0, 20)) log('  відкинуто', d.city, d.store, d.pid, d.price, 'медіана', d.median, '·', d.title);
 
+if (IDS) {
+  for (const pid of IDS) for (const c in out) for (const st in out[c]) { const v = out[c][st][pid]; if (v) log('збіг', pid, c, st, v.price, 'грн/кг|шт', '·', v.title, '·', v.pack, v.packPrice); }
+  for (const pid of IDS) log('магазинів зі збігом', pid, Object.values(out).reduce((n, x) => n + Object.values(x).filter((y) => y[pid]).length, 0));
+  log('--ids: нічого не записую'); process.exit(0);
+}
 if (DRY) { log('--dry: нічого не записую'); process.exit(0); }
 if (LIMIT !== Infinity || CITY) { log('часткова перевірка (--limit/--city): нічого не записую'); process.exit(0); }
 if (prevCount && fresh < prevCount * 0.3) {
