@@ -128,6 +128,32 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .meta .tm{white-space:nowrap}
 .meta .tm.re{color:var(--accent)}
 .alts .am{color:var(--muted);font-weight:400}
+
+/* До першого «Скласти раціон» видно лише форму */
+.wrap.pre{grid-template-columns:minmax(0,560px);justify-content:center}
+.wrap.pre .result,.wrap.pre #reroll{display:none}
+.wrap.pre form.panel{position:static}
+/* Екран очікування з анкетою */
+.fb{position:fixed;inset:0;z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(4px);overflow:auto;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.fbbox{max-width:560px;margin:4vh auto;padding:22px;display:flex;flex-direction:column;gap:18px}
+.fbbox h2{font-family:var(--display);font-weight:500;font-size:19px;margin:0;line-height:1.3}
+.fbbox .hint{margin:-10px 0 0}
+.fbbox legend{font-weight:600;font-size:14.5px;margin-bottom:8px}
+.fbbox legend small{font-weight:400;color:var(--muted)}
+.fbbox textarea{font:inherit;width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel);color:var(--ink);resize:vertical}
+.fbwait{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--muted)}
+.fbwait.done{color:var(--accent);font-weight:600}
+.spin{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);border-top-color:var(--accent);animation:sp 0.8s linear infinite;flex:none}
+.fbwait.done .spin{display:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+.fbact{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.fbact .btn:disabled{opacity:.45;cursor:not-allowed}
+.fbact .linkbtn{font:inherit;font-size:14px;border:0;background:none;color:var(--muted);cursor:pointer;padding:8px 4px;text-decoration:underline}
+#form.busy{opacity:.6;pointer-events:none}
+.fb .chip span{padding:8px 12px;font-size:14px}
+@media (max-width:520px){ .fbbox{padding:16px;margin:0 auto} .fbact .btn{width:100%} .fbact{justify-content:center} }
+@media (prefers-reduced-motion:reduce){.spin{animation:none}}
 .result{transition:opacity .15s}
 .result.busy{opacity:.55;pointer-events:none}
 .tabs button{font:inherit;text-align:left;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
@@ -182,7 +208,7 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
   <span class="sub" id="srcline">Ціни оновлюються щодня</span>
 </header>
 
-<div class="wrap">
+<div class="wrap pre" id="wrap">
   <form class="panel" id="form" novalidate>
     <fieldset>
       <legend><span class="n">01</span>Місто</legend>
@@ -246,6 +272,56 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
     <div class="days" id="days"></div>
     <p class="foot">Порції масштабуються під калорійність вашої родини: «≈ 2,5 порції» означає, що страву готуємо на 2,5 дорослої порції. Список покупок рахує вагу за рецептами; упаковки в магазині можуть бути трохи більшими.</p>
   </section>
+</div>
+<div class="fb" id="fb" hidden role="dialog" aria-modal="true" aria-labelledby="fbt">
+  <form class="fbbox panel" id="fbform">
+    <div class="fbwait"><span class="spin" aria-hidden="true"></span><span id="fbstatus">Складаємо раціон під ваш бюджет…</span></div>
+    <h2 id="fbt">4 коротких питання, поки готуємо ваш раціон</h2>
+    <p class="hint">Сервіс у тестуванні. Ваші відповіді напряму впливають на те, що ми зробимо далі.</p>
+    <fieldset><legend>Що для вас найважливіше? <small>можна кілька</small></legend>
+      <div class="chips" data-q="goal" data-multi>
+        <label class="chip"><input type="checkbox" value="save"><span>Зекономити</span></label>
+        <label class="chip"><input type="checkbox" value="no_think"><span>Не думати, що готувати</span></label>
+        <label class="chip"><input type="checkbox" value="fast"><span>Готувати швидко</span></label>
+        <label class="chip"><input type="checkbox" value="healthy"><span>Їсти здоровіше</span></label>
+        <label class="chip"><input type="checkbox" value="shopping"><span>Зручний список покупок</span></label>
+      </div></fieldset>
+    <fieldset><legend>Де зазвичай купуєте продукти? <small>можна кілька</small></legend>
+      <div class="chips" data-q="stores" data-multi>
+        <label class="chip"><input type="checkbox" value="atb"><span>АТБ</span></label>
+        <label class="chip"><input type="checkbox" value="silpo"><span>Сільпо</span></label>
+        <label class="chip"><input type="checkbox" value="novus"><span>Novus</span></label>
+        <label class="chip"><input type="checkbox" value="varus"><span>Varus</span></label>
+        <label class="chip"><input type="checkbox" value="fora"><span>Фора</span></label>
+        <label class="chip"><input type="checkbox" value="auchan_metro"><span>Auchan / Metro</span></label>
+        <label class="chip"><input type="checkbox" value="market"><span>Ринок</span></label>
+        <label class="chip"><input type="checkbox" value="delivery"><span>Доставка</span></label>
+        <label class="chip"><input type="checkbox" value="other"><span>Інше</span></label>
+      </div></fieldset>
+    <fieldset><legend>Скільки родина витрачає на продукти за тиждень?</legend>
+      <div class="chips" data-q="spend">
+        <label class="chip"><input type="radio" name="spend" value="lt1000"><span>до 1 000 грн</span></label>
+        <label class="chip"><input type="radio" name="spend" value="1000_2000"><span>1–2 тис.</span></label>
+        <label class="chip"><input type="radio" name="spend" value="2000_3500"><span>2–3,5 тис.</span></label>
+        <label class="chip"><input type="radio" name="spend" value="3500_5000"><span>3,5–5 тис.</span></label>
+        <label class="chip"><input type="radio" name="spend" value="gt5000"><span>понад 5 тис.</span></label>
+        <label class="chip"><input type="radio" name="spend" value="unknown"><span>Не знаю</span></label>
+      </div></fieldset>
+    <fieldset><legend>Як ви зараз вирішуєте, що готувати й купувати?</legend>
+      <div class="chips" data-q="now">
+        <label class="chip"><input type="radio" name="now" value="improvise"><span>Вирішую в магазині</span></label>
+        <label class="chip"><input type="radio" name="now" value="head"><span>Список у голові</span></label>
+        <label class="chip"><input type="radio" name="now" value="notes"><span>Пишу список у нотатках</span></label>
+        <label class="chip"><input type="radio" name="now" value="plan"><span>Планую меню на тиждень</span></label>
+        <label class="chip"><input type="radio" name="now" value="app"><span>Користуюсь застосунком</span></label>
+      </div></fieldset>
+    <fieldset><legend><label for="fbtext">Що б ви хотіли від такого сервісу? <small>необовʼязково</small></label></legend>
+      <textarea id="fbtext" rows="2" maxlength="600" placeholder="Наприклад: рецепти з покроковими фото, меню для дитини, доставка…"></textarea></fieldset>
+    <div class="fbact">
+      <button class="btn" type="submit" id="fbsend" disabled>Надіслати й показати раціон</button>
+      <button class="linkbtn" type="button" id="fbskip" hidden>Пропустити</button>
+    </div>
+  </form>
 </div>
 
 <script>
@@ -378,7 +454,8 @@ const fmtTime=min=>min<60?`${Math.round(min)} хв`:`${(Math.round(min/30)/2).to
 // Перерахунок важкий (сотні тисяч варіантів), тому після тапу спершу даємо браузеру
 // намалювати зміну, а рахуємо, коли користувач перестав клацати.
 let schedT=null, schedKeep=false;
-function schedule(keep,wait){ schedKeep=schedKeep||!!keep; $(".result").classList.add("busy"); clearTimeout(schedT);
+let revealed=false;
+function schedule(keep,wait){ if(!revealed){ save(readForm()); return; } schedKeep=schedKeep||!!keep; $(".result").classList.add("busy"); clearTimeout(schedT);
   schedT=setTimeout(()=>requestAnimationFrame(()=>setTimeout(()=>{ const k=schedKeep; schedKeep=false; build(k); $(".result").classList.remove("busy"); },0)), wait??300); }
 let buildReason="load", trackT=null;
 function build(keep){
@@ -489,7 +566,7 @@ function build(keep){
 }
 // Форма змінюється по кліку, тож шлемо одну подію після паузи, а не на кожен «+».
 function mobileBar(){
-  const bar=$("#mbar"); if(!ctx||!plans.eco.length){ bar.hidden=true; return; }
+  const bar=$("#mbar"); if(!revealed||!ctx||!plans.eco.length){ bar.hidden=true; return; }
   const f=ctx.f, t=buyCost(plans[variant],f);
   $("#mbt").textContent=`${fmt(t)} грн`;
   $("#mbs").textContent=`${VN[variant]} · ${f.days===7?"тиждень":f.days===1?"день":f.days+" дні"}${t>f.budget?" · понад бюджет":""}`;
@@ -654,7 +731,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#copyshop")){ track("shopping_list_copied",{variant,mode:shopMode}); const t=shopText(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$("#copied").textContent="Скопійовано";},()=>{$("#copied").textContent="Не вдалося скопіювати";}); return; }
   const v=e.target.closest("[data-variant]"); if(v){ variant=v.dataset.variant; openAlt=null; track("variant_selected",{variant}); render(); }
 });
-$("#form").addEventListener("submit",e=>{e.preventDefault(); schedule(false,0);});
+$("#form").addEventListener("submit",e=>{e.preventDefault(); if(revealed){ schedule(false,0); return; } firstPlan();});
 $("#form").addEventListener("change",()=>schedule());
 $("#reroll").addEventListener("click",()=>{
   if(plans.eco.length){ for(const k of ["eco","opt","fast"]){ hist[k].unshift(snapshot(plans[k])); hist[k].length=Math.min(3,hist[k].length); } }
@@ -665,9 +742,31 @@ if(matchMedia("(max-width:860px)").matches) $("#exd").open=false;
 $("#mbgo").addEventListener("click",()=>{ track("mobile_bar_clicked",{action:sumState==="above"?"shop":"results"});
   if(sumState==="above"){ if(!shopOpen){ shopOpen=true; track("shopping_list_opened",{variant,mode:shopMode,from:"mobile_bar"}); render(); } $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); }
   else $("#summary").scrollIntoView({behavior:"smooth",block:"start"}); });
-$("#form").addEventListener("submit",()=>{ if(matchMedia("(max-width:860px)").matches) setTimeout(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"}),50); });
+$("#form").addEventListener("submit",()=>{ if(revealed && matchMedia("(max-width:860px)").matches) setTimeout(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"}),400); });
 if("IntersectionObserver" in window){ new IntersectionObserver(es=>{ const e=es[es.length-1]; sumState=e.isIntersecting?"in":(e.boundingClientRect.top<0?"above":"below"); mobileBar(); },{rootMargin:"0px 0px -25% 0px"}).observe($("#summary")); }
-load(); exCount(); build();
+// Перший раз: рахуємо план у фоні, а поки показуємо коротку анкету (один раз на людину).
+let fbDone=false; try{ fbDone=!!localStorage.getItem("ration-fb"); }catch(e){}
+function reveal(){ revealed=true; $("#wrap").classList.remove("pre"); render(); mobileBar();
+  requestAnimationFrame(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"})); }
+function firstPlan(){
+  track("plan_requested",{feedback_before:fbDone});
+  if(fbDone){ $("#form").classList.add("busy"); setTimeout(()=>{ build(); reveal(); $("#form").classList.remove("busy"); },30); return; }
+  const fb=$("#fb"); fb.hidden=false; document.body.style.overflow="hidden"; const shownAt=Date.now();
+  track("feedback_shown");
+  setTimeout(()=>{ $("#fbskip").hidden=false; },5000);
+  setTimeout(()=>{ build(); $("#fbstatus").textContent="✓ Раціон готовий: відповідайте й дивіться"; $(".fbwait").classList.add("done"); },350);
+  const answers=()=>{ const o={}; fb.querySelectorAll("[data-q]").forEach(g=>{ const v=[...g.querySelectorAll("input:checked")].map(i=>i.value); o[g.dataset.q]=g.hasAttribute("data-multi")?v.join(","):(v[0]||""); }); o.comment=$("#fbtext").value.trim(); return o; };
+  const upd=()=>{ const a=answers(); $("#fbsend").disabled=!(a.goal||a.stores||a.spend||a.now||a.comment); };
+  fb.addEventListener("change",upd); $("#fbtext").addEventListener("input",upd);
+  const close=(how)=>{ fb.hidden=true; document.body.style.overflow=""; fbDone=true; try{ localStorage.setItem("ration-fb",how); }catch(e){}
+    if(!plans.eco.length) build(); reveal(); };
+  $("#fbform").addEventListener("submit",e=>{ e.preventDefault(); const a=answers();
+    track("feedback_submitted",{...a, seconds:Math.round((Date.now()-shownAt)/1000), city:ctx?.f.city, budget:ctx?.f.budget, people:ctx?(ctx.f.people.men+ctx.f.people.women+ctx.f.people.kids):null});
+    close("sent"); });
+  $("#fbskip").addEventListener("click",()=>{ track("feedback_skipped",{seconds:Math.round((Date.now()-shownAt)/1000)}); close("skipped"); });
+  setTimeout(()=>fb.querySelector("input")?.focus({preventScroll:true}),50);
+}
+load(); exCount();
 </script>
 </body>
 </html>
