@@ -65,6 +65,9 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .btn.ghost{background:transparent;color:var(--accent)}
 .btn.small{padding:6px 10px;font-size:13px}
 .result{display:flex;flex-direction:column;gap:16px;min-width:0}
+.savebar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:13px;color:var(--muted);margin-bottom:-6px}
+.savebar #savetxt{flex:1 1 200px}
+.savebar .btn{flex:none}
 .shopbar{grid-column:1/-1;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .shop{padding:18px 20px}
 .shop h2{font-family:var(--display);font-weight:500;font-size:20px;margin:0 0 4px}
@@ -306,6 +309,7 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
   <div class="mbar" id="mbar" hidden><div class="mt"><b id="mbt"></b><span id="mbs"></span></div><button type="button" class="btn" id="mbgo">До раціону ↓</button></div>
 
   <section class="result" aria-live="polite">
+    <div class="savebar" id="savebar" hidden><span id="savetxt"></span><button type="button" class="btn ghost small" id="sharebtn" data-share>Зберегти посиланням</button><span class="cmp" id="sharemsg" aria-live="polite"></span></div>
     <div class="panel summary" id="summary"></div>
     <div class="panel shop" id="shop" hidden></div>
     <div class="days" id="days"></div>
@@ -433,14 +437,16 @@ function readForm(){
   const ex=new Set(), soft=new Set(); EXCL.forEach(([,ids,,sf],i)=>{ if($("#ex-"+i).checked) ids.forEach(x=>(sf?soft:ex).add(x)); });
   return {city,people,stores,ex,soft,budget:Math.max(0,+$("#budget").value||0),days:+$("#period").value,meals:Object.fromEntries(MEALS.map(([m])=>[m,$("#ml-"+m).checked])),snack:$("#ml-перекус").checked};
 }
-function save(f){ try{ localStorage.setItem("ration-form",JSON.stringify({...f,ex:[...f.ex],soft:[...f.soft],exN:EXCL.filter((_,i)=>$("#ex-"+i).checked).map(([n])=>n)})) }catch(e){} }
-function load(){ try{ const f=JSON.parse(localStorage.getItem("ration-form")||"null"); if(!f) return;
+function formObj(f){ return {...f,ex:[...f.ex],soft:[...f.soft],exN:EXCL.filter((_,i)=>$("#ex-"+i).checked).map(([n])=>n)}; }
+function save(f){ try{ localStorage.setItem("ration-form",JSON.stringify(formObj(f))) }catch(e){} }
+function load(){ try{ applyForm(JSON.parse(localStorage.getItem("ration-form")||"null")); }catch(e){} }
+function applyForm(f){ if(!f) return;
   for(const k of ["men","women","kids"]) $("#"+k).textContent=f.people[k];
   if(f.city && DATA.prices[f.city]){ $("#city").value=f.city; } renderStores(f.stores && f.stores.length ? f.stores : null);
   if(f.exN) EXCL.forEach(([n],i)=>{ $("#ex-"+i).checked=f.exN.includes(n); });
   $("#budget").value=f.budget; $("#period").value=String(f.days);
   if(f.meals) MEALS.forEach(([m])=>{ if(m in f.meals) $("#ml-"+m).checked=f.meals[m]; }); else if(f.snack===false) $("#ml-перекус").checked=false;
-}catch(e){} }
+}
 
 // Типові упаковки (г / мл / шт). null = ваговий товар, беремо скільки треба.
 // PANTRY: довго зберігається, залишок не страшний (лишається в шафі).
@@ -529,11 +535,8 @@ let revealed=false;
 function schedule(keep,wait){ if(!revealed){ save(readForm()); return; } schedKeep=schedKeep||!!keep; $(".result").classList.add("busy"); clearTimeout(schedT);
   schedT=setTimeout(()=>requestAnimationFrame(()=>setTimeout(()=>{ const k=schedKeep; schedKeep=false; build(k); $(".result").classList.remove("busy"); },0)), wait??300); }
 let buildReason="load", trackT=null;
-function build(keep){
-  if(!keep){ hist={eco:[],opt:[],fast:[]}; }
-  QC=new Map();   // якість залежить від seed, тож кеш скидаємо на кожен перерахунок
-  const f=readForm(); save(f);
-  const HE=histW(hist.eco), HO=histW(hist.opt), HF=histW(hist.fast);
+// Кандидати на кожен прийом їжі з цінами вибраних магазинів (потрібні і для складання, і для відновлення плану).
+function makeCtx(f){
   const fullKcal=f.people.men*KCAL.men+f.people.women*KCAL.women+f.people.kids*KCAL.kids;
   const share=f.snack?SHARE4:SHARE3; const meals=MEALS.filter(([m])=>share[m]&&f.meals[m]);
   const cover=meals.reduce((a,[m])=>a+share[m],0); const dayKcal=fullKcal*cover;
@@ -542,7 +545,14 @@ function build(keep){
     cand[m]=DATA.recipes.filter(r=>r.meal===m).map(r0=>{ const r=soften(r0,f.soft); const i=recipeInfo(r,f); if(!i) return null;
       const serv=fullKcal*share[m]/r.kcal; return {r,serv,cost:i.cost*serv};}).filter(Boolean).sort((a,b)=>a.cost-b.cost||a.r.id.localeCompare(b.r.id));
   }
-  ctx={f,dayKcal,fullKcal,cover,share,meals,cand};
+  return {f,dayKcal,fullKcal,cover,share,meals,cand};
+}
+function build(keep){
+  if(!keep){ hist={eco:[],opt:[],fast:[]}; }
+  QC=new Map();   // якість залежить від seed, тож кеш скидаємо на кожен перерахунок
+  const f=readForm(); save(f);
+  const HE=histW(hist.eco), HO=histW(hist.opt), HF=histW(hist.fast);
+  ctx=makeCtx(f); const {dayKcal,fullKcal,meals,cand}=ctx;
   plans={eco:[],opt:[],fast:[]};
   if(!dayKcal || !f.stores.length || meals.some(([m])=>!cand[m].length)){ render(); return; }
 
@@ -687,7 +697,7 @@ function build(keep){
   };
   repair(opt,qo,Math.max(f.budget,total),optDs,3); repair(fast,qf,fcap,(p,di,m,c,U)=>fastDs(p,di,m,c,U,HF),3);
   fitPortions(opt,qo,Math.max(f.budget,total)); fitPortions(fast,qf,fcap);
-  plans={eco,opt,fast};
+  plans={eco,opt,fast}; planAt=Date.now(); planFrom=null;
   openAlt=null; render();
   trackPlan(); mobileBar();
 }
@@ -772,7 +782,8 @@ function byDept(items){ return DEPTS.map(([k,n])=>[n,items.filter(i=>deptOf(i.pi
 let checks={}; try{ checks=JSON.parse(localStorage.getItem("ration-checks")||"{}")||{}; }catch(e){ checks={}; }
 const ckKey=(s,i)=>`${s}|${i.pid}|${Math.round(i.buy)}`;
 function saveChecks(){ try{ localStorage.setItem("ration-checks",JSON.stringify(checks)); }catch(e){} }
-function renderShop(){
+function renderShop(){ renderShop0(); savePlan(); }
+function renderShop0(){
   const box=$("#shop");
   if(!shopOpen || !ctx || !plans[variant].length){ box.hidden=true; box.innerHTML=""; return; }
   const {f}=ctx; const {res,st,q}=shopping(); const P=DATA.prices[f.city]||{};
@@ -802,7 +813,7 @@ function renderShop(){
     ${a.miss.length?`<div class="note warn">Немає в цих магазинах: ${a.miss.map(p=>PN[p]).join(", ")}.</div>`:""}
     <div class="tot"><span>Разом</span><span>${fmt(a.total)} грн</span></div>
     ${lefts.length?`<div class="leftover"><h3>Залишиться після ${f.days===1?"дня":"тижня"}</h3><ul>${lefts.map(l=>`<li><span>${PN[l.pid]} <small>${PANTRY.has(l.pid)?"· у шафі":"· краще доїсти за 2–3 дні"}</small></span><span>${fmtAmt(l.pid,l.left)}</span></li>`).join("")}</ul></div>`:`<p class="cmp">Усе, що купили, зʼїдається повністю.</p>`}
-    <div class="shopbar" style="margin-top:12px"><button type="button" class="btn ghost small" id="copyshop">Скопіювати список</button><span class="cmp" id="copied" aria-live="polite"></span></div>`;
+    <div class="shopbar" style="margin-top:12px"><button type="button" class="btn ghost small" id="copyshop">Скопіювати список</button><button type="button" class="btn ghost small" data-share>Зберегти посиланням</button><span class="cmp" id="copied" aria-live="polite"></span></div>`;
 }
 function shopText(){
   const a=shopping().res[shopMode];
@@ -820,7 +831,7 @@ document.addEventListener("change",e=>{
   if(n && !$("#ckreset")) cc.insertAdjacentHTML("afterend",`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`);
 });
 
-function render(){ renderMain(); mobileBar(); }
+function render(){ renderMain(); mobileBar(); saveBar(); savePlan(); }
 function renderMain(){
   const {f,dayKcal,meals,cand}=ctx;
   const S=$("#summary"), D=$("#days"); $("#shop").hidden=true;
@@ -898,10 +909,48 @@ $("#mbgo").addEventListener("click",()=>{ if(!revealed){ track("mobile_bar_click
   else $("#summary").scrollIntoView({behavior:"smooth",block:"start"}); });
 $("#form").addEventListener("submit",()=>{ if(revealed && matchMedia("(max-width:860px)").matches) setTimeout(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"}),400); });
 if("IntersectionObserver" in window){ new IntersectionObserver(es=>{ const e=es[es.length-1]; sumState=e.isIntersecting?"in":(e.boundingClientRect.top<0?"above":"below"); mobileBar(); },{rootMargin:"0px 0px -25% 0px"}).observe($("#summary")); }
+// ===== Збереження плану =====
+// План (з замінами страв, переносами між магазинами) лежить у браузері і відкривається таким самим.
+// «Зберегти посиланням» зашиває план у посилання, щоб відкрити на іншому телефоні або переслати.
+const PLAN_KEY="ration-plan";
+let planAt=null, planFrom=null;
+const encP=(p,ms)=>p.map(d=>ms.map(m=>{ const x=d[m]; return x.r.id+(x.k&&x.k!==1?"*"+x.k:""); }).join(",")).join(";");
+function decP(str,c){ const ms=c.meals.map(([m])=>m); const out=[];
+  for(const ds of String(str||"").split(";")){ const parts=ds.split(","); if(parts.length!==ms.length) return null; const day={};
+    for(let j=0;j<ms.length;j++){ const [id,k]=parts[j].split("*"); const x=c.cand[ms[j]].find(o=>o.r.id===id); if(!x) return null; day[ms[j]]=k?{...x,k:+k}:x; }
+    out.push(day); }
+  return out.length===c.f.days?out:null; }
+function planState(){ const ms=ctx.meals.map(([m])=>m);
+  return {v:1,at:planAt||Date.now(),f:formObj(ctx.f),seed,variant,mode:shopMode,open:shopOpen,sel:shopSel?[...shopSel]:null,moved,
+    p:{eco:encP(plans.eco,ms),opt:encP(plans.opt,ms),fast:encP(plans.fast,ms)}}; }
+function savePlan(){ if(!revealed||!ctx||!plans.eco.length) return; if(!planAt) planAt=Date.now();
+  try{ localStorage.setItem(PLAN_KEY,JSON.stringify(planState())); }catch(e){} }
+function restorePlan(st){ try{
+  if(!st||st.v!==1) return false;
+  applyForm(st.f); exCount(); const f=readForm(); if(!f.stores.length) return false;
+  const c=makeCtx(f); const pl={}; for(const v of ["eco","opt","fast"]){ pl[v]=decP(st.p[v],c); if(!pl[v]) return false; }
+  ctx=c; plans=pl; seed=st.seed||1; variant=st.variant||"opt"; shopMode=st.mode||"cheap"; shopOpen=!!st.open; shopSel=st.sel?new Set(st.sel):null; moved=st.moved||{};
+  planAt=st.at||Date.now(); return true; }catch(e){ return false; } }
+function saveBar(){ const b=$("#savebar"); if(!revealed||!ctx||!plans.eco.length){ b.hidden=true; return; } b.hidden=false;
+  const d=new Date(planAt||Date.now()).toLocaleDateString("uk-UA",{day:"numeric",month:"long"});
+  $("#savetxt").textContent = planFrom==="link" ? `Раціон з посилання (від ${d}) · ціни на сьогодні` : planFrom==="saved" ? `Ваш збережений раціон від ${d} · ціни на сьогодні` : "✓ Раціон зберігається на цьому пристрої"; }
+const b64u={ enc:u8=>btoa(String.fromCharCode(...u8)).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""),
+  dec:s=>Uint8Array.from(atob(s.replace(/-/g,"+").replace(/_/g,"/")),ch=>ch.charCodeAt(0)) };
+async function zip(str,dir){ const S=dir?CompressionStream:DecompressionStream; const st=new Blob([str]).stream().pipeThrough(new S("deflate-raw")); return new Uint8Array(await new Response(st).arrayBuffer()); }
+async function planLink(){ const st=planState(); delete st.moved; if(Object.keys(moved).length) st.moved=moved; const json=JSON.stringify(st);
+  let tok; try{ tok="z"+b64u.enc(await zip(new TextEncoder().encode(json),true)); }catch(e){ tok="j"+b64u.enc(new TextEncoder().encode(json)); }
+  return location.origin+location.pathname+"#p="+tok; }
+async function readLink(tok){ const raw=b64u.dec(tok.slice(1)); const bytes=tok[0]==="z"?await zip(raw,false):raw; return JSON.parse(new TextDecoder().decode(bytes)); }
+document.addEventListener("click",async e=>{ const sb=e.target.closest("[data-share]"); if(!sb) return; const url=await planLink();
+  const msg=sb.id==="sharebtn"?$("#sharemsg"):$("#copied");
+  track("plan_link_shared",{variant,len:url.length,native:!!navigator.share,from:sb.id==="sharebtn"?"top":"shop"});
+  if(navigator.share){ try{ await navigator.share({title:"Мій раціон",text:"Раціон і список покупок",url}); msg.textContent=""; return; }catch(e){ if(e&&e.name==="AbortError") return; } }
+  try{ await navigator.clipboard.writeText(url); msg.textContent="Посилання скопійовано: збережіть його або надішліть собі"; }catch(e){ prompt("Скопіюйте посилання на раціон:",url); } });
+
 // Перший раз: рахуємо план у фоні, а поки показуємо коротку анкету (один раз на людину).
 let fbDone=false; try{ fbDone=!!localStorage.getItem("ration-fb"); }catch(e){}
 function reveal(){ revealed=true; $("#wrap").classList.remove("pre"); render(); mobileBar();
-  requestAnimationFrame(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"})); }
+  requestAnimationFrame(()=>$(planFrom?"#savebar":"#summary").scrollIntoView({behavior:"smooth",block:"start"})); }
 function firstPlan(){
   if(!readForm().stores.length){ $("#storeerr").hidden=false; $("#stores").scrollIntoView({behavior:"smooth",block:"center"}); track("plan_blocked_no_stores"); return; }
   track("plan_requested",{feedback_before:fbDone});
@@ -922,6 +971,15 @@ function firstPlan(){
   setTimeout(()=>fb.querySelector("input")?.focus({preventScroll:true}),50);
 }
 load(); exCount(); mobileBar();
+(async()=>{
+  const h=location.hash;
+  if(h.startsWith("#p=")){ let ok=false; try{ ok=restorePlan(await readLink(h.slice(3))); }catch(e){}
+    history.replaceState(null,"",location.pathname+location.search);
+    track("plan_link_opened",{ok});
+    if(ok){ planFrom="link"; fbDone=true; reveal(); return; } }
+  let st=null; try{ st=JSON.parse(localStorage.getItem(PLAN_KEY)||"null"); }catch(e){}
+  if(st && restorePlan(st)){ planFrom="saved"; track("plan_restored",{age_h:Math.round((Date.now()-planAt)/36e5)}); reveal(); }
+})();
 </script>
 </body>
 </html>
