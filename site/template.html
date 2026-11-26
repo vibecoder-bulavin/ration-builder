@@ -206,6 +206,7 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .exd summary::-webkit-details-marker{display:none}
 .exd summary::after{content:"▾";margin-left:auto;color:var(--muted);transition:transform .2s}
 .exd:not([open]) summary::after{transform:rotate(-90deg)}
+.exlead{margin:0 0 10px}
 .exn{color:var(--accent);font-weight:500;font-size:13px}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
 .mbar{display:none}
@@ -271,8 +272,15 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
       <p class="hint">Обідаєте на роботі? Зніміть «Обід», і ми не купуватимемо на нього продукти.</p>
     </fieldset>
 
+    <fieldset class="exf">
+      <legend><span class="n">03</span>Не хочу в раціоні <span class="exn" id="exn"></span></legend>
+      <p class="hint exlead">Алергія чи просто не любите? Позначте, і ми не покладемо це в раціон.</p>
+      <div class="chips" id="excl"></div>
+      <p class="hint">Цибулю, часник, зелень і цукор просто приберемо зі страв, а страви залишимо.</p>
+    </fieldset>
+
     <fieldset>
-      <legend><span class="n">03</span>Бюджет, грн</legend>
+      <legend><span class="n">04</span>Бюджет, грн</legend>
       <div class="budget">
         <input type="number" id="budget" min="0" step="50" value="2500" aria-label="Бюджет, грн">
         <select id="period" aria-label="Період">
@@ -284,18 +292,10 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
     </fieldset>
 
     <fieldset>
-      <legend><span class="n">04</span>Де купуємо</legend>
+      <legend><span class="n">05</span>Де купуємо</legend>
       <div class="chips" id="stores"></div>
       <p class="hint">Позначте магазини, де вам зручно купувати. Кожен продукт рахуємо там, де він дешевший серед вибраних.</p>
       <p class="note warn" id="storeerr" hidden>Оберіть хоча б один магазин, і ми складемо раціон.</p>
-    </fieldset>
-
-    <fieldset>
-      <details class="exd" id="exd" open>
-        <summary><span class="n">05</span>Не хочу в раціоні <span class="exn" id="exn"></span></summary>
-        <div class="chips" id="excl"></div>
-        <p class="hint">Цибулю, часник, зелень і цукор просто приберемо зі страв, а страви залишимо.</p>
-      </details>
     </fieldset>
 
     <div class="actions">
@@ -848,7 +848,6 @@ $("#reroll").addEventListener("click",()=>{
   seed=2+Math.floor(Math.random()*100000); buildReason="reroll"; track("other_variant_clicked",{variant,n:hist.eco.length}); schedule(true,0); });
 function exCount(){ const n=EXCL.filter((_,i)=>$("#ex-"+i).checked).length; $("#exn").textContent=n?`· ${n}`:""; }
 $("#excl").addEventListener("change",exCount);
-if(matchMedia("(max-width:860px)").matches) $("#exd").open=false;
 $("#mbgo").addEventListener("click",()=>{ if(!revealed){ track("mobile_bar_clicked",{action:"build"}); firstPlan(); return; }
   track("mobile_bar_clicked",{action:sumState==="above"?"shop":"results"});
   if(sumState==="above"){ if(!shopOpen){ shopOpen=true; track("shopping_list_opened",{variant,mode:shopMode,from:"mobile_bar"}); render(); } $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); }
