@@ -128,6 +128,8 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .meta .tm{white-space:nowrap}
 .meta .tm.re{color:var(--accent)}
 .alts .am{color:var(--muted);font-weight:400}
+.result{transition:opacity .15s}
+.result.busy{opacity:.55;pointer-events:none}
 .tabs button{font:inherit;text-align:left;display:flex;flex-direction:column;gap:2px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .tabs button span{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
 .tabs button[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft)}
@@ -299,7 +301,7 @@ $("#city").addEventListener("change",()=>{ renderStores(null); });
 renderStores(null);
 $("#excl").innerHTML = EXCL.map(([n],i)=>`<label class="chip ex"><input type="checkbox" id="ex-${i}" value="${i}"><span>${n}</span></label>`).join("");
 document.querySelectorAll(".step button").forEach(b=>b.addEventListener("click",()=>{
-  const o=$("#"+b.dataset.t); o.value = o.textContent = Math.max(0,Math.min(9,(+o.textContent)+(+b.dataset.d))); build();
+  const o=$("#"+b.dataset.t); o.value = o.textContent = Math.max(0,Math.min(9,(+o.textContent)+(+b.dataset.d))); schedule();
 }));
 
 function readForm(){
@@ -350,34 +352,38 @@ function slotsCost(p){ return p.reduce((s,d)=>s+Object.values(d).reduce((a,x)=>a
 // Якість страви: білок на 100 ккал (+ невеликий детермінований зсув для кнопки «Інший варіант»)
 function quality(c){ const base=c.r.p/c.r.kcal*100; if(seed<2) return base; const h=[...c.r.id].reduce((a,ch)=>(a*31+ch.charCodeAt(0)+seed)%9973,7); return base+(h/9973-.5)*2; }
 // Оцінка плану: якість страв мінус штрафи за повтори
-function planScore(p,meals){
-  let s=0;
-  for(const [m] of meals){
-    const uses={};
-    p.forEach((d,i)=>{ const x=d[m]; s+=quality(x); uses[x.r.id]=(uses[x.r.id]||0)+1;
-      if(i>0 && p[i-1][m].r.id===x.r.id) s-=6; });
-    for(const k in uses) s-=4*(uses[k]-1);
-  }
-  return s;
-}
+// Оцінки рахуємо по «колонці» прийому їжі: заміна страви в обіді не змінює оцінку сніданків,
+// тож при переборі кандидатів перераховуємо лише одну колонку (на телефоні це в рази швидше).
+let QC=new Map();
+const q=x=>{ let v=QC.get(x.r.id); if(v===undefined){ v=quality(x); QC.set(x.r.id,v); } return v; };
+function optCol(p,m){ let s=0; const uses={};
+  for(let i=0;i<p.length;i++){ const x=p[i][m]; s+=q(x); uses[x.r.id]=(uses[x.r.id]||0)+1; if(i>0 && p[i-1][m].r.id===x.r.id) s-=6; }
+  for(const k in uses) s-=4*(uses[k]-1);
+  return s; }
+function planScore(p,meals){ let s=0; for(const [m] of meals) s+=optCol(p,m); return s; }
 
 // Час на кухні: страву «на 2 дні» (суп, рагу, плов) другого дня лише розігріваємо.
 const REHEAT=5;
 function slotTime(p,di,m){ const x=p[di][m]; return x.r.b && di>0 && p[di-1][m].r.id===x.r.id ? REHEAT : x.r.t; }
 function planTime(p){ let t=0; p.forEach((d,di)=>{ for(const m in d) t+=slotTime(p,di,m); }); return t; }
-function fastScore(p,meals,H){ let s=-planTime(p);
-  for(const [m] of meals){ const uses={};
-    p.forEach((d,i)=>{ const x=d[m]; uses[x.r.id]=(uses[x.r.id]||0)+1; s+=quality(x);
-      if(i>0 && p[i-1][m].r.id===x.r.id && !x.r.b) s-=12;
-      if(i>1 && p[i-1][m].r.id===x.r.id && p[i-2][m].r.id===x.r.id) s-=25; });
-    for(const k in uses){ if(uses[k]>2) s-=15*(uses[k]-2); s-=SD_OPT*2*(H.d[k]||0)*uses[k]; }
-  }
+function fastCol(p,m,H){ let s=0; const uses={};
+  for(let i=0;i<p.length;i++){ const x=p[i][m]; uses[x.r.id]=(uses[x.r.id]||0)+1; s+=q(x)-slotTime(p,i,m);
+    if(i>0 && p[i-1][m].r.id===x.r.id && !x.r.b) s-=12;
+    if(i>1 && p[i-1][m].r.id===x.r.id && p[i-2][m].r.id===x.r.id) s-=25; }
+  for(const k in uses){ if(uses[k]>2) s-=15*(uses[k]-2); s-=SD_OPT*2*(H.d[k]||0)*uses[k]; }
   return s; }
+function fastScore(p,meals,H){ let s=0; for(const [m] of meals) s+=fastCol(p,m,H); return s; }
 const VN={eco:"Економ",opt:"Оптимальний",fast:"Швидкий"};
 const fmtTime=min=>min<60?`${Math.round(min)} хв`:`${(Math.round(min/30)/2).toLocaleString("uk-UA")} год`;
+// Перерахунок важкий (сотні тисяч варіантів), тому після тапу спершу даємо браузеру
+// намалювати зміну, а рахуємо, коли користувач перестав клацати.
+let schedT=null, schedKeep=false;
+function schedule(keep,wait){ schedKeep=schedKeep||!!keep; $(".result").classList.add("busy"); clearTimeout(schedT);
+  schedT=setTimeout(()=>requestAnimationFrame(()=>setTimeout(()=>{ const k=schedKeep; schedKeep=false; build(k); $(".result").classList.remove("busy"); },0)), wait??300); }
 let buildReason="load", trackT=null;
 function build(keep){
   if(!keep){ hist={eco:[],opt:[],fast:[]}; }
+  QC=new Map();   // якість залежить від seed, тож кеш скидаємо на кожен перерахунок
   const f=readForm(); save(f);
   const HE=histW(hist.eco), HO=histW(hist.opt), HF=histW(hist.fast);
   const fullKcal=f.people.men*KCAL.men+f.people.women*KCAL.women+f.people.kids*KCAL.kids;
@@ -403,8 +409,12 @@ function build(keep){
   const PC={}; for(const pid in PR){ const b=bestPrice(f,pid,f.stores); if(b) PC[pid]=b.p; }
   const buyC=(pid,n)=> n<=1e-9||PC[pid]==null ? 0 : money(pid,buyQty(pid,n),PC[pid]);
   const objC=(pid,n)=>{ const c=buyC(pid,n)+(n>1e-9?PP_ECO*(HE.p[pid]||0):0); if(n<=1e-9||!PACK[pid]||PANTRY.has(pid)||PC[pid]==null) return c; return c+money(pid,buyQty(pid,n)-n,PC[pid]); };
-  const amt=x=>{ const o={}, k=(x.k||1)*x.serv; for(const pid in x.r.ing) o[pid]=x.r.ing[pid]*k; return o; };
-  const delta=(q,ox,nx,fn)=>{ const ao=amt(ox), an=amt(nx); let d=0; for(const pid of new Set([...Object.keys(ao),...Object.keys(an)])){ const n0=q[pid]||0, n1=n0-(ao[pid]||0)+(an[pid]||0); d+=fn(pid,n1)-fn(pid,n0); } return d; };
+  const AC=new WeakMap();
+  const amt=x=>{ let o=AC.get(x); if(o) return o; o={}; const k=(x.k||1)*x.serv; for(const pid in x.r.ing) o[pid]=x.r.ing[pid]*k; AC.set(x,o); return o; };
+  const delta=(q,ox,nx,fn)=>{ const ao=amt(ox), an=amt(nx); let d=0;
+    for(const pid in ao){ const n0=q[pid]||0, n1=n0-ao[pid]+(an[pid]||0); d+=fn(pid,n1)-fn(pid,n0); }
+    for(const pid in an){ if(pid in ao) continue; const n0=q[pid]||0; d+=fn(pid,n0+an[pid])-fn(pid,n0); }
+    return d; };
   const apply=(q,ox,nx)=>{ const ao=amt(ox), an=amt(nx); for(const pid in ao) q[pid]=(q[pid]||0)-ao[pid]; for(const pid in an) q[pid]=(q[pid]||0)+an[pid]; };
   // Економ: міняємо страви і підганяємо порції (80–125%), мінімізуючи закупівлю
   // + вартість недоїдених швидкопсувних продуктів. Калорії дня ±8% від норми.
@@ -431,17 +441,18 @@ function build(keep){
   // поки вартість закупівлі по цілих упаковках влазить у бюджет.
   const opt=ecoBase.map(d=>({...d}));
   const qo=needs(opt);
-  const presO=(pid,n)=> n>1e-9 ? -SP_OPT*(HO.p[pid]||0) : 0;
+  const presO=(pid,n)=> n>1e-9 ? -SP_OPT*(HO.p[pid]||0) : 0; const hasPres=Object.keys(HO.p).length>0;
   let total=Object.entries(qo).reduce((s,[pid,n])=>s+buyC(pid,n),0), score=planScore(opt,meals), guard=300;
   while(guard--){
-    let best=null;
+    let best=null; const col0=Object.fromEntries(meals.map(([m])=>[m,optCol(opt,m)]));
     opt.forEach((d,di)=>meals.forEach(([m])=>{
       const cur=d[m];
       for(const c of cand[m]){
         if(c.r.id===cur.r.id) continue;
-        const dc=delta(qo,cur,c,buyC); const nt=total+dc; if(nt>f.budget) continue;
-        d[m]=c; const ds=planScore(opt,meals)-score - SD_OPT*((HO.d[c.r.id]||0)-(HO.d[cur.r.id]||0)) + delta(qo,cur,c,presO); d[m]=cur;
+        // спершу дешева оцінка якості, і лише для кандидатів, що покращують план, рахуємо вартість
+        d[m]=c; const ds=optCol(opt,m)-col0[m] - SD_OPT*((HO.d[c.r.id]||0)-(HO.d[cur.r.id]||0)) + (hasPres?delta(qo,cur,c,presO):0); d[m]=cur;
         if(ds<=0.01) continue;
+        const dc=delta(qo,cur,c,buyC); const nt=total+dc; if(nt>f.budget) continue;
         const ratio = dc<=0 ? 1e9+ds-dc : ds/dc;
         if(!best||ratio>best.ratio) best={di,m,c,ratio,nt,ds};
       }
@@ -457,14 +468,14 @@ function build(keep){
   let ftotal=Object.entries(qf).reduce((s,[pid,n])=>s+buyC(pid,n),0), fscore=fastScore(fast,meals,HF);
   const fcap=Math.max(f.budget,ftotal); guard=400;
   while(guard--){
-    let best=null;
+    let best=null; const fcol0=Object.fromEntries(meals.map(([m])=>[m,fastCol(fast,m,HF)]));
     fast.forEach((d,di)=>meals.forEach(([m])=>{
       const cur=d[m];
       for(const c of cand[m]){
         if(c.r.id===cur.r.id) continue;
-        const dc=delta(qf,cur,c,buyC); const nt=ftotal+dc; if(nt>fcap && dc>0) continue;
-        d[m]=c; const ds=fastScore(fast,meals,HF)-fscore; d[m]=cur;
+        d[m]=c; const ds=fastCol(fast,m,HF)-fcol0[m]; d[m]=cur;
         if(ds<=0.5) continue;
+        const dc=delta(qf,cur,c,buyC); const nt=ftotal+dc; if(nt>fcap && dc>0) continue;
         const ratio = dc<=0 ? 1e9+ds-dc : ds/dc;
         if(!best||ratio>best.ratio) best={di,m,c,ratio,nt};
       }
@@ -643,11 +654,11 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#copyshop")){ track("shopping_list_copied",{variant,mode:shopMode}); const t=shopText(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$("#copied").textContent="Скопійовано";},()=>{$("#copied").textContent="Не вдалося скопіювати";}); return; }
   const v=e.target.closest("[data-variant]"); if(v){ variant=v.dataset.variant; openAlt=null; track("variant_selected",{variant}); render(); }
 });
-$("#form").addEventListener("submit",e=>{e.preventDefault(); build();});
-$("#form").addEventListener("change",()=>build());
+$("#form").addEventListener("submit",e=>{e.preventDefault(); schedule(false,0);});
+$("#form").addEventListener("change",()=>schedule());
 $("#reroll").addEventListener("click",()=>{
   if(plans.eco.length){ for(const k of ["eco","opt","fast"]){ hist[k].unshift(snapshot(plans[k])); hist[k].length=Math.min(3,hist[k].length); } }
-  seed=2+Math.floor(Math.random()*100000); buildReason="reroll"; track("other_variant_clicked",{variant,n:hist.eco.length}); build(true); });
+  seed=2+Math.floor(Math.random()*100000); buildReason="reroll"; track("other_variant_clicked",{variant,n:hist.eco.length}); schedule(true,0); });
 function exCount(){ const n=EXCL.filter((_,i)=>$("#ex-"+i).checked).length; $("#exn").textContent=n?`· ${n}`:""; }
 $("#excl").addEventListener("change",exCount);
 if(matchMedia("(max-width:860px)").matches) $("#exd").open=false;
