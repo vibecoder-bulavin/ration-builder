@@ -127,7 +127,44 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .sublabel{font-size:13px;color:var(--muted);margin-top:6px}
 .meta .tm{white-space:nowrap}
 .meta .tm.re{color:var(--accent)}
+
+.shopsel{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 0}
+.shopsel .lbl{font-size:13px;color:var(--muted);margin-right:2px}
+.shop .tip{margin:2px 0 6px;font-size:12.5px}
+.items li.ck{grid-template-columns:auto 1fr auto auto auto}
+.mvb{font:inherit;font-size:15px;width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;margin-left:6px}
+.mvb[aria-expanded="true"],.mvb:hover{border-color:var(--accent);color:var(--accent)}
+.items li.mv .nm small{color:var(--accent)}
+.mvopts{grid-column:1/-1;display:flex;flex-direction:column;gap:4px;padding:0 0 10px 28px}
+.mvopts button{font:inherit;font-size:13.5px;display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);cursor:pointer;text-align:left}
+.mvopts button:hover{border-color:var(--accent)}
+.mvopts .d.up{color:var(--warn)} .mvopts .d.down{color:var(--accent)}
+@media (max-width:520px){ .items li.ck{grid-template-columns:auto 1fr auto auto} .mvopts{padding-left:0} }
+
+/* Телефон: дні гортаються вкладками, а не довгою стрічкою */
+.daystrip{display:none}
+@media (max-width:860px){
+  .daystrip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;grid-column:1/-1}
+  .daystrip button{font:inherit;display:flex;flex-direction:column;align-items:center;gap:1px;padding:7px 2px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+  .daystrip button b{font-size:13.5px}
+  .daystrip button span{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .daystrip button[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft)}
+  .daystrip button[aria-selected="true"] b{color:var(--accent)}
+  .days{grid-template-columns:minmax(0,1fr);gap:0}
+  .day:not(.cur){display:none}
+  .srcl{display:none}
+  .mbar.pre .mt b{font-size:15px}
+}
+@media (max-width:520px){
+  .shop .modes{display:grid;grid-template-columns:1fr;gap:6px}
+  .shop .modes button{border-radius:10px;text-align:left;padding:9px 12px}
+  .note{font-size:13px}
+  header.top{margin-bottom:14px}
+}
 .alts .am{color:var(--muted);font-weight:400}
+.name .wo{font-weight:400;color:var(--muted);font-size:12.5px}
+.exg{width:100%;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin:8px 0 2px}
+.exg:first-child{margin-top:0}
 
 /* До першого «Скласти раціон» видно лише форму */
 .wrap.pre{grid-template-columns:minmax(0,560px);justify-content:center}
@@ -249,13 +286,15 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
     <fieldset>
       <legend><span class="n">04</span>Де купуємо</legend>
       <div class="chips" id="stores"></div>
-      <p class="hint">Кожен продукт рахуємо там, де він дешевший серед вибраних магазинів.</p>
+      <p class="hint">Позначте магазини, де вам зручно купувати. Кожен продукт рахуємо там, де він дешевший серед вибраних.</p>
+      <p class="note warn" id="storeerr" hidden>Оберіть хоча б один магазин, і ми складемо раціон.</p>
     </fieldset>
 
     <fieldset>
       <details class="exd" id="exd" open>
         <summary><span class="n">05</span>Не хочу в раціоні <span class="exn" id="exn"></span></summary>
         <div class="chips" id="excl"></div>
+        <p class="hint">Цибулю, часник, зелень і цукор просто приберемо зі страв, а страви залишимо.</p>
       </details>
     </fieldset>
 
@@ -343,13 +382,20 @@ const MEALS = [["завтрак","Сніданок"],["обед","Обід"],["�
 const SHARE4 = {"завтрак":.25,"обед":.35,"ужин":.30,"перекус":.10};
 const SHARE3 = {"завтрак":.30,"обед":.40,"ужин":.30};
 const DAYNAMES = ["Понеділок","Вівторок","Середа","Четвер","Пʼятниця","Субота","Неділя"];
+const DAYSHORT = ["Пн","Вт","Ср","Чт","Пт","Сб","Нд"];
+let dayIdx=0;
+// [назва, продукти, група, soft]. soft = дрібний інгредієнт: прибираємо його зі страви, а страву лишаємо.
 const EXCL = [
-  ["Свинина",["pork"]],["Яловичина",["beef"]],["Фарш",["mince"]],["Курка",["chicken_fillet","chicken_thigh","chicken_drumstick","chicken_cutlets_frozen","nuggets","crepes_meat"]],["Індичка",["turkey_fillet"]],["Печінка",["chicken_liver"]],
-  ["Ковбаса й сосиски",["sausages","boiled_sausage"]],["Риба",["hake","pollock","mackerel","canned_sardines","crab_sticks","canned_tuna","fish_fingers"]],["Оселедець",["herring"]],["Напівфабрикати",["dumplings_potato","pelmeni","syrnyky_frozen","crepes_meat","vareniki_cottage","chicken_cutlets_frozen","fish_fingers","nuggets"]],
-  ["Яйця",["eggs"]],["Молоко",["milk"]],["Кефір, йогурт, ряжанка",["kefir","yogurt","ryazhenka"]],["Сир кисломолочний",["cottage"]],["Твердий сир і бринза",["cheese","brynza"]],["Сметана",["sour_cream"]],["Майонез",["mayonnaise"]],
-  ["Гриби",["mushrooms"]],["Бобові",["beans","lentils","peas_canned","canned_beans","split_peas","chickpeas"]],["Капуста",["cabbage","sauerkraut","cauliflower","broccoli"]],["Буряк",["beet"]],["Кабачок і баклажан",["zucchini","eggplant"]],["Гарбуз",["pumpkin"]],["Мариновані огірки",["pickles"]],
-  ["Горіхи",["walnuts"]],["Мед",["honey"]],["Банани",["banana"]],["Цитрусові",["orange","lemon","mandarin"]],["Родзинки",["raisins"]],["Борошняне",["flour","bread","rye_bread","lavash","pasta","semolina","bulgur","dumplings_potato","pelmeni","oat_cookies"]]
+  ["Свинина",["pork"],"meat"],["Яловичина",["beef"],"meat"],["Фарш",["mince"],"meat"],["Курка",["chicken_fillet","chicken_thigh","chicken_drumstick","chicken_cutlets_frozen","nuggets","crepes_meat"],"meat"],["Індичка",["turkey_fillet"],"meat"],["Печінка",["chicken_liver"],"meat"],
+  ["Ковбаса й сосиски",["sausages","boiled_sausage"],"meat"],["Риба",["hake","pollock","mackerel","canned_sardines","crab_sticks","canned_tuna","fish_fingers"],"meat"],["Оселедець",["herring"],"meat"],
+  ["Усе молочне (лактоза)",["milk", "kefir", "yogurt", "ryazhenka", "cottage", "cheese", "brynza", "sour_cream", "butter", "syrnyky_frozen", "vareniki_cottage"],"dairy"],["Молоко",["milk"],"dairy"],["Кефір, йогурт, ряжанка",["kefir","yogurt","ryazhenka"],"dairy"],["Сир кисломолочний",["cottage"],"dairy"],["Твердий сир і бринза",["cheese","brynza"],"dairy"],["Сметана",["sour_cream"],"dairy"],["Яйця",["eggs"],"dairy"],["Майонез",["mayonnaise"],"dairy"],
+  ["Помідори й томатна паста",["tomato","tomato_paste"],"veg"],["Перець солодкий",["pepper"],"veg"],["Огірки свіжі",["cucumber"],"veg"],["Мариновані огірки",["pickles"],"veg"],["Картопля",["potato"],"veg"],["Морква",["carrot"],"veg"],["Капуста",["cabbage","sauerkraut","cauliflower","broccoli"],"veg"],["Буряк",["beet"],"veg"],["Кабачок і баклажан",["zucchini","eggplant"],"veg"],["Гарбуз",["pumpkin"],"veg"],["Гриби",["mushrooms"],"veg"],["Кукурудза",["corn_canned","corn_grits"],"veg"],["Бобові",["beans","lentils","peas_canned","canned_beans","split_peas","chickpeas","hummus"],"veg"],
+  ["Цибуля",["onion","green_onion"],"veg",true],["Часник",["garlic"],"veg",true],["Кріп і петрушка",["dill","parsley"],"veg",true],
+  ["Банани",["banana"],"fruit"],["Цитрусові",["orange","lemon","mandarin"],"fruit"],["Яблука й груші",["apple","pear"],"fruit"],["Ягоди",["frozen_berries"],"fruit"],["Родзинки",["raisins"],"fruit"],["Горіхи",["walnuts","granola"],"fruit"],["Мед",["honey"],"fruit"],
+  ["Глютен",["flour", "bread", "rye_bread", "lavash", "tortilla", "pasta", "semolina", "bulgur", "barley", "oats", "oat_cookies", "granola", "dumplings_potato", "pelmeni", "vareniki_cottage", "syrnyky_frozen", "crepes_meat", "fish_fingers", "nuggets", "chicken_cutlets_frozen", "crab_sticks"],"other"],["Борошняне",["flour","bread","rye_bread","lavash","tortilla","pasta","semolina","bulgur","dumplings_potato","pelmeni","oat_cookies"],"other"],["Напівфабрикати",["dumplings_potato","pelmeni","syrnyky_frozen","crepes_meat","vareniki_cottage","chicken_cutlets_frozen","fish_fingers","nuggets"],"other"],["Цукор",["sugar"],"other",true]
 ];
+const SOFTN={onion:"цибулі",green_onion:"цибулі",garlic:"часнику",dill:"зелені",parsley:"зелені",sugar:"цукру"};
+const EXG=[["meat","Мʼясо й риба"],["dairy","Молочне та яйця"],["veg","Овочі, гриби, бобові"],["fruit","Фрукти, горіхи, мед"],["other","Інше"]];
 const RU_UA = DATA.names; // назви страв українською
 const $ = s => document.querySelector(s);
 const fmt = n => Math.round(n).toLocaleString("uk-UA");
@@ -369,13 +415,14 @@ $("#city").innerHTML = DATA.cities.map(([k,n])=>`<option value="${k}">${n}</opti
 function cityStores(){ return Object.keys(DATA.prices[$("#city").value]||{}); }
 function renderStores(selected){
   const list=cityStores();
-  $("#stores").innerHTML = list.map(id=>`<label class="chip"><input type="checkbox" id="st-${id}" value="${id}" ${!selected||selected.includes(id)?"checked":""}><span>${SN[id]||id}</span></label>`).join("")
+  $("#stores").innerHTML = list.map(id=>`<label class="chip"><input type="checkbox" id="st-${id}" value="${id}" ${selected&&selected.includes(id)?"checked":""}><span>${SN[id]||id}</span></label>`).join("")
     + `<label class="chip" title="АТБ поки недоступний: сайт закритий захистом від автоматичного збору"><input type="checkbox" disabled><span>АТБ · скоро</span></label>`;
-  $("#srcline").textContent=`Ціни на ${DATA.date.split("-").reverse().join(".")} · ${$("#city").selectedOptions[0].textContent}: ${list.map(id=>SN[id]||id).join(", ")}`;
+  $("#srcline").innerHTML=`Ціни на ${DATA.date.split("-").reverse().join(".")} · ${$("#city").selectedOptions[0].textContent}<span class="srcl">: ${list.map(id=>SN[id]||id).join(", ")}</span>`;
 }
 $("#city").addEventListener("change",()=>{ renderStores(null); });
+$("#stores").addEventListener("change",()=>{ if(readForm().stores.length) $("#storeerr").hidden=true; });
 renderStores(null);
-$("#excl").innerHTML = EXCL.map(([n],i)=>`<label class="chip ex"><input type="checkbox" id="ex-${i}" value="${i}"><span>${n}</span></label>`).join("");
+$("#excl").innerHTML = EXG.map(([g,gn])=>`<div class="exg">${gn}</div>`+EXCL.map(([n,,eg,soft],i)=>eg!==g?"":`<label class="chip ex"${soft?` title="Приберемо з рецептів, страви залишаться"`:""}><input type="checkbox" id="ex-${i}" value="${i}"><span>${n}</span></label>`).join("")).join("");
 document.querySelectorAll(".step button").forEach(b=>b.addEventListener("click",()=>{
   const o=$("#"+b.dataset.t); o.value = o.textContent = Math.max(0,Math.min(9,(+o.textContent)+(+b.dataset.d))); schedule();
 }));
@@ -383,14 +430,14 @@ document.querySelectorAll(".step button").forEach(b=>b.addEventListener("click",
 function readForm(){
   const people={men:+$("#men").textContent,women:+$("#women").textContent,kids:+$("#kids").textContent};
   const city=$("#city").value; const stores=cityStores().filter(id=>$("#st-"+id)?.checked);
-  const ex=new Set(); EXCL.forEach(([,ids],i)=>{ if($("#ex-"+i).checked) ids.forEach(x=>ex.add(x)); });
-  return {city,people,stores,ex,budget:Math.max(0,+$("#budget").value||0),days:+$("#period").value,meals:Object.fromEntries(MEALS.map(([m])=>[m,$("#ml-"+m).checked])),snack:$("#ml-перекус").checked};
+  const ex=new Set(), soft=new Set(); EXCL.forEach(([,ids,,sf],i)=>{ if($("#ex-"+i).checked) ids.forEach(x=>(sf?soft:ex).add(x)); });
+  return {city,people,stores,ex,soft,budget:Math.max(0,+$("#budget").value||0),days:+$("#period").value,meals:Object.fromEntries(MEALS.map(([m])=>[m,$("#ml-"+m).checked])),snack:$("#ml-перекус").checked};
 }
-function save(f){ try{ localStorage.setItem("ration-form",JSON.stringify({...f,ex:[...f.ex],exIdx:EXCL.map((_,i)=>$("#ex-"+i).checked)})) }catch(e){} }
+function save(f){ try{ localStorage.setItem("ration-form",JSON.stringify({...f,ex:[...f.ex],soft:[...f.soft],exN:EXCL.filter((_,i)=>$("#ex-"+i).checked).map(([n])=>n)})) }catch(e){} }
 function load(){ try{ const f=JSON.parse(localStorage.getItem("ration-form")||"null"); if(!f) return;
   for(const k of ["men","women","kids"]) $("#"+k).textContent=f.people[k];
   if(f.city && DATA.prices[f.city]){ $("#city").value=f.city; } renderStores(f.stores && f.stores.length ? f.stores : null);
-  (f.exIdx||[]).forEach((v,i)=>{ if($("#ex-"+i)) $("#ex-"+i).checked=v });
+  if(f.exN) EXCL.forEach(([n],i)=>{ $("#ex-"+i).checked=f.exN.includes(n); });
   $("#budget").value=f.budget; $("#period").value=String(f.days);
   if(f.meals) MEALS.forEach(([m])=>{ if(m in f.meals) $("#ml-"+m).checked=f.meals[m]; }); else if(f.snack===false) $("#ml-перекус").checked=false;
 }catch(e){} }
@@ -412,6 +459,12 @@ function buyCost(plan,f,stores){ let c=0; for(const [pid,n] of Object.entries(ne
 function leftovers(plan,f){ const out=[]; for(const [pid,n] of Object.entries(needs(plan))){ if(!PACK[pid]) continue; const left=buyQty(pid,n)-n; if(left<1e-6) continue; const b=bestPrice(f,pid,f.stores); out.push({pid,left,val:b?money(pid,left,b.p):0,pantry:PANTRY.has(pid)}); } return out.sort((a,b)=>b.val-a.val); }
 
 // Ціна порції: кожен інгредієнт за мінімальною ціною серед вибраних магазинів
+// «М'які» виключення (цибуля, часник, зелень, цукор): той самий рецепт без цього інгредієнта.
+const SOFTC=new Map();
+function soften(r,soft){ if(!soft||!soft.size||!Object.keys(r.ing).some(k=>soft.has(k))) return r;
+  const key=r.id+"|"+[...soft].sort().join(","); let v=SOFTC.get(key); if(v) return v;
+  const ing={}, removed=[]; for(const [k,q] of Object.entries(r.ing)){ if(soft.has(k)) removed.push(k); else ing[k]=q; }
+  v={...r,ing,removed}; SOFTC.set(key,v); return v; }
 function recipeInfo(r,f){
   let cost=0;
   for(const [pid,q] of Object.entries(r.ing)){
@@ -468,7 +521,7 @@ function build(keep){
   const cover=meals.reduce((a,[m])=>a+share[m],0); const dayKcal=fullKcal*cover;
   const cand={};
   for(const [m] of meals){
-    cand[m]=DATA.recipes.filter(r=>r.meal===m).map(r=>{const i=recipeInfo(r,f); if(!i) return null;
+    cand[m]=DATA.recipes.filter(r=>r.meal===m).map(r0=>{ const r=soften(r0,f.soft); const i=recipeInfo(r,f); if(!i) return null;
       const serv=fullKcal*share[m]/r.kcal; return {r,serv,cost:i.cost*serv};}).filter(Boolean).sort((a,b)=>a.cost-b.cost||a.r.id.localeCompare(b.r.id));
   }
   ctx={f,dayKcal,fullKcal,cover,share,meals,cand};
@@ -497,6 +550,19 @@ function build(keep){
   // + вартість недоїдених швидкопсувних продуктів. Калорії дня ±8% від норми.
   const dayK=d=>Object.values(d).reduce((a,x)=>a+x.serv*(x.k||1)*x.r.kcal,0);
   const KS=[0.8,0.85,0.9,0.95,1,1.05,1.1,1.15,1.2,1.25];
+  // Залишки з упаковок: швидкопсувне — повна вартість, з шафи (крупи, олія) — п'ята частина.
+  const wasteC=(pid,n)=>{ if(n<=1e-9||!PACK[pid]||PC[pid]==null) return 0; return money(pid,buyQty(pid,n)-n,PC[pid])*(PANTRY.has(pid)?0.2:1); };
+  const effC=(pid,n)=>buyC(pid,n)+wasteC(pid,n);
+  // Підгонка порцій (80–125%, калорії дня ±8%), щоб відкриті пачки доїдалися; не виходимо за cap.
+  const fitPortions=(plan,qq,cap)=>{ let tot=Object.entries(qq).reduce((a,[pid,n])=>a+buyC(pid,n),0);
+    for(let round=0; round<3; round++){ let imp=false;
+      plan.forEach(d=>meals.forEach(([m])=>{ for(const k of KS){ const cur=d[m]; if(Math.abs((cur.k||1)-k)<1e-9) continue;
+        const nx={...cur,k}; const dk=dayK(d)-cur.serv*(cur.k||1)*cur.r.kcal+nx.serv*k*nx.r.kcal;
+        if(dk<dayKcal*0.92||dk>dayKcal*1.08) continue;
+        const dcost=delta(qq,cur,nx,buyC); if(dcost>0.5 && tot+dcost>cap) continue;
+        if(delta(qq,cur,nx,effC)<-0.5){ apply(qq,cur,nx); d[m]=nx; tot+=dcost; imp=true; } } }));
+      if(!imp) break; }
+  };
   const qe=needs(eco); let ecoBase=null;
   for(let round=0; round<8; round++){
     let improved=false;
@@ -530,7 +596,8 @@ function build(keep){
         d[m]=c; const ds=optCol(opt,m)-col0[m] - SD_OPT*((HO.d[c.r.id]||0)-(HO.d[cur.r.id]||0)) + (hasPres?delta(qo,cur,c,presO):0); d[m]=cur;
         if(ds<=0.01) continue;
         const dc=delta(qo,cur,c,buyC); const nt=total+dc; if(nt>f.budget) continue;
-        const ratio = dc<=0 ? 1e9+ds-dc : ds/dc;
+        const de=dc+delta(qo,cur,c,wasteC);
+        const ratio = de<=0 ? 1e9+ds-de : ds/de;
         if(!best||ratio>best.ratio) best={di,m,c,ratio,nt,ds};
       }
     }));
@@ -553,20 +620,39 @@ function build(keep){
         d[m]=c; const ds=fastCol(fast,m,HF)-fcol0[m]; d[m]=cur;
         if(ds<=0.5) continue;
         const dc=delta(qf,cur,c,buyC); const nt=ftotal+dc; if(nt>fcap && dc>0) continue;
-        const ratio = dc<=0 ? 1e9+ds-dc : ds/dc;
+        const de=dc+0.5*delta(qf,cur,c,wasteC);
+        const ratio = de<=0 ? 1e9+ds-de : ds/de;
         if(!best||ratio>best.ratio) best={di,m,c,ratio,nt};
       }
     }));
     if(!best) break;
     apply(qf,fast[best.di][best.m],best.c); fast[best.di][best.m]=best.c; ftotal=best.nt; fscore=fastScore(fast,meals,HF);
   }
+  // Прибирання залишків: міняємо страву, якщо це помітно зменшує недоїдене, а план стає гіршим
+  // лише трохи (tol одиниць оцінки), потім підганяємо порції.
+  const repair=(plan,qq,cap,col,tol)=>{ let tot=Object.entries(qq).reduce((a,[pid,n])=>a+buyC(pid,n),0);
+    for(let round=0; round<2; round++){ let imp=false;
+      plan.forEach((d,di)=>meals.forEach(([m])=>{ const c0=col(plan,m); let best=null;
+        for(const c of cand[m]){ const cur=d[m]; if(c.r.id===cur.r.id) continue;
+          const dw=delta(qq,cur,c,wasteC); if(dw>-3) continue;
+          const dc=delta(qq,cur,c,buyC); if(dc>0.5 && tot+dc>cap) continue;
+          d[m]=c; const ds=col(plan,m)-c0; d[m]=cur; if(ds<-tol) continue;
+          const gain=-(dw+dc)+ds*2; if(gain>1 && (!best||gain>best.gain)) best={c,dc,gain}; }
+        if(best){ apply(qq,d[m],best.c); d[m]=best.c; tot+=best.dc; imp=true; } }));
+      if(!imp) break; }
+  };
+  repair(opt,qo,Math.max(f.budget,total),optCol,3); repair(fast,qf,fcap,(p,m)=>fastCol(p,m,HF),3);
+  fitPortions(opt,qo,Math.max(f.budget,total)); fitPortions(fast,qf,fcap);
   plans={eco,opt,fast};
   openAlt=null; render();
   trackPlan(); mobileBar();
 }
 // Форма змінюється по кліку, тож шлемо одну подію після паузи, а не на кожен «+».
 function mobileBar(){
-  const bar=$("#mbar"); if(!revealed||!ctx||!plans.eco.length){ bar.hidden=true; return; }
+  const bar=$("#mbar");
+  if(!revealed){ bar.hidden=false; bar.classList.add("pre"); $("#mbt").textContent="Раціон під бюджет"; $("#mbs").textContent=`Ціни на ${DATA.date.split("-").reverse().slice(0,2).join(".")}`; $("#mbgo").textContent="Скласти раціон"; return; }
+  bar.classList.remove("pre");
+  if(!ctx||!plans.eco.length){ bar.hidden=true; return; }
   const f=ctx.f, t=buyCost(plans[variant],f);
   $("#mbt").textContent=`${fmt(t)} грн`;
   $("#mbs").textContent=`${VN[variant]} · ${f.days===7?"тиждень":f.days===1?"день":f.days+" дні"}${t>f.budget?" · понад бюджет":""}`;
@@ -621,9 +707,19 @@ function fmtBuy(l){
   return `${l.packs} × ${fmtAmt(l.pid,pk)}`;
 }
 function fmtLeft(l){ if(!PACK[l.pid]||l.left<(unitOf(l.pid)==="pcs"?1:10)) return ""; return `залишок ≈ ${fmtAmt(l.pid,l.left)}`; }
+// Список покупок: користувач може обмежити магазини (shopSel) і перенести окремий товар в інший магазин (moved).
+let shopSel=null, moved={}, mvOpen=null;
+function shopStores(f){ const st=f.stores.filter(s=>!shopSel||shopSel.has(s)); return st.length?st:f.stores; }
+function withMoves(a,q,f){ const P=DATA.prices[f.city]||{}; const by={}; let total=0;
+  for(const [s0,items] of Object.entries(a.by)) for(const l of items){ let s=s0, line=l;
+    const to=moved[l.pid]; if(to && to!==s0 && f.stores.includes(to) && P[to]?.[l.pid]!=null){ s=to; line={...lineFor(l.pid,q[l.pid],P[to][l.pid]),moved:true}; }
+    (by[s]=by[s]||[]).push(line); total+=line.cost; }
+  return {...a,by,total}; }
 function shopping(){
-  const {f}=ctx; const q=needs(plans[variant]);
-  return {q,res:{cheap:assign(q,f.stores,f), two:bestWithin(q,f,2), one:bestWithin(q,f,1)}};
+  const {f}=ctx; const q=needs(plans[variant]); const st=shopStores(f); const ff={...f,stores:st};
+  const res={cheap:assign(q,st,f), two:bestWithin(q,ff,2), one:bestWithin(q,ff,1)};
+  for(const k in res) res[k]=withMoves(res[k],q,f);
+  return {q,res,st};
 }
 const DEPTS=[["veg","Овочі та фрукти"],["bread","Хліб"],["dairy","Молочне та яйця"],["meat","Мʼясо, ковбаси, риба"],["frozen","Заморожене"],["dry","Бакалія"],["cans","Консерви та соуси"]];
 const deptOf=pid=>PR[pid].dept||"dry";
@@ -635,8 +731,9 @@ function saveChecks(){ try{ localStorage.setItem("ration-checks",JSON.stringify(
 function renderShop(){
   const box=$("#shop");
   if(!shopOpen || !ctx || !plans[variant].length){ box.hidden=true; box.innerHTML=""; return; }
-  const {f}=ctx; const {res}=shopping();
-  const modes=[["cheap","Найдешевше"],["two","Не більше 2 магазинів"],["one","Один магазин"]].filter(([k])=>k==="cheap"||f.stores.length>(k==="two"?2:1));
+  const {f}=ctx; const {res,st,q}=shopping(); const P=DATA.prices[f.city]||{};
+  const modes=[["cheap","Найдешевше"],["two","Не більше 2 магазинів"],["one","Один магазин"]].filter(([k])=>k==="cheap"||st.length>(k==="two"?2:1));
+  const nMoved=Object.values(res.cheap.by).flat().filter(l=>l.moved).length;
   if(!modes.some(([k])=>k===shopMode)) shopMode="cheap";
   const a=res[shopMode]; const base=res.cheap.total;
   const stores=Object.keys(a.by).sort((x,y)=>a.by[y].reduce((s,i)=>s+i.cost,0)-a.by[x].reduce((s,i)=>s+i.cost,0));
@@ -647,13 +744,17 @@ function renderShop(){
   box.hidden=false;
   box.innerHTML=`<h2>Список покупок</h2>
     <p class="cmp">${VN[variant]} раціон на ${f.days} дн. з урахуванням ваших замін. Купуємо цілими упаковками; овочі, мʼясо та сир на вагу.</p>
+    ${f.stores.length>1?`<div class="shopsel"><span class="lbl">Купую в:</span>${f.stores.map(s=>`<label class="chip"><input type="checkbox" data-shopsel="${s}" ${st.includes(s)?"checked":""}><span>${SN[s]||s}</span></label>`).join("")}</div>`:""}
     <div class="modes" role="group" aria-label="Скільки магазинів">${modes.map(([k,n])=>`<button type="button" data-shopmode="${k}" aria-pressed="${shopMode===k}">${n} · ${fmt(res[k].total)} грн</button>`).join("")}</div>
     ${shopMode!=="cheap"&&extra>0.5?`<p class="cmp">На ${fmt(extra)} грн дорожче, ніж по найнижчих цінах, зате менше поїздок.</p>`:""}
-    <div class="progress"><span id="ckcount">Куплено ${done} з ${keys.length}</span>${done?`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`:""}</div>
+    <div class="progress"><span id="ckcount">Куплено ${done} з ${keys.length}</span>${done?`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`:""}${Object.keys(moved).length?`<button type="button" class="linkbtn" id="mvreset">Скинути переноси</button>`:""}</div>
+    <p class="cmp tip">Щоб купити товар в іншому магазині, натисніть ⇄ біля нього.</p>
     ${stores.map(s=>{ const it=a.by[s]; const sub=it.reduce((t,i)=>t+i.cost,0);
       return `<section class="store"><h3><span>${SN[s]||s} <small>· ${it.length} поз.</small></span><small>${fmt(sub)} грн</small></h3>`+
         byDept(it).map(([dn,list])=>`<div class="dept">${dn}</div><ul class="items">`+list.map(i=>{ const k=ckKey(s,i), on=!!checks[k];
-          return `<li class="ck${on?" done":""}"><label><input type="checkbox" class="chk" data-ck="${k}" ${on?"checked":""}><span class="nm">${PN[i.pid]}</span><span class="q">${fmtBuy(i)}</span><span class="s">${fmt(i.cost)} грн</span></label></li>`; }).join("")+`</ul>`).join("")+`</section>`; }).join("")}
+          const alts = mvOpen===i.pid ? `<div class="mvopts">`+f.stores.filter(o=>o!==s && P[o]?.[i.pid]!=null).map(o=>{ const l2=lineFor(i.pid,q[i.pid],P[o][i.pid]); const d=l2.cost-i.cost;
+              return `<button type="button" data-mvto="${i.pid}|${o}"><span>${SN[o]||o}</span><span class="d ${d>0?"up":"down"}">${fmt(l2.cost)} грн · ${d>0?"+":"−"}${fmt(Math.abs(d))}</span></button>`; }).join("")+(f.stores.filter(o=>o!==s && P[o]?.[i.pid]!=null).length?"":`<span class="cmp">В інших вибраних магазинах цього товару немає.</span>`)+`</div>` : "";
+          return `<li class="ck${on?" done":""}${i.moved?" mv":""}"><label><input type="checkbox" class="chk" data-ck="${k}" ${on?"checked":""}><span class="nm">${PN[i.pid]}${i.moved?` <small>· перенесено</small>`:""}</span><span class="q">${fmtBuy(i)}</span><span class="s">${fmt(i.cost)} грн</span></label><button type="button" class="mvb" data-mv="${i.pid}" aria-expanded="${mvOpen===i.pid}" title="Купити в іншому магазині" aria-label="Перенести «${PN[i.pid]}» в інший магазин">⇄</button>${alts}</li>`; }).join("")+`</ul>`).join("")+`</section>`; }).join("")}
     ${a.miss.length?`<div class="note warn">Немає в цих магазинах: ${a.miss.map(p=>PN[p]).join(", ")}.</div>`:""}
     <div class="tot"><span>Разом</span><span>${fmt(a.total)} грн</span></div>
     ${lefts.length?`<div class="leftover"><h3>Залишиться після ${f.days===1?"дня":"тижня"}</h3><ul>${lefts.map(l=>`<li><span>${PN[l.pid]} <small>${PANTRY.has(l.pid)?"· у шафі":"· краще доїсти за 2–3 дні"}</small></span><span>${fmtAmt(l.pid,l.left)}</span></li>`).join("")}</ul></div>`:`<p class="cmp">Усе, що купили, зʼїдається повністю.</p>`}
@@ -664,6 +765,8 @@ function shopText(){
   return Object.keys(a.by).sort((x,y)=>a.by[y].reduce((s,i)=>s+i.cost,0)-a.by[x].reduce((s,i)=>s+i.cost,0)).map(s=>[s,a.by[s]]).map(([s,it])=>`${SN[s]||s}:\n`+byDept(it).map(([dn,list])=>`  ${dn}\n`+list.map(i=>`  ☐ ${PN[i.pid]} — ${fmtBuy(i)}`).join("\n")).join("\n")).join("\n\n")+`\n\nРазом ≈ ${fmt(a.total)} грн`;
 }
 document.addEventListener("change",e=>{
+  const ss=e.target.closest("[data-shopsel]"); if(ss){ const sel=new Set([...document.querySelectorAll("[data-shopsel]")].filter(x=>x.checked).map(x=>x.dataset.shopsel));
+    shopSel = sel.size ? sel : null; track("shopping_stores_selected",{stores:[...sel].join(","),n:sel.size}); renderShop(); return; }
   const c=e.target.closest(".chk"); if(!c) return;
   if(c.checked) checks[c.dataset.ck]=1; else delete checks[c.dataset.ck];
   saveChecks(); c.closest("li").classList.toggle("done",c.checked);
@@ -707,15 +810,18 @@ function renderMain(){
       :`<div class="note ok">${({eco:"Найдешевший раціон: страви підібрані так, щоб ділити одні й ті ж упаковки, а відкриті пачки доїдаються трохи більшими порціями.",opt:"Економ, покращений у межах бюджету: більше білка, менше повторів. Що залишиться з упаковок, написано в кінці списку покупок.",fast:"Мінімум часу на кухні в межах бюджету: напівфабрикати, страви без варіння, а суп чи рагу готуємо одразу на 2 дні."})[variant]} ${skipped.length?`Без: ${skipped.join(", ")} (≈ ${fmt(ctx.fullKcal-dayKcal)} ккал на день їсте поза домом). `:""}Підібрано з ${nRec} доступних страв. «Замінити» перераховує бюджет одразу.</div>`}
     <div class="shopbar"><button type="button" class="btn" id="shopbtn" aria-expanded="${shopOpen}" aria-controls="shop">${shopOpen?"Сховати список покупок":"Список покупок"}</button></div>`;
   renderShop();
-  D.innerHTML=plans[variant].map((d,di)=>{
+  if(dayIdx>=plans[variant].length) dayIdx=0;
+  const strip = plans[variant].length>1 ? `<div class="daystrip" role="tablist" aria-label="Дні">`+plans[variant].map((d,di)=>{ const dc=Object.values(d).reduce((a,x)=>a+x.cost*(x.k||1),0);
+      return `<button type="button" role="tab" data-day="${di}" aria-selected="${di===dayIdx}"><b>${DAYSHORT[di%7]}</b><span>${fmt(dc)}</span></button>`; }).join("")+`</div>` : "";
+  D.innerHTML=strip+plans[variant].map((d,di)=>{
     const dc=Object.values(d).reduce((a,x)=>a+x.cost*(x.k||1),0), dt=meals.reduce((a,[m])=>a+slotTime(plan,di,m),0);
-    return `<article class="panel day"><h3><span>${f.days===1?"День":DAYNAMES[di%7]}</span><small>${fmt(dc)} грн · ${fmtTime(dt)}</small></h3>`+
+    return `<article class="panel day${di===dayIdx?" cur":""}"><h3><span>${f.days===1?"День":DAYNAMES[di%7]}</span><small>${fmt(dc)} грн · ${fmtTime(dt)}</small></h3>`+
       meals.map(([m,label])=>{ const x=d[m]; const key=di+"|"+m;
         const alts = openAlt===key ? `<div class="alts">`+cand[m].filter(c=>c.r.id!==x.r.id).sort((a,b)=>variant==="fast"?(a.r.t-b.r.t||a.cost-b.cost):a.cost-b.cost).map(c=>{
             const delta=c.cost-x.cost; return `<button type="button" data-pick="${key}|${c.r.id}"><span>${DATA.names[c.r.id]} <small class="am">· ${fmtTime(c.r.t)}</small></span><span class="d ${delta>0?"up":"down"}">${delta>0?"+":"−"}${fmt(Math.abs(delta))} грн</span></button>`;}).join("")+`</div>` : "";
         const st=slotTime(plan,di,m), re=st===REHEAT&&x.r.t!==REHEAT;
         return `<div class="meal"><div class="t"><span>${label}</span><span>${fmt(x.serv*(x.k||1)*x.r.kcal)} ккал</span></div>
-          <div class="name">${DATA.names[x.r.id]}</div>
+          <div class="name">${DATA.names[x.r.id]}${x.r.removed?` <small class="wo">без ${[...new Set(x.r.removed.map(k=>SOFTN[k]))].join(", ")}</small>`:""}</div>
           <div class="meta"><span>≈ ${(Math.round(x.serv*(x.k||1)*2)/2).toLocaleString("uk-UA")} порц. · ${fmt(x.cost*(x.k||1))} грн · <span class="tm${re?" re":""}" title="${re?"Приготовлено вчора на 2 дні: лише розігріти":"Час приготування"}">${re?"розігріти":"⏱ "+fmtTime(x.r.t)}</span>${Math.abs((x.k||1)-1)>0.02?` · <span title="Порцію змінено, щоб купувати цілі упаковки без залишків">${x.k>1?"+":"−"}${Math.round(Math.abs(x.k-1)*100)}% під упаковку</span>`:""}</span>
           <button type="button" class="swap" data-alt="${key}" aria-expanded="${openAlt===key}">${openAlt===key?"Сховати":"Замінити"}</button></div>${alts}</div>`;
       }).join("")+`</article>`;
@@ -726,9 +832,13 @@ document.addEventListener("click",e=>{
   const a=e.target.closest("[data-alt]"); if(a){ const opening=openAlt!==a.dataset.alt; openAlt = opening?a.dataset.alt:null; if(opening){ const [di,m]=a.dataset.alt.split("|"); track("dish_alternatives_opened",{variant,day:+di,meal:m,dish:plans[variant][+di][m].r.id}); } render(); return; }
   const p=e.target.closest("[data-pick]"); if(p){ const [di,m,id]=p.dataset.pick.split("|"); const old=plans[variant][+di][m], nw=ctx.cand[m].find(c=>c.r.id===id); plans[variant][+di][m]=nw; openAlt=null; track("dish_replaced",{variant,day:+di,meal:m,from:old.r.id,to:id,from_name:DATA.names[old.r.id],to_name:DATA.names[id],delta_uah:Math.round(nw.cost-old.cost)}); render(); return; }
   if(e.target.closest("#shopbtn")){ shopOpen=!shopOpen; track(shopOpen?"shopping_list_opened":"shopping_list_closed",{variant,mode:shopMode}); render(); if(shopOpen) $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  const mb=e.target.closest("[data-mv]"); if(mb){ mvOpen = mvOpen===mb.dataset.mv?null:mb.dataset.mv; renderShop(); return; }
+  const mt=e.target.closest("[data-mvto]"); if(mt){ const [pid,to]=mt.dataset.mvto.split("|"); moved[pid]=to; mvOpen=null; track("shopping_item_moved",{item:pid,to,variant}); renderShop(); mobileBar(); return; }
+  if(e.target.closest("#mvreset")){ moved={}; mvOpen=null; track("shopping_moves_reset"); renderShop(); return; }
   const sm=e.target.closest("[data-shopmode]"); if(sm){ shopMode=sm.dataset.shopmode; track("shopping_mode_changed",{mode:shopMode,variant}); renderShop(); return; }
   if(e.target.closest("#ckreset")){ document.querySelectorAll("#shop .chk").forEach(c=>delete checks[c.dataset.ck]); saveChecks(); track("shopping_checks_reset"); renderShop(); return; }
   if(e.target.closest("#copyshop")){ track("shopping_list_copied",{variant,mode:shopMode}); const t=shopText(); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$("#copied").textContent="Скопійовано";},()=>{$("#copied").textContent="Не вдалося скопіювати";}); return; }
+  const dy=e.target.closest("[data-day]"); if(dy){ dayIdx=+dy.dataset.day; openAlt=null; track("day_selected",{day:dayIdx}); render(); return; }
   const v=e.target.closest("[data-variant]"); if(v){ variant=v.dataset.variant; openAlt=null; track("variant_selected",{variant}); render(); }
 });
 $("#form").addEventListener("submit",e=>{e.preventDefault(); if(revealed){ schedule(false,0); return; } firstPlan();});
@@ -739,7 +849,8 @@ $("#reroll").addEventListener("click",()=>{
 function exCount(){ const n=EXCL.filter((_,i)=>$("#ex-"+i).checked).length; $("#exn").textContent=n?`· ${n}`:""; }
 $("#excl").addEventListener("change",exCount);
 if(matchMedia("(max-width:860px)").matches) $("#exd").open=false;
-$("#mbgo").addEventListener("click",()=>{ track("mobile_bar_clicked",{action:sumState==="above"?"shop":"results"});
+$("#mbgo").addEventListener("click",()=>{ if(!revealed){ track("mobile_bar_clicked",{action:"build"}); firstPlan(); return; }
+  track("mobile_bar_clicked",{action:sumState==="above"?"shop":"results"});
   if(sumState==="above"){ if(!shopOpen){ shopOpen=true; track("shopping_list_opened",{variant,mode:shopMode,from:"mobile_bar"}); render(); } $("#shop").scrollIntoView({behavior:"smooth",block:"start"}); }
   else $("#summary").scrollIntoView({behavior:"smooth",block:"start"}); });
 $("#form").addEventListener("submit",()=>{ if(revealed && matchMedia("(max-width:860px)").matches) setTimeout(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"}),400); });
@@ -749,6 +860,7 @@ let fbDone=false; try{ fbDone=!!localStorage.getItem("ration-fb"); }catch(e){}
 function reveal(){ revealed=true; $("#wrap").classList.remove("pre"); render(); mobileBar();
   requestAnimationFrame(()=>$("#summary").scrollIntoView({behavior:"smooth",block:"start"})); }
 function firstPlan(){
+  if(!readForm().stores.length){ $("#storeerr").hidden=false; $("#stores").scrollIntoView({behavior:"smooth",block:"center"}); track("plan_blocked_no_stores"); return; }
   track("plan_requested",{feedback_before:fbDone});
   if(fbDone){ $("#form").classList.add("busy"); setTimeout(()=>{ build(); reveal(); $("#form").classList.remove("busy"); },30); return; }
   const fb=$("#fb"); fb.hidden=false; document.body.style.overflow="hidden"; const shownAt=Date.now();
@@ -766,7 +878,7 @@ function firstPlan(){
   $("#fbskip").addEventListener("click",()=>{ track("feedback_skipped",{seconds:Math.round((Date.now()-shownAt)/1000)}); close("skipped"); });
   setTimeout(()=>fb.querySelector("input")?.focus({preventScroll:true}),50);
 }
-load(); exCount();
+load(); exCount(); mobileBar();
 </script>
 </body>
 </html>
