@@ -449,6 +449,8 @@ const PACK = Object.fromEntries(Object.entries(PR).map(([k,p])=>[k,p.pack||null]
 const PACKNAME = Object.fromEntries(Object.entries(PR).filter(([,p])=>p.packName).map(([k,p])=>[k,p.packName]));
 const PANTRY = new Set(Object.keys(PR).filter(k=>PR[k].pantry));
 const unitOf = pid => DATA.products[pid].unit;
+const PIDS=Object.keys(PR), PIX=Object.fromEntries(PIDS.map((k,i)=>[k,i]));
+const PKA=Float64Array.from(PIDS,k=>PACK[k]||0), PCSA=Uint8Array.from(PIDS,k=>PR[k].unit==="pcs"?1:0), PANA=Uint8Array.from(PIDS,k=>PANTRY.has(k)?1:0);
 function bestPrice(f,pid,stores){ const P=DATA.prices[f.city]||{}; let b=null; for(const s of stores){ const p=P[s]?.[pid]; if(p!=null&&(!b||p<b.p)) b={s,p}; } return b; }
 // Скільки купити: цілі упаковки або вага з кроком 50 г
 function buyQty(pid,need){ const pk=PACK[pid]; if(!pk) return unitOf(pid)==="pcs"?Math.ceil(need-1e-6):Math.ceil(need/50-1e-6)*50; return Math.max(1,Math.ceil(need/pk-1e-6))*pk; }
@@ -502,6 +504,22 @@ function fastCol(p,m,H){ let s=0; const uses={};
   for(const k in uses){ if(uses[k]>2) s-=15*(uses[k]-2); s-=SD_OPT*2*(H.d[k]||0)*uses[k]; }
   return s; }
 function fastScore(p,meals,H){ let s=0; for(const [m] of meals) s+=fastCol(p,m,H); return s; }
+// Ті самі оцінки, але як зміна від заміни однієї страви: дивимось лише на сусідні дні
+// і на лічильник повторів у колонці (U), без перерахунку всього тижня.
+function colUses(p,m){ const U={}; for(const d of p){ const id=d[m].r.id; U[id]=(U[id]||0)+1; } return U; }
+function optDs(p,di,m,c,U){ const cur=p[di][m], a=cur.r.id, b=c.r.id; let ds=q(c)-q(cur);
+  if(di>0){ const n=p[di-1][m].r.id; if(n===a) ds+=6; if(n===b) ds-=6; }
+  if(di<p.length-1){ const n=p[di+1][m].r.id; if(n===a) ds+=6; if(n===b) ds-=6; }
+  if(U[a]>=2) ds+=4; if(U[b]>=1) ds-=4; return ds; }
+function fastTerm(p,i,m){ const x=p[i][m]; let s=q(x)-slotTime(p,i,m);
+  if(i>0 && p[i-1][m].r.id===x.r.id){ if(!x.r.b) s-=12; if(i>1 && p[i-2][m].r.id===x.r.id) s-=25; }
+  return s; }
+const fastU=(u,hd)=>(u>2?-15*(u-2):0)-SD_OPT*2*hd*u;
+function fastDs(p,di,m,c,U,H){ const cur=p[di][m], a=cur.r.id, b=c.r.id, e=Math.min(p.length-1,di+2); let ds=0;
+  for(let i=di;i<=e;i++) ds-=fastTerm(p,i,m);
+  p[di][m]=c; for(let i=di;i<=e;i++) ds+=fastTerm(p,i,m); p[di][m]=cur;
+  const ua=U[a]||0, ub=U[b]||0, ha=H.d[a]||0, hb=H.d[b]||0;
+  return ds+fastU(ua-1,ha)-fastU(ua,ha)+fastU(ub+1,hb)-fastU(ub,hb); }
 const VN={eco:"Економ",opt:"Оптимальний",fast:"Швидкий"};
 const fmtTime=min=>min<60?`${Math.round(min)} хв`:`${(Math.round(min/30)/2).toLocaleString("uk-UA")} год`;
 // Перерахунок важкий (сотні тисяч варіантів), тому після тапу спершу даємо браузеру
@@ -536,25 +554,51 @@ function build(keep){
   const okNeighbour=(p,di,m,id)=> (cand[m].length<2) || ((di===0||p[di-1][m].r.id!==id) && (di===p.length-1||p[di+1][m].r.id!==id));
   // Інкрементальний розрахунок: тримаємо потребу по продуктах і рахуємо лише зміну
   // для продуктів страви, яку міняємо (інакше 94 рецепти × 28 слотів — повільно).
-  const PC={}; for(const pid in PR){ const b=bestPrice(f,pid,f.stores); if(b) PC[pid]=b.p; }
-  const buyC=(pid,n)=> n<=1e-9||PC[pid]==null ? 0 : money(pid,buyQty(pid,n),PC[pid]);
-  const objC=(pid,n)=>{ const c=buyC(pid,n)+(n>1e-9?PP_ECO*(HE.p[pid]||0):0); if(n<=1e-9||!PACK[pid]||PANTRY.has(pid)||PC[pid]==null) return c; return c+money(pid,buyQty(pid,n)-n,PC[pid]); };
+  // Продукти нумеруємо і тримаємо потребу в масиві чисел: на телефоні це в рази швидше,
+  // ніж об'єкти з рядковими ключами (сотні тисяч звернень за один перерахунок).
+  const NP=PIDS.length;
+  const PRC=new Float64Array(NP), HAS=new Uint8Array(NP), HEP=new Float64Array(NP), HOP=new Float64Array(NP), WFA=new Float64Array(NP);
+  PIDS.forEach((pid,i)=>{ const b=bestPrice(f,pid,f.stores); if(b){ PRC[i]=b.p; HAS[i]=1; } HEP[i]=HE.p[pid]||0; HOP[i]=HO.p[pid]||0; WFA[i]=PKA[i]?(PANA[i]?0.2:1):0; });
+  const mo=(i,qty)=>PCSA[i]?PRC[i]*qty:PRC[i]*qty/1000;
+  const bq=(i,n)=>{ const pk=PKA[i]; if(!pk) return PCSA[i]?Math.ceil(n-1e-6):Math.ceil(n/50-1e-6)*50; return Math.max(1,Math.ceil(n/pk-1e-6))*pk; };
+  const buyC=(i,n)=> n<=1e-9||!HAS[i] ? 0 : mo(i,bq(i,n));
+  const objC=(i,n)=>{ const c=buyC(i,n)+(n>1e-9?PP_ECO*HEP[i]:0); if(n<=1e-9||!PKA[i]||PANA[i]||!HAS[i]) return c; return c+mo(i,bq(i,n)-n); };
   const AC=new WeakMap();
-  const amt=x=>{ let o=AC.get(x); if(o) return o; o={}; const k=(x.k||1)*x.serv; for(const pid in x.r.ing) o[pid]=x.r.ing[pid]*k; AC.set(x,o); return o; };
-  const delta=(q,ox,nx,fn)=>{ const ao=amt(ox), an=amt(nx); let d=0;
-    for(const pid in ao){ const n0=q[pid]||0, n1=n0-ao[pid]+(an[pid]||0); d+=fn(pid,n1)-fn(pid,n0); }
-    for(const pid in an){ if(pid in ao) continue; const n0=q[pid]||0; d+=fn(pid,n0+an[pid])-fn(pid,n0); }
+  const amt=x=>{ let o=AC.get(x); if(o) return o; const k=(x.k||1)*x.serv, ks=Object.keys(x.r.ing);
+    o={i:new Int32Array(ks.length), v:new Float64Array(ks.length)}; ks.forEach((pid,j)=>{ o.i[j]=PIX[pid]; o.v[j]=x.r.ing[pid]*k; }); AC.set(x,o); return o; };
+  const toQ=obj=>{ const a=new Float64Array(NP); for(const pid in obj) a[PIX[pid]]=obj[pid]; return a; };
+  const SC=new Float64Array(NP), INA=new Uint8Array(NP);
+  const delta=(q,ox,nx,fn)=>{ const ao=amt(ox), an=amt(nx), ai=ao.i, av=ao.v, ni=an.i, nv=an.v; let d=0;
+    for(let k=0;k<ni.length;k++) SC[ni[k]]=nv[k];
+    for(let k=0;k<ai.length;k++){ const i=ai[k]; INA[i]=1; const n0=q[i], n1=n0-av[k]+SC[i]; d+=fn(i,n1)-fn(i,n0); }
+    for(let k=0;k<ni.length;k++){ const i=ni[k]; if(INA[i]) continue; const n0=q[i]; d+=fn(i,n0+nv[k])-fn(i,n0); }
+    for(let k=0;k<ni.length;k++) SC[ni[k]]=0; for(let k=0;k<ai.length;k++) INA[ai[k]]=0;
     return d; };
-  const apply=(q,ox,nx)=>{ const ao=amt(ox), an=amt(nx); for(const pid in ao) q[pid]=(q[pid]||0)-ao[pid]; for(const pid in an) q[pid]=(q[pid]||0)+an[pid]; };
+  const apply=(q,ox,nx)=>{ const ao=amt(ox), an=amt(nx); for(let k=0;k<ao.i.length;k++) q[ao.i[k]]-=ao.v[k]; for(let k=0;k<an.i.length;k++) q[an.i[k]]+=an.v[k]; };
+  const sumQ=q=>{ let t=0; for(let i=0;i<NP;i++) t+=buyC(i,q[i]); return t; };
   // Економ: міняємо страви і підганяємо порції (80–125%), мінімізуючи закупівлю
   // + вартість недоїдених швидкопсувних продуктів. Калорії дня ±8% від норми.
-  const dayK=d=>Object.values(d).reduce((a,x)=>a+x.serv*(x.k||1)*x.r.kcal,0);
+  const dayK=d=>{ let a=0; for(const m in d){ const x=d[m]; a+=x.serv*(x.k||1)*x.r.kcal; } return a; };
   const KS=[0.8,0.85,0.9,0.95,1,1.05,1.1,1.15,1.2,1.25];
   // Залишки з упаковок: швидкопсувне — повна вартість, з шафи (крупи, олія) — п'ята частина.
-  const wasteC=(pid,n)=>{ if(n<=1e-9||!PACK[pid]||PC[pid]==null) return 0; return money(pid,buyQty(pid,n)-n,PC[pid])*(PANTRY.has(pid)?0.2:1); };
-  const effC=(pid,n)=>buyC(pid,n)+wasteC(pid,n);
+  const wasteC=(i,n)=>{ if(n<=1e-9||!PKA[i]||!HAS[i]) return 0; return mo(i,bq(i,n)-n)*WFA[i]; };
+  const effC=(i,n)=>buyC(i,n)+wasteC(i,n);
+  const presO=(i,n)=> n>1e-9 ? -SP_OPT*HOP[i] : 0;
+  // Зміна закупівлі й залишків за один прохід (обидві рахують ті самі упаковки).
+  const BW={b:0,w:0};
+  const bw1=(i,n0,n1)=>{ if(!HAS[i]) return; const w=WFA[i];
+    let b0=0,w0=0,b1=0,w1=0;
+    if(n0>1e-9){ const q0=bq(i,n0); b0=mo(i,q0); if(w) w0=mo(i,q0-n0)*w; }
+    if(n1>1e-9){ const q1=bq(i,n1); b1=mo(i,q1); if(w) w1=mo(i,q1-n1)*w; }
+    BW.b+=b1-b0; BW.w+=w1-w0; };
+  const deltaBW=(q,ox,nx)=>{ const ao=amt(ox), an=amt(nx), ai=ao.i, av=ao.v, ni=an.i, nv=an.v; BW.b=0; BW.w=0;
+    for(let k=0;k<ni.length;k++) SC[ni[k]]=nv[k];
+    for(let k=0;k<ai.length;k++){ const i=ai[k]; INA[i]=1; const n0=q[i]; bw1(i,n0,n0-av[k]+SC[i]); }
+    for(let k=0;k<ni.length;k++){ const i=ni[k]; if(INA[i]) continue; const n0=q[i]; bw1(i,n0,n0+nv[k]); }
+    for(let k=0;k<ni.length;k++) SC[ni[k]]=0; for(let k=0;k<ai.length;k++) INA[ai[k]]=0;
+    return BW; };
   // Підгонка порцій (80–125%, калорії дня ±8%), щоб відкриті пачки доїдалися; не виходимо за cap.
-  const fitPortions=(plan,qq,cap)=>{ let tot=Object.entries(qq).reduce((a,[pid,n])=>a+buyC(pid,n),0);
+  const fitPortions=(plan,qq,cap)=>{ let tot=sumQ(qq);
     for(let round=0; round<3; round++){ let imp=false;
       plan.forEach(d=>meals.forEach(([m])=>{ for(const k of KS){ const cur=d[m]; if(Math.abs((cur.k||1)-k)<1e-9) continue;
         const nx={...cur,k}; const dk=dayK(d)-cur.serv*(cur.k||1)*cur.r.kcal+nx.serv*k*nx.r.kcal;
@@ -563,7 +607,7 @@ function build(keep){
         if(delta(qq,cur,nx,effC)<-0.5){ apply(qq,cur,nx); d[m]=nx; tot+=dcost; imp=true; } } }));
       if(!imp) break; }
   };
-  const qe=needs(eco); let ecoBase=null;
+  const qe=toQ(needs(eco)); let ecoBase=null;
   for(let round=0; round<8; round++){
     let improved=false;
     eco.forEach((d,di)=>meals.forEach(([m])=>{
@@ -583,65 +627,65 @@ function build(keep){
   // ОПТИМАЛЬНИЙ: від економу (без підігнаних порцій) покращуємо по одній страві,
   // поки вартість закупівлі по цілих упаковках влазить у бюджет.
   const opt=ecoBase.map(d=>({...d}));
-  const qo=needs(opt);
-  const presO=(pid,n)=> n>1e-9 ? -SP_OPT*(HO.p[pid]||0) : 0; const hasPres=Object.keys(HO.p).length>0;
-  let total=Object.entries(qo).reduce((s,[pid,n])=>s+buyC(pid,n),0), score=planScore(opt,meals), guard=300;
+  const qo=toQ(needs(opt));
+  const hasPres=Object.keys(HO.p).length>0;
+  let total=sumQ(qo), guard=300;
   while(guard--){
-    let best=null; const col0=Object.fromEntries(meals.map(([m])=>[m,optCol(opt,m)]));
+    let best=null; const UO=Object.fromEntries(meals.map(([m])=>[m,colUses(opt,m)]));
     opt.forEach((d,di)=>meals.forEach(([m])=>{
       const cur=d[m];
       for(const c of cand[m]){
         if(c.r.id===cur.r.id) continue;
         // спершу дешева оцінка якості, і лише для кандидатів, що покращують план, рахуємо вартість
-        d[m]=c; const ds=optCol(opt,m)-col0[m] - SD_OPT*((HO.d[c.r.id]||0)-(HO.d[cur.r.id]||0)) + (hasPres?delta(qo,cur,c,presO):0); d[m]=cur;
+        const ds=optDs(opt,di,m,c,UO[m]) - SD_OPT*((HO.d[c.r.id]||0)-(HO.d[cur.r.id]||0)) + (hasPres?delta(qo,cur,c,presO):0);
         if(ds<=0.01) continue;
-        const dc=delta(qo,cur,c,buyC); const nt=total+dc; if(nt>f.budget) continue;
-        const de=dc+delta(qo,cur,c,wasteC);
+        const x=deltaBW(qo,cur,c); const dc=x.b; const nt=total+dc; if(nt>f.budget) continue;
+        const de=dc+x.w;
         const ratio = de<=0 ? 1e9+ds-de : ds/de;
         if(!best||ratio>best.ratio) best={di,m,c,ratio,nt,ds};
       }
     }));
     if(!best) break;
-    apply(qo,opt[best.di][best.m],best.c); opt[best.di][best.m]=best.c; total=best.nt; score=planScore(opt,meals);
+    apply(qo,opt[best.di][best.m],best.c); opt[best.di][best.m]=best.c; total=best.nt;
   }
 
   // ШВИДКИЙ: від економу міняємо страви на ті, що готуються швидше (напівфабрикати,
   // страви на 2 дні), поки закупівля влазить у бюджет.
   const fast=ecoBase.map(d=>({...d}));
-  const qf=needs(fast);
-  let ftotal=Object.entries(qf).reduce((s,[pid,n])=>s+buyC(pid,n),0), fscore=fastScore(fast,meals,HF);
+  const qf=toQ(needs(fast));
+  let ftotal=sumQ(qf);
   const fcap=Math.max(f.budget,ftotal); guard=400;
   while(guard--){
-    let best=null; const fcol0=Object.fromEntries(meals.map(([m])=>[m,fastCol(fast,m,HF)]));
+    let best=null; const UF=Object.fromEntries(meals.map(([m])=>[m,colUses(fast,m)]));
     fast.forEach((d,di)=>meals.forEach(([m])=>{
       const cur=d[m];
       for(const c of cand[m]){
         if(c.r.id===cur.r.id) continue;
-        d[m]=c; const ds=fastCol(fast,m,HF)-fcol0[m]; d[m]=cur;
+        const ds=fastDs(fast,di,m,c,UF[m],HF);
         if(ds<=0.5) continue;
-        const dc=delta(qf,cur,c,buyC); const nt=ftotal+dc; if(nt>fcap && dc>0) continue;
-        const de=dc+0.5*delta(qf,cur,c,wasteC);
+        const x=deltaBW(qf,cur,c); const dc=x.b; const nt=ftotal+dc; if(nt>fcap && dc>0) continue;
+        const de=dc+0.5*x.w;
         const ratio = de<=0 ? 1e9+ds-de : ds/de;
         if(!best||ratio>best.ratio) best={di,m,c,ratio,nt};
       }
     }));
     if(!best) break;
-    apply(qf,fast[best.di][best.m],best.c); fast[best.di][best.m]=best.c; ftotal=best.nt; fscore=fastScore(fast,meals,HF);
+    apply(qf,fast[best.di][best.m],best.c); fast[best.di][best.m]=best.c; ftotal=best.nt;
   }
   // Прибирання залишків: міняємо страву, якщо це помітно зменшує недоїдене, а план стає гіршим
   // лише трохи (tol одиниць оцінки), потім підганяємо порції.
-  const repair=(plan,qq,cap,col,tol)=>{ let tot=Object.entries(qq).reduce((a,[pid,n])=>a+buyC(pid,n),0);
+  const repair=(plan,qq,cap,dsf,tol)=>{ let tot=sumQ(qq);
     for(let round=0; round<2; round++){ let imp=false;
-      plan.forEach((d,di)=>meals.forEach(([m])=>{ const c0=col(plan,m); let best=null;
+      plan.forEach((d,di)=>meals.forEach(([m])=>{ const U=colUses(plan,m); let best=null;
         for(const c of cand[m]){ const cur=d[m]; if(c.r.id===cur.r.id) continue;
-          const dw=delta(qq,cur,c,wasteC); if(dw>-3) continue;
-          const dc=delta(qq,cur,c,buyC); if(dc>0.5 && tot+dc>cap) continue;
-          d[m]=c; const ds=col(plan,m)-c0; d[m]=cur; if(ds<-tol) continue;
+          const x=deltaBW(qq,cur,c), dw=x.w, dc=x.b; if(dw>-3) continue;
+          if(dc>0.5 && tot+dc>cap) continue;
+          const ds=dsf(plan,di,m,c,U); if(ds<-tol) continue;
           const gain=-(dw+dc)+ds*2; if(gain>1 && (!best||gain>best.gain)) best={c,dc,gain}; }
         if(best){ apply(qq,d[m],best.c); d[m]=best.c; tot+=best.dc; imp=true; } }));
       if(!imp) break; }
   };
-  repair(opt,qo,Math.max(f.budget,total),optCol,3); repair(fast,qf,fcap,(p,m)=>fastCol(p,m,HF),3);
+  repair(opt,qo,Math.max(f.budget,total),optDs,3); repair(fast,qf,fcap,(p,di,m,c,U)=>fastDs(p,di,m,c,U,HF),3);
   fitPortions(opt,qo,Math.max(f.budget,total)); fitPortions(fast,qf,fcap);
   plans={eco,opt,fast};
   openAlt=null; render();
