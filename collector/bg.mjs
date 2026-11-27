@@ -84,6 +84,7 @@ function pick(p, m, rows) {
     if ((cats && !cats.has(r[4])) || !inc.test(title) || (exc && exc.test(title))) continue;
     const s = sizeOf(title); let unit = null, pack = null;
     if (p.unit === 'pcs') { if (s && s.pcs && s.qty > 0) { unit = r[5] / s.qty; pack = `${s.qty} бр`; } else if (m.pcsDefault) { unit = r[5] / m.pcsDefault; pack = `${m.pcsDefault} бр`; } }
+    else if (!s && m.perKg) { unit = r[5]; pack = 'на вагу'; }
     else if (s && !s.pcs && s.qty > 0) { unit = r[5] / s.qty * 1000; pack = s.kg ? 'на вагу' : `${s.qty} ${p.unit === 'ml' ? 'мл' : 'г'}`; }
     if (unit && (!best || unit < best.price)) best = { price: +unit.toFixed(3), title, pack, packPrice: r[5] };
   }

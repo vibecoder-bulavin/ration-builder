@@ -76,7 +76,7 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .shop .modes button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
 .store{border-top:1px solid var(--line);padding:12px 0 6px}
 .store h3{display:flex;justify-content:space-between;margin:0 0 6px;font-size:15px}
-.store h3 small{color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+.store h3 small{color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap}
 .items{list-style:none;margin:0;padding:0}
 .items li{display:grid;grid-template-columns:1fr auto auto;gap:4px 14px;padding:6px 0;font-size:14px;border-bottom:1px dashed var(--line);font-variant-numeric:tabular-nums}
 .items li:last-child{border-bottom:0}
@@ -138,6 +138,8 @@ input:focus-visible,select:focus-visible,button:focus-visible,.chip input:focus-
 .mvb{font:inherit;font-size:15px;width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;margin-left:6px}
 .mvb[aria-expanded="true"],.mvb:hover{border-color:var(--accent);color:var(--accent)}
 .items li.mv .nm small{color:var(--accent)}
+.items .nm small.ttl{display:block;color:var(--muted);font-size:12px;font-weight:400;margin-top:2px}
+.items .nm small.est{color:var(--muted)}
 .mvopts{grid-column:1/-1;display:flex;flex-direction:column;gap:4px;padding:0 0 10px 28px}
 .mvopts button{font:inherit;font-size:13.5px;display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);cursor:pointer;text-align:left}
 .mvopts button:hover{border-color:var(--accent)}
@@ -402,12 +404,13 @@ const SOFTN={onion:"цибулі",green_onion:"цибулі",garlic:"часни�
 const EXG=[["meat","Мʼясо й риба"],["dairy","Молочне та яйця"],["veg","Овочі, гриби, бобові"],["fruit","Фрукти, горіхи, мед"],["other","Інше"]];
 const RU_UA = DATA.names; // назви страв українською
 const $ = s => document.querySelector(s);
-const fmt = n => Math.round(n).toLocaleString("uk-UA");
+const fmt = n => DATA.cur && Math.abs(n)<100 ? (+n).toLocaleString("uk-UA",{minimumFractionDigits:2,maximumFractionDigits:2}) : Math.round(n).toLocaleString("uk-UA");
 let shopOpen = false, shopMode = "cheap";
 // Історія попередніх варіантів для «Інший варіант»: страви й продукти, яких намагаємось уникати
 let hist = {eco:[], opt:[], fast:[]};
 const BASIC = new Set(["salt","sunflower_oil","onion","carrot","sugar","garlic","dill","tomato_paste"]);
-const PD_ECO=35, PP_ECO=20, SD_OPT=6, SP_OPT=2.5;   // штрафи: грн (економ) / бали якості (оптимальний)
+const KC=DATA.k||1;   // масштаб валюти: 1 для гривні, ≈0,023 для євро (пороги «в грошах» множимо на нього)
+const PD_ECO=35*KC, PP_ECO=20*KC, SD_OPT=6, SP_OPT=2.5;   // штрафи: грн (економ) / бали якості (оптимальний)
 function histW(list){ const d={}, p={}; list.forEach((h,i)=>{ const w=[1,.5,.25][i]||0; h.d.forEach(x=>d[x]=(d[x]||0)+w); h.p.forEach(x=>{ if(!BASIC.has(x)) p[x]=(p[x]||0)+w; }); }); return {d,p}; }
 function snapshot(plan){ const d=new Set(), p=new Set(); plan.forEach(day=>Object.values(day).forEach(x=>{ d.add(x.r.id); Object.keys(x.r.ing).forEach(k=>p.add(k)); })); return {d,p}; }
 let seed = 1, plans = {eco:[],opt:[],fast:[]}, variant = "opt", ctx = null, openAlt = null;
@@ -420,7 +423,7 @@ function cityStores(){ return Object.keys(DATA.prices[$("#city").value]||{}); }
 function renderStores(selected){
   const list=cityStores();
   $("#stores").innerHTML = list.map(id=>`<label class="chip"><input type="checkbox" id="st-${id}" value="${id}" ${selected&&selected.includes(id)?"checked":""}><span>${SN[id]||id}</span></label>`).join("")
-    + `<label class="chip" title="АТБ поки недоступний: сайт закритий захистом від автоматичного збору"><input type="checkbox" disabled><span>АТБ · скоро</span></label>`;
+    + (DATA.geo?"":`<label class="chip" title="АТБ поки недоступний: сайт закритий захистом від автоматичного збору"><input type="checkbox" disabled><span>АТБ · скоро</span></label>`);
   $("#srcline").innerHTML=`Ціни на ${DATA.date.split("-").reverse().join(".")} · ${$("#city").selectedOptions[0].textContent}<span class="srcl">: ${list.map(id=>SN[id]||id).join(", ")}</span>`;
 }
 $("#city").addEventListener("change",()=>{ renderStores(null); });
@@ -613,8 +616,8 @@ function build(keep){
       plan.forEach(d=>meals.forEach(([m])=>{ for(const k of KS){ const cur=d[m]; if(Math.abs((cur.k||1)-k)<1e-9) continue;
         const nx={...cur,k}; const dk=dayK(d)-cur.serv*(cur.k||1)*cur.r.kcal+nx.serv*k*nx.r.kcal;
         if(dk<dayKcal*0.92||dk>dayKcal*1.08) continue;
-        const dcost=delta(qq,cur,nx,buyC); if(dcost>0.5 && tot+dcost>cap) continue;
-        if(delta(qq,cur,nx,effC)<-0.5){ apply(qq,cur,nx); d[m]=nx; tot+=dcost; imp=true; } } }));
+        const dcost=delta(qq,cur,nx,buyC); if(dcost>0.5*KC && tot+dcost>cap) continue;
+        if(delta(qq,cur,nx,effC)<-0.5*KC){ apply(qq,cur,nx); d[m]=nx; tot+=dcost; imp=true; } } }));
       if(!imp) break; }
   };
   const qe=toQ(needs(eco)); let ecoBase=null;
@@ -622,14 +625,14 @@ function build(keep){
     let improved=false;
     eco.forEach((d,di)=>meals.forEach(([m])=>{
       for(const c of cand[m]){ const cur=d[m]; if(c.r.id===cur.r.id||!okNeighbour(eco,di,m,c.r.id)) continue;
-        if(delta(qe,cur,c,objC)+PD_ECO*((HE.d[c.r.id]||0)-(HE.d[cur.r.id]||0))<-0.5){ apply(qe,cur,c); d[m]=c; improved=true; } }
+        if(delta(qe,cur,c,objC)+PD_ECO*((HE.d[c.r.id]||0)-(HE.d[cur.r.id]||0))<-0.5*KC){ apply(qe,cur,c); d[m]=c; improved=true; } }
     }));
     if(round===0) ecoBase=eco.map(d=>({...d}));
     eco.forEach((d,di)=>meals.forEach(([m])=>{
       for(const k of KS){ const cur=d[m]; if(Math.abs((cur.k||1)-k)<1e-9) continue;
         const nx={...cur,k}; const dk=dayK(d)-cur.serv*(cur.k||1)*cur.r.kcal+nx.serv*k*nx.r.kcal;
         if(dk<dayKcal*0.92||dk>dayKcal*1.08) continue;
-        if(delta(qe,cur,nx,objC)<-0.5){ apply(qe,cur,nx); d[m]=nx; improved=true; } }
+        if(delta(qe,cur,nx,objC)<-0.5*KC){ apply(qe,cur,nx); d[m]=nx; improved=true; } }
     }));
     if(!improved) break;
   }
@@ -688,10 +691,10 @@ function build(keep){
     for(let round=0; round<2; round++){ let imp=false;
       plan.forEach((d,di)=>meals.forEach(([m])=>{ const U=colUses(plan,m); let best=null;
         for(const c of cand[m]){ const cur=d[m]; if(c.r.id===cur.r.id) continue;
-          const x=deltaBW(qq,cur,c), dw=x.w, dc=x.b; if(dw>-3) continue;
-          if(dc>0.5 && tot+dc>cap) continue;
+          const x=deltaBW(qq,cur,c), dw=x.w, dc=x.b; if(dw>-3*KC) continue;
+          if(dc>0.5*KC && tot+dc>cap) continue;
           const ds=dsf(plan,di,m,c,U); if(ds<-tol) continue;
-          const gain=-(dw+dc)+ds*2; if(gain>1 && (!best||gain>best.gain)) best={c,dc,gain}; }
+          const gain=-(dw+dc)/KC+ds*2; if(gain>1 && (!best||gain>best.gain)) best={c,dc,gain}; }
         if(best){ apply(qq,d[m],best.c); d[m]=best.c; tot+=best.dc; imp=true; } }));
       if(!imp) break; }
   };
@@ -725,6 +728,8 @@ function trackPlan(){
 
 
 // ===== Список покупок =====
+const EST=new Set(DATA.est||[]);
+const TTL=(s,pid)=>DATA.titles?.[ctx?.f.city]?.[s]?.[pid]||"";
 const PN = Object.fromEntries(Object.entries(PR).map(([k,p])=>[k,p.name]));
 const SHOPSEC = {"крупы":0,"бобовые":0,"прочее":0,"консервы":0,"сладкое":0,"хлеб":1,"мясо":2,"рыба":2,"полуфабрикаты":2,"молочка":3,"яйца":3,"овощи":4,"фрукты":4};
 const GORD = {}; Object.keys(PR).forEach((id,i)=>GORD[id]=(SHOPSEC[PR[id].group]??0)*1000+i);
@@ -737,7 +742,7 @@ function assign(q,stores,f){
   const by={}; let total=0; const miss=[];
   for(const [pid,need] of Object.entries(q)){
     const b=bestPrice(f,pid,stores); if(!b){ miss.push(pid); continue; }
-    const l=lineFor(pid,need,b.p); total+=l.cost; (by[b.s]=by[b.s]||[]).push(l);
+    const l=lineFor(pid,need,b.p); total+=l.cost; const key=EST.has(pid)?"_est":b.s; (by[key]=by[key]||[]).push(l);
   }
   return {by,total,miss};
 }
@@ -801,7 +806,7 @@ function renderShop0(){
     <p class="cmp">${VN[variant]} раціон на ${f.days} дн. з урахуванням ваших замін. Купуємо цілими упаковками; овочі, мʼясо та сир на вагу.</p>
     ${f.stores.length>1?`<div class="shopsel"><span class="lbl">Купую в:</span>${f.stores.map(s=>`<label class="chip"><input type="checkbox" data-shopsel="${s}" ${st.includes(s)?"checked":""}><span>${SN[s]||s}</span></label>`).join("")}</div>`:""}
     <div class="modes" role="group" aria-label="Скільки магазинів">${modes.map(([k,n])=>`<button type="button" data-shopmode="${k}" aria-pressed="${shopMode===k}">${n} · ${fmt(res[k].total)} грн</button>`).join("")}</div>
-    ${shopMode!=="cheap"&&extra>0.5?`<p class="cmp">На ${fmt(extra)} грн дорожче, ніж по найнижчих цінах, зате менше поїздок.</p>`:""}
+    ${shopMode!=="cheap"&&extra>0.5*KC?`<p class="cmp">На ${fmt(extra)} грн дорожче, ніж по найнижчих цінах, зате менше поїздок.</p>`:""}
     <div class="progress"><span id="ckcount">Куплено ${done} з ${keys.length}</span>${done?`<button type="button" class="linkbtn" id="ckreset">Зняти всі позначки</button>`:""}${Object.keys(moved).length?`<button type="button" class="linkbtn" id="mvreset">Скинути переноси</button>`:""}</div>
     <p class="cmp tip">Щоб купити товар в іншому магазині, натисніть ⇄ біля нього.</p>
     ${stores.map(s=>{ const it=a.by[s]; const sub=it.reduce((t,i)=>t+i.cost,0);
@@ -809,7 +814,7 @@ function renderShop0(){
         byDept(it).map(([dn,list])=>`<div class="dept">${dn}</div><ul class="items">`+list.map(i=>{ const k=ckKey(s,i), on=!!checks[k];
           const alts = mvOpen===i.pid ? `<div class="mvopts">`+f.stores.filter(o=>o!==s && P[o]?.[i.pid]!=null).map(o=>{ const l2=lineFor(i.pid,q[i.pid],P[o][i.pid]); const d=l2.cost-i.cost;
               return `<button type="button" data-mvto="${i.pid}|${o}"><span>${SN[o]||o}</span><span class="d ${d>0?"up":"down"}">${fmt(l2.cost)} грн · ${d>0?"+":"−"}${fmt(Math.abs(d))}</span></button>`; }).join("")+(f.stores.filter(o=>o!==s && P[o]?.[i.pid]!=null).length?"":`<span class="cmp">В інших вибраних магазинах цього товару немає.</span>`)+`</div>` : "";
-          return `<li class="ck${on?" done":""}${i.moved?" mv":""}"><label><input type="checkbox" class="chk" data-ck="${k}" ${on?"checked":""}><span class="nm">${PN[i.pid]}${i.moved?` <small>· перенесено</small>`:""}</span><span class="q">${fmtBuy(i)}</span><span class="s">${fmt(i.cost)} грн</span></label><button type="button" class="mvb" data-mv="${i.pid}" aria-expanded="${mvOpen===i.pid}" title="Купити в іншому магазині" aria-label="Перенести «${PN[i.pid]}» в інший магазин">⇄</button>${alts}</li>`; }).join("")+`</ul>`).join("")+`</section>`; }).join("")}
+          return `<li class="ck${on?" done":""}${i.moved?" mv":""}"><label><input type="checkbox" class="chk" data-ck="${k}" ${on?"checked":""}><span class="nm">${PN[i.pid]}${i.moved?` <small>· перенесено</small>`:""}${TTL(s,i.pid)?`<small class="ttl">${TTL(s,i.pid)}</small>`:""}</span><span class="q">${fmtBuy(i)}</span><span class="s">${fmt(i.cost)} грн</span></label>${s==="_est"?"":`<button type="button" class="mvb" data-mv="${i.pid}" aria-expanded="${mvOpen===i.pid}" title="Купити в іншому магазині" aria-label="Перенести «${PN[i.pid]}» в інший магазин">⇄</button>`}${alts}</li>`; }).join("")+`</ul>`).join("")+`</section>`; }).join("")}
     ${a.miss.length?`<div class="note warn">Немає в цих магазинах: ${a.miss.map(p=>PN[p]).join(", ")}.</div>`:""}
     <div class="tot"><span>Разом</span><span>${fmt(a.total)} грн</span></div>
     ${lefts.length?`<div class="leftover"><h3>Залишиться після ${f.days===1?"дня":"тижня"}</h3><ul>${lefts.map(l=>`<li><span>${PN[l.pid]} <small>${PANTRY.has(l.pid)?"· у шафі":"· краще доїсти за 2–3 дні"}</small></span><span>${fmtAmt(l.pid,l.left)}</span></li>`).join("")}</ul></div>`:`<p class="cmp">Усе, що купили, зʼїдається повністю.</p>`}
@@ -948,7 +953,7 @@ document.addEventListener("click",async e=>{ const sb=e.target.closest("[data-sh
   try{ await navigator.clipboard.writeText(url); msg.textContent="Посилання скопійовано: збережіть його або надішліть собі"; }catch(e){ prompt("Скопіюйте посилання на раціон:",url); } });
 
 // Перший раз: рахуємо план у фоні, а поки показуємо коротку анкету (один раз на людину).
-let fbDone=false; try{ fbDone=!!localStorage.getItem("ration-fb"); }catch(e){}
+let fbDone=!!DATA.geo; try{ fbDone=fbDone||!!localStorage.getItem("ration-fb"); }catch(e){}
 function reveal(){ revealed=true; $("#wrap").classList.remove("pre"); render(); mobileBar();
   requestAnimationFrame(()=>$(planFrom?"#savebar":"#summary").scrollIntoView({behavior:"smooth",block:"start"})); }
 function firstPlan(){
