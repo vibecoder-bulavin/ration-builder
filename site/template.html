@@ -403,7 +403,7 @@ if (AN.posthogKey) {
 const DATA = __DATA__;
 const SN = DATA.storeNames;
 const KCAL = {men:2500, women:2000, kids:1600};
-// Калорії: середні норми, свої (на одну людину) або за формулою Міффліна — Сан Жеора × активність.
+// Калорії: середні норми, свої (для кожної людини) або за формулою Міффліна — Сан Жеора × активність.
 const ACT=[[1.2,"Мінімальна: сидяча робота, без спорту"],[1.375,"Легка: 1–3 тренування на тиждень"],[1.55,"Середня: 3–5 тренувань"],[1.725,"Висока: 6–7 тренувань"],[1.9,"Дуже висока: фізична робота + спорт"]];
 const PDEF={men:{a:35,w:80,h:178,act:1.375},women:{a:33,w:65,h:165,act:1.375},kids:{a:8}};
 const PLBL={men:"Чоловік",women:"Жінка",kids:"Дитина"};
@@ -413,15 +413,16 @@ const kidKcal=a=>a<=3?1100:a<=6?1400:a<=10?1700:a<=14?2100:2400;
 function personKcal(k,x){ x={...PDEF[k],...(x||{})};
   if(k==="kids") return kidKcal(+x.a||8);
   const bmr=10*(+x.w)+6.25*(+x.h)-5*(+x.a)+(k==="men"?5:-161); return Math.max(1000,Math.round(bmr*(+x.act||1.375)/10)*10); }
+const ownKc=(k,i)=>+CAL.ppl[k][i]?.kc||+CAL.own[k]||KCAL[k];
 function famKcal(pp){ let t=0;
-  for(const k of ["men","women","kids"]) for(let i=0;i<pp[k];i++) t+= CAL.mode==="own" ? (+CAL.own[k]||KCAL[k]) : CAL.mode==="calc" ? personKcal(k,CAL.ppl[k][i]) : KCAL[k];
+  for(const k of ["men","women","kids"]) for(let i=0;i<pp[k];i++) t+= CAL.mode==="own" ? ownKc(k,i) : CAL.mode==="calc" ? personKcal(k,CAL.ppl[k][i]) : KCAL[k];
   return t; }
 function calCounts(){ return {men:+$("#men").textContent,women:+$("#women").textContent,kids:+$("#kids").textContent}; }
 function renderCal(){ const pp=calCounts(), box=$("#calbox"), hint=$("#calhint");
   document.querySelectorAll('#calmode input').forEach(r=>r.checked=r.value===CAL.mode);
   if(CAL.mode==="avg"){ box.innerHTML=""; hint.textContent=`Середні норми: чоловік ${KCAL.men} ккал, жінка ${KCAL.women}, дитина ${KCAL.kids} на день.`; return; }
-  if(CAL.mode==="own"){ box.innerHTML=`<div class="calown">${["men","women","kids"].filter(k=>pp[k]).map(k=>`<label>${PLBL[k]}, ккал<input type="number" inputmode="numeric" min="800" max="6000" step="50" data-own="${k}" value="${CAL.own[k]||KCAL[k]}"></label>`).join("")}</div>`;
-    hint.textContent="Норма на одну людину на день."; return; }
+  if(CAL.mode==="own"){ box.innerHTML=`<div class="calown">${["men","women","kids"].flatMap(k=>Array.from({length:pp[k]},(_,i)=>`<label>${PLBL[k]}${pp[k]>1?" "+(i+1):""}, ккал<input type="number" inputmode="numeric" min="800" max="6000" step="50" data-own="${k}|${i}" value="${ownKc(k,i)}"></label>`)).join("")}</div>`;
+    hint.textContent="Норма для кожної людини на день."; return; }
   box.innerHTML=["men","women","kids"].flatMap(k=>Array.from({length:pp[k]},(_,i)=>{ const x={...PDEF[k],...(CAL.ppl[k][i]||{})};
     const f=(fld,lbl,min,max)=>`<label>${lbl}<input type="number" inputmode="numeric" min="${min}" max="${max}" data-p="${k}|${i}|${fld}" value="${x[fld]}"></label>`;
     return `<div class="calrow"><div class="ct"><span>${PLBL[k]}${pp[k]>1?" "+(i+1):""}</span><b data-pk="${k}|${i}">≈ ${fmt(personKcal(k,x))} ккал</b></div>`+
@@ -1023,7 +1024,7 @@ function firstPlan(){
 }
 $("#calmode").addEventListener("change",e=>{ CAL.mode=e.target.value; renderCal(); track("kcal_mode_selected",{mode:CAL.mode}); });
 $("#calbox").addEventListener("input",e=>{ const t=e.target;
-  if(t.dataset.own){ CAL.own[t.dataset.own]=+t.value||KCAL[t.dataset.own]; schedule(); return; }
+  if(t.dataset.own){ const [k,i]=t.dataset.own.split("|"); CAL.ppl[k][+i]={...(CAL.ppl[k][+i]||{}),kc:+t.value||0}; schedule(); return; }
   if(t.dataset.p){ const [k,i,fld]=t.dataset.p.split("|"); const arr=CAL.ppl[k]; arr[+i]={...PDEF[k],...(arr[+i]||{}),[fld]:+t.value};
     const b=document.querySelector(`[data-pk="${k}|${i}"]`); if(b) b.textContent=`≈ ${fmt(personKcal(k,arr[+i]))} ккал`; schedule(); } });
 renderCal(); load(); exCount(); mobileBar();
