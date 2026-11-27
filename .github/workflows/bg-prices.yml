@@ -1,0 +1,41 @@
+name: Ціни Болгарії
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # щодня о 07:00 UTC: архів КЗП за вчора вже опублікований
+  workflow_dispatch:
+    inputs:
+      args:
+        description: 'Аргументи для collector/bg.mjs, напр. --raw'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-prices
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Зібрати ціни (kolkostruva.bg)
+        run: node collector/bg.mjs ${{ github.event.inputs.args }}
+      - name: Перевірити збірку сайту
+        run: node site/build.mjs
+      - name: Закомітити
+        run: |
+          git config user.name "price-collector"
+          git config user.email "price-collector@users.noreply.github.com"
+          git pull --rebase -q || true
+          git add data/bg || true
+          if git diff --cached --quiet; then echo "Змін немає"; exit 0; fi
+          git commit -m "Ціни Болгарії на $(date -u +%F)"
+          git push
