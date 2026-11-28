@@ -1,7 +1,2259 @@
 {
- "date": "2026-11-26",
+ "date": "2026-11-27",
  "matches": {
+  "varna": {
+   "cba": {
+    "rice": {
+     "price": 2.04,
+     "title": "ОРИЗ БЪЛГАРСКИ БИСЕРЕН ВКУСНО 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "pasta": {
+     "price": 1.65,
+     "title": "ФИДЕ АКЦЕНТ НАЧУПЕНО 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.66
+    },
+    "flour": {
+     "price": 0.69,
+     "title": "БРАШНО АКЦЕНТ ТИП 500 1КГ",
+     "pack": "1000 г",
+     "packPrice": 0.69
+    },
+    "bread": {
+     "price": 1.246,
+     "title": "ХЛЯБ АКЦЕНТ ДОБРУДЖА НАРЯЗАН 650ГР",
+     "pack": "650 г",
+     "packPrice": 0.81
+    },
+    "lentils": {
+     "price": 2.79,
+     "title": "ЛЕЩА БЪЛГАРСКА КРИНА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.79
+    },
+    "beans": {
+     "price": 2.99,
+     "title": "БОБ АКЦЕНТ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.99
+    },
+    "chicken_fillet": {
+     "price": 7.65,
+     "title": "ФИЛЕ ПИЛЕШКО КРЕХКО ЗА ПЕЧЕНЕ",
+     "pack": "на вагу",
+     "packPrice": 7.65
+    },
+    "chicken_thigh": {
+     "price": 3.47,
+     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
+     "pack": "на вагу",
+     "packPrice": 3.47
+    },
+    "pork": {
+     "price": 3.99,
+     "title": "ПЛЕШКА СВИНСКА БЕЗ КОСТ ОХЛАДЕНА",
+     "pack": "на вагу",
+     "packPrice": 3.99
+    },
+    "eggs": {
+     "price": 0.285,
+     "title": "ЯЙЦА КОКОШИ АКВИЛОН РАЗМЕР М 10БР",
+     "pack": "10 бр",
+     "packPrice": 2.85
+    },
+    "milk": {
+     "price": 1.49,
+     "title": "ПРЯСНО МЛЯКО БОЖЕНЦИ 3.6% 1Л БУТИЛКА",
+     "pack": "1000 мл",
+     "packPrice": 1.49
+    },
+    "cottage": {
+     "price": 4.09,
+     "title": "ИЗВАРА МАДЖАРОВ НАСИПНА",
+     "pack": "на вагу",
+     "packPrice": 4.09
+    },
+    "cheese": {
+     "price": 12.475,
+     "title": "КАШКАВАЛ КРАВЕ БУЛГАРЧЕ 400ГР ВАКУУМ",
+     "pack": "400 г",
+     "packPrice": 4.99
+    },
+    "butter": {
+     "price": 9.96,
+     "title": "МАСЛО КРАВЕ МОНАРХ 82% 250ГР",
+     "pack": "250 г",
+     "packPrice": 2.49
+    },
+    "potato": {
+     "price": 0.89,
+     "title": "КАРТОФИ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "carrot": {
+     "price": 1.15,
+     "title": "МОРКОВИ",
+     "pack": "на вагу",
+     "packPrice": 1.15
+    },
+    "onion": {
+     "price": 0.99,
+     "title": "ЛУК КАБА",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "cabbage": {
+     "price": 0.85,
+     "title": "ЗЕЛЕ",
+     "pack": "на вагу",
+     "packPrice": 0.85
+    },
+    "tomato": {
+     "price": 3.05,
+     "title": "ДОМАТИ",
+     "pack": "на вагу",
+     "packPrice": 3.05
+    },
+    "cucumber": {
+     "price": 2.79,
+     "title": "КРАСТАВИЦИ",
+     "pack": "на вагу",
+     "packPrice": 2.79
+    },
+    "garlic": {
+     "price": 3.79,
+     "title": "ЧЕСЪН",
+     "pack": "на вагу",
+     "packPrice": 3.79
+    },
+    "mushrooms": {
+     "price": 4.19,
+     "title": "ГЪБИ ПЕЧУРКА БЯЛА КГ",
+     "pack": "на вагу",
+     "packPrice": 4.19
+    },
+    "banana": {
+     "price": 2.09,
+     "title": "БАНАНИ",
+     "pack": "на вагу",
+     "packPrice": 2.09
+    },
+    "apple": {
+     "price": 0.99,
+     "title": "ЯБЪЛКИ ШАРЕНИ БЪЛГАРСКИ",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "orange": {
+     "price": 2.29,
+     "title": "ПОРТОКАЛИ",
+     "pack": "на вагу",
+     "packPrice": 2.29
+    },
+    "lemon": {
+     "price": 2.09,
+     "title": "ЛИМОНИ",
+     "pack": "на вагу",
+     "packPrice": 2.09
+    },
+    "sunflower_oil": {
+     "price": 2.09,
+     "title": "ОЛИО СЛЪНЧОГЛЕДОВО АКЦЕНТ 1Л",
+     "pack": "1000 мл",
+     "packPrice": 2.09
+    },
+    "sugar": {
+     "price": 1.13,
+     "title": "ЗАХАР АКЦЕНТ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 1.13
+    },
+    "salt": {
+     "price": 0.42,
+     "title": "СОЛ ТРАПЕЗНА ПЕРЛА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 0.42
+    },
+    "peas_canned": {
+     "price": 2.125,
+     "title": "ГРАХ АКЦЕНТ 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.85
+    },
+    "chicken_drumstick": {
+     "price": 3.47,
+     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
+     "pack": "на вагу",
+     "packPrice": 3.47
+    },
+    "sausages": {
+     "price": 2.69,
+     "title": "КРЕНВИРШИ ПИЛЕШКИ ФЕРМАТА",
+     "pack": "на вагу",
+     "packPrice": 2.69
+    },
+    "mackerel": {
+     "price": 7.59,
+     "title": "СКУМРИЯ ЗАМРАЗЕНА 3/5 АКЦЕНТ ПАКЕТ",
+     "pack": "на вагу",
+     "packPrice": 7.59
+    },
+    "canned_beans": {
+     "price": 2.55,
+     "title": "БОБ БЯЛ ФАМИЛЕКС 400ГР",
+     "pack": "400 г",
+     "packPrice": 1.02
+    },
+    "rye_bread": {
+     "price": 1.982,
+     "title": "ХЛЯБ РЪЖЕНО-ПШЕНИЧЕН НАРЯЗАН ЯНА 550ГР",
+     "pack": "550 г",
+     "packPrice": 1.09
+    },
+    "brynza": {
+     "price": 9.089,
+     "title": "СИРЕНЕ КРАВЕ БЯЛО САЛАМУРЕНО ЛЕСИДРЕН 900ГР КУТИЯ",
+     "pack": "900 г",
+     "packPrice": 8.18
+    },
+    "oat_cookies": {
+     "price": 4.167,
+     "title": "БИСКВИТИ ВИНЧИНИ ОБИКНОВЕНИ 300ГР",
+     "pack": "300 г",
+     "packPrice": 1.25
+    }
+   },
+   "lidl": {
+    "rice": {
+     "price": 1.53,
+     "title": "Krina Български ориз, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "lentils": {
+     "price": 2.04,
+     "title": "Krina Леща, 1кг-опаковка",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "beans": {
+     "price": 2.3,
+     "title": "Krina Боб трапезен, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 2.3
+    },
+    "chicken_fillet": {
+     "price": 2.645,
+     "title": "Пилешко филе около 2кг",
+     "pack": "2000 г",
+     "packPrice": 5.29
+    },
+    "chicken_thigh": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "pork": {
+     "price": 2.55,
+     "title": "Свинска плешка без кост",
+     "pack": "на вагу",
+     "packPrice": 2.55
+    },
+    "eggs": {
+     "price": 0.295,
+     "title": "Яйца 10 бр. L от под отгл селен",
+     "pack": "10 бр",
+     "packPrice": 2.95
+    },
+    "cottage": {
+     "price": 1.53,
+     "title": "Извара 4,2% ",
+     "pack": "на вагу",
+     "packPrice": 1.53
+    },
+    "butter": {
+     "price": 14.8,
+     "title": "Lurpak Датско масло без сол 200 гр.",
+     "pack": "200 г",
+     "packPrice": 2.96
+    },
+    "potato": {
+     "price": 0.39,
+     "title": "Четкани картофи в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.39
+    },
+    "carrot": {
+     "price": 0.49,
+     "title": "Моркови на кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "onion": {
+     "price": 0.78,
+     "title": "Лук на кг",
+     "pack": "на вагу",
+     "packPrice": 0.78
+    },
+    "cabbage": {
+     "price": 0.29,
+     "title": "Зеле на кг",
+     "pack": "на вагу",
+     "packPrice": 0.29
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.75,
+     "title": "Краставици на кг",
+     "pack": "на вагу",
+     "packPrice": 1.75
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън на кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "banana": {
+     "price": 1.99,
+     "title": "Банани на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Червени ябълки в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали на кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 1.59,
+     "title": "Лимони на кг",
+     "pack": "на вагу",
+     "packPrice": 1.59
+    },
+    "sunflower_oil": {
+     "price": 1.68,
+     "title": "Слънчогледово олио 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.68
+    },
+    "peas_canned": {
+     "price": 2.259,
+     "title": "Грах фин, консерва 425мл (OHT 280g)",
+     "pack": "425 г",
+     "packPrice": 0.96
+    },
+    "chicken_drumstick": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "boiled_sausage": {
+     "price": 3.57,
+     "title": "Eko Mes Салам Бургас червен етикет",
+     "pack": "на вагу",
+     "packPrice": 3.57
+    },
+    "mackerel": {
+     "price": 4.6,
+     "title": "Скумрия, изчистена, размразена",
+     "pack": "на вагу",
+     "packPrice": 4.6
+    },
+    "canned_beans": {
+     "price": 3.176,
+     "title": "Червен боб кидни (ОНТ 255 г)",
+     "pack": "255 г",
+     "packPrice": 0.81
+    },
+    "rye_bread": {
+     "price": 1.583,
+     "title": "Хляб Ръчен пълнозърнест 600 гр.",
+     "pack": "600 г",
+     "packPrice": 0.95
+    },
+    "brynza": {
+     "price": 8.557,
+     "title": "Sayana Краве сирене ЗНП, 700г",
+     "pack": "700 г",
+     "packPrice": 5.99
+    },
+    "oat_cookies": {
+     "price": 5.6,
+     "title": "Detstvo moe Детски бисквити, 200гр.",
+     "pack": "200 г",
+     "packPrice": 1.12
+    }
+   },
+   "billa": {
+    "rice": {
+     "price": 2.38,
+     "title": "1КГ ОРИЗ БИСЕРЕН NATURA",
+     "pack": "1000 г",
+     "packPrice": 2.38
+    },
+    "pasta": {
+     "price": 1.22,
+     "title": "500ГР  СПАГЕТИ CLEVER",
+     "pack": "500 г",
+     "packPrice": 0.61
+    },
+    "flour": {
+     "price": 0.82,
+     "title": "1КГ БЯЛО БРАШНО ЕКСТРА СИМИД",
+     "pack": "1000 г",
+     "packPrice": 0.82
+    },
+    "bread": {
+     "price": 1.369,
+     "title": "ДЕМ 650ГР ХЛЯБ БЯЛ",
+     "pack": "650 г",
+     "packPrice": 0.89
+    },
+    "lentils": {
+     "price": 3.45,
+     "title": "1КГ ЛЕЩА БЪЛГАР.ИМАЛО ЕДНО ВРЕМЕ KRINA",
+     "pack": "1000 г",
+     "packPrice": 3.45
+    },
+    "beans": {
+     "price": 2.04,
+     "title": "1КГ БОБ ТРАДИЦИОНЕН BORKONI",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "chicken_fillet": {
+     "price": 6.64,
+     "title": "285 MAП ПИЛЕШКО ФИЛЕ ЗА 1 КГ.",
+     "pack": "1000 г",
+     "packPrice": 6.64
+    },
+    "chicken_thigh": {
+     "price": 3.06,
+     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
+     "pack": "на вагу",
+     "packPrice": 3.06
+    },
+    "mince": {
+     "price": 7.55,
+     "title": "SOC КАЙМА СМЕС 60/40 СВ./ГОВ.ГАСТРО",
+     "pack": "на вагу",
+     "packPrice": 7.55
+    },
+    "pork": {
+     "price": 4.98,
+     "title": "SOC СВИНСКО МЕСО ЗА ГОТВЕНЕ ГАСТРО БГ",
+     "pack": "на вагу",
+     "packPrice": 4.98
+    },
+    "milk": {
+     "price": 1.23,
+     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
+     "pack": "1000 мл",
+     "packPrice": 1.23
+    },
+    "cheese": {
+     "price": 7.15,
+     "title": "КАШКАВАЛ ОТ КРАВЕ МЛЯКО CLEVER ЗА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 7.15
+    },
+    "butter": {
+     "price": 9.16,
+     "title": "КРАВЕ МАСЛО D.MARKENBUTTER 250ГР",
+     "pack": "250 г",
+     "packPrice": 2.29
+    },
+    "yogurt": {
+     "price": 1.025,
+     "title": "КИСЕЛО МЛЯКО 2% БАДЖАНАШКО 400Г",
+     "pack": "400 г",
+     "packPrice": 0.41
+    },
+    "potato": {
+     "price": 0.79,
+     "title": "КАРТОФИ",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "carrot": {
+     "price": 0.55,
+     "title": "МОРКОВИ",
+     "pack": "на вагу",
+     "packPrice": 0.55
+    },
+    "onion": {
+     "price": 0.65,
+     "title": "КРОМИД ЛУК",
+     "pack": "на вагу",
+     "packPrice": 0.65
+    },
+    "cabbage": {
+     "price": 0.69,
+     "title": "БЯЛО ЗЕЛЕ",
+     "pack": "на вагу",
+     "packPrice": 0.69
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "ДОМАТИ ЗЕЛЕНИ",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 2.19,
+     "title": "КРАСТАВИЦИ",
+     "pack": "на вагу",
+     "packPrice": 2.19
+    },
+    "garlic": {
+     "price": 5.99,
+     "title": "ЧЕСЪН СУХ КГ",
+     "pack": "на вагу",
+     "packPrice": 5.99
+    },
+    "banana": {
+     "price": 1.84,
+     "title": "БАНАНИ",
+     "pack": "на вагу",
+     "packPrice": 1.84
+    },
+    "apple": {
+     "price": 0.99,
+     "title": "ЯБЪЛКИ АЙДАРЕД",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "orange": {
+     "price": 1.05,
+     "title": "ПОРТОКАЛИ",
+     "pack": "на вагу",
+     "packPrice": 1.05
+    },
+    "lemon": {
+     "price": 0.89,
+     "title": "ЛИМОНИ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "sunflower_oil": {
+     "price": 1.64,
+     "title": "1Л ЗЛАТНО ДОБРУДЖАНСКО ОЛИО",
+     "pack": "1000 мл",
+     "packPrice": 1.64
+    },
+    "sugar": {
+     "price": 0.86,
+     "title": "1КГ ЗАХАР IZZI",
+     "pack": "1000 г",
+     "packPrice": 0.86
+    },
+    "salt": {
+     "price": 0.33,
+     "title": "1КГ СОЛ ТРАПЕЗНА IZZI",
+     "pack": "1000 г",
+     "packPrice": 0.33
+    },
+    "tomato_paste": {
+     "price": 1.64,
+     "title": "500МЛ ДОМАТЕНО ПЮРЕ 7% PHILICON",
+     "pack": "500 г",
+     "packPrice": 0.82
+    },
+    "peas_canned": {
+     "price": 2.132,
+     "title": "680Г ГРАХ БУРКАН ОБИЧАМ",
+     "pack": "680 г",
+     "packPrice": 1.45
+    },
+    "chicken_drumstick": {
+     "price": 3.06,
+     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
+     "pack": "на вагу",
+     "packPrice": 3.06
+    },
+    "sausages": {
+     "price": 1.598,
+     "title": "БЕЛ КРЕНВИРШИ ЛЕКИ /2Х2,5КГ",
+     "pack": "5000 г",
+     "packPrice": 7.99
+    },
+    "boiled_sausage": {
+     "price": 3.39,
+     "title": "302 САЛАМ КАМЧИЯ  ЛЕСИДРЕН 300",
+     "pack": "на вагу",
+     "packPrice": 3.39
+    },
+    "canned_beans": {
+     "price": 2.5,
+     "title": "400ГР БОБ МИКС ФАМИЛЕКС",
+     "pack": "400 г",
+     "packPrice": 1
+    },
+    "rye_bread": {
+     "price": 4.275,
+     "title": "ДОБ 400ГР ХЛЯБ ВИТА СИЛУЕТ РЪЖЕН",
+     "pack": "400 г",
+     "packPrice": 1.71
+    },
+    "brynza": {
+     "price": 8.517,
+     "title": "КРАВЕ СИРЕНЕ CLEVER 600 ГР",
+     "pack": "600 г",
+     "packPrice": 5.11
+    },
+    "oat_cookies": {
+     "price": 3,
+     "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
+     "pack": "120 г",
+     "packPrice": 0.36
+    }
+   },
+   "tmarket": {
+    "pasta": {
+     "price": 0.975,
+     "title": "Макарони ЗЛАТЕН КЛАС звездички 400г",
+     "pack": "400 г",
+     "packPrice": 0.39
+    },
+    "flour": {
+     "price": 0.69,
+     "title": "Брашно СИМИД екстра,1кг",
+     "pack": "1000 г",
+     "packPrice": 0.69
+    },
+    "bread": {
+     "price": 1.246,
+     "title": "Хляб Добруджа EXTRA LINE 650г",
+     "pack": "650 г",
+     "packPrice": 0.81
+    },
+    "eggs": {
+     "price": 0.306,
+     "title": "Яйца МИЗИЯ L10 бр",
+     "pack": "10 бр",
+     "packPrice": 3.06
+    },
+    "milk": {
+     "price": 1.47,
+     "title": "Прясно мляко MIZO 3.5% 1л",
+     "pack": "1000 мл",
+     "packPrice": 1.47
+    },
+    "cottage": {
+     "price": 4.225,
+     "title": "Извара OLYMPUS 400гр",
+     "pack": "400 г",
+     "packPrice": 1.69
+    },
+    "cheese": {
+     "price": 5.99,
+     "title": "Кашкавал от краве мляко КЕНАНА,вак.кг",
+     "pack": "на вагу",
+     "packPrice": 5.99
+    },
+    "butter": {
+     "price": 10.36,
+     "title": "Кр.масло DEUTSCHE MARKENBUTTER ор.,250гр",
+     "pack": "250 г",
+     "packPrice": 2.59
+    },
+    "yogurt": {
+     "price": 1.325,
+     "title": "Кисело мляко НА ХОРОТО 2%, 400гр",
+     "pack": "400 г",
+     "packPrice": 0.53
+    },
+    "potato": {
+     "price": 0.66,
+     "title": "Картофи, България, кг ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.66
+    },
+    "carrot": {
+     "price": 0.69,
+     "title": "Моркови,Турция, кг. ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.69
+    },
+    "onion": {
+     "price": 0.66,
+     "title": "Кромид лук, България, кг.ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.66
+    },
+    "tomato": {
+     "price": 2.29,
+     "title": "Червени домати,кг. Турция Клас I",
+     "pack": "на вагу",
+     "packPrice": 2.29
+    },
+    "garlic": {
+     "price": 6.13,
+     "title": "Чесън, Испания, кг.(Клас II)",
+     "pack": "на вагу",
+     "packPrice": 6.13
+    },
+    "banana": {
+     "price": 1.29,
+     "title": "Банани, Еквадор, кг.(Клас I)",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "apple": {
+     "price": 0.95,
+     "title": "Ябълки Шарени кг. Полша ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "orange": {
+     "price": 1.29,
+     "title": "Портокали кг. ОПС Гърция",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "lemon": {
+     "price": 3.17,
+     "title": "Лимони, Турция кг.(Клас I)",
+     "pack": "на вагу",
+     "packPrice": 3.17
+    },
+    "sunflower_oil": {
+     "price": 1.69,
+     "title": "Слънчогледово олио Клас 1л",
+     "pack": "1000 мл",
+     "packPrice": 1.69
+    },
+    "sugar": {
+     "price": 1.19,
+     "title": "Захар Инком - 1 кг.",
+     "pack": "1000 г",
+     "packPrice": 1.19
+    },
+    "salt": {
+     "price": 0.38,
+     "title": "Сол ПЕРЛА трапезна йодирана 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.38
+    },
+    "rye_bread": {
+     "price": 2.689,
+     "title": "Хляб ръжено пшеничен 450г",
+     "pack": "450 г",
+     "packPrice": 1.21
+    },
+    "brynza": {
+     "price": 6.987,
+     "title": "Краве сирене БЕЛЕНСКО 800 г тенекия",
+     "pack": "800 г",
+     "packPrice": 5.59
+    }
+   },
+   "kaufland": {
+    "rice": {
+     "price": 1.53,
+     "title": "KLC.кръглозърнест.ориз.1кг",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "pasta": {
+     "price": 0.78,
+     "title": "KLC Фусили от мека пшеница 500г",
+     "pack": "500 г",
+     "packPrice": 0.39
+    },
+    "flour": {
+     "price": 0.55,
+     "title": "Брей! Пшенично брашно тип 500 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.55
+    },
+    "bread": {
+     "price": 0.985,
+     "title": "NN Хляб Добруджа нарязан 650г",
+     "pack": "650 г",
+     "packPrice": 0.64
+    },
+    "lentils": {
+     "price": 1.39,
+     "title": "Happy Agro Селска леща 1кг",
+     "pack": "1000 г",
+     "packPrice": 1.39
+    },
+    "beans": {
+     "price": 2.39,
+     "title": "Izzi Бял боб 1 кг",
+     "pack": "1000 г",
+     "packPrice": 2.39
+    },
+    "chicken_fillet": {
+     "price": 5.69,
+     "title": "Пилешко филе от гърди",
+     "pack": "на вагу",
+     "packPrice": 5.69
+    },
+    "chicken_thigh": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "pork": {
+     "price": 3.79,
+     "title": "Свински бут без кост",
+     "pack": "на вагу",
+     "packPrice": 3.79
+    },
+    "eggs": {
+     "price": 0.272,
+     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
+     "pack": "6 бр",
+     "packPrice": 1.63
+    },
+    "milk": {
+     "price": 1.22,
+     "title": "NN KLC Прясно мляко 3% 1л бутилка",
+     "pack": "1000 мл",
+     "packPrice": 1.22
+    },
+    "cottage": {
+     "price": 3.69,
+     "title": "Мое Твое Наше Извара кг",
+     "pack": "на вагу",
+     "packPrice": 3.69
+    },
+    "cheese": {
+     "price": 10.213,
+     "title": "KLC.Кашкавал.натурален 45% 750г",
+     "pack": "750 г",
+     "packPrice": 7.66
+    },
+    "butter": {
+     "price": 5.96,
+     "title": "KLC Масло 82% 250гр.",
+     "pack": "250 г",
+     "packPrice": 1.49
+    },
+    "yogurt": {
+     "price": 1.125,
+     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
+     "pack": "400 г",
+     "packPrice": 0.45
+    },
+    "potato": {
+     "price": 0.49,
+     "title": "Картофи четкани кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "carrot": {
+     "price": 1.29,
+     "title": "Моркови кг",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "onion": {
+     "price": 0.39,
+     "title": "Лук жълт кг",
+     "pack": "на вагу",
+     "packPrice": 0.39
+    },
+    "cabbage": {
+     "price": 0.49,
+     "title": "Зеле бяло кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на клонка кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.79,
+     "title": "Краставици кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън сух кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "mushrooms": {
+     "price": 2.95,
+     "title": "Гъби печурка кг",
+     "pack": "на вагу",
+     "packPrice": 2.95
+    },
+    "banana": {
+     "price": 1.79,
+     "title": "K-Bio Банани кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Ябълки Йонапринс кг",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 0.95,
+     "title": "Лимони кг",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "sunflower_oil": {
+     "price": 1.42,
+     "title": "VO слънчогледово олио 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.42
+    },
+    "sugar": {
+     "price": 0.95,
+     "title": "ЗАХИРА захар 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.95
+    },
+    "salt": {
+     "price": 0.28,
+     "title": "KLC Йодирана трапезна сол 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.28
+    },
+    "tomato_paste": {
+     "price": 3.286,
+     "title": "Pomi доматено пюре Рустика с босилек700г",
+     "pack": "700 г",
+     "packPrice": 2.3
+    },
+    "peas_canned": {
+     "price": 2.103,
+     "title": "Зелен грах 680гр.Каликонс",
+     "pack": "680 г",
+     "packPrice": 1.43
+    },
+    "chicken_drumstick": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "sausages": {
+     "price": 1.058,
+     "title": "Леки Кренвирши /~5 кг плик/ 1 кг",
+     "pack": "5000 г",
+     "packPrice": 5.29
+    },
+    "boiled_sausage": {
+     "price": 3.047,
+     "title": "Сити Салам Телешки 850 г",
+     "pack": "850 г",
+     "packPrice": 2.59
+    },
+    "mackerel": {
+     "price": 2.29,
+     "title": "Vedenemo Скумрия 100-125, кг",
+     "pack": "на вагу",
+     "packPrice": 2.29
+    },
+    "canned_beans": {
+     "price": 1.671,
+     "title": "KLC Боб в чили сос 425мл/410 г",
+     "pack": "425 г",
+     "packPrice": 0.71
+    },
+    "rye_bread": {
+     "price": 1.727,
+     "title": "Ресен хляб ръжен нар. 550г",
+     "pack": "550 г",
+     "packPrice": 0.95
+    },
+    "oat_cookies": {
+     "price": 2.225,
+     "title": "Ежко Бежко обикновени бисквити 400г",
+     "pack": "400 г",
+     "packPrice": 0.89
+    }
+   }
+  },
+  "ruse": {
+   "cba": {
+    "rice": {
+     "price": 1.19,
+     "title": "ОРИЗ БЪЛГАРСКИ БИСЕРЕН ВКУСНО 1КГ",
+     "pack": "1000 г",
+     "packPrice": 1.19
+    },
+    "pasta": {
+     "price": 1.65,
+     "title": "ФИДЕ АКЦЕНТ НАЧУПЕНО 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.66
+    },
+    "flour": {
+     "price": 0.59,
+     "title": "БРАШНО ВКУСНО ТИП 500 1КГ",
+     "pack": "1000 г",
+     "packPrice": 0.59
+    },
+    "bread": {
+     "price": 1.246,
+     "title": "ХЛЯБ АКЦЕНТ ДОБРУДЖА НАРЯЗАН 650ГР",
+     "pack": "650 г",
+     "packPrice": 0.81
+    },
+    "lentils": {
+     "price": 2.79,
+     "title": "ЛЕЩА БЪЛГАРСКА КРИНА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.79
+    },
+    "beans": {
+     "price": 1.79,
+     "title": "БОБ АКЦЕНТ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 1.79
+    },
+    "chicken_fillet": {
+     "price": 7.65,
+     "title": "ФИЛЕ ПИЛЕШКО КРЕХКО ЗА ПЕЧЕНЕ",
+     "pack": "на вагу",
+     "packPrice": 7.65
+    },
+    "chicken_thigh": {
+     "price": 3.47,
+     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
+     "pack": "на вагу",
+     "packPrice": 3.47
+    },
+    "pork": {
+     "price": 3.99,
+     "title": "ПЛЕШКА СВИНСКА БЕЗ КОСТ ОХЛАДЕНА",
+     "pack": "на вагу",
+     "packPrice": 3.99
+    },
+    "eggs": {
+     "price": 0.283,
+     "title": "ЯЙЦА КОКОШИ АКВИЛОН РАЗМЕР М 6БР",
+     "pack": "6 бр",
+     "packPrice": 1.7
+    },
+    "milk": {
+     "price": 1.49,
+     "title": "ПРЯСНО МЛЯКО БОЖЕНЦИ 3.6% 1Л БУТИЛКА",
+     "pack": "1000 мл",
+     "packPrice": 1.49
+    },
+    "cottage": {
+     "price": 4.09,
+     "title": "ИЗВАРА МАДЖАРОВ НАСИПНА",
+     "pack": "на вагу",
+     "packPrice": 4.09
+    },
+    "cheese": {
+     "price": 12.475,
+     "title": "КАШКАВАЛ КРАВЕ БУЛГАРЧЕ 400ГР ВАКУУМ",
+     "pack": "400 г",
+     "packPrice": 4.99
+    },
+    "butter": {
+     "price": 9.96,
+     "title": "МАСЛО КРАВЕ МОНАРХ 82% 250ГР",
+     "pack": "250 г",
+     "packPrice": 2.49
+    },
+    "potato": {
+     "price": 0.89,
+     "title": "КАРТОФИ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "carrot": {
+     "price": 1.29,
+     "title": "МОРКОВИ",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "onion": {
+     "price": 1.05,
+     "title": "ЛУК КАБА",
+     "pack": "на вагу",
+     "packPrice": 1.05
+    },
+    "cabbage": {
+     "price": 0.95,
+     "title": "ЗЕЛЕ",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "tomato": {
+     "price": 3.25,
+     "title": "ДОМАТИ",
+     "pack": "на вагу",
+     "packPrice": 3.25
+    },
+    "cucumber": {
+     "price": 3.25,
+     "title": "КРАСТАВИЦИ",
+     "pack": "на вагу",
+     "packPrice": 3.25
+    },
+    "garlic": {
+     "price": 4.65,
+     "title": "ЧЕСЪН",
+     "pack": "на вагу",
+     "packPrice": 4.65
+    },
+    "mushrooms": {
+     "price": 5.15,
+     "title": "ГЪБИ ПЕЧУРКА БЯЛА КГ",
+     "pack": "на вагу",
+     "packPrice": 5.15
+    },
+    "banana": {
+     "price": 2.1,
+     "title": "БАНАНИ",
+     "pack": "на вагу",
+     "packPrice": 2.1
+    },
+    "apple": {
+     "price": 1.49,
+     "title": "ЯБЪЛКИ ШАРЕНИ",
+     "pack": "на вагу",
+     "packPrice": 1.49
+    },
+    "orange": {
+     "price": 2.15,
+     "title": "ПОРТОКАЛИ",
+     "pack": "на вагу",
+     "packPrice": 2.15
+    },
+    "lemon": {
+     "price": 2.1,
+     "title": "ЛИМОНИ",
+     "pack": "на вагу",
+     "packPrice": 2.1
+    },
+    "sunflower_oil": {
+     "price": 2.09,
+     "title": "ОЛИО СЛЪНЧОГЛЕДОВО АКЦЕНТ 1Л",
+     "pack": "1000 мл",
+     "packPrice": 2.09
+    },
+    "sugar": {
+     "price": 1.04,
+     "title": "ЗАХАР РОЯЛ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 1.04
+    },
+    "salt": {
+     "price": 0.42,
+     "title": "СОЛ ТРАПЕЗНА ПЕРЛА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 0.42
+    },
+    "peas_canned": {
+     "price": 2.125,
+     "title": "ГРАХ АКЦЕНТ 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.85
+    },
+    "chicken_drumstick": {
+     "price": 3.47,
+     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
+     "pack": "на вагу",
+     "packPrice": 3.47
+    },
+    "sausages": {
+     "price": 2.69,
+     "title": "КРЕНВИРШИ ПИЛЕШКИ ФЕРМАТА",
+     "pack": "на вагу",
+     "packPrice": 2.69
+    },
+    "mackerel": {
+     "price": 7.59,
+     "title": "СКУМРИЯ ЗАМРАЗЕНА 3/5 АКЦЕНТ ПАКЕТ",
+     "pack": "на вагу",
+     "packPrice": 7.59
+    },
+    "canned_beans": {
+     "price": 2.375,
+     "title": "БОБ БЯЛ АКЦЕНТ 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.95
+    },
+    "rye_bread": {
+     "price": 1.84,
+     "title": "ХЛЯБ РЪЖЕНО-ПШЕНИЧЕН СТРАЖИЦА 500ГР",
+     "pack": "500 г",
+     "packPrice": 0.92
+    },
+    "brynza": {
+     "price": 9.089,
+     "title": "СИРЕНЕ КРАВЕ БЯЛО САЛАМУРЕНО ЛЕСИДРЕН 900ГР КУТИЯ",
+     "pack": "900 г",
+     "packPrice": 8.18
+    },
+    "oat_cookies": {
+     "price": 4.167,
+     "title": "БИСКВИТИ ВИНЧИНИ ОБИКНОВЕНИ 300ГР",
+     "pack": "300 г",
+     "packPrice": 1.25
+    }
+   },
+   "lidl": {
+    "rice": {
+     "price": 1.53,
+     "title": "Krina Български ориз, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "lentils": {
+     "price": 2.04,
+     "title": "Krina Леща, 1кг-опаковка",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "beans": {
+     "price": 2.3,
+     "title": "Krina Боб трапезен, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 2.3
+    },
+    "chicken_fillet": {
+     "price": 2.645,
+     "title": "Пилешко филе около 2кг",
+     "pack": "2000 г",
+     "packPrice": 5.29
+    },
+    "chicken_thigh": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "pork": {
+     "price": 2.55,
+     "title": "Свинска плешка без кост",
+     "pack": "на вагу",
+     "packPrice": 2.55
+    },
+    "eggs": {
+     "price": 0.295,
+     "title": "Яйца 10 бр. L от под отгл селен",
+     "pack": "10 бр",
+     "packPrice": 2.95
+    },
+    "cottage": {
+     "price": 1.53,
+     "title": "Извара 4,2% ",
+     "pack": "на вагу",
+     "packPrice": 1.53
+    },
+    "butter": {
+     "price": 14.8,
+     "title": "Lurpak Датско масло без сол 200 гр.",
+     "pack": "200 г",
+     "packPrice": 2.96
+    },
+    "potato": {
+     "price": 0.39,
+     "title": "Четкани картофи в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.39
+    },
+    "carrot": {
+     "price": 0.49,
+     "title": "Моркови на кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "onion": {
+     "price": 0.78,
+     "title": "Лук на кг",
+     "pack": "на вагу",
+     "packPrice": 0.78
+    },
+    "cabbage": {
+     "price": 0.29,
+     "title": "Зеле на кг",
+     "pack": "на вагу",
+     "packPrice": 0.29
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.75,
+     "title": "Краставици на кг",
+     "pack": "на вагу",
+     "packPrice": 1.75
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън на кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "banana": {
+     "price": 1.99,
+     "title": "Банани на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Червени ябълки в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали на кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 1.59,
+     "title": "Лимони на кг",
+     "pack": "на вагу",
+     "packPrice": 1.59
+    },
+    "sunflower_oil": {
+     "price": 1.68,
+     "title": "Слънчогледово олио 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.68
+    },
+    "peas_canned": {
+     "price": 2.259,
+     "title": "Грах фин, консерва 425мл (OHT 280g)",
+     "pack": "425 г",
+     "packPrice": 0.96
+    },
+    "chicken_drumstick": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "boiled_sausage": {
+     "price": 3.57,
+     "title": "Eko Mes Салам Бургас червен етикет",
+     "pack": "на вагу",
+     "packPrice": 3.57
+    },
+    "mackerel": {
+     "price": 4.6,
+     "title": "Скумрия, изчистена, размразена",
+     "pack": "на вагу",
+     "packPrice": 4.6
+    },
+    "canned_beans": {
+     "price": 3.176,
+     "title": "Червен боб кидни (ОНТ 255 г)",
+     "pack": "255 г",
+     "packPrice": 0.81
+    },
+    "rye_bread": {
+     "price": 1.583,
+     "title": "Хляб Ръчен пълнозърнест 600 гр.",
+     "pack": "600 г",
+     "packPrice": 0.95
+    },
+    "brynza": {
+     "price": 8.557,
+     "title": "Sayana Краве сирене ЗНП, 700г",
+     "pack": "700 г",
+     "packPrice": 5.99
+    },
+    "oat_cookies": {
+     "price": 5.6,
+     "title": "Detstvo moe Детски бисквити, 200гр.",
+     "pack": "200 г",
+     "packPrice": 1.12
+    }
+   },
+   "billa": {
+    "rice": {
+     "price": 2.38,
+     "title": "1КГ ОРИЗ БИСЕРЕН NATURA",
+     "pack": "1000 г",
+     "packPrice": 2.38
+    },
+    "pasta": {
+     "price": 1.22,
+     "title": "500ГР  СПАГЕТИ CLEVER",
+     "pack": "500 г",
+     "packPrice": 0.61
+    },
+    "flour": {
+     "price": 0.82,
+     "title": "1КГ БЯЛО БРАШНО ЕКСТРА СИМИД",
+     "pack": "1000 г",
+     "packPrice": 0.82
+    },
+    "bread": {
+     "price": 1.323,
+     "title": "ДОБ 650ГР ХЛЯБ БАЛИК ТИП ДОБРУДЖА",
+     "pack": "650 г",
+     "packPrice": 0.86
+    },
+    "lentils": {
+     "price": 3.45,
+     "title": "1КГ ЛЕЩА БЪЛГАР.ИМАЛО ЕДНО ВРЕМЕ KRINA",
+     "pack": "1000 г",
+     "packPrice": 3.45
+    },
+    "beans": {
+     "price": 2.04,
+     "title": "1КГ БОБ ТРАДИЦИОНЕН BORKONI",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "chicken_fillet": {
+     "price": 9.2,
+     "title": "МАП ПИЛ.ФИЛЕ ЛУДОГОРСКО ПИЛЕ ОХЛАДЕНО",
+     "pack": "на вагу",
+     "packPrice": 9.2
+    },
+    "chicken_thigh": {
+     "price": 3.06,
+     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
+     "pack": "на вагу",
+     "packPrice": 3.06
+    },
+    "pork": {
+     "price": 4.98,
+     "title": "177 MAP СВИНСКО МЕСО ЗА ГОТВЕНЕ",
+     "pack": "на вагу",
+     "packPrice": 4.98
+    },
+    "milk": {
+     "price": 1.63,
+     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
+     "pack": "1000 мл",
+     "packPrice": 1.63
+    },
+    "cheese": {
+     "price": 7.15,
+     "title": "КАШКАВАЛ ОТ КРАВЕ МЛЯКО CLEVER ЗА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 7.15
+    },
+    "butter": {
+     "price": 7.16,
+     "title": "НЕМСКО КРАВЕ МАСЛО CLEVER 250 ГР",
+     "pack": "250 г",
+     "packPrice": 1.79
+    },
+    "yogurt": {
+     "price": 1.225,
+     "title": "КИСЕЛО МЛЯКО 2% БАДЖАНАШКО 400Г",
+     "pack": "400 г",
+     "packPrice": 0.49
+    },
+    "potato": {
+     "price": 0.79,
+     "title": "КАРТОФИ",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "carrot": {
+     "price": 0.55,
+     "title": "МОРКОВИ",
+     "pack": "на вагу",
+     "packPrice": 0.55
+    },
+    "onion": {
+     "price": 0.65,
+     "title": "КРОМИД ЛУК",
+     "pack": "на вагу",
+     "packPrice": 0.65
+    },
+    "cabbage": {
+     "price": 0.69,
+     "title": "БЯЛО ЗЕЛЕ",
+     "pack": "на вагу",
+     "packPrice": 0.69
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "ДОМАТИ ЗЕЛЕНИ",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 2.19,
+     "title": "КРАСТАВИЦИ",
+     "pack": "на вагу",
+     "packPrice": 2.19
+    },
+    "garlic": {
+     "price": 5.99,
+     "title": "ЧЕСЪН СУХ КГ",
+     "pack": "на вагу",
+     "packPrice": 5.99
+    },
+    "banana": {
+     "price": 1.84,
+     "title": "БАНАНИ",
+     "pack": "на вагу",
+     "packPrice": 1.84
+    },
+    "apple": {
+     "price": 0.99,
+     "title": "ЯБЪЛКИ АЙДАРЕД",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "orange": {
+     "price": 1.49,
+     "title": "ПОРТОКАЛИ",
+     "pack": "на вагу",
+     "packPrice": 1.49
+    },
+    "lemon": {
+     "price": 0.89,
+     "title": "ЛИМОНИ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "sunflower_oil": {
+     "price": 1.64,
+     "title": "1Л ЗЛАТНО ДОБРУДЖАНСКО ОЛИО",
+     "pack": "1000 мл",
+     "packPrice": 1.64
+    },
+    "sugar": {
+     "price": 0.86,
+     "title": "1КГ ЗАХАР IZZI",
+     "pack": "1000 г",
+     "packPrice": 0.86
+    },
+    "salt": {
+     "price": 0.33,
+     "title": "1КГ СОЛ ТРАПЕЗНА IZZI",
+     "pack": "1000 г",
+     "packPrice": 0.33
+    },
+    "tomato_paste": {
+     "price": 1.64,
+     "title": "500МЛ ДОМАТЕНО ПЮРЕ 7% PHILICON",
+     "pack": "500 г",
+     "packPrice": 0.82
+    },
+    "peas_canned": {
+     "price": 2.132,
+     "title": "680Г ГРАХ БУРКАН ОБИЧАМ",
+     "pack": "680 г",
+     "packPrice": 1.45
+    },
+    "chicken_drumstick": {
+     "price": 3.06,
+     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
+     "pack": "на вагу",
+     "packPrice": 3.06
+    },
+    "sausages": {
+     "price": 1.598,
+     "title": "БЕЛ КРЕНВИРШИ ЛЕКИ /2Х2,5КГ",
+     "pack": "5000 г",
+     "packPrice": 7.99
+    },
+    "boiled_sausage": {
+     "price": 1.344,
+     "title": "САЛАМ КАМЧИЯ ЖИТНИЦА 5.200КГ",
+     "pack": "5200 г",
+     "packPrice": 6.99
+    },
+    "canned_beans": {
+     "price": 2.5,
+     "title": "400ГР БОБ МИКС ФАМИЛЕКС",
+     "pack": "400 г",
+     "packPrice": 1
+    },
+    "rye_bread": {
+     "price": 4.275,
+     "title": "ДОБ 400ГР ХЛЯБ ВИТА СИЛУЕТ РЪЖЕН",
+     "pack": "400 г",
+     "packPrice": 1.71
+    },
+    "brynza": {
+     "price": 8.517,
+     "title": "КРАВЕ СИРЕНЕ CLEVER 600 ГР",
+     "pack": "600 г",
+     "packPrice": 5.11
+    },
+    "oat_cookies": {
+     "price": 3,
+     "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
+     "pack": "120 г",
+     "packPrice": 0.36
+    }
+   },
+   "kaufland": {
+    "rice": {
+     "price": 1.53,
+     "title": "KLC.кръглозърнест.ориз.1кг",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "pasta": {
+     "price": 0.78,
+     "title": "KLC Фусили от мека пшеница 500г",
+     "pack": "500 г",
+     "packPrice": 0.39
+    },
+    "flour": {
+     "price": 0.55,
+     "title": "Брей! Пшенично брашно тип 500 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.55
+    },
+    "bread": {
+     "price": 1.169,
+     "title": "NN Хляб бял нарязан 650 г",
+     "pack": "650 г",
+     "packPrice": 0.76
+    },
+    "lentils": {
+     "price": 1.39,
+     "title": "Happy Agro Селска леща 1кг",
+     "pack": "1000 г",
+     "packPrice": 1.39
+    },
+    "beans": {
+     "price": 2.39,
+     "title": "Izzi Бял боб 1 кг",
+     "pack": "1000 г",
+     "packPrice": 2.39
+    },
+    "chicken_fillet": {
+     "price": 5.69,
+     "title": "Пилешко филе от гърди",
+     "pack": "на вагу",
+     "packPrice": 5.69
+    },
+    "chicken_thigh": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "pork": {
+     "price": 3.79,
+     "title": "Свински бут без кост",
+     "pack": "на вагу",
+     "packPrice": 3.79
+    },
+    "eggs": {
+     "price": 0.272,
+     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
+     "pack": "6 бр",
+     "packPrice": 1.63
+    },
+    "milk": {
+     "price": 1.22,
+     "title": "NN KLC Прясно мляко 3% 1л бутилка",
+     "pack": "1000 мл",
+     "packPrice": 1.22
+    },
+    "cottage": {
+     "price": 2.76,
+     "title": "Мое Твое Наше Извара 500г",
+     "pack": "500 г",
+     "packPrice": 1.38
+    },
+    "cheese": {
+     "price": 10.213,
+     "title": "KLC.Кашкавал.натурален 45% 750г",
+     "pack": "750 г",
+     "packPrice": 7.66
+    },
+    "butter": {
+     "price": 5.96,
+     "title": "KLC Масло 82% 250гр.",
+     "pack": "250 г",
+     "packPrice": 1.49
+    },
+    "yogurt": {
+     "price": 1.125,
+     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
+     "pack": "400 г",
+     "packPrice": 0.45
+    },
+    "potato": {
+     "price": 0.49,
+     "title": "Картофи четкани кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "carrot": {
+     "price": 1.29,
+     "title": "Моркови кг",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "onion": {
+     "price": 0.39,
+     "title": "Лук жълт кг",
+     "pack": "на вагу",
+     "packPrice": 0.39
+    },
+    "cabbage": {
+     "price": 0.49,
+     "title": "Зеле бяло кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на клонка кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.79,
+     "title": "Краставици кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън сух кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "mushrooms": {
+     "price": 2.95,
+     "title": "Гъби печурка кг",
+     "pack": "на вагу",
+     "packPrice": 2.95
+    },
+    "banana": {
+     "price": 1.79,
+     "title": "K-Bio Банани кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Ябълки Йонапринс кг",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 0.95,
+     "title": "Лимони кг",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "sunflower_oil": {
+     "price": 1.42,
+     "title": "VO слънчогледово олио KL 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.42
+    },
+    "sugar": {
+     "price": 0.95,
+     "title": "ЗАХИРА захар 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.95
+    },
+    "salt": {
+     "price": 0.28,
+     "title": "KLC Йодирана трапезна сол 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.28
+    },
+    "tomato_paste": {
+     "price": 3.286,
+     "title": "Pomi доматено пюре Рустика с босилек700г",
+     "pack": "700 г",
+     "packPrice": 2.3
+    },
+    "peas_canned": {
+     "price": 2.103,
+     "title": "Зелен грах 680гр.Каликонс",
+     "pack": "680 г",
+     "packPrice": 1.43
+    },
+    "chicken_drumstick": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "sausages": {
+     "price": 1.058,
+     "title": "Леки Кренвирши /~5 кг плик/ 1 кг",
+     "pack": "5000 г",
+     "packPrice": 5.29
+    },
+    "boiled_sausage": {
+     "price": 3.047,
+     "title": "Сити Салам Телешки 850 г",
+     "pack": "850 г",
+     "packPrice": 2.59
+    },
+    "mackerel": {
+     "price": 4.99,
+     "title": "Скумрия цяла замразена, XXL",
+     "pack": "на вагу",
+     "packPrice": 4.99
+    },
+    "canned_beans": {
+     "price": 1.671,
+     "title": "KLC Боб в чили сос 425мл/410 г",
+     "pack": "425 г",
+     "packPrice": 0.71
+    },
+    "rye_bread": {
+     "price": 1.727,
+     "title": "Ресен хляб ръжен нар. 550г",
+     "pack": "550 г",
+     "packPrice": 0.95
+    },
+    "oat_cookies": {
+     "price": 2.225,
+     "title": "Ежко Бежко обикновени бисквити 400г",
+     "pack": "400 г",
+     "packPrice": 0.89
+    }
+   }
+  },
   "sofia": {
+   "cba": {
+    "rice": {
+     "price": 2.04,
+     "title": "ОРИЗ БЪЛГАРСКИ БИСЕРЕН ВКУСНО 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "pasta": {
+     "price": 1.65,
+     "title": "ФИДЕ АКЦЕНТ НАЧУПЕНО 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.66
+    },
+    "flour": {
+     "price": 0.69,
+     "title": "БРАШНО АКЦЕНТ ТИП 500 1КГ",
+     "pack": "1000 г",
+     "packPrice": 0.69
+    },
+    "bread": {
+     "price": 1.627,
+     "title": "ХЛЯБ ДОБРУДЖА СИМИД НАРЯЗАН 830ГР",
+     "pack": "830 г",
+     "packPrice": 1.35
+    },
+    "lentils": {
+     "price": 2.59,
+     "title": "ЛЕЩА АКЦЕНТ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.59
+    },
+    "beans": {
+     "price": 2.99,
+     "title": "БОБ АКЦЕНТ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 2.99
+    },
+    "chicken_fillet": {
+     "price": 7.65,
+     "title": "ФИЛЕ ПИЛЕШКО КРЕХКО ЗА ПЕЧЕНЕ",
+     "pack": "на вагу",
+     "packPrice": 7.65
+    },
+    "chicken_thigh": {
+     "price": 3.47,
+     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
+     "pack": "на вагу",
+     "packPrice": 3.47
+    },
+    "mince": {
+     "price": 7.75,
+     "title": "КАЙМА СУПЕР МАРИО 40/60 НАСИПНА",
+     "pack": "на вагу",
+     "packPrice": 7.75
+    },
+    "pork": {
+     "price": 3.99,
+     "title": "ПЛЕШКА СВИНСКА БЕЗ КОСТ ОХЛАДЕНА",
+     "pack": "на вагу",
+     "packPrice": 3.99
+    },
+    "eggs": {
+     "price": 0.283,
+     "title": "ЯЙЦА КОКОШИ АКВИЛОН РАЗМЕР М 6БР",
+     "pack": "6 бр",
+     "packPrice": 1.7
+    },
+    "milk": {
+     "price": 1.39,
+     "title": "ПРЯСНО МЛЯКО МЕГГЛЕ 3.2% 1Л УХТ",
+     "pack": "1000 мл",
+     "packPrice": 1.39
+    },
+    "cottage": {
+     "price": 4.09,
+     "title": "ИЗВАРА МАДЖАРОВ НАСИПНА",
+     "pack": "на вагу",
+     "packPrice": 4.09
+    },
+    "cheese": {
+     "price": 12.475,
+     "title": "КАШКАВАЛ КРАВЕ БУЛГАРЧЕ 400ГР ВАКУУМ",
+     "pack": "400 г",
+     "packPrice": 4.99
+    },
+    "butter": {
+     "price": 9.96,
+     "title": "МАСЛО КРАВЕ МОНАРХ 82% 250ГР",
+     "pack": "250 г",
+     "packPrice": 2.49
+    },
+    "potato": {
+     "price": 0.89,
+     "title": "КАРТОФИ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "carrot": {
+     "price": 1.05,
+     "title": "МОРКОВИ",
+     "pack": "на вагу",
+     "packPrice": 1.05
+    },
+    "onion": {
+     "price": 0.89,
+     "title": "ЛУК КАБА",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "cabbage": {
+     "price": 0.89,
+     "title": "ЗЕЛЕ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "tomato": {
+     "price": 3.29,
+     "title": "ДОМАТИ",
+     "pack": "на вагу",
+     "packPrice": 3.29
+    },
+    "cucumber": {
+     "price": 3.19,
+     "title": "КРАСТАВИЦИ",
+     "pack": "на вагу",
+     "packPrice": 3.19
+    },
+    "garlic": {
+     "price": 4.45,
+     "title": "ЧЕСЪН",
+     "pack": "на вагу",
+     "packPrice": 4.45
+    },
+    "banana": {
+     "price": 2.05,
+     "title": "БАНАНИ",
+     "pack": "на вагу",
+     "packPrice": 2.05
+    },
+    "apple": {
+     "price": 1.25,
+     "title": "ЯБЪЛКИ ШАРЕНИ",
+     "pack": "на вагу",
+     "packPrice": 1.25
+    },
+    "orange": {
+     "price": 2.19,
+     "title": "ПОРТОКАЛИ",
+     "pack": "на вагу",
+     "packPrice": 2.19
+    },
+    "lemon": {
+     "price": 1.79,
+     "title": "ЛИМОНИ",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "sunflower_oil": {
+     "price": 2.09,
+     "title": "ОЛИО СЛЪНЧОГЛЕДОВО АКЦЕНТ 1Л",
+     "pack": "1000 мл",
+     "packPrice": 2.09
+    },
+    "sugar": {
+     "price": 1.04,
+     "title": "ЗАХАР РОЯЛ 1КГ",
+     "pack": "1000 г",
+     "packPrice": 1.04
+    },
+    "salt": {
+     "price": 0.42,
+     "title": "СОЛ ТРАПЕЗНА ПЕРЛА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 0.42
+    },
+    "peas_canned": {
+     "price": 2.125,
+     "title": "ГРАХ АКЦЕНТ 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.85
+    },
+    "chicken_drumstick": {
+     "price": 3.47,
+     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
+     "pack": "на вагу",
+     "packPrice": 3.47
+    },
+    "sausages": {
+     "price": 2.69,
+     "title": "КРЕНВИРШИ ПИЛЕШКИ ФЕРМАТА",
+     "pack": "на вагу",
+     "packPrice": 2.69
+    },
+    "mackerel": {
+     "price": 7.15,
+     "title": "СКУМРИЯ ЗАМРАЗЕНА 300+ СЕВЕРНО МОРЕ ПАКЕТ",
+     "pack": "на вагу",
+     "packPrice": 7.15
+    },
+    "canned_beans": {
+     "price": 2.375,
+     "title": "БОБ БЯЛ АКЦЕНТ 400ГР",
+     "pack": "400 г",
+     "packPrice": 0.95
+    },
+    "brynza": {
+     "price": 9.089,
+     "title": "СИРЕНЕ КРАВЕ БЯЛО САЛАМУРЕНО ЛЕСИДРЕН 900ГР КУТИЯ",
+     "pack": "900 г",
+     "packPrice": 8.18
+    },
+    "oat_cookies": {
+     "price": 4.167,
+     "title": "БИСКВИТИ ВИНЧИНИ ОБИКНОВЕНИ 300ГР",
+     "pack": "300 г",
+     "packPrice": 1.25
+    }
+   },
+   "lidl": {
+    "rice": {
+     "price": 1.53,
+     "title": "Krina Български ориз, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "lentils": {
+     "price": 2.04,
+     "title": "Krina Леща, 1кг-опаковка",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "beans": {
+     "price": 2.3,
+     "title": "Krina Боб трапезен, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 2.3
+    },
+    "chicken_fillet": {
+     "price": 2.645,
+     "title": "Пилешко филе около 2кг",
+     "pack": "2000 г",
+     "packPrice": 5.29
+    },
+    "chicken_thigh": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "pork": {
+     "price": 2.55,
+     "title": "Свинска плешка без кост",
+     "pack": "на вагу",
+     "packPrice": 2.55
+    },
+    "eggs": {
+     "price": 0.295,
+     "title": "Яйца 10 бр. L от под отгл селен",
+     "pack": "10 бр",
+     "packPrice": 2.95
+    },
+    "cottage": {
+     "price": 1.53,
+     "title": "Извара 4,2% ",
+     "pack": "на вагу",
+     "packPrice": 1.53
+    },
+    "butter": {
+     "price": 14.8,
+     "title": "Lurpak Датско масло без сол 200 гр.",
+     "pack": "200 г",
+     "packPrice": 2.96
+    },
+    "potato": {
+     "price": 0.49,
+     "title": "Четкани картофи в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "carrot": {
+     "price": 0.49,
+     "title": "Моркови на кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "onion": {
+     "price": 0.78,
+     "title": "Лук на кг",
+     "pack": "на вагу",
+     "packPrice": 0.78
+    },
+    "cabbage": {
+     "price": 0.29,
+     "title": "Зеле на кг",
+     "pack": "на вагу",
+     "packPrice": 0.29
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.75,
+     "title": "Краставици на кг",
+     "pack": "на вагу",
+     "packPrice": 1.75
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън на кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "banana": {
+     "price": 1.99,
+     "title": "Банани на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Червени ябълки в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали на кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 1.59,
+     "title": "Лимони на кг",
+     "pack": "на вагу",
+     "packPrice": 1.59
+    },
+    "sunflower_oil": {
+     "price": 1.68,
+     "title": "Слънчогледово олио 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.68
+    },
+    "peas_canned": {
+     "price": 2.259,
+     "title": "Грах фин, консерва 425мл (OHT 280g)",
+     "pack": "425 г",
+     "packPrice": 0.96
+    },
+    "chicken_drumstick": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "boiled_sausage": {
+     "price": 3.57,
+     "title": "Eko Mes Салам Бургас червен етикет",
+     "pack": "на вагу",
+     "packPrice": 3.57
+    },
+    "mackerel": {
+     "price": 4.6,
+     "title": "Скумрия, изчистена, размразена",
+     "pack": "на вагу",
+     "packPrice": 4.6
+    },
+    "canned_beans": {
+     "price": 3.176,
+     "title": "Червен боб кидни (ОНТ 255 г)",
+     "pack": "255 г",
+     "packPrice": 0.81
+    },
+    "rye_bread": {
+     "price": 1.583,
+     "title": "Хляб Ръчен пълнозърнест 600 гр.",
+     "pack": "600 г",
+     "packPrice": 0.95
+    },
+    "brynza": {
+     "price": 8.557,
+     "title": "Sayana Краве сирене ЗНП, 700г",
+     "pack": "700 г",
+     "packPrice": 5.99
+    },
+    "oat_cookies": {
+     "price": 5.6,
+     "title": "Detstvo moe Детски бисквити, 200гр.",
+     "pack": "200 г",
+     "packPrice": 1.12
+    }
+   },
    "fantastico": {
     "rice": {
      "price": 1.8,
@@ -148,10 +2400,10 @@
      "packPrice": 1.26
     },
     "sunflower_oil": {
-     "price": 1.7,
+     "price": 1.55,
      "title": "ОЛИО СЛЪНЧОГЛЕДОВО Ф ВКУС 1 Л РЕТ",
      "pack": "1000 мл",
-     "packPrice": 1.7
+     "packPrice": 1.55
     },
     "sugar": {
      "price": 1.14,
@@ -206,418 +2458,6 @@
      "title": "БИСКВИТИ ОБИКНОВЕНИ FF ВКУС 150 ГР",
      "pack": "150 г",
      "packPrice": 0.36
-    }
-   },
-   "lidl": {
-    "rice": {
-     "price": 1.53,
-     "title": "Krina Български ориз, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "lentils": {
-     "price": 2.04,
-     "title": "Krina Леща, 1кг-опаковка",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "beans": {
-     "price": 2.3,
-     "title": "Krina Боб трапезен, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 2.3
-    },
-    "chicken_fillet": {
-     "price": 6.64,
-     "title": "Прясно пилешко филе XXL",
-     "pack": "на вагу",
-     "packPrice": 6.64
-    },
-    "chicken_thigh": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "pork": {
-     "price": 2.55,
-     "title": "Свинска плешка без кост",
-     "pack": "на вагу",
-     "packPrice": 2.55
-    },
-    "eggs": {
-     "price": 0.295,
-     "title": "Яйца 10 бр. L от под отгл селен",
-     "pack": "10 бр",
-     "packPrice": 2.95
-    },
-    "cottage": {
-     "price": 1.53,
-     "title": "Извара 4,2% ",
-     "pack": "на вагу",
-     "packPrice": 1.53
-    },
-    "butter": {
-     "price": 14.8,
-     "title": "Lurpak Датско масло без сол 200 гр.",
-     "pack": "200 г",
-     "packPrice": 2.96
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Четкани картофи в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "Моркови на кг",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.78,
-     "title": "Лук на кг",
-     "pack": "на вагу",
-     "packPrice": 0.78
-    },
-    "cabbage": {
-     "price": 0.29,
-     "title": "Зеле на кг",
-     "pack": "на вагу",
-     "packPrice": 0.29
-    },
-    "tomato": {
-     "price": 2.19,
-     "title": "Домати на кг",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "cucumber": {
-     "price": 1.75,
-     "title": "Краставици на кг",
-     "pack": "на вагу",
-     "packPrice": 1.75
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън на кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "banana": {
-     "price": 1.99,
-     "title": "Банани на кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Червени ябълки в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 0.99,
-     "title": "Портокали на кг",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "lemon": {
-     "price": 1.59,
-     "title": "Лимони на кг",
-     "pack": "на вагу",
-     "packPrice": 1.59
-    },
-    "sunflower_oil": {
-     "price": 1.68,
-     "title": "Слънчогледово олио 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.68
-    },
-    "peas_canned": {
-     "price": 2.259,
-     "title": "Грах фин, консерва 425мл (OHT 280g)",
-     "pack": "425 г",
-     "packPrice": 0.96
-    },
-    "chicken_drumstick": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "boiled_sausage": {
-     "price": 3.57,
-     "title": "Eko Mes Салам Бургас червен етикет",
-     "pack": "на вагу",
-     "packPrice": 3.57
-    },
-    "mackerel": {
-     "price": 4.6,
-     "title": "Скумрия цяла с глава",
-     "pack": "на вагу",
-     "packPrice": 4.6
-    },
-    "canned_beans": {
-     "price": 3.176,
-     "title": "Червен боб кидни (ОНТ 255 г)",
-     "pack": "255 г",
-     "packPrice": 0.81
-    },
-    "rye_bread": {
-     "price": 1.583,
-     "title": "Хляб Ръчен пълнозърнест 600 гр.",
-     "pack": "600 г",
-     "packPrice": 0.95
-    },
-    "brynza": {
-     "price": 8.557,
-     "title": "Sayana Краве сирене ЗНП, 700г",
-     "pack": "700 г",
-     "packPrice": 5.99
-    },
-    "oat_cookies": {
-     "price": 5.6,
-     "title": "Detstvo moe Детски бисквити, 200гр.",
-     "pack": "200 г",
-     "packPrice": 1.12
-    }
-   },
-   "kaufland": {
-    "rice": {
-     "price": 1.53,
-     "title": "KLC.кръглозърнест.ориз.1кг",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "pasta": {
-     "price": 0.78,
-     "title": "KLC Фусили от мека пшеница 500г",
-     "pack": "500 г",
-     "packPrice": 0.39
-    },
-    "flour": {
-     "price": 0.55,
-     "title": "Брей! Пшенично брашно тип 500 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.55
-    },
-    "bread": {
-     "price": 0.985,
-     "title": "NN Хляб Добруджа нарязан 650 гр",
-     "pack": "650 г",
-     "packPrice": 0.64
-    },
-    "lentils": {
-     "price": 3.32,
-     "title": "Имало едно време Бълг.леща Крина 1кг",
-     "pack": "1000 г",
-     "packPrice": 3.32
-    },
-    "beans": {
-     "price": 2.39,
-     "title": "Izzi Бял боб 1 кг",
-     "pack": "1000 г",
-     "packPrice": 2.39
-    },
-    "chicken_fillet": {
-     "price": 5.69,
-     "title": "Пилешко филе от гърди",
-     "pack": "на вагу",
-     "packPrice": 5.69
-    },
-    "chicken_thigh": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "pork": {
-     "price": 2.99,
-     "title": "Свинска плешка без кост",
-     "pack": "на вагу",
-     "packPrice": 2.99
-    },
-    "eggs": {
-     "price": 0.272,
-     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
-     "pack": "6 бр",
-     "packPrice": 1.63
-    },
-    "milk": {
-     "price": 1.22,
-     "title": "NN KLC Прясно мляко 3% 1л бутилка",
-     "pack": "1000 мл",
-     "packPrice": 1.22
-    },
-    "cottage": {
-     "price": 2.76,
-     "title": "Мое Твое Наше Извара 500г",
-     "pack": "500 г",
-     "packPrice": 1.38
-    },
-    "cheese": {
-     "price": 10.213,
-     "title": "KLC.Кашкавал.натурален 45% 750г",
-     "pack": "750 г",
-     "packPrice": 7.66
-    },
-    "butter": {
-     "price": 5.96,
-     "title": "KLC Масло 82% 250гр.",
-     "pack": "250 г",
-     "packPrice": 1.49
-    },
-    "yogurt": {
-     "price": 1.125,
-     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
-     "pack": "400 г",
-     "packPrice": 0.45
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Картофи четкани кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 1.29,
-     "title": "Моркови кг",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "onion": {
-     "price": 0.39,
-     "title": "Лук жълт кг",
-     "pack": "на вагу",
-     "packPrice": 0.39
-    },
-    "cabbage": {
-     "price": 0.49,
-     "title": "Зеле бяло кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "tomato": {
-     "price": 1.99,
-     "title": "Домати на клонка кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "cucumber": {
-     "price": 1.99,
-     "title": "Краставици кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън сух кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "mushrooms": {
-     "price": 2.95,
-     "title": "Гъби печурка кг",
-     "pack": "на вагу",
-     "packPrice": 2.95
-    },
-    "banana": {
-     "price": 1.79,
-     "title": "K-Bio Банани кг",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Ябълки Йонапринс кг",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 1.95,
-     "title": "Портокали кг",
-     "pack": "на вагу",
-     "packPrice": 1.95
-    },
-    "lemon": {
-     "price": 0.95,
-     "title": "Лимони кг",
-     "pack": "на вагу",
-     "packPrice": 0.95
-    },
-    "sunflower_oil": {
-     "price": 1.42,
-     "title": "VO слънчогледово олио KL 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.42
-    },
-    "sugar": {
-     "price": 0.95,
-     "title": "ЗАХИРА захар 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.95
-    },
-    "salt": {
-     "price": 0.28,
-     "title": "KLC Йодирана трапезна сол 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.28
-    },
-    "tomato_paste": {
-     "price": 3.286,
-     "title": "Pomi доматено пюре Рустика с босилек700г",
-     "pack": "700 г",
-     "packPrice": 2.3
-    },
-    "peas_canned": {
-     "price": 2.103,
-     "title": "Зелен грах 680гр.Каликонс",
-     "pack": "680 г",
-     "packPrice": 1.43
-    },
-    "chicken_drumstick": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "sausages": {
-     "price": 1.058,
-     "title": "Леки Кренвирши /~5 кг плик/ 1 кг",
-     "pack": "5000 г",
-     "packPrice": 5.29
-    },
-    "boiled_sausage": {
-     "price": 3.047,
-     "title": "Сити Салам Телешки 850 г",
-     "pack": "850 г",
-     "packPrice": 2.59
-    },
-    "mackerel": {
-     "price": 2.29,
-     "title": "Vedenemo Скумрия 100-125, кг",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "canned_beans": {
-     "price": 1.671,
-     "title": "KLC Боб в чили сос 425мл/410 г",
-     "pack": "425 г",
-     "packPrice": 0.71
-    },
-    "rye_bread": {
-     "price": 1.94,
-     "title": "Стражица Хляб ръжено-пшеничен500г",
-     "pack": "500 г",
-     "packPrice": 0.97
-    },
-    "oat_cookies": {
-     "price": 2.225,
-     "title": "Ежко Бежко обикновени бисквити 400г",
-     "pack": "400 г",
-     "packPrice": 0.89
     }
    },
    "billa": {
@@ -676,10 +2516,10 @@
      "packPrice": 6.75
     },
     "milk": {
-     "price": 1.64,
-     "title": "UHT МЛЯКО 3.5% CLEVER 1Л",
+     "price": 1.63,
+     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
      "pack": "1000 мл",
-     "packPrice": 1.64
+     "packPrice": 1.63
     },
     "cheese": {
      "price": 7.15,
@@ -688,10 +2528,10 @@
      "packPrice": 7.15
     },
     "butter": {
-     "price": 9.04,
+     "price": 7.16,
      "title": "НЕМСКО КРАВЕ МАСЛО CLEVER 250 ГР",
      "pack": "250 г",
-     "packPrice": 2.26
+     "packPrice": 1.79
     },
     "yogurt": {
      "price": 1.225,
@@ -712,10 +2552,10 @@
      "packPrice": 0.55
     },
     "onion": {
-     "price": 0.75,
+     "price": 0.65,
      "title": "КРОМИД ЛУК",
      "pack": "на вагу",
-     "packPrice": 0.75
+     "packPrice": 0.65
     },
     "cabbage": {
      "price": 0.69,
@@ -724,10 +2564,10 @@
      "packPrice": 0.69
     },
     "tomato": {
-     "price": 1.99,
-     "title": "ДОМАТИ ЗЕЛЕНИ",
+     "price": 2.49,
+     "title": "ДОМАТИ ЧЕРВЕНИ",
      "pack": "на вагу",
-     "packPrice": 1.99
+     "packPrice": 2.49
     },
     "cucumber": {
      "price": 2.19,
@@ -830,224 +2670,6 @@
      "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
      "pack": "120 г",
      "packPrice": 0.36
-    }
-   },
-   "cba": {
-    "rice": {
-     "price": 2.04,
-     "title": "ОРИЗ БЪЛГАРСКИ БИСЕРЕН ВКУСНО 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "pasta": {
-     "price": 1.65,
-     "title": "ФИДЕ АКЦЕНТ НАЧУПЕНО 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.66
-    },
-    "flour": {
-     "price": 0.69,
-     "title": "БРАШНО АКЦЕНТ ТИП 500 1КГ",
-     "pack": "1000 г",
-     "packPrice": 0.69
-    },
-    "bread": {
-     "price": 1.627,
-     "title": "ХЛЯБ ДОБРУДЖА СИМИД НАРЯЗАН 830ГР",
-     "pack": "830 г",
-     "packPrice": 1.35
-    },
-    "lentils": {
-     "price": 2.59,
-     "title": "ЛЕЩА АКЦЕНТ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.59
-    },
-    "beans": {
-     "price": 2.99,
-     "title": "БОБ АКЦЕНТ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.99
-    },
-    "chicken_fillet": {
-     "price": 7.65,
-     "title": "ФИЛЕ ПИЛЕШКО КРЕХКО ЗА ПЕЧЕНЕ",
-     "pack": "на вагу",
-     "packPrice": 7.65
-    },
-    "chicken_thigh": {
-     "price": 3.47,
-     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
-     "pack": "на вагу",
-     "packPrice": 3.47
-    },
-    "mince": {
-     "price": 7.75,
-     "title": "КАЙМА СУПЕР МАРИО 40/60 НАСИПНА",
-     "pack": "на вагу",
-     "packPrice": 7.75
-    },
-    "pork": {
-     "price": 3.99,
-     "title": "ПЛЕШКА СВИНСКА БЕЗ КОСТ ОХЛАДЕНА",
-     "pack": "на вагу",
-     "packPrice": 3.99
-    },
-    "eggs": {
-     "price": 0.283,
-     "title": "ЯЙЦА КОКОШИ АКВИЛОН РАЗМЕР М 6БР",
-     "pack": "6 бр",
-     "packPrice": 1.7
-    },
-    "milk": {
-     "price": 1.39,
-     "title": "ПРЯСНО МЛЯКО МЕГГЛЕ 3.2% 1Л УХТ",
-     "pack": "1000 мл",
-     "packPrice": 1.39
-    },
-    "cottage": {
-     "price": 4.09,
-     "title": "ИЗВАРА МАДЖАРОВ НАСИПНА",
-     "pack": "на вагу",
-     "packPrice": 4.09
-    },
-    "cheese": {
-     "price": 12.475,
-     "title": "КАШКАВАЛ КРАВЕ БУЛГАРЧЕ 400ГР ВАКУУМ",
-     "pack": "400 г",
-     "packPrice": 4.99
-    },
-    "butter": {
-     "price": 9.96,
-     "title": "МАСЛО КРАВЕ МОНАРХ 82% 250ГР",
-     "pack": "250 г",
-     "packPrice": 2.49
-    },
-    "potato": {
-     "price": 0.89,
-     "title": "КАРТОФИ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "carrot": {
-     "price": 1.05,
-     "title": "МОРКОВИ",
-     "pack": "на вагу",
-     "packPrice": 1.05
-    },
-    "onion": {
-     "price": 0.89,
-     "title": "ЛУК КАБА",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "cabbage": {
-     "price": 0.89,
-     "title": "ЗЕЛЕ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "tomato": {
-     "price": 3.55,
-     "title": "ДОМАТИ",
-     "pack": "на вагу",
-     "packPrice": 3.55
-    },
-    "cucumber": {
-     "price": 3.39,
-     "title": "КРАСТАВИЦИ",
-     "pack": "на вагу",
-     "packPrice": 3.39
-    },
-    "garlic": {
-     "price": 4.89,
-     "title": "ЧЕСЪН",
-     "pack": "на вагу",
-     "packPrice": 4.89
-    },
-    "banana": {
-     "price": 2.05,
-     "title": "БАНАНИ",
-     "pack": "на вагу",
-     "packPrice": 2.05
-    },
-    "apple": {
-     "price": 1.39,
-     "title": "ЯБЪЛКИ ШАРЕНИ",
-     "pack": "на вагу",
-     "packPrice": 1.39
-    },
-    "orange": {
-     "price": 2.45,
-     "title": "ПОРТОКАЛИ",
-     "pack": "на вагу",
-     "packPrice": 2.45
-    },
-    "lemon": {
-     "price": 1.79,
-     "title": "ЛИМОНИ",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "sunflower_oil": {
-     "price": 2.09,
-     "title": "ОЛИО СЛЪНЧОГЛЕДОВО АКЦЕНТ 1Л",
-     "pack": "1000 мл",
-     "packPrice": 2.09
-    },
-    "sugar": {
-     "price": 1.04,
-     "title": "ЗАХАР РОЯЛ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 1.04
-    },
-    "salt": {
-     "price": 0.42,
-     "title": "СОЛ ТРАПЕЗНА ПЕРЛА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 0.42
-    },
-    "peas_canned": {
-     "price": 2.125,
-     "title": "ГРАХ АКЦЕНТ 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.85
-    },
-    "chicken_drumstick": {
-     "price": 3.47,
-     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
-     "pack": "на вагу",
-     "packPrice": 3.47
-    },
-    "sausages": {
-     "price": 2.69,
-     "title": "КРЕНВИРШИ ПИЛЕШКИ ФЕРМАТА",
-     "pack": "на вагу",
-     "packPrice": 2.69
-    },
-    "mackerel": {
-     "price": 7.15,
-     "title": "СКУМРИЯ ЗАМРАЗЕНА 300+ СЕВЕРНО МОРЕ ПАКЕТ",
-     "pack": "на вагу",
-     "packPrice": 7.15
-    },
-    "canned_beans": {
-     "price": 2.375,
-     "title": "БОБ БЯЛ АКЦЕНТ 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.95
-    },
-    "brynza": {
-     "price": 9.089,
-     "title": "СИРЕНЕ КРАВЕ БЯЛО САЛАМУРЕНО ЛЕСИДРЕН 900ГР КУТИЯ",
-     "pack": "900 г",
-     "packPrice": 8.18
-    },
-    "oat_cookies": {
-     "price": 4.167,
-     "title": "БИСКВИТИ ВИНЧИНИ ОБИКНОВЕНИ 300ГР",
-     "pack": "300 г",
-     "packPrice": 1.25
     }
    },
    "tmarket": {
@@ -1219,9 +2841,421 @@
      "pack": "190 г",
      "packPrice": 0.89
     }
+   },
+   "kaufland": {
+    "rice": {
+     "price": 1.53,
+     "title": "KLC.кръглозърнест.ориз.1кг",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "pasta": {
+     "price": 0.78,
+     "title": "KLC Фусили от мека пшеница 500г",
+     "pack": "500 г",
+     "packPrice": 0.39
+    },
+    "flour": {
+     "price": 0.55,
+     "title": "Брей! Пшенично брашно тип 500 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.55
+    },
+    "bread": {
+     "price": 0.985,
+     "title": "NN Хляб Добруджа нарязан 650 гр",
+     "pack": "650 г",
+     "packPrice": 0.64
+    },
+    "lentils": {
+     "price": 3.32,
+     "title": "Имало едно време Бълг.леща Крина 1кг",
+     "pack": "1000 г",
+     "packPrice": 3.32
+    },
+    "beans": {
+     "price": 2.39,
+     "title": "Izzi Бял боб 1 кг",
+     "pack": "1000 г",
+     "packPrice": 2.39
+    },
+    "chicken_fillet": {
+     "price": 5.69,
+     "title": "Пилешко филе от гърди",
+     "pack": "на вагу",
+     "packPrice": 5.69
+    },
+    "chicken_thigh": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "pork": {
+     "price": 2.99,
+     "title": "Свинска плешка без кост, кг",
+     "pack": "на вагу",
+     "packPrice": 2.99
+    },
+    "eggs": {
+     "price": 0.272,
+     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
+     "pack": "6 бр",
+     "packPrice": 1.63
+    },
+    "milk": {
+     "price": 1.22,
+     "title": "NN KLC Прясно мляко 3% 1л бутилка",
+     "pack": "1000 мл",
+     "packPrice": 1.22
+    },
+    "cottage": {
+     "price": 2.76,
+     "title": "Мое Твое Наше Извара 500г",
+     "pack": "500 г",
+     "packPrice": 1.38
+    },
+    "cheese": {
+     "price": 10.213,
+     "title": "KLC.Кашкавал.натурален 45% 750г",
+     "pack": "750 г",
+     "packPrice": 7.66
+    },
+    "butter": {
+     "price": 5.96,
+     "title": "KLC Масло 82% 250гр.",
+     "pack": "250 г",
+     "packPrice": 1.49
+    },
+    "yogurt": {
+     "price": 1.125,
+     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
+     "pack": "400 г",
+     "packPrice": 0.45
+    },
+    "potato": {
+     "price": 0.49,
+     "title": "Картофи четкани кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "carrot": {
+     "price": 1.29,
+     "title": "Моркови кг",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "onion": {
+     "price": 0.39,
+     "title": "Лук жълт кг",
+     "pack": "на вагу",
+     "packPrice": 0.39
+    },
+    "cabbage": {
+     "price": 0.49,
+     "title": "Зеле бяло кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на клонка кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.79,
+     "title": "Краставици кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън сух кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "mushrooms": {
+     "price": 2.95,
+     "title": "Гъби печурка кг",
+     "pack": "на вагу",
+     "packPrice": 2.95
+    },
+    "banana": {
+     "price": 1.79,
+     "title": "K-Bio Банани кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Ябълки Йонапринс кг",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 0.95,
+     "title": "Лимони кг",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "sunflower_oil": {
+     "price": 1.42,
+     "title": "VO слънчогледово олио KL 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.42
+    },
+    "sugar": {
+     "price": 0.95,
+     "title": "ЗАХИРА захар 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.95
+    },
+    "salt": {
+     "price": 0.28,
+     "title": "KLC Йодирана трапезна сол 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.28
+    },
+    "tomato_paste": {
+     "price": 3.286,
+     "title": "Pomi доматено пюре Рустика с босилек700г",
+     "pack": "700 г",
+     "packPrice": 2.3
+    },
+    "peas_canned": {
+     "price": 2.103,
+     "title": "Зелен грах 680гр.Каликонс",
+     "pack": "680 г",
+     "packPrice": 1.43
+    },
+    "chicken_drumstick": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "sausages": {
+     "price": 1.058,
+     "title": "Леки Кренвирши /~5 кг плик/ 1 кг",
+     "pack": "5000 г",
+     "packPrice": 5.29
+    },
+    "boiled_sausage": {
+     "price": 3.047,
+     "title": "Сити Салам Телешки 850 г",
+     "pack": "850 г",
+     "packPrice": 2.59
+    },
+    "mackerel": {
+     "price": 2.29,
+     "title": "Vedenemo Скумрия 100-125, кг",
+     "pack": "на вагу",
+     "packPrice": 2.29
+    },
+    "canned_beans": {
+     "price": 1.671,
+     "title": "KLC Боб в чили сос 425мл/410 г",
+     "pack": "425 г",
+     "packPrice": 0.71
+    },
+    "rye_bread": {
+     "price": 1.94,
+     "title": "Стражица Хляб ръжено-пшеничен500г",
+     "pack": "500 г",
+     "packPrice": 0.97
+    },
+    "oat_cookies": {
+     "price": 2.225,
+     "title": "Ежко Бежко обикновени бисквити 400г",
+     "pack": "400 г",
+     "packPrice": 0.89
+    }
    }
   },
   "plovdiv": {
+   "lidl": {
+    "rice": {
+     "price": 1.53,
+     "title": "Krina Български ориз, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "lentils": {
+     "price": 2.04,
+     "title": "Krina Леща, 1кг-опаковка",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "beans": {
+     "price": 2.3,
+     "title": "Krina Боб трапезен, 1кг-плик",
+     "pack": "1000 г",
+     "packPrice": 2.3
+    },
+    "chicken_fillet": {
+     "price": 2.645,
+     "title": "Пилешко филе около 2кг",
+     "pack": "2000 г",
+     "packPrice": 5.29
+    },
+    "chicken_thigh": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "pork": {
+     "price": 2.55,
+     "title": "Свинска плешка без кост",
+     "pack": "на вагу",
+     "packPrice": 2.55
+    },
+    "eggs": {
+     "price": 0.295,
+     "title": "Яйца 10 бр. L от под отгл селен",
+     "pack": "10 бр",
+     "packPrice": 2.95
+    },
+    "cottage": {
+     "price": 1.53,
+     "title": "Извара 4,2% ",
+     "pack": "на вагу",
+     "packPrice": 1.53
+    },
+    "butter": {
+     "price": 14.8,
+     "title": "Lurpak Датско масло без сол 200 гр.",
+     "pack": "200 г",
+     "packPrice": 2.96
+    },
+    "potato": {
+     "price": 0.49,
+     "title": "Четкани картофи в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "carrot": {
+     "price": 0.49,
+     "title": "Моркови на кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "onion": {
+     "price": 0.78,
+     "title": "Лук на кг",
+     "pack": "на вагу",
+     "packPrice": 0.78
+    },
+    "cabbage": {
+     "price": 0.29,
+     "title": "Зеле на кг",
+     "pack": "на вагу",
+     "packPrice": 0.29
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.75,
+     "title": "Краставици на кг",
+     "pack": "на вагу",
+     "packPrice": 1.75
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън на кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "banana": {
+     "price": 1.99,
+     "title": "Банани на кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Червени ябълки в мрежа",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали на кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 1.59,
+     "title": "Лимони на кг",
+     "pack": "на вагу",
+     "packPrice": 1.59
+    },
+    "sunflower_oil": {
+     "price": 1.68,
+     "title": "Слънчогледово олио 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.68
+    },
+    "peas_canned": {
+     "price": 2.259,
+     "title": "Грах фин, консерва 425мл (OHT 280g)",
+     "pack": "425 г",
+     "packPrice": 0.96
+    },
+    "chicken_drumstick": {
+     "price": 1.69,
+     "title": "Прясно пилешко бутче XXL",
+     "pack": "на вагу",
+     "packPrice": 1.69
+    },
+    "boiled_sausage": {
+     "price": 3.57,
+     "title": "Eko Mes Салам Бургас червен етикет",
+     "pack": "на вагу",
+     "packPrice": 3.57
+    },
+    "mackerel": {
+     "price": 4.6,
+     "title": "Скумрия цяла с глава",
+     "pack": "на вагу",
+     "packPrice": 4.6
+    },
+    "canned_beans": {
+     "price": 3.176,
+     "title": "Червен боб кидни (ОНТ 255 г)",
+     "pack": "255 г",
+     "packPrice": 0.81
+    },
+    "rye_bread": {
+     "price": 1.583,
+     "title": "Хляб Ръчен пълнозърнест 600 гр.",
+     "pack": "600 г",
+     "packPrice": 0.95
+    },
+    "brynza": {
+     "price": 8.557,
+     "title": "Sayana Краве сирене ЗНП, 700г",
+     "pack": "700 г",
+     "packPrice": 5.99
+    },
+    "oat_cookies": {
+     "price": 5.6,
+     "title": "Detstvo moe Детски бисквити, 200гр.",
+     "pack": "200 г",
+     "packPrice": 1.12
+    }
+   },
    "fantastico": {
     "rice": {
      "price": 1.8,
@@ -1368,10 +3402,10 @@
      "packPrice": 1.26
     },
     "sunflower_oil": {
-     "price": 1.7,
+     "price": 1.55,
      "title": "ОЛИО СЛЪНЧОГЛЕДОВО Ф ВКУС 1 Л РЕТ",
      "pack": "1000 мл",
-     "packPrice": 1.7
+     "packPrice": 1.55
     },
     "sugar": {
      "price": 1.14,
@@ -1428,418 +3462,6 @@
      "packPrice": 0.36
     }
    },
-   "lidl": {
-    "rice": {
-     "price": 1.53,
-     "title": "Krina Български ориз, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "lentils": {
-     "price": 2.04,
-     "title": "Krina Леща, 1кг-опаковка",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "beans": {
-     "price": 2.3,
-     "title": "Krina Боб трапезен, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 2.3
-    },
-    "chicken_fillet": {
-     "price": 6.64,
-     "title": "Прясно пилешко филе XXL",
-     "pack": "на вагу",
-     "packPrice": 6.64
-    },
-    "chicken_thigh": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "pork": {
-     "price": 2.55,
-     "title": "Свинска плешка без кост",
-     "pack": "на вагу",
-     "packPrice": 2.55
-    },
-    "eggs": {
-     "price": 0.295,
-     "title": "Яйца 10 бр. L от под отгл селен",
-     "pack": "10 бр",
-     "packPrice": 2.95
-    },
-    "cottage": {
-     "price": 1.53,
-     "title": "Извара 4,2% ",
-     "pack": "на вагу",
-     "packPrice": 1.53
-    },
-    "butter": {
-     "price": 14.8,
-     "title": "Lurpak Датско масло без сол 200 гр.",
-     "pack": "200 г",
-     "packPrice": 2.96
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Четкани картофи в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "Моркови на кг",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.78,
-     "title": "Лук на кг",
-     "pack": "на вагу",
-     "packPrice": 0.78
-    },
-    "cabbage": {
-     "price": 0.29,
-     "title": "Зеле на кг",
-     "pack": "на вагу",
-     "packPrice": 0.29
-    },
-    "tomato": {
-     "price": 2.19,
-     "title": "Домати на кг",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "cucumber": {
-     "price": 1.75,
-     "title": "Краставици на кг",
-     "pack": "на вагу",
-     "packPrice": 1.75
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън на кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "banana": {
-     "price": 1.99,
-     "title": "Банани на кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Червени ябълки в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 0.99,
-     "title": "Портокали на кг",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "lemon": {
-     "price": 1.59,
-     "title": "Лимони на кг",
-     "pack": "на вагу",
-     "packPrice": 1.59
-    },
-    "sunflower_oil": {
-     "price": 1.68,
-     "title": "Слънчогледово олио 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.68
-    },
-    "peas_canned": {
-     "price": 2.259,
-     "title": "Грах фин, консерва 425мл (OHT 280g)",
-     "pack": "425 г",
-     "packPrice": 0.96
-    },
-    "chicken_drumstick": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "boiled_sausage": {
-     "price": 3.57,
-     "title": "Eko Mes Салам Бургас червен етикет",
-     "pack": "на вагу",
-     "packPrice": 3.57
-    },
-    "mackerel": {
-     "price": 4.6,
-     "title": "Скумрия цяла с глава",
-     "pack": "на вагу",
-     "packPrice": 4.6
-    },
-    "canned_beans": {
-     "price": 3.176,
-     "title": "Червен боб кидни (ОНТ 255 г)",
-     "pack": "255 г",
-     "packPrice": 0.81
-    },
-    "rye_bread": {
-     "price": 1.583,
-     "title": "Хляб Ръчен пълнозърнест 600 гр.",
-     "pack": "600 г",
-     "packPrice": 0.95
-    },
-    "brynza": {
-     "price": 8.557,
-     "title": "Sayana Краве сирене ЗНП, 700г",
-     "pack": "700 г",
-     "packPrice": 5.99
-    },
-    "oat_cookies": {
-     "price": 5.6,
-     "title": "Detstvo moe Детски бисквити, 200гр.",
-     "pack": "200 г",
-     "packPrice": 1.12
-    }
-   },
-   "kaufland": {
-    "rice": {
-     "price": 1.53,
-     "title": "KLC.кръглозърнест.ориз.1кг",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "pasta": {
-     "price": 0.78,
-     "title": "KLC Фусили от мека пшеница 500г",
-     "pack": "500 г",
-     "packPrice": 0.39
-    },
-    "flour": {
-     "price": 0.55,
-     "title": "Брей! Пшенично брашно тип 500 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.55
-    },
-    "bread": {
-     "price": 0.985,
-     "title": "NN Хляб Добруджа нарязан 650 гр",
-     "pack": "650 г",
-     "packPrice": 0.64
-    },
-    "lentils": {
-     "price": 1.39,
-     "title": "Happy Agro Селска леща 1кг",
-     "pack": "1000 г",
-     "packPrice": 1.39
-    },
-    "beans": {
-     "price": 2.39,
-     "title": "Izzi Бял боб 1 кг",
-     "pack": "1000 г",
-     "packPrice": 2.39
-    },
-    "chicken_fillet": {
-     "price": 5.69,
-     "title": "Пилешко филе от гърди",
-     "pack": "на вагу",
-     "packPrice": 5.69
-    },
-    "chicken_thigh": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "pork": {
-     "price": 2.99,
-     "title": "Свинска плешка без кост",
-     "pack": "на вагу",
-     "packPrice": 2.99
-    },
-    "eggs": {
-     "price": 0.272,
-     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
-     "pack": "6 бр",
-     "packPrice": 1.63
-    },
-    "milk": {
-     "price": 1.22,
-     "title": "NN KLC Прясно мляко 3% 1л бутилка",
-     "pack": "1000 мл",
-     "packPrice": 1.22
-    },
-    "cottage": {
-     "price": 3.69,
-     "title": "Мое Твое Наше Извара кг",
-     "pack": "на вагу",
-     "packPrice": 3.69
-    },
-    "cheese": {
-     "price": 10.213,
-     "title": "KLC.Кашкавал.натурален 45% 750г",
-     "pack": "750 г",
-     "packPrice": 7.66
-    },
-    "butter": {
-     "price": 5.96,
-     "title": "KLC Масло 82% 250гр.",
-     "pack": "250 г",
-     "packPrice": 1.49
-    },
-    "yogurt": {
-     "price": 1.125,
-     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
-     "pack": "400 г",
-     "packPrice": 0.45
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Картофи четкани кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 1.29,
-     "title": "Моркови кг",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "onion": {
-     "price": 1.37,
-     "title": "Лук червен кг",
-     "pack": "на вагу",
-     "packPrice": 1.37
-    },
-    "cabbage": {
-     "price": 0.49,
-     "title": "Зеле бяло кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "tomato": {
-     "price": 1.99,
-     "title": "Домати на клонка кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "cucumber": {
-     "price": 1.99,
-     "title": "Краставици кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън сух кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "mushrooms": {
-     "price": 2.95,
-     "title": "Гъби печурка кг",
-     "pack": "на вагу",
-     "packPrice": 2.95
-    },
-    "banana": {
-     "price": 1.79,
-     "title": "K-Bio Банани кг",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Ябълки Йонапринс кг",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 1.95,
-     "title": "Портокали кг",
-     "pack": "на вагу",
-     "packPrice": 1.95
-    },
-    "lemon": {
-     "price": 0.95,
-     "title": "Лимони кг",
-     "pack": "на вагу",
-     "packPrice": 0.95
-    },
-    "sunflower_oil": {
-     "price": 1.42,
-     "title": "VO слънчогледово олио 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.42
-    },
-    "sugar": {
-     "price": 0.95,
-     "title": "ЗАХИРА захар 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.95
-    },
-    "salt": {
-     "price": 0.28,
-     "title": "KLC Йодирана трапезна сол 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.28
-    },
-    "tomato_paste": {
-     "price": 3.286,
-     "title": "Pomi доматено пюре Рустика с босилек700г",
-     "pack": "700 г",
-     "packPrice": 2.3
-    },
-    "peas_canned": {
-     "price": 2.103,
-     "title": "Зелен грах 680гр.Каликонс",
-     "pack": "680 г",
-     "packPrice": 1.43
-    },
-    "chicken_drumstick": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "sausages": {
-     "price": 1.058,
-     "title": "Леки Кренвирши /~5 кг плик/ 1 кг",
-     "pack": "5000 г",
-     "packPrice": 5.29
-    },
-    "boiled_sausage": {
-     "price": 3.047,
-     "title": "Сити Салам Телешки 850 г",
-     "pack": "850 г",
-     "packPrice": 2.59
-    },
-    "mackerel": {
-     "price": 2.29,
-     "title": "Vedenemo Скумрия 100-125, кг",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "canned_beans": {
-     "price": 1.671,
-     "title": "KLC Боб в чили сос 425мл/410 г",
-     "pack": "425 г",
-     "packPrice": 0.71
-    },
-    "rye_bread": {
-     "price": 1.94,
-     "title": "Стражица Хляб ръжено-пшеничен500г",
-     "pack": "500 г",
-     "packPrice": 0.97
-    },
-    "oat_cookies": {
-     "price": 2.867,
-     "title": "Ежко Бежко обикновени бисквити 150 г",
-     "pack": "150 г",
-     "packPrice": 0.43
-    }
-   },
    "billa": {
     "rice": {
      "price": 2.38,
@@ -1860,10 +3482,10 @@
      "packPrice": 0.82
     },
     "bread": {
-     "price": 1.52,
-     "title": "МИО 500ГР ХЛЯБ ДОБРУДЖА",
-     "pack": "500 г",
-     "packPrice": 0.76
+     "price": 1.492,
+     "title": "ЛОЗ 650ГР ХЛЯБ БЯЛ ИЗПЕЧЕН НА КАМЕННА ПЛ",
+     "pack": "650 г",
+     "packPrice": 0.97
     },
     "lentils": {
      "price": 3.45,
@@ -1908,10 +3530,10 @@
      "packPrice": 7.15
     },
     "butter": {
-     "price": 9.04,
+     "price": 7.16,
      "title": "НЕМСКО КРАВЕ МАСЛО CLEVER 250 ГР",
      "pack": "250 г",
-     "packPrice": 2.26
+     "packPrice": 1.79
     },
     "yogurt": {
      "price": 1.225,
@@ -1932,10 +3554,10 @@
      "packPrice": 0.55
     },
     "onion": {
-     "price": 0.75,
+     "price": 0.65,
      "title": "КРОМИД ЛУК",
      "pack": "на вагу",
-     "packPrice": 0.75
+     "packPrice": 0.65
     },
     "cabbage": {
      "price": 0.69,
@@ -2203,184 +3825,6 @@
      "pack": "190 г",
      "packPrice": 0.89
     }
-   }
-  },
-  "varna": {
-   "lidl": {
-    "rice": {
-     "price": 1.53,
-     "title": "Krina Български ориз, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "lentils": {
-     "price": 2.04,
-     "title": "Krina Леща, 1кг-опаковка",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "beans": {
-     "price": 2.3,
-     "title": "Krina Боб трапезен, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 2.3
-    },
-    "chicken_fillet": {
-     "price": 6.64,
-     "title": "Прясно пилешко филе XXL",
-     "pack": "на вагу",
-     "packPrice": 6.64
-    },
-    "chicken_thigh": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "pork": {
-     "price": 2.55,
-     "title": "Свинска плешка без кост",
-     "pack": "на вагу",
-     "packPrice": 2.55
-    },
-    "eggs": {
-     "price": 0.295,
-     "title": "Яйца 10 бр. L от под отгл селен",
-     "pack": "10 бр",
-     "packPrice": 2.95
-    },
-    "cottage": {
-     "price": 1.53,
-     "title": "Извара 4,2% ",
-     "pack": "на вагу",
-     "packPrice": 1.53
-    },
-    "butter": {
-     "price": 14.8,
-     "title": "Lurpak Датско масло без сол 200 гр.",
-     "pack": "200 г",
-     "packPrice": 2.96
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Четкани картофи в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "Моркови на кг",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.78,
-     "title": "Лук на кг",
-     "pack": "на вагу",
-     "packPrice": 0.78
-    },
-    "cabbage": {
-     "price": 0.29,
-     "title": "Зеле на кг",
-     "pack": "на вагу",
-     "packPrice": 0.29
-    },
-    "tomato": {
-     "price": 2.19,
-     "title": "Домати на кг",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "cucumber": {
-     "price": 1.75,
-     "title": "Краставици на кг",
-     "pack": "на вагу",
-     "packPrice": 1.75
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън на кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "banana": {
-     "price": 1.99,
-     "title": "Банани на кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Червени ябълки в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 0.99,
-     "title": "Портокали на кг",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "lemon": {
-     "price": 1.59,
-     "title": "Лимони на кг",
-     "pack": "на вагу",
-     "packPrice": 1.59
-    },
-    "sunflower_oil": {
-     "price": 1.68,
-     "title": "Слънчогледово олио 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.68
-    },
-    "peas_canned": {
-     "price": 2.259,
-     "title": "Грах фин, консерва 425мл (OHT 280g)",
-     "pack": "425 г",
-     "packPrice": 0.96
-    },
-    "chicken_drumstick": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "boiled_sausage": {
-     "price": 3.57,
-     "title": "Eko Mes Салам Бургас червен етикет",
-     "pack": "на вагу",
-     "packPrice": 3.57
-    },
-    "mackerel": {
-     "price": 4.6,
-     "title": "Скумрия цяла с глава",
-     "pack": "на вагу",
-     "packPrice": 4.6
-    },
-    "canned_beans": {
-     "price": 3.176,
-     "title": "Червен боб кидни (ОНТ 255 г)",
-     "pack": "255 г",
-     "packPrice": 0.81
-    },
-    "rye_bread": {
-     "price": 1.583,
-     "title": "Хляб Ръчен пълнозърнест 600 гр.",
-     "pack": "600 г",
-     "packPrice": 0.95
-    },
-    "brynza": {
-     "price": 8.557,
-     "title": "Sayana Краве сирене ЗНП, 700г",
-     "pack": "700 г",
-     "packPrice": 5.99
-    },
-    "oat_cookies": {
-     "price": 5.6,
-     "title": "Detstvo moe Детски бисквити, 200гр.",
-     "pack": "200 г",
-     "packPrice": 1.12
-    }
    },
    "kaufland": {
     "rice": {
@@ -2402,10 +3846,10 @@
      "packPrice": 0.55
     },
     "bread": {
-     "price": 1.169,
-     "title": "NN Хляб бял 650 г",
+     "price": 0.985,
+     "title": "NN Хляб Добруджа нарязан 650 гр",
      "pack": "650 г",
-     "packPrice": 0.76
+     "packPrice": 0.64
     },
     "lentils": {
      "price": 1.39,
@@ -2504,10 +3948,10 @@
      "packPrice": 1.99
     },
     "cucumber": {
-     "price": 1.99,
+     "price": 1.79,
      "title": "Краставици кг",
      "pack": "на вагу",
-     "packPrice": 1.99
+     "packPrice": 1.79
     },
     "garlic": {
      "price": 5.11,
@@ -2534,10 +3978,10 @@
      "packPrice": 0.79
     },
     "orange": {
-     "price": 1.95,
+     "price": 0.99,
      "title": "Портокали кг",
      "pack": "на вагу",
-     "packPrice": 1.95
+     "packPrice": 0.99
     },
     "lemon": {
      "price": 0.95,
@@ -2606,1376 +4050,16 @@
      "packPrice": 0.71
     },
     "rye_bread": {
-     "price": 1.727,
-     "title": "Ресен хляб ръжен нар. 550г",
-     "pack": "550 г",
-     "packPrice": 0.95
-    },
-    "oat_cookies": {
-     "price": 2.225,
-     "title": "Ежко Бежко обикновени бисквити 400г",
-     "pack": "400 г",
-     "packPrice": 0.89
-    }
-   },
-   "billa": {
-    "rice": {
-     "price": 2.38,
-     "title": "1КГ ОРИЗ БИСЕРЕН NATURA",
-     "pack": "1000 г",
-     "packPrice": 2.38
-    },
-    "pasta": {
-     "price": 1.22,
-     "title": "500ГР  СПАГЕТИ CLEVER",
-     "pack": "500 г",
-     "packPrice": 0.61
-    },
-    "flour": {
-     "price": 0.82,
-     "title": "1КГ БЯЛО БРАШНО ЕКСТРА СИМИД",
-     "pack": "1000 г",
-     "packPrice": 0.82
-    },
-    "bread": {
-     "price": 1.369,
-     "title": "ДЕМ 650ГР ХЛЯБ БЯЛ",
-     "pack": "650 г",
-     "packPrice": 0.89
-    },
-    "lentils": {
-     "price": 3.45,
-     "title": "1КГ ЛЕЩА БЪЛГАР.ИМАЛО ЕДНО ВРЕМЕ KRINA",
-     "pack": "1000 г",
-     "packPrice": 3.45
-    },
-    "beans": {
-     "price": 2.04,
-     "title": "1КГ БОБ ТРАДИЦИОНЕН BORKONI",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "chicken_fillet": {
-     "price": 6.64,
-     "title": "285 MAП ПИЛЕШКО ФИЛЕ ЗА 1 КГ.",
-     "pack": "1000 г",
-     "packPrice": 6.64
-    },
-    "chicken_thigh": {
-     "price": 3.06,
-     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
-     "pack": "на вагу",
-     "packPrice": 3.06
-    },
-    "mince": {
-     "price": 7.55,
-     "title": "SOC КАЙМА СМЕС 60/40 СВ./ГОВ.ГАСТРО",
-     "pack": "на вагу",
-     "packPrice": 7.55
-    },
-    "pork": {
-     "price": 4.98,
-     "title": "SOC СВИНСКО МЕСО ЗА ГОТВЕНЕ ГАСТРО БГ",
-     "pack": "на вагу",
-     "packPrice": 4.98
-    },
-    "milk": {
-     "price": 1.63,
-     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
-     "pack": "1000 мл",
-     "packPrice": 1.63
-    },
-    "cheese": {
-     "price": 7.15,
-     "title": "КАШКАВАЛ ОТ КРАВЕ МЛЯКО CLEVER ЗА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 7.15
-    },
-    "butter": {
-     "price": 11.12,
-     "title": "КРАВЕ МАСЛО 125 ГР CLEVER",
-     "pack": "125 г",
-     "packPrice": 1.39
-    },
-    "yogurt": {
-     "price": 1.225,
-     "title": "КИСЕЛО МЛЯКО 2% БАДЖАНАШКО 400Г",
-     "pack": "400 г",
-     "packPrice": 0.49
-    },
-    "potato": {
-     "price": 0.79,
-     "title": "КАРТОФИ",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "МОРКОВИ",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.75,
-     "title": "КРОМИД ЛУК",
-     "pack": "на вагу",
-     "packPrice": 0.75
-    },
-    "cabbage": {
-     "price": 0.69,
-     "title": "БЯЛО ЗЕЛЕ",
-     "pack": "на вагу",
-     "packPrice": 0.69
-    },
-    "tomato": {
-     "price": 1.99,
-     "title": "ДОМАТИ ЗЕЛЕНИ",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "cucumber": {
-     "price": 2.19,
-     "title": "КРАСТАВИЦИ",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "garlic": {
-     "price": 5.99,
-     "title": "ЧЕСЪН СУХ КГ",
-     "pack": "на вагу",
-     "packPrice": 5.99
-    },
-    "banana": {
-     "price": 1.84,
-     "title": "БАНАНИ",
-     "pack": "на вагу",
-     "packPrice": 1.84
-    },
-    "apple": {
-     "price": 0.99,
-     "title": "ЯБЪЛКИ АЙДАРЕД",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "orange": {
-     "price": 1.49,
-     "title": "ПОРТОКАЛИ",
-     "pack": "на вагу",
-     "packPrice": 1.49
-    },
-    "lemon": {
-     "price": 0.89,
-     "title": "ЛИМОНИ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "sunflower_oil": {
-     "price": 1.64,
-     "title": "1Л ЗЛАТНО ДОБРУДЖАНСКО ОЛИО",
-     "pack": "1000 мл",
-     "packPrice": 1.64
-    },
-    "sugar": {
-     "price": 0.86,
-     "title": "1КГ ЗАХАР IZZI",
-     "pack": "1000 г",
-     "packPrice": 0.86
-    },
-    "salt": {
-     "price": 0.33,
-     "title": "1КГ СОЛ ТРАПЕЗНА IZZI",
-     "pack": "1000 г",
-     "packPrice": 0.33
-    },
-    "tomato_paste": {
-     "price": 1.64,
-     "title": "500МЛ ДОМАТЕНО ПЮРЕ 7% PHILICON",
-     "pack": "500 г",
-     "packPrice": 0.82
-    },
-    "peas_canned": {
-     "price": 2.132,
-     "title": "680Г ГРАХ БУРКАН ОБИЧАМ",
-     "pack": "680 г",
-     "packPrice": 1.45
-    },
-    "chicken_drumstick": {
-     "price": 3.06,
-     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
-     "pack": "на вагу",
-     "packPrice": 3.06
-    },
-    "sausages": {
-     "price": 1.598,
-     "title": "БЕЛ КРЕНВИРШИ ЛЕКИ /2Х2,5КГ",
-     "pack": "5000 г",
-     "packPrice": 7.99
-    },
-    "boiled_sausage": {
-     "price": 3.39,
-     "title": "302 САЛАМ КАМЧИЯ  ЛЕСИДРЕН 300",
-     "pack": "на вагу",
-     "packPrice": 3.39
-    },
-    "canned_beans": {
-     "price": 2.5,
-     "title": "400ГР БОБ МИКС ФАМИЛЕКС",
-     "pack": "400 г",
-     "packPrice": 1
-    },
-    "rye_bread": {
-     "price": 4.275,
-     "title": "ДОБ 400ГР ХЛЯБ ВИТА СИЛУЕТ РЪЖЕН",
-     "pack": "400 г",
-     "packPrice": 1.71
-    },
-    "brynza": {
-     "price": 8.517,
-     "title": "КРАВЕ СИРЕНЕ CLEVER 600 ГР",
-     "pack": "600 г",
-     "packPrice": 5.11
-    },
-    "oat_cookies": {
-     "price": 3,
-     "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
-     "pack": "120 г",
-     "packPrice": 0.36
-    }
-   },
-   "cba": {
-    "rice": {
-     "price": 2.04,
-     "title": "ОРИЗ БЪЛГАРСКИ БИСЕРЕН ВКУСНО 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "pasta": {
-     "price": 1.65,
-     "title": "ФИДЕ АКЦЕНТ НАЧУПЕНО 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.66
-    },
-    "flour": {
-     "price": 0.69,
-     "title": "БРАШНО АКЦЕНТ ТИП 500 1КГ",
-     "pack": "1000 г",
-     "packPrice": 0.69
-    },
-    "bread": {
-     "price": 1.246,
-     "title": "ХЛЯБ АКЦЕНТ ДОБРУДЖА НАРЯЗАН 650ГР",
-     "pack": "650 г",
-     "packPrice": 0.81
-    },
-    "lentils": {
-     "price": 2.79,
-     "title": "ЛЕЩА БЪЛГАРСКА КРИНА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.79
-    },
-    "beans": {
-     "price": 2.99,
-     "title": "БОБ АКЦЕНТ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.99
-    },
-    "chicken_fillet": {
-     "price": 7.65,
-     "title": "ФИЛЕ ПИЛЕШКО КРЕХКО ЗА ПЕЧЕНЕ",
-     "pack": "на вагу",
-     "packPrice": 7.65
-    },
-    "chicken_thigh": {
-     "price": 3.47,
-     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
-     "pack": "на вагу",
-     "packPrice": 3.47
-    },
-    "pork": {
-     "price": 3.99,
-     "title": "ПЛЕШКА СВИНСКА БЕЗ КОСТ ОХЛАДЕНА",
-     "pack": "на вагу",
-     "packPrice": 3.99
-    },
-    "eggs": {
-     "price": 0.285,
-     "title": "ЯЙЦА КОКОШИ АКВИЛОН РАЗМЕР М 10БР",
-     "pack": "10 бр",
-     "packPrice": 2.85
-    },
-    "milk": {
-     "price": 1.49,
-     "title": "ПРЯСНО МЛЯКО БОЖЕНЦИ 3.6% 1Л БУТИЛКА",
-     "pack": "1000 мл",
-     "packPrice": 1.49
-    },
-    "cottage": {
-     "price": 4.09,
-     "title": "ИЗВАРА МАДЖАРОВ НАСИПНА",
-     "pack": "на вагу",
-     "packPrice": 4.09
-    },
-    "cheese": {
-     "price": 12.475,
-     "title": "КАШКАВАЛ КРАВЕ БУЛГАРЧЕ 400ГР ВАКУУМ",
-     "pack": "400 г",
-     "packPrice": 4.99
-    },
-    "butter": {
-     "price": 9.96,
-     "title": "МАСЛО КРАВЕ МОНАРХ 82% 250ГР",
-     "pack": "250 г",
-     "packPrice": 2.49
-    },
-    "potato": {
-     "price": 0.89,
-     "title": "КАРТОФИ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "carrot": {
-     "price": 1.15,
-     "title": "МОРКОВИ",
-     "pack": "на вагу",
-     "packPrice": 1.15
-    },
-    "onion": {
-     "price": 0.99,
-     "title": "ЛУК КАБА",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "cabbage": {
-     "price": 0.85,
-     "title": "ЗЕЛЕ",
-     "pack": "на вагу",
-     "packPrice": 0.85
-    },
-    "tomato": {
-     "price": 3.15,
-     "title": "ДОМАТИ",
-     "pack": "на вагу",
-     "packPrice": 3.15
-    },
-    "cucumber": {
-     "price": 2.89,
-     "title": "КРАСТАВИЦИ",
-     "pack": "на вагу",
-     "packPrice": 2.89
-    },
-    "garlic": {
-     "price": 3.79,
-     "title": "ЧЕСЪН",
-     "pack": "на вагу",
-     "packPrice": 3.79
-    },
-    "mushrooms": {
-     "price": 4.19,
-     "title": "ГЪБИ ПЕЧУРКА БЯЛА КГ",
-     "pack": "на вагу",
-     "packPrice": 4.19
-    },
-    "banana": {
-     "price": 2.09,
-     "title": "БАНАНИ",
-     "pack": "на вагу",
-     "packPrice": 2.09
-    },
-    "apple": {
-     "price": 0.99,
-     "title": "ЯБЪЛКИ ШАРЕНИ БЪЛГАРСКИ",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "orange": {
-     "price": 2.29,
-     "title": "ПОРТОКАЛИ",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "lemon": {
-     "price": 2.09,
-     "title": "ЛИМОНИ",
-     "pack": "на вагу",
-     "packPrice": 2.09
-    },
-    "sunflower_oil": {
-     "price": 2.09,
-     "title": "ОЛИО СЛЪНЧОГЛЕДОВО АКЦЕНТ 1Л",
-     "pack": "1000 мл",
-     "packPrice": 2.09
-    },
-    "sugar": {
-     "price": 1.13,
-     "title": "ЗАХАР АКЦЕНТ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 1.13
-    },
-    "salt": {
-     "price": 0.42,
-     "title": "СОЛ ТРАПЕЗНА ПЕРЛА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 0.42
-    },
-    "peas_canned": {
-     "price": 2.125,
-     "title": "ГРАХ АКЦЕНТ 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.85
-    },
-    "chicken_drumstick": {
-     "price": 3.47,
-     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
-     "pack": "на вагу",
-     "packPrice": 3.47
-    },
-    "sausages": {
-     "price": 2.69,
-     "title": "КРЕНВИРШИ ПИЛЕШКИ ФЕРМАТА",
-     "pack": "на вагу",
-     "packPrice": 2.69
-    },
-    "mackerel": {
-     "price": 7.59,
-     "title": "СКУМРИЯ ЗАМРАЗЕНА 3/5 АКЦЕНТ ПАКЕТ",
-     "pack": "на вагу",
-     "packPrice": 7.59
-    },
-    "canned_beans": {
-     "price": 2.55,
-     "title": "БОБ БЯЛ ФАМИЛЕКС 400ГР",
-     "pack": "400 г",
-     "packPrice": 1.02
-    },
-    "rye_bread": {
-     "price": 1.982,
-     "title": "ХЛЯБ РЪЖЕНО-ПШЕНИЧЕН НАРЯЗАН ЯНА 550ГР",
-     "pack": "550 г",
-     "packPrice": 1.09
-    },
-    "brynza": {
-     "price": 9.089,
-     "title": "СИРЕНЕ КРАВЕ БЯЛО САЛАМУРЕНО ЛЕСИДРЕН 900ГР КУТИЯ",
-     "pack": "900 г",
-     "packPrice": 8.18
-    },
-    "oat_cookies": {
-     "price": 4.167,
-     "title": "БИСКВИТИ ВИНЧИНИ ОБИКНОВЕНИ 300ГР",
-     "pack": "300 г",
-     "packPrice": 1.25
-    }
-   },
-   "tmarket": {
-    "pasta": {
-     "price": 0.975,
-     "title": "Макарони ЗЛАТЕН КЛАС звездички 400г",
-     "pack": "400 г",
-     "packPrice": 0.39
-    },
-    "flour": {
-     "price": 0.69,
-     "title": "Брашно СИМИД екстра,1кг",
-     "pack": "1000 г",
-     "packPrice": 0.69
-    },
-    "bread": {
-     "price": 1.246,
-     "title": "Хляб Добруджа EXTRA LINE 650г",
-     "pack": "650 г",
-     "packPrice": 0.81
-    },
-    "eggs": {
-     "price": 0.306,
-     "title": "Яйца МИЗИЯ L10 бр",
-     "pack": "10 бр",
-     "packPrice": 3.06
-    },
-    "milk": {
-     "price": 1.47,
-     "title": "Прясно мляко MIZO 3.5% 1л",
-     "pack": "1000 мл",
-     "packPrice": 1.47
-    },
-    "cottage": {
-     "price": 4.225,
-     "title": "Извара OLYMPUS 400гр",
-     "pack": "400 г",
-     "packPrice": 1.69
-    },
-    "cheese": {
-     "price": 5.99,
-     "title": "Кашкавал от краве мляко КЕНАНА,вак.кг",
-     "pack": "на вагу",
-     "packPrice": 5.99
-    },
-    "butter": {
-     "price": 10.36,
-     "title": "Кр.масло DEUTSCHE MARKENBUTTER ор.,250гр",
-     "pack": "250 г",
-     "packPrice": 2.59
-    },
-    "yogurt": {
-     "price": 1.325,
-     "title": "Кисело мляко НА ХОРОТО 2%, 400гр",
-     "pack": "400 г",
-     "packPrice": 0.53
-    },
-    "potato": {
-     "price": 0.66,
-     "title": "Картофи, България, кг ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.66
-    },
-    "carrot": {
-     "price": 0.69,
-     "title": "Моркови,Турция, кг. ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.69
-    },
-    "onion": {
-     "price": 0.66,
-     "title": "Кромид лук, България, кг.ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.66
-    },
-    "tomato": {
-     "price": 2.29,
-     "title": "Червени домати,кг. Турция Клас I",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "garlic": {
-     "price": 6.13,
-     "title": "Чесън, Испания, кг.(Клас II)",
-     "pack": "на вагу",
-     "packPrice": 6.13
-    },
-    "banana": {
-     "price": 1.29,
-     "title": "Банани, Еквадор, кг.(Клас I)",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "apple": {
-     "price": 0.95,
-     "title": "Ябълки Шарени кг. Полша ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.95
-    },
-    "orange": {
-     "price": 1.29,
-     "title": "Портокали кг. ОПС Гърция",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "lemon": {
-     "price": 3.17,
-     "title": "Лимони, Турция кг.(Клас I)",
-     "pack": "на вагу",
-     "packPrice": 3.17
-    },
-    "sunflower_oil": {
-     "price": 1.69,
-     "title": "Слънчогледово олио Клас 1л",
-     "pack": "1000 мл",
-     "packPrice": 1.69
-    },
-    "sugar": {
-     "price": 1.19,
-     "title": "Захар Инком - 1 кг.",
-     "pack": "1000 г",
-     "packPrice": 1.19
-    },
-    "salt": {
-     "price": 0.38,
-     "title": "Сол ПЕРЛА трапезна йодирана 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.38
-    },
-    "rye_bread": {
-     "price": 2.689,
-     "title": "Хляб ръжено пшеничен 450г",
-     "pack": "450 г",
-     "packPrice": 1.21
-    },
-    "brynza": {
-     "price": 6.987,
-     "title": "Краве сирене БЕЛЕНСКО 800 г тенекия",
-     "pack": "800 г",
-     "packPrice": 5.59
-    }
-   }
-  },
-  "stara_zagora": {
-   "lidl": {
-    "rice": {
-     "price": 1.53,
-     "title": "Krina Български ориз, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "lentils": {
-     "price": 2.04,
-     "title": "Krina Леща, 1кг-опаковка",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "beans": {
-     "price": 2.3,
-     "title": "Krina Боб трапезен, 1кг-плик",
-     "pack": "1000 г",
-     "packPrice": 2.3
-    },
-    "chicken_fillet": {
-     "price": 6.64,
-     "title": "Прясно пилешко филе XXL",
-     "pack": "на вагу",
-     "packPrice": 6.64
-    },
-    "chicken_thigh": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "pork": {
-     "price": 2.55,
-     "title": "Свинска плешка без кост",
-     "pack": "на вагу",
-     "packPrice": 2.55
-    },
-    "eggs": {
-     "price": 0.295,
-     "title": "Яйца 10 бр. L от под отгл селен",
-     "pack": "10 бр",
-     "packPrice": 2.95
-    },
-    "cottage": {
-     "price": 1.53,
-     "title": "Извара 4,2% ",
-     "pack": "на вагу",
-     "packPrice": 1.53
-    },
-    "butter": {
-     "price": 14.8,
-     "title": "Lurpak Датско масло без сол 200 гр.",
-     "pack": "200 г",
-     "packPrice": 2.96
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Четкани картофи в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "Моркови на кг",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.78,
-     "title": "Лук на кг",
-     "pack": "на вагу",
-     "packPrice": 0.78
-    },
-    "cabbage": {
-     "price": 0.29,
-     "title": "Зеле на кг",
-     "pack": "на вагу",
-     "packPrice": 0.29
-    },
-    "tomato": {
-     "price": 2.19,
-     "title": "Домати на кг",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "cucumber": {
-     "price": 1.75,
-     "title": "Краставици на кг",
-     "pack": "на вагу",
-     "packPrice": 1.75
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън на кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "banana": {
-     "price": 1.99,
-     "title": "Банани на кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Червени ябълки в мрежа",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 0.99,
-     "title": "Портокали на кг",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "lemon": {
-     "price": 1.59,
-     "title": "Лимони на кг",
-     "pack": "на вагу",
-     "packPrice": 1.59
-    },
-    "sunflower_oil": {
-     "price": 1.68,
-     "title": "Слънчогледово олио 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.68
-    },
-    "peas_canned": {
-     "price": 2.259,
-     "title": "Грах фин, консерва 425мл (OHT 280g)",
-     "pack": "425 г",
-     "packPrice": 0.96
-    },
-    "chicken_drumstick": {
-     "price": 1.69,
-     "title": "Прясно пилешко бутче XXL",
-     "pack": "на вагу",
-     "packPrice": 1.69
-    },
-    "boiled_sausage": {
-     "price": 3.57,
-     "title": "Eko Mes Салам Бургас червен етикет",
-     "pack": "на вагу",
-     "packPrice": 3.57
-    },
-    "mackerel": {
-     "price": 4.6,
-     "title": "Скумрия, изчистена, размразена",
-     "pack": "на вагу",
-     "packPrice": 4.6
-    },
-    "canned_beans": {
-     "price": 3.176,
-     "title": "Червен боб кидни (ОНТ 255 г)",
-     "pack": "255 г",
-     "packPrice": 0.81
-    },
-    "rye_bread": {
-     "price": 1.583,
-     "title": "Хляб Ръчен пълнозърнест 600 гр.",
-     "pack": "600 г",
-     "packPrice": 0.95
-    },
-    "brynza": {
-     "price": 8.557,
-     "title": "Sayana Краве сирене ЗНП, 700г",
-     "pack": "700 г",
-     "packPrice": 5.99
-    },
-    "oat_cookies": {
-     "price": 5.6,
-     "title": "Detstvo moe Детски бисквити, 200гр.",
-     "pack": "200 г",
-     "packPrice": 1.12
-    }
-   },
-   "kaufland": {
-    "rice": {
-     "price": 1.53,
-     "title": "KLC.кръглозърнест.ориз.1кг",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "pasta": {
-     "price": 0.78,
-     "title": "KLC Фусили от мека пшеница 500г",
-     "pack": "500 г",
-     "packPrice": 0.39
-    },
-    "flour": {
-     "price": 0.55,
-     "title": "Брей! Пшенично брашно тип 500 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.55
-    },
-    "bread": {
-     "price": 0.985,
-     "title": "NN Хляб добруджа нарязан 650 гр",
-     "pack": "650 г",
-     "packPrice": 0.64
-    },
-    "lentils": {
-     "price": 1.39,
-     "title": "Happy Agro Селска леща 1кг",
-     "pack": "1000 г",
-     "packPrice": 1.39
-    },
-    "beans": {
-     "price": 2.39,
-     "title": "Izzi Бял боб 1 кг",
-     "pack": "1000 г",
-     "packPrice": 2.39
-    },
-    "chicken_fillet": {
-     "price": 5.69,
-     "title": "Пилешко филе от гърди",
-     "pack": "на вагу",
-     "packPrice": 5.69
-    },
-    "chicken_thigh": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "pork": {
-     "price": 3.79,
-     "title": "Свински бут без кост",
-     "pack": "на вагу",
-     "packPrice": 3.79
-    },
-    "eggs": {
-     "price": 0.272,
-     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
-     "pack": "6 бр",
-     "packPrice": 1.63
-    },
-    "milk": {
-     "price": 1.22,
-     "title": "NN KLC Прясно мляко 3% 1л бутилка",
-     "pack": "1000 мл",
-     "packPrice": 1.22
-    },
-    "cottage": {
-     "price": 2.76,
-     "title": "Мое Твое Наше Извара 500г",
-     "pack": "500 г",
-     "packPrice": 1.38
-    },
-    "cheese": {
-     "price": 10.213,
-     "title": "KLC.Кашкавал.натурален 45% 750г",
-     "pack": "750 г",
-     "packPrice": 7.66
-    },
-    "butter": {
-     "price": 5.96,
-     "title": "KLC Масло 82% 250гр.",
-     "pack": "250 г",
-     "packPrice": 1.49
-    },
-    "yogurt": {
-     "price": 1.125,
-     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
-     "pack": "400 г",
-     "packPrice": 0.45
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Картофи четкани кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 0.59,
-     "title": "Моркови кг",
-     "pack": "на вагу",
-     "packPrice": 0.59
-    },
-    "onion": {
-     "price": 0.39,
-     "title": "Лук жълт кг",
-     "pack": "на вагу",
-     "packPrice": 0.39
-    },
-    "cabbage": {
-     "price": 0.49,
-     "title": "Зеле бяло кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "tomato": {
-     "price": 1.99,
-     "title": "Домати на клонка кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "cucumber": {
-     "price": 1.99,
-     "title": "Краставици кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън сух кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "mushrooms": {
-     "price": 2.95,
-     "title": "Гъби печурка кг",
-     "pack": "на вагу",
-     "packPrice": 2.95
-    },
-    "banana": {
-     "price": 1.89,
-     "title": "Банани кг",
-     "pack": "на вагу",
-     "packPrice": 1.89
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Ябълки Йонапринс кг",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 1.95,
-     "title": "Портокали кг",
-     "pack": "на вагу",
-     "packPrice": 1.95
-    },
-    "lemon": {
-     "price": 0.95,
-     "title": "Лимони кг",
-     "pack": "на вагу",
-     "packPrice": 0.95
-    },
-    "sunflower_oil": {
-     "price": 1.42,
-     "title": "VO слънчогледово олио KL 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.42
-    },
-    "sugar": {
-     "price": 0.95,
-     "title": "ЗАХИРА захар 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.95
-    },
-    "salt": {
-     "price": 0.28,
-     "title": "KLC Йодирана трапезна сол 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.28
-    },
-    "tomato_paste": {
-     "price": 3.286,
-     "title": "Pomi доматено пюре Рустика с босилек700г",
-     "pack": "700 г",
-     "packPrice": 2.3
-    },
-    "peas_canned": {
-     "price": 2.103,
-     "title": "Зелен грах 680гр.Каликонс",
-     "pack": "680 г",
-     "packPrice": 1.43
-    },
-    "chicken_drumstick": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "sausages": {
-     "price": 1.058,
-     "title": "Леки Кренвирши /~5 кг плик/ 1 кг",
-     "pack": "5000 г",
-     "packPrice": 5.29
-    },
-    "boiled_sausage": {
-     "price": 3.047,
-     "title": "Сити Салам Телешки 850 г",
-     "pack": "850 г",
-     "packPrice": 2.59
-    },
-    "mackerel": {
-     "price": 2.29,
-     "title": "Vedenemo Скумрия 100-125, кг",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "canned_beans": {
-     "price": 1.671,
-     "title": "KLC Боб в чили сос 425мл/410 г",
-     "pack": "425 г",
-     "packPrice": 0.71
-    },
-    "rye_bread": {
      "price": 1.94,
      "title": "Стражица Хляб ръжено-пшеничен500г",
      "pack": "500 г",
      "packPrice": 0.97
     },
-    "brynza": {
-     "price": 5.95,
-     "title": "Рафтис Свежо сирене от краве мляко 600г",
-     "pack": "600 г",
-     "packPrice": 3.57
-    },
     "oat_cookies": {
      "price": 2.225,
      "title": "Ежко Бежко обикновени бисквити 400г",
      "pack": "400 г",
      "packPrice": 0.89
-    }
-   },
-   "billa": {
-    "rice": {
-     "price": 2.38,
-     "title": "1КГ ОРИЗ БИСЕРЕН NATURA",
-     "pack": "1000 г",
-     "packPrice": 2.38
-    },
-    "pasta": {
-     "price": 1.22,
-     "title": "500ГР  СПАГЕТИ CLEVER",
-     "pack": "500 г",
-     "packPrice": 0.61
-    },
-    "flour": {
-     "price": 0.82,
-     "title": "1КГ БЯЛО БРАШНО ЕКСТРА СИМИД",
-     "pack": "1000 г",
-     "packPrice": 0.82
-    },
-    "bread": {
-     "price": 1.369,
-     "title": "ДЕМ 650ГР ХЛЯБ БЯЛ",
-     "pack": "650 г",
-     "packPrice": 0.89
-    },
-    "lentils": {
-     "price": 3.37,
-     "title": "1КГ ЛЕЩА БЪЛГАР.ИМАЛО ЕДНО ВРЕМЕ KRINA",
-     "pack": "1000 г",
-     "packPrice": 3.37
-    },
-    "beans": {
-     "price": 2.04,
-     "title": "1КГ БОБ ТРАДИЦИОНЕН BORKONI",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "chicken_fillet": {
-     "price": 6.64,
-     "title": "285 MAП ПИЛЕШКО ФИЛЕ ЗА 1 КГ.",
-     "pack": "1000 г",
-     "packPrice": 6.64
-    },
-    "chicken_thigh": {
-     "price": 3.06,
-     "title": "SOC ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
-     "pack": "на вагу",
-     "packPrice": 3.06
-    },
-    "mince": {
-     "price": 7.55,
-     "title": "SOC КАЙМА СМЕС 60/40 СВ./ГОВ.ГАСТРО",
-     "pack": "на вагу",
-     "packPrice": 7.55
-    },
-    "pork": {
-     "price": 4.98,
-     "title": "SOC СВИНСКО МЕСО ЗА ГОТВЕНЕ ГАСТРО БГ",
-     "pack": "на вагу",
-     "packPrice": 4.98
-    },
-    "milk": {
-     "price": 1.63,
-     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
-     "pack": "1000 мл",
-     "packPrice": 1.63
-    },
-    "cheese": {
-     "price": 7.15,
-     "title": "КАШКАВАЛ ОТ КРАВЕ МЛЯКО CLEVER ЗА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 7.15
-    },
-    "butter": {
-     "price": 9.04,
-     "title": "НЕМСКО КРАВЕ МАСЛО CLEVER 250 ГР",
-     "pack": "250 г",
-     "packPrice": 2.26
-    },
-    "yogurt": {
-     "price": 1.225,
-     "title": "КИСЕЛО МЛЯКО 2% БАДЖАНАШКО 400Г",
-     "pack": "400 г",
-     "packPrice": 0.49
-    },
-    "potato": {
-     "price": 0.79,
-     "title": "КАРТОФИ",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "МОРКОВИ",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.75,
-     "title": "КРОМИД ЛУК",
-     "pack": "на вагу",
-     "packPrice": 0.75
-    },
-    "cabbage": {
-     "price": 0.69,
-     "title": "БЯЛО ЗЕЛЕ",
-     "pack": "на вагу",
-     "packPrice": 0.69
-    },
-    "tomato": {
-     "price": 2.49,
-     "title": "ДОМАТИ ЧЕРВЕНИ",
-     "pack": "на вагу",
-     "packPrice": 2.49
-    },
-    "cucumber": {
-     "price": 2.19,
-     "title": "КРАСТАВИЦИ",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "garlic": {
-     "price": 5.99,
-     "title": "ЧЕСЪН СУХ КГ",
-     "pack": "на вагу",
-     "packPrice": 5.99
-    },
-    "banana": {
-     "price": 1.84,
-     "title": "БАНАНИ",
-     "pack": "на вагу",
-     "packPrice": 1.84
-    },
-    "apple": {
-     "price": 0.99,
-     "title": "ЯБЪЛКИ АЙДАРЕД",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "orange": {
-     "price": 1.49,
-     "title": "ПОРТОКАЛИ",
-     "pack": "на вагу",
-     "packPrice": 1.49
-    },
-    "lemon": {
-     "price": 0.89,
-     "title": "ЛИМОНИ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "sunflower_oil": {
-     "price": 1.64,
-     "title": "1Л ЗЛАТНО ДОБРУДЖАНСКО ОЛИО",
-     "pack": "1000 мл",
-     "packPrice": 1.64
-    },
-    "sugar": {
-     "price": 0.86,
-     "title": "1КГ ЗАХАР IZZI",
-     "pack": "1000 г",
-     "packPrice": 0.86
-    },
-    "salt": {
-     "price": 0.33,
-     "title": "1КГ СОЛ ТРАПЕЗНА IZZI",
-     "pack": "1000 г",
-     "packPrice": 0.33
-    },
-    "tomato_paste": {
-     "price": 1.64,
-     "title": "500МЛ ДОМАТЕНО ПЮРЕ 7% PHILICON",
-     "pack": "500 г",
-     "packPrice": 0.82
-    },
-    "peas_canned": {
-     "price": 2.132,
-     "title": "680Г ГРАХ БУРКАН ОБИЧАМ",
-     "pack": "680 г",
-     "packPrice": 1.45
-    },
-    "chicken_drumstick": {
-     "price": 3.06,
-     "title": "SOC ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
-     "pack": "на вагу",
-     "packPrice": 3.06
-    },
-    "sausages": {
-     "price": 1.598,
-     "title": "БЕЛ КРЕНВИРШИ ЛЕКИ /2Х2,5КГ",
-     "pack": "5000 г",
-     "packPrice": 7.99
-    },
-    "boiled_sausage": {
-     "price": 1.344,
-     "title": "САЛАМ КАМЧИЯ ЖИТНИЦА 5.200КГ",
-     "pack": "5200 г",
-     "packPrice": 6.99
-    },
-    "canned_beans": {
-     "price": 2.425,
-     "title": "400ГР БОБ МИКС ФАМИЛЕКС",
-     "pack": "400 г",
-     "packPrice": 0.97
-    },
-    "brynza": {
-     "price": 8.517,
-     "title": "КРАВЕ СИРЕНЕ CLEVER 600 ГР",
-     "pack": "600 г",
-     "packPrice": 5.11
-    },
-    "oat_cookies": {
-     "price": 3,
-     "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
-     "pack": "120 г",
-     "packPrice": 0.36
-    }
-   },
-   "tmarket": {
-    "pasta": {
-     "price": 0.975,
-     "title": "Макарони ЗЛАТЕН КЛАС рогче 400г",
-     "pack": "400 г",
-     "packPrice": 0.39
-    },
-    "flour": {
-     "price": 0.97,
-     "title": "Брашно МЕЛКО тип 500 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.97
-    },
-    "bread": {
-     "price": 1.323,
-     "title": "Хляб бял парен 650г",
-     "pack": "650 г",
-     "packPrice": 0.86
-    },
-    "eggs": {
-     "price": 0.28,
-     "title": "Яйца МИЗИЯ М 10 бр",
-     "pack": "10 бр",
-     "packPrice": 2.8
-    },
-    "milk": {
-     "price": 1.47,
-     "title": "Прясно мляко MIZO 3.5% 1л",
-     "pack": "1000 мл",
-     "packPrice": 1.47
-    },
-    "cheese": {
-     "price": 11.5,
-     "title": "Кашкавал от краве мляко ЧИФЛИКА, 400г",
-     "pack": "400 г",
-     "packPrice": 4.6
-    },
-    "butter": {
-     "price": 15.96,
-     "title": "Краве масло DEUTSCHE MARKENBUTTER 250гр",
-     "pack": "250 г",
-     "packPrice": 3.99
-    },
-    "yogurt": {
-     "price": 1.325,
-     "title": "Кисело мляко НА ХОРОТО 2%, 400гр",
-     "pack": "400 г",
-     "packPrice": 0.53
-    },
-    "potato": {
-     "price": 0.66,
-     "title": "Картофи, България, кг ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.66
-    },
-    "carrot": {
-     "price": 0.69,
-     "title": "Моркови,Турция, кг. ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.69
-    },
-    "onion": {
-     "price": 0.66,
-     "title": "Кромид лук, България, кг.ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.66
-    },
-    "tomato": {
-     "price": 2.29,
-     "title": "Червени домати,кг. Турция Клас I",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "cucumber": {
-     "price": 2.77,
-     "title": "Краставици България кг.ОПС",
-     "pack": "на вагу",
-     "packPrice": 2.77
-    },
-    "garlic": {
-     "price": 6.13,
-     "title": "Чесън, Испания, кг.(Клас II)",
-     "pack": "на вагу",
-     "packPrice": 6.13
-    },
-    "banana": {
-     "price": 1.29,
-     "title": "Банани, Еквадор, кг.(Клас I)",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "apple": {
-     "price": 0.95,
-     "title": "Ябълки Шарени кг. Полша ОПС",
-     "pack": "на вагу",
-     "packPrice": 0.95
-    },
-    "orange": {
-     "price": 1.29,
-     "title": "Портокали кг. ОПС Гърция",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "lemon": {
-     "price": 3.17,
-     "title": "Лимони, Турция кг.(Клас I)",
-     "pack": "на вагу",
-     "packPrice": 3.17
-    },
-    "sunflower_oil": {
-     "price": 1.89,
-     "title": "Олио ДОБРУДЖА слънчогледово, 1л",
-     "pack": "1000 мл",
-     "packPrice": 1.89
-    },
-    "sugar": {
-     "price": 1.19,
-     "title": "Захар Инком - 1 кг.",
-     "pack": "1000 г",
-     "packPrice": 1.19
-    },
-    "salt": {
-     "price": 0.38,
-     "title": "Сол ПЕРЛА трапезна йодирана 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.38
-    },
-    "brynza": {
-     "price": 9.5,
-     "title": "Краве сирене САЯНА ЗНП 700гр",
-     "pack": "700 г",
-     "packPrice": 6.65
     }
    }
   },
@@ -4000,10 +4084,10 @@
      "packPrice": 2.3
     },
     "chicken_fillet": {
-     "price": 6.64,
-     "title": "Прясно пилешко филе XXL",
-     "pack": "на вагу",
-     "packPrice": 6.64
+     "price": 2.645,
+     "title": "Пилешко филе около 2кг",
+     "pack": "2000 г",
+     "packPrice": 5.29
     },
     "chicken_thigh": {
      "price": 1.69,
@@ -4036,16 +4120,16 @@
      "packPrice": 2.96
     },
     "potato": {
-     "price": 0.49,
+     "price": 0.39,
      "title": "Четкани картофи в мрежа",
      "pack": "на вагу",
-     "packPrice": 0.49
+     "packPrice": 0.39
     },
     "carrot": {
-     "price": 0.55,
+     "price": 0.49,
      "title": "Моркови на кг",
      "pack": "на вагу",
-     "packPrice": 0.55
+     "packPrice": 0.49
     },
     "onion": {
      "price": 0.78,
@@ -4060,10 +4144,10 @@
      "packPrice": 0.29
     },
     "tomato": {
-     "price": 2.19,
+     "price": 1.99,
      "title": "Домати на кг",
      "pack": "на вагу",
-     "packPrice": 2.19
+     "packPrice": 1.99
     },
     "cucumber": {
      "price": 1.75,
@@ -4154,236 +4238,6 @@
      "title": "Detstvo moe Детски бисквити, 200гр.",
      "pack": "200 г",
      "packPrice": 1.12
-    }
-   },
-   "kaufland": {
-    "rice": {
-     "price": 1.53,
-     "title": "KLC.кръглозърнест.ориз.1кг",
-     "pack": "1000 г",
-     "packPrice": 1.53
-    },
-    "pasta": {
-     "price": 0.78,
-     "title": "KLC Фусили от мека пшеница 500г",
-     "pack": "500 г",
-     "packPrice": 0.39
-    },
-    "flour": {
-     "price": 0.55,
-     "title": "Брей! Пшенично брашно тип 500 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.55
-    },
-    "bread": {
-     "price": 0.985,
-     "title": "NN Хляб добруджа нарязан 650 гр",
-     "pack": "650 г",
-     "packPrice": 0.64
-    },
-    "lentils": {
-     "price": 1.2,
-     "title": "Statev Добруджанска леща  1 кг",
-     "pack": "1000 г",
-     "packPrice": 1.2
-    },
-    "beans": {
-     "price": 2.39,
-     "title": "Izzi Бял боб 1 кг",
-     "pack": "1000 г",
-     "packPrice": 2.39
-    },
-    "chicken_fillet": {
-     "price": 5.69,
-     "title": "Пилешко филе от гърди",
-     "pack": "на вагу",
-     "packPrice": 5.69
-    },
-    "chicken_thigh": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "pork": {
-     "price": 3.79,
-     "title": "Свински бут без кост",
-     "pack": "на вагу",
-     "packPrice": 3.79
-    },
-    "eggs": {
-     "price": 0.28,
-     "title": "Мизия Кокоши яйца със селен М6 броя",
-     "pack": "6 бр",
-     "packPrice": 1.68
-    },
-    "milk": {
-     "price": 1.22,
-     "title": "NN KLC Прясно мляко 3% 1л бутилка",
-     "pack": "1000 мл",
-     "packPrice": 1.22
-    },
-    "cottage": {
-     "price": 3.69,
-     "title": "Мое Твое Наше Извара кг",
-     "pack": "на вагу",
-     "packPrice": 3.69
-    },
-    "cheese": {
-     "price": 10.213,
-     "title": "KLC.Кашкавал.натурален 45% 750г",
-     "pack": "750 г",
-     "packPrice": 7.66
-    },
-    "butter": {
-     "price": 5.96,
-     "title": "KLC Масло 82% 250гр.",
-     "pack": "250 г",
-     "packPrice": 1.49
-    },
-    "yogurt": {
-     "price": 1.125,
-     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
-     "pack": "400 г",
-     "packPrice": 0.45
-    },
-    "potato": {
-     "price": 0.49,
-     "title": "Картофи четкани кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "carrot": {
-     "price": 1.29,
-     "title": "Моркови кг",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "onion": {
-     "price": 0.39,
-     "title": "Лук жълт кг",
-     "pack": "на вагу",
-     "packPrice": 0.39
-    },
-    "cabbage": {
-     "price": 0.49,
-     "title": "Зеле бяло кг",
-     "pack": "на вагу",
-     "packPrice": 0.49
-    },
-    "tomato": {
-     "price": 1.99,
-     "title": "Домати на клонка кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "cucumber": {
-     "price": 1.99,
-     "title": "Краставици кг",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "garlic": {
-     "price": 5.11,
-     "title": "Чесън сух кг",
-     "pack": "на вагу",
-     "packPrice": 5.11
-    },
-    "mushrooms": {
-     "price": 2.95,
-     "title": "Гъби печурка кг",
-     "pack": "на вагу",
-     "packPrice": 2.95
-    },
-    "banana": {
-     "price": 1.79,
-     "title": "K-Bio Банани кг",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "apple": {
-     "price": 0.79,
-     "title": "Ябълки Йонапринс кг",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "orange": {
-     "price": 0.99,
-     "title": "Портокали кг",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "sunflower_oil": {
-     "price": 1.42,
-     "title": "VO слънчогледово олио 1 л",
-     "pack": "1000 мл",
-     "packPrice": 1.42
-    },
-    "sugar": {
-     "price": 0.95,
-     "title": "ЗАХИРА захар 1 кг",
-     "pack": "1000 г",
-     "packPrice": 0.95
-    },
-    "salt": {
-     "price": 0.28,
-     "title": "KLC Йодирана трапезна сол 1кг",
-     "pack": "1000 г",
-     "packPrice": 0.28
-    },
-    "tomato_paste": {
-     "price": 3.286,
-     "title": "Pomi доматено пюре Рустика с босилек700г",
-     "pack": "700 г",
-     "packPrice": 2.3
-    },
-    "peas_canned": {
-     "price": 2.103,
-     "title": "Зелен грах 680гр.Каликонс",
-     "pack": "680 г",
-     "packPrice": 1.43
-    },
-    "chicken_drumstick": {
-     "price": 1.79,
-     "title": "Пилешко бутче с част от гърба",
-     "pack": "на вагу",
-     "packPrice": 1.79
-    },
-    "sausages": {
-     "price": 1.158,
-     "title": "Народен Кренвирш /~5 кг плик/ 1 кг",
-     "pack": "5000 г",
-     "packPrice": 5.79
-    },
-    "boiled_sausage": {
-     "price": 3.047,
-     "title": "Сити Салам Телешки 850 г",
-     "pack": "850 г",
-     "packPrice": 2.59
-    },
-    "mackerel": {
-     "price": 2.29,
-     "title": "Vedenemo Скумрия 100-125, кг",
-     "pack": "на вагу",
-     "packPrice": 2.29
-    },
-    "canned_beans": {
-     "price": 1.671,
-     "title": "KLC Боб в чили сос 425мл/410 г",
-     "pack": "425 г",
-     "packPrice": 0.71
-    },
-    "rye_bread": {
-     "price": 1.94,
-     "title": "Стражица Хляб ръжено-пшеничен500г",
-     "pack": "500 г",
-     "packPrice": 0.97
-    },
-    "oat_cookies": {
-     "price": 2.867,
-     "title": "Ежко Бежко обикновени бисквити 150 г",
-     "pack": "150 г",
-     "packPrice": 0.43
     }
    },
    "billa": {
@@ -4484,10 +4338,10 @@
      "packPrice": 0.55
     },
     "onion": {
-     "price": 0.75,
+     "price": 0.65,
      "title": "КРОМИД ЛУК",
      "pack": "на вагу",
-     "packPrice": 0.75
+     "packPrice": 0.65
     },
     "cabbage": {
      "price": 0.69,
@@ -4544,10 +4398,10 @@
      "packPrice": 1.64
     },
     "sugar": {
-     "price": 0.86,
-     "title": "1КГ ЗАХАР IZZI",
+     "price": 1.02,
+     "title": "1КГ ЗАХАР CLEVER",
      "pack": "1000 г",
-     "packPrice": 0.86
+     "packPrice": 1.02
     },
     "salt": {
      "price": 0.33,
@@ -4761,9 +4615,245 @@
      "pack": "250 г",
      "packPrice": 1.31
     }
+   },
+   "kaufland": {
+    "rice": {
+     "price": 1.53,
+     "title": "KLC.кръглозърнест.ориз.1кг",
+     "pack": "1000 г",
+     "packPrice": 1.53
+    },
+    "pasta": {
+     "price": 0.78,
+     "title": "KLC Фусили от мека пшеница 500г",
+     "pack": "500 г",
+     "packPrice": 0.39
+    },
+    "flour": {
+     "price": 0.55,
+     "title": "Брей! Пшенично брашно тип 500 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.55
+    },
+    "bread": {
+     "price": 0.985,
+     "title": "NN Хляб добруджа нарязан 650 гр",
+     "pack": "650 г",
+     "packPrice": 0.64
+    },
+    "lentils": {
+     "price": 1.2,
+     "title": "Statev Добруджанска леща  1 кг",
+     "pack": "1000 г",
+     "packPrice": 1.2
+    },
+    "beans": {
+     "price": 2.39,
+     "title": "Izzi Бял боб 1 кг",
+     "pack": "1000 г",
+     "packPrice": 2.39
+    },
+    "chicken_fillet": {
+     "price": 5.69,
+     "title": "Пилешко филе от гърди",
+     "pack": "на вагу",
+     "packPrice": 5.69
+    },
+    "chicken_thigh": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "pork": {
+     "price": 2.99,
+     "title": "Свинска плешка без кост",
+     "pack": "на вагу",
+     "packPrice": 2.99
+    },
+    "eggs": {
+     "price": 0.272,
+     "title": "Мизия Кокоши яйца размер L 6 бр - подово",
+     "pack": "6 бр",
+     "packPrice": 1.63
+    },
+    "milk": {
+     "price": 1.22,
+     "title": "NN KLC Прясно мляко 3% 1л бутилка",
+     "pack": "1000 мл",
+     "packPrice": 1.22
+    },
+    "cottage": {
+     "price": 3.69,
+     "title": "Мое Твое Наше Извара кг",
+     "pack": "на вагу",
+     "packPrice": 3.69
+    },
+    "cheese": {
+     "price": 10.213,
+     "title": "KLC.Кашкавал.натурален 45% 750г",
+     "pack": "750 г",
+     "packPrice": 7.66
+    },
+    "butter": {
+     "price": 5.96,
+     "title": "KLC Масло 82% 250гр.",
+     "pack": "250 г",
+     "packPrice": 1.49
+    },
+    "yogurt": {
+     "price": 1.125,
+     "title": "KLC.Кисело мляко. 2% масл. 400 гр.",
+     "pack": "400 г",
+     "packPrice": 0.45
+    },
+    "potato": {
+     "price": 0.49,
+     "title": "Картофи четкани кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "carrot": {
+     "price": 1.29,
+     "title": "Моркови кг",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "onion": {
+     "price": 0.39,
+     "title": "Лук жълт кг",
+     "pack": "на вагу",
+     "packPrice": 0.39
+    },
+    "cabbage": {
+     "price": 0.49,
+     "title": "Зеле бяло кг",
+     "pack": "на вагу",
+     "packPrice": 0.49
+    },
+    "tomato": {
+     "price": 1.99,
+     "title": "Домати на клонка кг",
+     "pack": "на вагу",
+     "packPrice": 1.99
+    },
+    "cucumber": {
+     "price": 1.79,
+     "title": "Краставици кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "garlic": {
+     "price": 5.11,
+     "title": "Чесън сух кг",
+     "pack": "на вагу",
+     "packPrice": 5.11
+    },
+    "mushrooms": {
+     "price": 2.95,
+     "title": "Гъби печурка кг",
+     "pack": "на вагу",
+     "packPrice": 2.95
+    },
+    "banana": {
+     "price": 1.79,
+     "title": "K-Bio Банани кг",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "apple": {
+     "price": 0.79,
+     "title": "Ябълки Йонапринс кг",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "orange": {
+     "price": 0.99,
+     "title": "Портокали кг",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 0.95,
+     "title": "Лимони кг",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "sunflower_oil": {
+     "price": 1.42,
+     "title": "VO слънчогледово олио 1 л",
+     "pack": "1000 мл",
+     "packPrice": 1.42
+    },
+    "sugar": {
+     "price": 0.95,
+     "title": "ЗАХИРА захар 1 кг",
+     "pack": "1000 г",
+     "packPrice": 0.95
+    },
+    "salt": {
+     "price": 0.28,
+     "title": "KLC Йодирана трапезна сол 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.28
+    },
+    "tomato_paste": {
+     "price": 3.286,
+     "title": "Pomi доматено пюре Рустика с босилек700г",
+     "pack": "700 г",
+     "packPrice": 2.3
+    },
+    "peas_canned": {
+     "price": 2.103,
+     "title": "Зелен грах 680гр.Каликонс",
+     "pack": "680 г",
+     "packPrice": 1.43
+    },
+    "chicken_drumstick": {
+     "price": 1.79,
+     "title": "Пилешко бутче с част от гърба",
+     "pack": "на вагу",
+     "packPrice": 1.79
+    },
+    "sausages": {
+     "price": 1.158,
+     "title": "Народен Кренвирш /~5 кг плик/ 1 кг",
+     "pack": "5000 г",
+     "packPrice": 5.79
+    },
+    "boiled_sausage": {
+     "price": 3.047,
+     "title": "Сити Салам Телешки 850 г",
+     "pack": "850 г",
+     "packPrice": 2.59
+    },
+    "mackerel": {
+     "price": 2.29,
+     "title": "Vedenemo Скумрия 100-125, кг",
+     "pack": "на вагу",
+     "packPrice": 2.29
+    },
+    "canned_beans": {
+     "price": 1.671,
+     "title": "KLC Боб в чили сос 425мл/410 г",
+     "pack": "425 г",
+     "packPrice": 0.71
+    },
+    "rye_bread": {
+     "price": 1.98,
+     "title": "KLC.Пълн.ръжен хляб Пумперникел 500г",
+     "pack": "500 г",
+     "packPrice": 0.99
+    },
+    "oat_cookies": {
+     "price": 2.225,
+     "title": "Ежко Бежко обикновени бисквити 400г",
+     "pack": "400 г",
+     "packPrice": 0.89
+    }
    }
   },
-  "ruse": {
+  "stara_zagora": {
    "lidl": {
     "rice": {
      "price": 1.53,
@@ -4784,10 +4874,10 @@
      "packPrice": 2.3
     },
     "chicken_fillet": {
-     "price": 6.64,
-     "title": "Прясно пилешко филе XXL",
-     "pack": "на вагу",
-     "packPrice": 6.64
+     "price": 2.645,
+     "title": "Пилешко филе около 2кг",
+     "pack": "2000 г",
+     "packPrice": 5.29
     },
     "chicken_thigh": {
      "price": 1.69,
@@ -4820,16 +4910,16 @@
      "packPrice": 2.96
     },
     "potato": {
-     "price": 0.49,
+     "price": 0.39,
      "title": "Четкани картофи в мрежа",
      "pack": "на вагу",
-     "packPrice": 0.49
+     "packPrice": 0.39
     },
     "carrot": {
-     "price": 0.55,
+     "price": 0.49,
      "title": "Моркови на кг",
      "pack": "на вагу",
-     "packPrice": 0.55
+     "packPrice": 0.49
     },
     "onion": {
      "price": 0.78,
@@ -4844,10 +4934,10 @@
      "packPrice": 0.29
     },
     "tomato": {
-     "price": 2.19,
+     "price": 1.99,
      "title": "Домати на кг",
      "pack": "на вагу",
-     "packPrice": 2.19
+     "packPrice": 1.99
     },
     "cucumber": {
      "price": 1.75,
@@ -4940,6 +5030,358 @@
      "packPrice": 1.12
     }
    },
+   "billa": {
+    "rice": {
+     "price": 2.38,
+     "title": "1КГ ОРИЗ БИСЕРЕН NATURA",
+     "pack": "1000 г",
+     "packPrice": 2.38
+    },
+    "pasta": {
+     "price": 1.22,
+     "title": "500ГР  СПАГЕТИ CLEVER",
+     "pack": "500 г",
+     "packPrice": 0.61
+    },
+    "flour": {
+     "price": 0.82,
+     "title": "1КГ БЯЛО БРАШНО ЕКСТРА СИМИД",
+     "pack": "1000 г",
+     "packPrice": 0.82
+    },
+    "bread": {
+     "price": 1.369,
+     "title": "ДЕМ 650ГР ХЛЯБ БЯЛ",
+     "pack": "650 г",
+     "packPrice": 0.89
+    },
+    "lentils": {
+     "price": 3.37,
+     "title": "1КГ ЛЕЩА БЪЛГАР.ИМАЛО ЕДНО ВРЕМЕ KRINA",
+     "pack": "1000 г",
+     "packPrice": 3.37
+    },
+    "beans": {
+     "price": 2.04,
+     "title": "1КГ БОБ ТРАДИЦИОНЕН BORKONI",
+     "pack": "1000 г",
+     "packPrice": 2.04
+    },
+    "chicken_fillet": {
+     "price": 6.64,
+     "title": "285 MAП ПИЛЕШКО ФИЛЕ ЗА 1 КГ.",
+     "pack": "1000 г",
+     "packPrice": 6.64
+    },
+    "chicken_thigh": {
+     "price": 3.06,
+     "title": "SOC ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
+     "pack": "на вагу",
+     "packPrice": 3.06
+    },
+    "mince": {
+     "price": 7.55,
+     "title": "SOC КАЙМА СМЕС 60/40 СВ./ГОВ.ГАСТРО",
+     "pack": "на вагу",
+     "packPrice": 7.55
+    },
+    "pork": {
+     "price": 4.98,
+     "title": "SOC СВИНСКО МЕСО ЗА ГОТВЕНЕ ГАСТРО БГ",
+     "pack": "на вагу",
+     "packPrice": 4.98
+    },
+    "milk": {
+     "price": 1.63,
+     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
+     "pack": "1000 мл",
+     "packPrice": 1.63
+    },
+    "cheese": {
+     "price": 7.15,
+     "title": "КАШКАВАЛ ОТ КРАВЕ МЛЯКО CLEVER ЗА 1КГ",
+     "pack": "1000 г",
+     "packPrice": 7.15
+    },
+    "butter": {
+     "price": 7.16,
+     "title": "НЕМСКО КРАВЕ МАСЛО CLEVER 250 ГР",
+     "pack": "250 г",
+     "packPrice": 1.79
+    },
+    "yogurt": {
+     "price": 1.225,
+     "title": "КИСЕЛО МЛЯКО 2% БАДЖАНАШКО 400Г",
+     "pack": "400 г",
+     "packPrice": 0.49
+    },
+    "potato": {
+     "price": 0.79,
+     "title": "КАРТОФИ",
+     "pack": "на вагу",
+     "packPrice": 0.79
+    },
+    "carrot": {
+     "price": 0.55,
+     "title": "МОРКОВИ",
+     "pack": "на вагу",
+     "packPrice": 0.55
+    },
+    "onion": {
+     "price": 0.65,
+     "title": "КРОМИД ЛУК",
+     "pack": "на вагу",
+     "packPrice": 0.65
+    },
+    "cabbage": {
+     "price": 0.69,
+     "title": "БЯЛО ЗЕЛЕ",
+     "pack": "на вагу",
+     "packPrice": 0.69
+    },
+    "tomato": {
+     "price": 2.49,
+     "title": "ДОМАТИ ЧЕРВЕНИ",
+     "pack": "на вагу",
+     "packPrice": 2.49
+    },
+    "cucumber": {
+     "price": 2.19,
+     "title": "КРАСТАВИЦИ",
+     "pack": "на вагу",
+     "packPrice": 2.19
+    },
+    "garlic": {
+     "price": 5.99,
+     "title": "ЧЕСЪН СУХ КГ",
+     "pack": "на вагу",
+     "packPrice": 5.99
+    },
+    "banana": {
+     "price": 1.84,
+     "title": "БАНАНИ",
+     "pack": "на вагу",
+     "packPrice": 1.84
+    },
+    "apple": {
+     "price": 0.99,
+     "title": "ЯБЪЛКИ АЙДАРЕД",
+     "pack": "на вагу",
+     "packPrice": 0.99
+    },
+    "orange": {
+     "price": 1.49,
+     "title": "ПОРТОКАЛИ",
+     "pack": "на вагу",
+     "packPrice": 1.49
+    },
+    "lemon": {
+     "price": 0.89,
+     "title": "ЛИМОНИ",
+     "pack": "на вагу",
+     "packPrice": 0.89
+    },
+    "sunflower_oil": {
+     "price": 1.64,
+     "title": "1Л ЗЛАТНО ДОБРУДЖАНСКО ОЛИО",
+     "pack": "1000 мл",
+     "packPrice": 1.64
+    },
+    "sugar": {
+     "price": 1.02,
+     "title": "1КГ ЗАХАР CLEVER",
+     "pack": "1000 г",
+     "packPrice": 1.02
+    },
+    "salt": {
+     "price": 0.33,
+     "title": "1КГ СОЛ ТРАПЕЗНА IZZI",
+     "pack": "1000 г",
+     "packPrice": 0.33
+    },
+    "tomato_paste": {
+     "price": 2.914,
+     "title": "700Г ДОМАТЕНО ПЮРЕ ДОН ДОМАТ",
+     "pack": "700 г",
+     "packPrice": 2.04
+    },
+    "peas_canned": {
+     "price": 2.132,
+     "title": "680Г ГРАХ БУРКАН ОБИЧАМ",
+     "pack": "680 г",
+     "packPrice": 1.45
+    },
+    "chicken_drumstick": {
+     "price": 3.06,
+     "title": "SOC ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
+     "pack": "на вагу",
+     "packPrice": 3.06
+    },
+    "sausages": {
+     "price": 1.598,
+     "title": "БЕЛ КРЕНВИРШИ ЛЕКИ /2Х2,5КГ",
+     "pack": "5000 г",
+     "packPrice": 7.99
+    },
+    "boiled_sausage": {
+     "price": 1.344,
+     "title": "САЛАМ КАМЧИЯ ЖИТНИЦА 5.200КГ",
+     "pack": "5200 г",
+     "packPrice": 6.99
+    },
+    "canned_beans": {
+     "price": 2.425,
+     "title": "400ГР БОБ МИКС ФАМИЛЕКС",
+     "pack": "400 г",
+     "packPrice": 0.97
+    },
+    "brynza": {
+     "price": 8.517,
+     "title": "КРАВЕ СИРЕНЕ CLEVER 600 ГР",
+     "pack": "600 г",
+     "packPrice": 5.11
+    },
+    "oat_cookies": {
+     "price": 3,
+     "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
+     "pack": "120 г",
+     "packPrice": 0.36
+    }
+   },
+   "tmarket": {
+    "pasta": {
+     "price": 0.975,
+     "title": "Макарони ЗЛАТЕН КЛАС рогче 400г",
+     "pack": "400 г",
+     "packPrice": 0.39
+    },
+    "flour": {
+     "price": 0.97,
+     "title": "Брашно МЕЛКО тип 500 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.97
+    },
+    "bread": {
+     "price": 1.323,
+     "title": "Хляб бял парен 650г",
+     "pack": "650 г",
+     "packPrice": 0.86
+    },
+    "eggs": {
+     "price": 0.28,
+     "title": "Яйца МИЗИЯ М 10 бр",
+     "pack": "10 бр",
+     "packPrice": 2.8
+    },
+    "milk": {
+     "price": 1.47,
+     "title": "Прясно мляко MIZO 3.5% 1л",
+     "pack": "1000 мл",
+     "packPrice": 1.47
+    },
+    "cheese": {
+     "price": 11.5,
+     "title": "Кашкавал от краве мляко ЧИФЛИКА, 400г",
+     "pack": "400 г",
+     "packPrice": 4.6
+    },
+    "butter": {
+     "price": 15.96,
+     "title": "Краве масло DEUTSCHE MARKENBUTTER 250гр",
+     "pack": "250 г",
+     "packPrice": 3.99
+    },
+    "yogurt": {
+     "price": 1.325,
+     "title": "Кисело мляко НА ХОРОТО 2%, 400гр",
+     "pack": "400 г",
+     "packPrice": 0.53
+    },
+    "potato": {
+     "price": 0.66,
+     "title": "Картофи, България, кг ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.66
+    },
+    "carrot": {
+     "price": 0.69,
+     "title": "Моркови,Турция, кг. ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.69
+    },
+    "onion": {
+     "price": 0.66,
+     "title": "Кромид лук, България, кг.ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.66
+    },
+    "tomato": {
+     "price": 2.29,
+     "title": "Червени домати,кг. Турция Клас I",
+     "pack": "на вагу",
+     "packPrice": 2.29
+    },
+    "cucumber": {
+     "price": 2.77,
+     "title": "Краставици България кг.ОПС",
+     "pack": "на вагу",
+     "packPrice": 2.77
+    },
+    "garlic": {
+     "price": 6.13,
+     "title": "Чесън, Испания, кг.(Клас II)",
+     "pack": "на вагу",
+     "packPrice": 6.13
+    },
+    "banana": {
+     "price": 1.29,
+     "title": "Банани, Еквадор, кг.(Клас I)",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "apple": {
+     "price": 0.95,
+     "title": "Ябълки Шарени кг. Полша ОПС",
+     "pack": "на вагу",
+     "packPrice": 0.95
+    },
+    "orange": {
+     "price": 1.29,
+     "title": "Портокали кг. ОПС Гърция",
+     "pack": "на вагу",
+     "packPrice": 1.29
+    },
+    "lemon": {
+     "price": 3.17,
+     "title": "Лимони, Турция кг.(Клас I)",
+     "pack": "на вагу",
+     "packPrice": 3.17
+    },
+    "sunflower_oil": {
+     "price": 1.89,
+     "title": "Олио ДОБРУДЖА слънчогледово, 1л",
+     "pack": "1000 мл",
+     "packPrice": 1.89
+    },
+    "sugar": {
+     "price": 1.19,
+     "title": "Захар Инком - 1 кг.",
+     "pack": "1000 г",
+     "packPrice": 1.19
+    },
+    "salt": {
+     "price": 0.38,
+     "title": "Сол ПЕРЛА трапезна йодирана 1кг",
+     "pack": "1000 г",
+     "packPrice": 0.38
+    },
+    "brynza": {
+     "price": 9.5,
+     "title": "Краве сирене САЯНА ЗНП 700гр",
+     "pack": "700 г",
+     "packPrice": 6.65
+    }
+   },
    "kaufland": {
     "rice": {
      "price": 1.53,
@@ -4961,7 +5403,7 @@
     },
     "bread": {
      "price": 0.985,
-     "title": "NN Хляб Добруджа нарязан 650 г",
+     "title": "NN Хляб добруджа нарязан 650 гр",
      "pack": "650 г",
      "packPrice": 0.64
     },
@@ -5062,10 +5504,10 @@
      "packPrice": 1.99
     },
     "cucumber": {
-     "price": 1.99,
+     "price": 1.79,
      "title": "Краставици кг",
      "pack": "на вагу",
-     "packPrice": 1.99
+     "packPrice": 1.79
     },
     "garlic": {
      "price": 5.11,
@@ -5092,10 +5534,16 @@
      "packPrice": 0.79
     },
     "orange": {
-     "price": 1.95,
+     "price": 0.99,
      "title": "Портокали кг",
      "pack": "на вагу",
-     "packPrice": 1.95
+     "packPrice": 0.99
+    },
+    "lemon": {
+     "price": 0.95,
+     "title": "Лимони кг",
+     "pack": "на вагу",
+     "packPrice": 0.95
     },
     "sunflower_oil": {
      "price": 1.42,
@@ -5146,10 +5594,10 @@
      "packPrice": 2.59
     },
     "mackerel": {
-     "price": 4.99,
-     "title": "Скумрия цяла замразена, XXL",
+     "price": 2.29,
+     "title": "Vedenemo Скумрия 100-125, кг",
      "pack": "на вагу",
-     "packPrice": 4.99
+     "packPrice": 2.29
     },
     "canned_beans": {
      "price": 1.671,
@@ -5158,458 +5606,22 @@
      "packPrice": 0.71
     },
     "rye_bread": {
-     "price": 1.727,
-     "title": "Ресен хляб ръжен нар. 550г",
-     "pack": "550 г",
-     "packPrice": 0.95
+     "price": 1.94,
+     "title": "Стражица Хляб ръжено-пшеничен500г",
+     "pack": "500 г",
+     "packPrice": 0.97
+    },
+    "brynza": {
+     "price": 5.95,
+     "title": "Рафтис Свежо сирене от краве мляко 600г",
+     "pack": "600 г",
+     "packPrice": 3.57
     },
     "oat_cookies": {
      "price": 2.225,
      "title": "Ежко Бежко обикновени бисквити 400г",
      "pack": "400 г",
      "packPrice": 0.89
-    }
-   },
-   "billa": {
-    "rice": {
-     "price": 2.38,
-     "title": "1КГ ОРИЗ БИСЕРЕН NATURA",
-     "pack": "1000 г",
-     "packPrice": 2.38
-    },
-    "pasta": {
-     "price": 1.22,
-     "title": "500ГР  СПАГЕТИ CLEVER",
-     "pack": "500 г",
-     "packPrice": 0.61
-    },
-    "flour": {
-     "price": 0.82,
-     "title": "1КГ БЯЛО БРАШНО ЕКСТРА СИМИД",
-     "pack": "1000 г",
-     "packPrice": 0.82
-    },
-    "bread": {
-     "price": 1.323,
-     "title": "ДОБ 650ГР ХЛЯБ БАЛИК ТИП ДОБРУДЖА",
-     "pack": "650 г",
-     "packPrice": 0.86
-    },
-    "lentils": {
-     "price": 3.45,
-     "title": "1КГ ЛЕЩА БЪЛГАР.ИМАЛО ЕДНО ВРЕМЕ KRINA",
-     "pack": "1000 г",
-     "packPrice": 3.45
-    },
-    "beans": {
-     "price": 2.04,
-     "title": "1КГ БОБ ТРАДИЦИОНЕН BORKONI",
-     "pack": "1000 г",
-     "packPrice": 2.04
-    },
-    "chicken_fillet": {
-     "price": 9.2,
-     "title": "МАП ПИЛ.ФИЛЕ ЛУДОГОРСКО ПИЛЕ ОХЛАДЕНО",
-     "pack": "на вагу",
-     "packPrice": 9.2
-    },
-    "chicken_thigh": {
-     "price": 3.06,
-     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
-     "pack": "на вагу",
-     "packPrice": 3.06
-    },
-    "pork": {
-     "price": 4.98,
-     "title": "177 MAP СВИНСКО МЕСО ЗА ГОТВЕНЕ",
-     "pack": "на вагу",
-     "packPrice": 4.98
-    },
-    "milk": {
-     "price": 1.63,
-     "title": "ПРЯСНО МЛЯКО 3,5% BILLA 1Л БУТИЛКА",
-     "pack": "1000 мл",
-     "packPrice": 1.63
-    },
-    "cheese": {
-     "price": 7.15,
-     "title": "КАШКАВАЛ ОТ КРАВЕ МЛЯКО CLEVER ЗА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 7.15
-    },
-    "butter": {
-     "price": 9.04,
-     "title": "НЕМСКО КРАВЕ МАСЛО CLEVER 250 ГР",
-     "pack": "250 г",
-     "packPrice": 2.26
-    },
-    "yogurt": {
-     "price": 1.225,
-     "title": "КИСЕЛО МЛЯКО 2% БАДЖАНАШКО 400Г",
-     "pack": "400 г",
-     "packPrice": 0.49
-    },
-    "potato": {
-     "price": 0.79,
-     "title": "КАРТОФИ",
-     "pack": "на вагу",
-     "packPrice": 0.79
-    },
-    "carrot": {
-     "price": 0.55,
-     "title": "МОРКОВИ",
-     "pack": "на вагу",
-     "packPrice": 0.55
-    },
-    "onion": {
-     "price": 0.75,
-     "title": "КРОМИД ЛУК",
-     "pack": "на вагу",
-     "packPrice": 0.75
-    },
-    "cabbage": {
-     "price": 0.69,
-     "title": "БЯЛО ЗЕЛЕ",
-     "pack": "на вагу",
-     "packPrice": 0.69
-    },
-    "tomato": {
-     "price": 1.99,
-     "title": "ДОМАТИ ЗЕЛЕНИ",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "cucumber": {
-     "price": 2.19,
-     "title": "КРАСТАВИЦИ",
-     "pack": "на вагу",
-     "packPrice": 2.19
-    },
-    "garlic": {
-     "price": 5.99,
-     "title": "ЧЕСЪН СУХ КГ",
-     "pack": "на вагу",
-     "packPrice": 5.99
-    },
-    "banana": {
-     "price": 1.84,
-     "title": "БАНАНИ",
-     "pack": "на вагу",
-     "packPrice": 1.84
-    },
-    "apple": {
-     "price": 0.99,
-     "title": "ЯБЪЛКИ АЙДАРЕД",
-     "pack": "на вагу",
-     "packPrice": 0.99
-    },
-    "orange": {
-     "price": 1.49,
-     "title": "ПОРТОКАЛИ",
-     "pack": "на вагу",
-     "packPrice": 1.49
-    },
-    "lemon": {
-     "price": 0.89,
-     "title": "ЛИМОНИ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "sunflower_oil": {
-     "price": 1.64,
-     "title": "1Л ЗЛАТНО ДОБРУДЖАНСКО ОЛИО",
-     "pack": "1000 мл",
-     "packPrice": 1.64
-    },
-    "sugar": {
-     "price": 0.86,
-     "title": "1КГ ЗАХАР IZZI",
-     "pack": "1000 г",
-     "packPrice": 0.86
-    },
-    "salt": {
-     "price": 0.33,
-     "title": "1КГ СОЛ ТРАПЕЗНА IZZI",
-     "pack": "1000 г",
-     "packPrice": 0.33
-    },
-    "tomato_paste": {
-     "price": 1.64,
-     "title": "500МЛ ДОМАТЕНО ПЮРЕ 7% PHILICON",
-     "pack": "500 г",
-     "packPrice": 0.82
-    },
-    "peas_canned": {
-     "price": 2.132,
-     "title": "680Г ГРАХ БУРКАН ОБИЧАМ",
-     "pack": "680 г",
-     "packPrice": 1.45
-    },
-    "chicken_drumstick": {
-     "price": 3.06,
-     "title": "120 ПРЕСЕН ПИЛЕШКИ БУТ ЦЯЛ БГ",
-     "pack": "на вагу",
-     "packPrice": 3.06
-    },
-    "sausages": {
-     "price": 1.598,
-     "title": "БЕЛ КРЕНВИРШИ ЛЕКИ /2Х2,5КГ",
-     "pack": "5000 г",
-     "packPrice": 7.99
-    },
-    "boiled_sausage": {
-     "price": 1.344,
-     "title": "САЛАМ КАМЧИЯ ЖИТНИЦА 5.200КГ",
-     "pack": "5200 г",
-     "packPrice": 6.99
-    },
-    "canned_beans": {
-     "price": 2.5,
-     "title": "400ГР БОБ МИКС ФАМИЛЕКС",
-     "pack": "400 г",
-     "packPrice": 1
-    },
-    "rye_bread": {
-     "price": 4.275,
-     "title": "ДОБ 400ГР ХЛЯБ ВИТА СИЛУЕТ РЪЖЕН",
-     "pack": "400 г",
-     "packPrice": 1.71
-    },
-    "brynza": {
-     "price": 8.517,
-     "title": "КРАВЕ СИРЕНЕ CLEVER 600 ГР",
-     "pack": "600 г",
-     "packPrice": 5.11
-    },
-    "oat_cookies": {
-     "price": 3,
-     "title": "120ГР ОБИКНОВЕНИ БИСКВИТИ CLEVER",
-     "pack": "120 г",
-     "packPrice": 0.36
-    }
-   },
-   "cba": {
-    "rice": {
-     "price": 1.19,
-     "title": "ОРИЗ БЪЛГАРСКИ БИСЕРЕН ВКУСНО 1КГ",
-     "pack": "1000 г",
-     "packPrice": 1.19
-    },
-    "pasta": {
-     "price": 1.65,
-     "title": "ФИДЕ АКЦЕНТ НАЧУПЕНО 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.66
-    },
-    "flour": {
-     "price": 0.69,
-     "title": "БРАШНО АКЦЕНТ ТИП 500 1КГ",
-     "pack": "1000 г",
-     "packPrice": 0.69
-    },
-    "bread": {
-     "price": 1.246,
-     "title": "ХЛЯБ АКЦЕНТ ДОБРУДЖА НАРЯЗАН 650ГР",
-     "pack": "650 г",
-     "packPrice": 0.81
-    },
-    "lentils": {
-     "price": 2.79,
-     "title": "ЛЕЩА БЪЛГАРСКА КРИНА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 2.79
-    },
-    "beans": {
-     "price": 1.79,
-     "title": "БОБ АКЦЕНТ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 1.79
-    },
-    "chicken_fillet": {
-     "price": 7.65,
-     "title": "ФИЛЕ ПИЛЕШКО КРЕХКО ЗА ПЕЧЕНЕ",
-     "pack": "на вагу",
-     "packPrice": 7.65
-    },
-    "chicken_thigh": {
-     "price": 3.47,
-     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
-     "pack": "на вагу",
-     "packPrice": 3.47
-    },
-    "pork": {
-     "price": 3.99,
-     "title": "ПЛЕШКА СВИНСКА БЕЗ КОСТ ОХЛАДЕНА",
-     "pack": "на вагу",
-     "packPrice": 3.99
-    },
-    "eggs": {
-     "price": 0.283,
-     "title": "ЯЙЦА КОКОШИ АКВИЛОН РАЗМЕР М 6БР",
-     "pack": "6 бр",
-     "packPrice": 1.7
-    },
-    "milk": {
-     "price": 1.49,
-     "title": "ПРЯСНО МЛЯКО БОЖЕНЦИ 3.6% 1Л БУТИЛКА",
-     "pack": "1000 мл",
-     "packPrice": 1.49
-    },
-    "cottage": {
-     "price": 4.09,
-     "title": "ИЗВАРА МАДЖАРОВ НАСИПНА",
-     "pack": "на вагу",
-     "packPrice": 4.09
-    },
-    "cheese": {
-     "price": 12.475,
-     "title": "КАШКАВАЛ КРАВЕ БУЛГАРЧЕ 400ГР ВАКУУМ",
-     "pack": "400 г",
-     "packPrice": 4.99
-    },
-    "butter": {
-     "price": 9.96,
-     "title": "МАСЛО КРАВЕ МОНАРХ 82% 250ГР",
-     "pack": "250 г",
-     "packPrice": 2.49
-    },
-    "potato": {
-     "price": 0.89,
-     "title": "КАРТОФИ",
-     "pack": "на вагу",
-     "packPrice": 0.89
-    },
-    "carrot": {
-     "price": 1.29,
-     "title": "МОРКОВИ",
-     "pack": "на вагу",
-     "packPrice": 1.29
-    },
-    "onion": {
-     "price": 1.05,
-     "title": "ЛУК КАБА",
-     "pack": "на вагу",
-     "packPrice": 1.05
-    },
-    "cabbage": {
-     "price": 0.8,
-     "title": "ЗЕЛЕ",
-     "pack": "на вагу",
-     "packPrice": 0.8
-    },
-    "tomato": {
-     "price": 3.25,
-     "title": "ДОМАТИ",
-     "pack": "на вагу",
-     "packPrice": 3.25
-    },
-    "cucumber": {
-     "price": 2.65,
-     "title": "КРАСТАВИЦИ",
-     "pack": "на вагу",
-     "packPrice": 2.65
-    },
-    "garlic": {
-     "price": 4.65,
-     "title": "ЧЕСЪН",
-     "pack": "на вагу",
-     "packPrice": 4.65
-    },
-    "mushrooms": {
-     "price": 5.15,
-     "title": "ГЪБИ ПЕЧУРКА БЯЛА КГ",
-     "pack": "на вагу",
-     "packPrice": 5.15
-    },
-    "banana": {
-     "price": 2.1,
-     "title": "БАНАНИ",
-     "pack": "на вагу",
-     "packPrice": 2.1
-    },
-    "apple": {
-     "price": 1.49,
-     "title": "ЯБЪЛКИ ШАРЕНИ",
-     "pack": "на вагу",
-     "packPrice": 1.49
-    },
-    "orange": {
-     "price": 1.99,
-     "title": "ПОРТОКАЛИ",
-     "pack": "на вагу",
-     "packPrice": 1.99
-    },
-    "lemon": {
-     "price": 2.1,
-     "title": "ЛИМОНИ",
-     "pack": "на вагу",
-     "packPrice": 2.1
-    },
-    "sunflower_oil": {
-     "price": 2.09,
-     "title": "ОЛИО СЛЪНЧОГЛЕДОВО АКЦЕНТ 1Л",
-     "pack": "1000 мл",
-     "packPrice": 2.09
-    },
-    "sugar": {
-     "price": 1.04,
-     "title": "ЗАХАР РОЯЛ 1КГ",
-     "pack": "1000 г",
-     "packPrice": 1.04
-    },
-    "salt": {
-     "price": 0.42,
-     "title": "СОЛ ТРАПЕЗНА ПЕРЛА 1КГ",
-     "pack": "1000 г",
-     "packPrice": 0.42
-    },
-    "peas_canned": {
-     "price": 2.125,
-     "title": "ГРАХ АКЦЕНТ 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.85
-    },
-    "chicken_drumstick": {
-     "price": 3.47,
-     "title": "БУТЧЕТА ПИЛЕШКИ АМЕТА ОХЛАДЕНИ НАСИПНИ",
-     "pack": "на вагу",
-     "packPrice": 3.47
-    },
-    "sausages": {
-     "price": 2.69,
-     "title": "КРЕНВИРШИ ПИЛЕШКИ ФЕРМАТА",
-     "pack": "на вагу",
-     "packPrice": 2.69
-    },
-    "mackerel": {
-     "price": 7.59,
-     "title": "СКУМРИЯ ЗАМРАЗЕНА 3/5 АКЦЕНТ ПАКЕТ",
-     "pack": "на вагу",
-     "packPrice": 7.59
-    },
-    "canned_beans": {
-     "price": 2.375,
-     "title": "БОБ БЯЛ АКЦЕНТ 400ГР",
-     "pack": "400 г",
-     "packPrice": 0.95
-    },
-    "rye_bread": {
-     "price": 1.84,
-     "title": "ХЛЯБ РЪЖЕНО-ПШЕНИЧЕН СТРАЖИЦА 500ГР",
-     "pack": "500 г",
-     "packPrice": 0.92
-    },
-    "brynza": {
-     "price": 9.089,
-     "title": "СИРЕНЕ КРАВЕ БЯЛО САЛАМУРЕНО ЛЕСИДРЕН 900ГР КУТИЯ",
-     "pack": "900 г",
-     "packPrice": 8.18
-    },
-    "oat_cookies": {
-     "price": 4.167,
-     "title": "БИСКВИТИ ВИНЧИНИ ОБИКНОВЕНИ 300ГР",
-     "pack": "300 г",
-     "packPrice": 1.25
     }
    }
   }
